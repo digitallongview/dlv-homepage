@@ -13,7 +13,7 @@ import * as THREE from 'three'
 const GLB_URL = '/3d-assets/Zeitpyramide3D.glb'
 useGLTF.preload(GLB_URL)
 
-const TARGET_SIZE = 4
+const TARGET_SIZE = 26
 
 // Drop-Animation-Defaults (hardcoded, kein UI dafür)
 const DROP_HEIGHT = 8
@@ -133,6 +133,8 @@ function Pyramid(ctl: PyramidControls) {
     const action = actions[names[0]]
     if (!action) return
     if (ctl.animationEnabled) {
+      action.setLoop(THREE.LoopOnce, 1)
+      action.clampWhenFinished = true
       action.reset().setEffectiveTimeScale(ctl.animationSpeed).play()
     } else {
       action.stop()
@@ -213,10 +215,10 @@ export default function PyramidScene() {
   const scene = useControls(
     'Scene',
     {
-      camY: { value: 5, min: -5, max: 10, step: 0.05, label: 'Cam Y' },
-      camZ: { value: 7, min: 1, max: 30, step: 0.1, label: 'Cam Z' },
-      lookY: { value: 2.0, min: -3, max: 5, step: 0.05, label: 'Look Y' },
-      fov: { value: 55, min: 15, max: 90, step: 1, label: 'FOV' },
+      camY: { value: 2.5, min: -5, max: 10, step: 0.05, label: 'Cam Y' },
+      camZ: { value: 4.2, min: 1, max: 30, step: 0.1, label: 'Cam Z' },
+      lookY: { value: 0.8, min: -3, max: 5, step: 0.05, label: 'Look Y' },
+      fov: { value: 62, min: 15, max: 90, step: 1, label: 'FOV' },
       modelY: { value: 0, min: -5, max: 10, step: 0.05, label: 'Model Y' },
       rotationSpeed: {
         value: 0.18,
@@ -245,7 +247,7 @@ export default function PyramidScene() {
       dropEnabled: { value: true, label: 'Drop' },
       animationEnabled: { value: true, label: 'GLB Animation' },
       animationSpeed: {
-        value: 1,
+        value: 1.8,
         min: 0,
         max: 3,
         step: 0.05,
