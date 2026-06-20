@@ -2,14 +2,25 @@ import { lazy, Suspense } from 'react'
 import HeroSection from './components/HeroSection'
 import SiteHeader from './components/SiteHeader'
 import SectionLongView from './components/sections/SectionLongView'
+import { useIsMobile } from './hooks/useMediaQuery'
 
-// Below-fold sections — separate JS chunks, laden parallel im Hintergrund
+// Below-fold desktop sections — separate JS chunks, laden parallel im Hintergrund
 const SectionMotivation = lazy(() => import('./components/sections/SectionMotivation'))
 const SectionPortfolio  = lazy(() => import('./components/sections/SectionPortfolio'))
 const SectionLeistungen = lazy(() => import('./components/sections/SectionLeistungen'))
 const SiteFooter        = lazy(() => import('./components/SiteFooter'))
 
+// Mobile tree — only loaded on phone-sized viewports
+const MobileMenu        = lazy(() => import('./components/mobile/MobileMenu'))
+const MobileLongView    = lazy(() => import('./components/mobile/MobileLongView'))
+const MobileMotivation  = lazy(() => import('./components/mobile/MobileMotivation'))
+const MobilePortfolio   = lazy(() => import('./components/mobile/MobilePortfolio'))
+const MobileLeistungen  = lazy(() => import('./components/mobile/MobileLeistungen'))
+const MobileFooter      = lazy(() => import('./components/mobile/MobileFooter'))
+
 export default function App() {
+  const isMobile = useIsMobile()
+
   return (
     <>
       {/* Skip-to-content for keyboard/screen-reader users */}
@@ -21,21 +32,34 @@ export default function App() {
       </a>
 
       <HeroSection />
-      <SiteHeader />
 
-      <main id="main-content">
-        <SectionLongView />
-
+      {isMobile ? (
         <Suspense fallback={null}>
-          <SectionMotivation />
-          <SectionPortfolio />
-          <SectionLeistungen />
+          <MobileMenu />
+          <main id="main-content">
+            <MobileLongView />
+            <MobileMotivation />
+            <MobilePortfolio />
+            <MobileLeistungen />
+          </main>
+          <MobileFooter />
         </Suspense>
-      </main>
-
-      <Suspense fallback={null}>
-        <SiteFooter />
-      </Suspense>
+      ) : (
+        <>
+          <SiteHeader />
+          <main id="main-content">
+            <SectionLongView />
+            <Suspense fallback={null}>
+              <SectionMotivation />
+              <SectionPortfolio />
+              <SectionLeistungen />
+            </Suspense>
+          </main>
+          <Suspense fallback={null}>
+            <SiteFooter />
+          </Suspense>
+        </>
+      )}
     </>
   )
 }

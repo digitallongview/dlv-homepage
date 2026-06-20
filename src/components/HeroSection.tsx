@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import HeroOverlay from './HeroOverlay'
+import { useIsMobile } from '../hooks/useMediaQuery'
 
 // Import sofort starten (beim Laden des Moduls), nicht erst beim ersten Render
 const pyramidSceneImport = import('./PyramidScene')
@@ -11,6 +12,7 @@ export default function HeroSection() {
   const [phase, setPhase] = useState<Phase>(0)
   const [heroVisible, setHeroVisible] = useState(true)
   const sectionRef = useRef<HTMLElement>(null)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     const el = sectionRef.current
@@ -51,6 +53,7 @@ export default function HeroSection() {
         <Suspense fallback={<div className="absolute inset-0 bg-cream" />}>
           <PyramidScene
             visible={heroVisible}
+            portrait={isMobile}
             onDropStart={handleDropStart}
             onDropComplete={handleDropComplete}
           />
@@ -59,10 +62,10 @@ export default function HeroSection() {
 
       {/* Lade-Greeting — nur sichtbar solange GLB noch lädt (Phase 0) */}
       <div
-        className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center gap-4"
+        className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 px-6"
         style={fadeIn(phase < 1, 500)}
       >
-        <p className="font-sans text-[18px] font-semibold uppercase tracking-[0.45em]" style={{ color: '#D7ACCF' }}>
+        <p className="max-w-full text-center font-sans text-[13px] font-semibold uppercase tracking-[0.28em] sm:text-[18px] sm:tracking-[0.45em]" style={{ color: '#D7ACCF' }}>
           Für die zukünftigen Generationen
         </p>
       </div>
@@ -78,7 +81,7 @@ export default function HeroSection() {
 
       {/* Logo + Tagline — Phase 1 */}
       <div
-        className="pointer-events-none absolute inset-x-0 z-30 flex flex-col items-center"
+        className="pointer-events-none absolute inset-x-0 z-30 flex flex-col items-center px-5"
         style={{ top: 'clamp(5vh, 8vh, 12vh)', ...fadeIn(phase >= 1, 1000, 100) }}
       >
         <img
@@ -88,7 +91,7 @@ export default function HeroSection() {
           style={{ width: 'clamp(180px, 30vw, 320px)' }}
           draggable={false}
         />
-        <p className="mt-2 font-sans text-[10px] font-medium uppercase tracking-[0.38em] text-ink/60 sm:text-[11px]">
+        <p className="mt-2 text-center font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-ink/60 sm:tracking-[0.38em] sm:text-[11px]">
           Die Digitalagentur für Raum, Zeit und Kultur
         </p>
       </div>

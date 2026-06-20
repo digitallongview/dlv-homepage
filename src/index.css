@@ -60,6 +60,19 @@
   100% { opacity: 1; filter: drop-shadow(0 0 4px rgba(140,116,170,0)); }
 }
 
+/* Mobile CTA — Kontakt-Button „schießt" von unten herein */
+@keyframes cta-shoot-in {
+  0%   { opacity: 0; transform: translateY(60px) scale(0.92); }
+  60%  { opacity: 1; transform: translateY(-6px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Mobile popup (Portfolio) — sanftes Einblenden */
+@keyframes popup-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -98,4 +111,20 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbars on swipe carousels (keeps native momentum scrolling) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Phones: never allow horizontal page overflow */
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: hidden;
+  }
 }
