@@ -93,18 +93,24 @@ export function CompactTriangleHeader() {
   const [open,  setOpen]  = useState(false)
 
   useEffect(() => {
-    const update = () => {
-      const el = document.querySelector<HTMLElement>('[data-expanded-header]')
-      if (!el) { setStuck(false); return }
-      setStuck(el.getBoundingClientRect().bottom <= 120)
-    }
-    update()
-    window.addEventListener('scroll', update, { passive: true })
-    window.addEventListener('resize', update)
-    return () => {
-      window.removeEventListener('scroll', update)
-      window.removeEventListener('resize', update)
-    }
+    const el = document.querySelector<HTMLElement>('[data-expanded-header]')
+    if (!el) return
+    // IntersectionObserver statt scroll+getBCR — kein Layout-Reflow bei Scroll.
+    // Unterscheidung: Element oberhalb rausgescrollt (stuck=true) vs.
+    // noch unterhalb des Viewports (stuck=false, beim Pageload).
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStuck(false)
+        } else {
+          // boundingClientRect ist vom Browser vorberechnet — kein Reflow
+          setStuck(entry.boundingClientRect.bottom < 120)
+        }
+      },
+      { rootMargin: '-120px 0px 0px 0px', threshold: 0 },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
   return (
@@ -119,6 +125,7 @@ export function CompactTriangleHeader() {
         boxShadow: '0 8px 28px -8px rgba(45,31,77,0.7)',
         transform: stuck ? 'translateY(0)' : 'translateY(-110%)',
         transition: 'clip-path 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s ease-out',
+        willChange: 'transform, clip-path',
       }}
     >
       {/* pt-[14px] pins logo to the wide upper portion of the triangle at all viewport sizes */}

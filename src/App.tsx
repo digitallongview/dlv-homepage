@@ -1,10 +1,13 @@
+import { lazy, Suspense } from 'react'
 import HeroSection from './components/HeroSection'
 import SiteHeader from './components/SiteHeader'
 import SectionLongView from './components/sections/SectionLongView'
-import SectionMotivation from './components/sections/SectionMotivation'
-import SectionPortfolio from './components/sections/SectionPortfolio'
-import SectionLeistungen from './components/sections/SectionLeistungen'
-import SiteFooter from './components/SiteFooter'
+
+// Below-fold sections — separate JS chunks, laden parallel im Hintergrund
+const SectionMotivation = lazy(() => import('./components/sections/SectionMotivation'))
+const SectionPortfolio  = lazy(() => import('./components/sections/SectionPortfolio'))
+const SectionLeistungen = lazy(() => import('./components/sections/SectionLeistungen'))
+const SiteFooter        = lazy(() => import('./components/SiteFooter'))
 
 export default function App() {
   return (
@@ -17,36 +20,22 @@ export default function App() {
         Zum Inhalt springen
       </a>
 
-      {/* Full-viewport hero — LANDING frame (Figma 1767:372) */}
       <HeroSection />
-
-      {/*
-        SiteHeader renders two layers:
-        1. ExpandedTriangleHeader — in document flow, large lavender trapezoid
-           with nav links, sits directly below the hero (Figma Nav 1787:28).
-           The CompactTriangleHeader watches its rect.bottom to know when to slide in.
-        2. CompactTriangleHeader — position:fixed z-50, hidden until
-           ExpandedTriangleHeader scrolls out of view.
-      */}
       <SiteHeader />
 
       <main id="main-content">
-        {/* WAS IST DIGITAL LONG VIEW — Figma 1767:211 */}
         <SectionLongView />
 
-        {/* MOTIVATION & VORSTELLUNG — Figma 1789:81 */}
-        <SectionMotivation />
-
-        {/* LANGZEIT-KULTUR & PORTFOLIO — Figma 1767:114 */}
-        <SectionPortfolio />
-
-        {/* UNSERE LEISTUNGEN & SERVICE — Figma 1767:275 + 1823:40 etc. */}
-        <SectionLeistungen />
-
+        <Suspense fallback={null}>
+          <SectionMotivation />
+          <SectionPortfolio />
+          <SectionLeistungen />
+        </Suspense>
       </main>
 
-      {/* FOOTER — Figma 1767:13 */}
-      <SiteFooter />
+      <Suspense fallback={null}>
+        <SiteFooter />
+      </Suspense>
     </>
   )
 }

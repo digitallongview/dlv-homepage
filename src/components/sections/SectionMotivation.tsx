@@ -60,16 +60,24 @@ export default function SectionMotivation() {
   // Keep ref in sync for scroll handler
   useEffect(() => { selectedRef.current = selected }, [selected])
 
-  // Scroll-through: advance members as the sticky container scrolls
+  // Scroll-through: advance members as the sticky container scrolls.
+  // getBoundingClientRect / offsetHeight nur bei Resize lesen, nie im scroll handler.
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
 
+    let containerTop = 0
+    let scrollable   = 0
+
+    const updateMetrics = () => {
+      containerTop = container.getBoundingClientRect().top + window.scrollY
+      scrollable   = container.offsetHeight - window.innerHeight
+    }
+    updateMetrics()
+
     const onScroll = () => {
-      const rect      = container.getBoundingClientRect()
-      const scrollable = container.offsetHeight - window.innerHeight
       if (scrollable <= 0) return
-      const progress = Math.max(0, Math.min(1, -rect.top / scrollable))
+      const progress = Math.max(0, Math.min(1, (window.scrollY - containerTop) / scrollable))
       const index    = Math.min(TEAM.length - 1, Math.floor(progress * TEAM.length))
       const target   = TEAM[index]
       if (target.id !== selectedRef.current.id) {
@@ -80,7 +88,11 @@ export default function SectionMotivation() {
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('resize', updateMetrics, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', updateMetrics)
+    }
   }, [])
 
   return (
@@ -153,16 +165,18 @@ export default function SectionMotivation() {
                     className={[
                       'group flex flex-col items-center gap-3 cursor-pointer select-none',
                       'focus:outline-none focus-visible:ring-2 focus-visible:ring-lavender/60 focus-visible:rounded',
-                      'transition-all duration-500 ease-out',
+                      'transition-[transform] duration-500 ease-out',
                       active ? '-translate-y-4' : 'hover:-translate-y-1.5',
                     ].join(' ')}
+                    style={{ willChange: 'transform' }}
                   >
                     <img
                       src={m.img}
                       alt={`Portrait von ${m.name}`}
                       draggable={false}
+                      loading="lazy"
                       className={[
-                        'block transition-all duration-500 ease-out',
+                        'block transition-[width,filter] duration-500 ease-out',
                         'drop-shadow-[0_12px_32px_rgba(24,24,38,0.22)]',
                         active
                           ? 'w-[168px] sm:w-[200px]'
