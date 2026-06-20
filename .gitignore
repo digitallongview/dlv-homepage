@@ -50,3 +50,4 @@ screenshots/figma-full.png
 .env
 .env.local
 .env.*.local
+/public/video/
