@@ -1,99 +1,270 @@
+import { useEffect, useRef, useState } from 'react'
 import SectionHeading from '../SectionHeading'
 
+// ─── Data ─────────────────────────────────────────────────────────────────────
+
+type Side = 'left' | 'right'
+
 type Service = {
+  id:    string
   title: string
-  body: string
-  cta: string
-  badge: string
-  hue: string
+  body:  string
+  body2?: string
+  cta:   string
+  icon:  string
+  side:  Side
 }
 
 const SERVICES: Service[] = [
   {
+    id:    'programmierung',
     title: 'Programmierung & Web',
-    badge: 'Code',
-    body: 'Maßgeschneiderte Webseiten, APIs und Backend-Architekturen — gebaut, um nicht in zwei Jahren weggeworfen zu werden.',
-    cta: 'Anfrage Coding',
-    hue: 'linear-gradient(160deg, #d6c6ea 0%, #8c74aa 100%)',
+    body:  'Maßgeschneiderte Webseiten, APIs und Backend-Architekturen — gebaut, um nicht in zwei Jahren weggeworfen zu werden.',
+    body2: 'Von der Konzeption bis zum Launch begleiten wir komplexe Projekte ganzheitlich und nachhaltig.',
+    cta:   'Anfrage Coding',
+    icon:  '/assets/RetroPC.png',
+    side:  'left',
   },
   {
+    id:    'immersive',
     title: 'Immersive Medien',
-    badge: 'XR · VR · AR',
-    body: 'Räumliche Geschichten für Headsets, Smartphones und Installationen — von der ersten Skizze bis zum Stage-Deploy.',
-    cta: 'Anfrage zu VR',
-    hue: 'linear-gradient(160deg, #c8b1e6 0%, #5d4684 100%)',
+    body:  'Augmented Reality, Virtual Reality und Mixed Reality für Kultur, Bildung und Erlebnis — von der ersten Skizze bis zum Stage-Deploy.',
+    cta:   'Anfrage zu VR',
+    icon:  '/assets/XR-Media.png',
+    side:  'right',
   },
   {
+    id:    'marketing',
+    title: 'Marketing & PR',
+    body:  'Digitale Kommunikationsstrategien für Kulturinstitutionen, NGOs und visionäre Unternehmen. Wir erzählen Geschichten, die haften bleiben.',
+    body2: 'Von Social Media bis Pressearbeit — zielgerichtet und nachhaltig.',
+    cta:   'Anfrage Marketing',
+    icon:  '/assets/Megaphone.png',
+    side:  'left',
+  },
+  {
+    id:    'grafik',
     title: 'Grafik & Content',
-    badge: 'Design',
-    body: 'Visuelle Identität, Print, Editorial, Foto- und Bewegtbild — alles, was eurer Sache eine Form gibt.',
-    cta: 'Anfrage Grafik',
-    hue: 'linear-gradient(160deg, #efdcc5 0%, #b29bd0 100%)',
+    body:  'Visuelle Identität, Print, Editorial, Foto- und Bewegtbild — alles, was eurer Sache eine unverwechselbare Form gibt.',
+    cta:   'Anfrage Grafik',
+    icon:  '/assets/Graphics.png',
+    side:  'right',
+  },
+  {
+    id:    'gamification',
+    title: 'Gamification & Storytelling',
+    body:  'Spielmechaniken und narrative Formate für Lern-, Kultur- und Markenprojekte. Wir machen Komplexes erfahrbar und schaffen nachhaltiges Engagement.',
+    body2: 'Interaktive Formate, die zum Mitmachen und Weiterdenken einladen.',
+    cta:   'Anfrage Gaming',
+    icon:  '/assets/Joystick.png',
+    side:  'left',
+  },
+  {
+    id:    '3d',
+    title: '3D & Visualisierung',
+    body:  '3D-Modellierung, Architekturvisualisierung und Produktrenderings in Museumsqualität. Wir machen das Unsichtbare sichtbar und greifbar.',
+    cta:   'Anfrage 3D',
+    icon:  '/assets/Artefact.png',
+    side:  'right',
+  },
+  {
+    id:    'langzeit',
+    title: 'Langzeit- & Futuring Design',
+    body:  'Strategisches Design für die Zukunft — Szenarien, Konzepte und Prozesse, die weit über den nächsten Quartalsbericht hinausdenken.',
+    body2: 'Wir begleiten Organisationen dabei, langfristig zu denken und nachhaltig zu handeln.',
+    cta:   'Anfrage Long View',
+    icon:  '/assets/clock.png',
+    side:  'left',
   },
 ]
 
-export default function SectionLeistungen() {
+// ─── Scroll-trigger hook ──────────────────────────────────────────────────────
+
+function useInView(threshold = 0.12) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [inView, setInView] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true) },
+      { threshold }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [threshold])
+  return { ref, inView }
+}
+
+function CtaButton({ label }: { label: string }) {
   return (
-    <section
-      id="leistungen"
-      className="relative scroll-mt-24 overflow-hidden px-6 py-24 sm:px-10 sm:py-32"
+    <a
+      href="#kontakt"
+      className="group inline-flex h-[52px] w-fit items-center gap-2 rounded-full px-8
+                 font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-white
+                 transition-all duration-200
+                 hover:brightness-110 hover:shadow-[0_8px_24px_-8px_rgba(93,70,132,0.6)]
+                 focus:outline-none focus:ring-4 focus:ring-lavender/40 active:scale-[0.97]"
+      style={{ background: 'linear-gradient(135deg, #b29bd0 0%, #8c74aa 50%, #5d4684 100%)' }}
     >
-      {/* Schräges Polygon-Band (Figma „Polygon 45/46/47" → schräge Service-Bänder) */}
+      {label}
+      <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+    </a>
+  )
+}
+
+// ─── Service card ─────────────────────────────────────────────────────────────
+
+function ServiceCard({ service, isLast = false }: { service: Service; isLast?: boolean }) {
+  const { ref, inView } = useInView()
+  const isLeft = service.side === 'left'
+  const imgW    = service.id === 'marketing' ? '62%'
+               : service.id === '3d'        ? '62%'
+               : '100%'
+  const imgMaxH = service.id === 'langzeit'  ? 'min(82vh, 680px)' : 'min(62vh, 520px)'
+
+  return (
+    <div
+      ref={ref}
+      className="relative overflow-hidden bg-cream"
+      style={{ minHeight: isLast ? '60vh' : '88vh' }}
+    >
+      {/* ── Polygon band — tip-first entry, overshoots so tip is clipped ─── */}
+      {/*  Wrapper is 110 % wide and offset so it extends 10 % past the       */}
+      {/*  boundary the polygon shoots INTO.  overflow-hidden on the card      */}
+      {/*  clips the leading tip, creating the truncated-triangle look.        */}
+      {/*                                                                       */}
+      {/*  Violet  → shoots RIGHT→LEFT, tip leads into LEFT  boundary          */}
+      {/*  Magenta → shoots LEFT→RIGHT, tip leads into RIGHT boundary          */}
+      {isLeft ? (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 -left-[10%] w-[110%] transition-transform duration-[800ms] ease-out"
+          style={{ transform: inView ? 'translateX(0)' : 'translateX(110vw)' }}
+        >
+          <img
+            src="/assets/PolyViolet.png"
+            draggable={false}
+            className="h-full w-full select-none object-fill"
+          />
+        </div>
+      ) : (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 left-0 w-[110%] transition-transform duration-[800ms] ease-out"
+          style={{ transform: inView ? 'translateX(0)' : 'translateX(-110vw)' }}
+        >
+          <img
+            src="/assets/PolyMagenta.png"
+            draggable={false}
+            className="h-full w-full select-none object-fill"
+          />
+        </div>
+      )}
+
+      {/* ── Content — fades in 300 ms after polygon starts sliding ──────── */}
       <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[70%]"
+        className="relative z-10 flex h-full items-center"
         style={{
-          background:
-            'linear-gradient(135deg, rgba(140,116,170,0.16) 0%, rgba(178,155,208,0.05) 100%)',
-          clipPath: 'polygon(0 0, 100% 0, 100% 70%, 0 100%)',
+          minHeight: 'inherit',
+          opacity: inView ? 1 : 0,
+          transition: 'opacity 0.5s ease-out 0.3s',
         }}
-      />
+      >
+        <div className="mx-auto w-full max-w-[1200px] px-6 py-16 sm:px-10">
+          <div className="grid grid-cols-12 items-center gap-4 lg:gap-6">
 
-      <div className="mx-auto max-w-[1200px]">
-        <SectionHeading
-          eyebrow="Services"
-          title="Unsere Leistungen & Service"
-        />
+            {isLeft ? (
+              <>
+                {/* ── Icon (5 cols) ── */}
+                <div className="col-span-5 flex items-center justify-start">
+                  <img
+                    src={service.icon}
+                    alt={service.title}
+                    draggable={false}
+                    className="select-none object-contain"
+                    style={{ width: imgW, maxHeight: imgMaxH }}
+                  />
+                </div>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
-          {SERVICES.map((s) => (
-            <article
-              key={s.title}
-              className="group relative flex flex-col overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-[0_20px_50px_-30px_rgba(24,24,38,0.35)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(24,24,38,0.45)]"
-            >
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
-                <div className="h-full w-full transition-transform duration-500 group-hover:scale-[1.04]" style={{ background: s.hue }} />
-                <span className="absolute left-5 top-5 rounded-full bg-white/85 px-3 py-1 font-sans text-[10.5px] font-medium uppercase tracking-[0.28em] text-lavender backdrop-blur">
-                  {s.badge}
-                </span>
-              </div>
+                {/* ── Text (4 cols) ── */}
+                <div className="col-span-4 pl-4">
+                  <h3 className="font-sans text-[clamp(17px,1.7vw,21px)] font-semibold leading-tight tracking-tight text-ink">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 font-serif text-[14.5px] leading-[1.68] text-ink/72">
+                    {service.body}
+                  </p>
+                  {service.body2 && (
+                    <p className="mt-3 font-serif text-[14.5px] leading-[1.68] text-ink/72">
+                      {service.body2}
+                    </p>
+                  )}
+                </div>
 
-              <div className="flex flex-1 flex-col p-7">
-                <h3 className="font-sans text-[clamp(20px,2.2vw,24px)] font-bold leading-tight tracking-tight text-ink">
-                  {s.title}
-                </h3>
-                <p className="mt-3 flex-1 font-serif text-[15px] leading-[1.6] text-ink/70">
-                  {s.body}
-                </p>
+                {/* ── Button (3 cols) ── */}
+                <div className="col-span-3 flex items-center justify-center">
+                  <CtaButton label={service.cta} />
+                </div>
+              </>
+            ) : (
+              <>
+                {/* ── Button (3 cols) ── */}
+                <div className="col-span-3 flex items-center justify-center">
+                  <CtaButton label={service.cta} />
+                </div>
 
-                <a
-                  href="#kontakt"
-                  className="group/cta mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-full px-5 font-sans text-[12.5px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_10px_24px_-10px_rgba(93,70,132,0.6)] transition-all hover:shadow-[0_14px_30px_-10px_rgba(93,70,132,0.85)]"
-                  style={{
-                    background:
-                      'linear-gradient(135deg, #b29bd0 0%, #8c74aa 50%, #5d4684 100%)',
-                  }}
-                >
-                  {s.cta}
-                  <span aria-hidden className="transition-transform group-hover/cta:translate-x-0.5">
-                    →
-                  </span>
-                </a>
-              </div>
-            </article>
-          ))}
+                {/* ── Text (4 cols) ── */}
+                <div className="col-span-4 pr-4">
+                  <h3 className="font-sans text-[clamp(17px,1.7vw,21px)] font-semibold leading-tight tracking-tight text-ink">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 font-serif text-[14.5px] leading-[1.68] text-ink/72">
+                    {service.body}
+                  </p>
+                  {service.body2 && (
+                    <p className="mt-3 font-serif text-[14.5px] leading-[1.68] text-ink/72">
+                      {service.body2}
+                    </p>
+                  )}
+                </div>
+
+                {/* ── Icon (5 cols) ── */}
+                <div className="col-span-5 flex items-center justify-end">
+                  <img
+                    src={service.icon}
+                    alt={service.title}
+                    draggable={false}
+                    className="select-none object-contain"
+                    style={{ width: imgW, maxHeight: imgMaxH }}
+                  />
+                </div>
+              </>
+            )}
+
+          </div>
         </div>
       </div>
+    </div>
+  )
+}
+
+// ─── Section ──────────────────────────────────────────────────────────────────
+
+export default function SectionLeistungen() {
+  return (
+    <section id="leistungen" className="scroll-mt-24 bg-cream">
+
+      {/* Section heading above the cards */}
+      <div className="mx-auto max-w-[1200px] px-6 pb-10 pt-20 sm:px-10 sm:pt-24">
+        <SectionHeading eyebrow="Services" title="Unsere Leistungen & Service" />
+      </div>
+
+      {/* 7 service cards, alternating violet-left / magenta-right */}
+      {SERVICES.map((service, i) => (
+        <ServiceCard key={service.id} service={service} isLast={i === SERVICES.length - 1} />
+      ))}
+
     </section>
   )
 }

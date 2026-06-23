@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import {
   Environment,
@@ -13,13 +13,13 @@ import * as THREE from 'three'
 const GLB_URL = '/3d-assets/Zeitpyramide3D.glb'
 useGLTF.preload(GLB_URL)
 
-const TARGET_SIZE = 4
+const TARGET_SIZE = 26
 
 // Drop-Animation-Defaults (hardcoded, kein UI dafür)
 const DROP_HEIGHT = 8
-const DROP_DURATION = 0.9
-const DROP_STAGGER = 1.4
-const DROP_DELAY = 0.6
+const DROP_DURATION = 0.6
+const DROP_STAGGER = 0.8
+const DROP_DELAY = 0
 
 const ENV_PRESETS = [
   'city',
@@ -48,6 +48,9 @@ type PyramidControls = {
   dropStagger: number
   dropDelay: number
   dropTrigger: number
+  onDropStart?: () => void
+  onDropComplete?: () => void
+  onGLBAnimationDone?: () => void
 }
 
 type DropItem = {
@@ -60,7 +63,7 @@ type DropItem = {
 function Pyramid(ctl: PyramidControls) {
   const group = useRef<THREE.Group>(null)
   const { scene, animations } = useGLTF(GLB_URL)
-  const { actions, names } = useAnimations(animations, group)
+  const { actions, names, mixer } = useAnimations(animations, group)
 
   // Berechne autoScale + Offsets so dass die Pyramiden-BASIS bei world y=0 sitzt
   // und das Modell horizontal zentriert ist.
@@ -82,6 +85,7 @@ function Pyramid(ctl: PyramidControls) {
   const dropElapsed = useRef(0)
   const dropDelayRemaining = useRef(0)
   const dropActive = useRef(false)
+  const dropStartFired = useRef(false)
 
   useEffect(() => {
     if (!ctl.dropEnabled) {
@@ -107,7 +111,6 @@ function Pyramid(ctl: PyramidControls) {
       dropItems.current = collected
     }
     const count = dropItems.current.length
-    // dropHeight wird im UI als WORLD-Units angegeben — intern in local-space umrechnen.
     const localDrop = ctl.dropHeight / autoScale
     dropItems.current.forEach((d, i) => {
       d.delay = (i / Math.max(1, count - 1)) * ctl.dropStagger
@@ -117,6 +120,7 @@ function Pyramid(ctl: PyramidControls) {
     dropDelayRemaining.current = ctl.dropDelay
     dropElapsed.current = 0
     dropActive.current = true
+    dropStartFired.current = false
   }, [
     scene,
     autoScale,
@@ -133,6 +137,8 @@ function Pyramid(ctl: PyramidControls) {
     const action = actions[names[0]]
     if (!action) return
     if (ctl.animationEnabled) {
+      action.setLoop(THREE.LoopOnce, 1)
+      action.clampWhenFinished = true
       action.reset().setEffectiveTimeScale(ctl.animationSpeed).play()
     } else {
       action.stop()
@@ -142,6 +148,20 @@ function Pyramid(ctl: PyramidControls) {
     }
   }, [actions, names, ctl.animationEnabled, ctl.animationSpeed])
 
+  // Fire onGLBAnimationDone when the mixer's LoopOnce animation ends.
+  // Falls back to immediate call when there's no animation or it's disabled.
+  const { onGLBAnimationDone } = ctl
+  useEffect(() => {
+    if (!ctl.animationEnabled || names.length === 0) {
+      onGLBAnimationDone?.()
+      return
+    }
+    if (!mixer) return
+    const onFinished = () => onGLBAnimationDone?.()
+    mixer.addEventListener('finished', onFinished)
+    return () => mixer.removeEventListener('finished', onFinished)
+  }, [mixer, ctl.animationEnabled, names.length, onGLBAnimationDone])
+
   useFrame((_, delta) => {
     const g = group.current
     if (g && ctl.autoRotate) {
@@ -149,10 +169,23 @@ function Pyramid(ctl: PyramidControls) {
     }
 
     if (dropActive.current) {
-      // Phase 1: Stationäres Warten (Blöcke schweben außerhalb des Viewports).
+      // Phase 1: Warten bis Delay abgelaufen (übersprungen wenn DROP_DELAY=0).
       if (dropDelayRemaining.current > 0) {
         dropDelayRemaining.current -= delta
+        if (dropDelayRemaining.current <= 0 && !dropStartFired.current) {
+          dropStartFired.current = true
+          const localDrop = ctl.dropHeight / autoScale
+          for (const d of dropItems.current) {
+            d.mesh.position.y = d.finalY + localDrop + d.jitter
+          }
+          ctl.onDropStart?.()
+        }
         return
+      }
+      // Erstes Drop-Frame: onDropStart feuern (Steine bereits in Setup hochgesetzt).
+      if (!dropStartFired.current) {
+        dropStartFired.current = true
+        ctl.onDropStart?.()
       }
       // Phase 2: Fall mit Stagger + Ease-out-cubic.
       dropElapsed.current += delta
@@ -173,8 +206,9 @@ function Pyramid(ctl: PyramidControls) {
         const startY = d.finalY + localDrop + d.jitter
         d.mesh.position.y = startY + (d.finalY - startY) * eased
       }
-      if (!stillFalling) {
+      if (!stillFalling && dropActive.current) {
         dropActive.current = false
+        ctl.onDropComplete?.()
       }
     }
   })
@@ -191,6 +225,39 @@ function Pyramid(ctl: PyramidControls) {
   )
 }
 
+// Kamera-Startposition für die Intro-Fahrt (zeigt Basissteine von unten/weitem)
+const INTRO_START = { y: 1.0, z: 8.5, lookY: 0.0, fov: 70 } as const
+// Kamerafahrt startet wenn Steine fallen (nach DROP_DELAY) → Dauer bis alle landen
+const INTRO_CAM_DURATION = DROP_STAGGER + DROP_DURATION
+
+function lerp(a: number, b: number, t: number) { return a + (b - a) * t }
+
+function CameraIntro({
+  endY, endZ, endLookY, endFov, onDone,
+}: { endY: number; endZ: number; endLookY: number; endFov: number; onDone: () => void }) {
+  const camera  = useThree((s) => s.camera)
+  const elapsed = useRef(0)
+  const fired   = useRef(false)
+
+  useFrame((_, delta) => {
+    if (fired.current) return
+    elapsed.current += delta
+    const t    = Math.min(1, elapsed.current / INTRO_CAM_DURATION)
+    const ease = 1 - Math.pow(1 - t, 3)
+
+    if (camera instanceof THREE.PerspectiveCamera) {
+      camera.position.set(0, lerp(INTRO_START.y, endY, ease), lerp(INTRO_START.z, endZ, ease))
+      camera.lookAt(0, lerp(INTRO_START.lookY, endLookY, ease), 0)
+      const fov = lerp(INTRO_START.fov, endFov, ease)
+      if (camera.fov !== fov) { camera.fov = fov; camera.updateProjectionMatrix() }
+    }
+
+    if (t >= 1) { fired.current = true; onDone() }
+  })
+
+  return null
+}
+
 const isDebug = () => {
   if (typeof window === 'undefined') return false
   return new URLSearchParams(window.location.search).has('debug')
@@ -205,18 +272,30 @@ function formatValues(o: Record<string, unknown>): string {
   return `{\n${lines.join('\n')}\n}`
 }
 
-export default function PyramidScene() {
+export default function PyramidScene({
+  onDropStart,
+  onDropComplete,
+  visible = true,
+}: {
+  onDropStart?: () => void
+  onDropComplete?: () => void
+  visible?: boolean
+}) {
   const debug = useMemo(isDebug, [])
   const [dropTrigger, setDropTrigger] = useState(0)
+  const [introActive, setIntroActive] = useState(true)
+  const [dropStarted, setDropStarted] = useState(false)
+  const [frameloop, setFrameloop] = useState<'always' | 'demand'>('always')
+  const animDone = useRef(false)
   const valuesRef = useRef<Record<string, unknown>>({})
 
   const scene = useControls(
     'Scene',
     {
-      camY: { value: 5, min: -5, max: 10, step: 0.05, label: 'Cam Y' },
-      camZ: { value: 7, min: 1, max: 30, step: 0.1, label: 'Cam Z' },
-      lookY: { value: 2.0, min: -3, max: 5, step: 0.05, label: 'Look Y' },
-      fov: { value: 55, min: 15, max: 90, step: 1, label: 'FOV' },
+      camY: { value: 2.5, min: -5, max: 10, step: 0.05, label: 'Cam Y' },
+      camZ: { value: 4.2, min: 1, max: 30, step: 0.1, label: 'Cam Z' },
+      lookY: { value: 0.8, min: -3, max: 5, step: 0.05, label: 'Look Y' },
+      fov: { value: 62, min: 15, max: 90, step: 1, label: 'FOV' },
       modelY: { value: 0, min: -5, max: 10, step: 0.05, label: 'Model Y' },
       rotationSpeed: {
         value: 0.18,
@@ -245,7 +324,7 @@ export default function PyramidScene() {
       dropEnabled: { value: true, label: 'Drop' },
       animationEnabled: { value: true, label: 'GLB Animation' },
       animationSpeed: {
-        value: 1,
+        value: 1.5,
         min: 0,
         max: 3,
         step: 0.05,
@@ -291,6 +370,42 @@ export default function PyramidScene() {
     valuesRef.current = { ...scene, ...adv }
   }, [scene, adv])
 
+  const handleDropStart = useCallback(() => {
+    setDropStarted(true)
+    onDropStart?.()
+  }, [onDropStart])
+
+  // Both the drop AND the GLB animation must finish before we stop rendering.
+  // Using refs so the two callbacks can check each other without stale closures.
+  const dropDone = useRef(false)
+  const glbDone  = useRef(false)
+
+  const tryFinish = useCallback(() => {
+    if (!dropDone.current || !glbDone.current) return
+    animDone.current = true
+    setFrameloop('demand')
+  }, [])
+
+  const handleDropComplete = useCallback(() => {
+    onDropComplete?.()
+    dropDone.current = true
+    tryFinish()
+  }, [onDropComplete, tryFinish])
+
+  const handleGLBAnimationDone = useCallback(() => {
+    glbDone.current = true
+    tryFinish()
+  }, [tryFinish])
+
+  // Pause WebGL render loop when hero is off-screen — but only after everything
+  // is fully done. Pausing mid-animation causes delta to accumulate and the
+  // animation snaps to its last frame on resume.
+  useEffect(() => {
+    if (!visible && animDone.current) {
+      setFrameloop('demand')
+    }
+  }, [visible])
+
   const sunPos = useMemo<[number, number, number]>(() => {
     const az = THREE.MathUtils.degToRad(adv.dirAzimuth)
     const el = THREE.MathUtils.degToRad(adv.dirElevation)
@@ -303,20 +418,26 @@ export default function PyramidScene() {
   }, [adv.dirAzimuth, adv.dirElevation])
 
   return (
-    <div className="absolute inset-0 z-0">
+    <div
+      className="absolute inset-0 z-0"
+      style={{ opacity: dropStarted ? 1 : 0, transition: 'opacity 0.12s ease' }}
+    >
       <Canvas
         className="!absolute inset-0"
-        camera={{ position: [0, scene.camY, scene.camZ], fov: scene.fov }}
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true }}
+        camera={{ position: [0, INTRO_START.y, INTRO_START.z], fov: INTRO_START.fov }}
+        frameloop={frameloop}
+        dpr={[1, 1.5]}
+        gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}
       >
-        <CameraSync
-          y={scene.camY}
-          z={scene.camZ}
-          fov={scene.fov}
-          lookY={scene.lookY}
-          enabled={!adv.orbitControls}
-        />
+        <color attach="background" args={['#f7eced']} />
+        {introActive && dropStarted ? (
+          <CameraIntro
+            endY={scene.camY} endZ={scene.camZ} endLookY={scene.lookY} endFov={scene.fov}
+            onDone={() => setIntroActive(false)}
+          />
+        ) : !introActive ? (
+          <CameraSync y={scene.camY} z={scene.camZ} fov={scene.fov} lookY={scene.lookY} enabled={!adv.orbitControls} />
+        ) : null}
         <ambientLight intensity={adv.ambient} />
         <directionalLight position={sunPos} intensity={adv.dir} />
         {adv.showAxes && <axesHelper args={[5]} />}
@@ -336,6 +457,9 @@ export default function PyramidScene() {
             dropStagger={DROP_STAGGER}
             dropDelay={DROP_DELAY}
             dropTrigger={dropTrigger}
+            onDropStart={handleDropStart}
+            onDropComplete={handleDropComplete}
+            onGLBAnimationDone={handleGLBAnimationDone}
           />
           <Environment
             preset={adv.envPreset as EnvPreset}

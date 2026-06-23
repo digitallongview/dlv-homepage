@@ -29,42 +29,48 @@ export function ExpandedTriangleHeader() {
         boxShadow: '0 20px 60px -30px rgba(45,31,77,0.5)',
       }}
     >
-      <div className="mx-auto h-full max-w-[1320px] px-6 sm:px-10">
-        <div className="flex h-full flex-col justify-between py-6 sm:py-8">
-          <div className="flex justify-end">
+      <div className="mx-auto h-full max-w-[1320px] px-10">
+        <div className="grid h-full grid-cols-2 pt-7">
+
+          {/* Linke Spalte: Ankerpunkte zentriert */}
+          <div className="flex justify-center pt-1">
+            <nav>
+              <ul className="grid grid-cols-2 gap-x-12 gap-y-3">
+                {NAV_ITEMS.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      className="group inline-flex items-center justify-between gap-4 border-b border-white/40 pb-1.5 pr-2 font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-white/90 transition-all duration-200 hover:border-white hover:text-white hover:pl-1"
+                    >
+                      <span>{item.label}</span>
+                      <span
+                        aria-hidden
+                        className="transition-transform group-hover:translate-x-1"
+                      >
+                        →
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          {/* Rechte Spalte: Logo rechtsbündig, oben verankert */}
+          <div className="flex items-start justify-end">
             <a
               href="#"
               className="flex items-center gap-2 rounded-md transition-opacity hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-white/40"
             >
               <img
-                src="/assets/logo.png"
-                alt="Digital Longview"
+                src="/assets/logo-weiss.png"
+                alt="Digital Long View"
                 draggable={false}
-                className="h-9 w-auto select-none brightness-0 invert drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]"
+                className="h-9 w-auto select-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]"
               />
             </a>
           </div>
 
-          <nav className="max-w-[640px]">
-            <ul className="grid grid-cols-1 gap-x-12 gap-y-3 sm:grid-cols-2">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="group inline-flex items-center justify-between gap-4 border-b border-white/50 pb-1.5 pr-2 font-sans text-[12px] font-medium uppercase tracking-[0.22em] text-white transition-all hover:border-white hover:pl-1"
-                  >
-                    <span>{item.label}</span>
-                    <span
-                      aria-hidden
-                      className="transition-transform group-hover:translate-x-1"
-                    >
-                      →
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
         </div>
       </div>
     </header>
@@ -76,79 +82,109 @@ export function ExpandedTriangleHeader() {
  * versteckt. Sobald der ExpandedTriangleHeader oberhalb des Viewports liegt
  * (rect.bottom < 0), slidet er ein.
  */
+// Both polygons have 4 vertices so CSS can interpolate between them smoothly.
+// Closed: triangle — logo sits in the wide upper zone, safe on all viewport sizes.
+// Open:   full rectangle → straight bar, no diagonal.
+const CLIP_CLOSED = 'polygon(0% 0%, 55% 0%, 55% 0%, 0% 100%)'
+const CLIP_OPEN   = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
+
 export function CompactTriangleHeader() {
   const [stuck, setStuck] = useState(false)
+  const [open,  setOpen]  = useState(false)
 
   useEffect(() => {
-    const update = () => {
-      const el = document.querySelector<HTMLElement>('[data-expanded-header]')
-      if (!el) {
-        setStuck(false)
-        return
-      }
-      const rect = el.getBoundingClientRect()
-      setStuck(rect.bottom <= 0)
-    }
-    update()
-    window.addEventListener('scroll', update, { passive: true })
-    window.addEventListener('resize', update)
-    return () => {
-      window.removeEventListener('scroll', update)
-      window.removeEventListener('resize', update)
-    }
+    const el = document.querySelector<HTMLElement>('[data-expanded-header]')
+    if (!el) return
+    // IntersectionObserver statt scroll+getBCR — kein Layout-Reflow bei Scroll.
+    // Unterscheidung: Element oberhalb rausgescrollt (stuck=true) vs.
+    // noch unterhalb des Viewports (stuck=false, beim Pageload).
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStuck(false)
+        } else {
+          // boundingClientRect ist vom Browser vorberechnet — kein Reflow
+          setStuck(entry.boundingClientRect.bottom < 120)
+        }
+      },
+      { rootMargin: '-120px 0px 0px 0px', threshold: 0 },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 transition-transform duration-300 ease-out"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      className="fixed inset-x-0 top-0 z-50"
       style={{
-        height: 64,
+        height: 80,
         background: LILA_GRADIENT,
-        clipPath: 'polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%)',
-        boxShadow: '0 6px 20px -10px rgba(45,31,77,0.6)',
+        clipPath: open ? CLIP_OPEN : CLIP_CLOSED,
+        boxShadow: '0 8px 28px -8px rgba(45,31,77,0.7)',
         transform: stuck ? 'translateY(0)' : 'translateY(-110%)',
+        transition: 'clip-path 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s ease-out',
+        willChange: 'transform, clip-path',
       }}
     >
-      <div className="mx-auto flex h-full max-w-[1320px] items-center justify-between px-6 sm:px-10">
+      {/* pt-[14px] pins logo to the wide upper portion of the triangle at all viewport sizes */}
+      <div className="mx-auto flex h-full max-w-[1320px] items-start pt-[14px] gap-8 px-6 sm:px-10">
+
+        {/* Logo — mt-3 aligns it with the nav links' pt-3 offset */}
         <a
           href="#"
-          className="flex items-center rounded-md transition-opacity hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-white/40"
+          className="flex-none mt-1 transition-opacity hover:opacity-80
+                     focus:outline-none focus:ring-2 focus:ring-white/40 rounded"
         >
           <img
-            src="/assets/logo.png"
-            alt="Digital Longview"
+            src="/assets/logo-weiss.png"
+            alt="Digital Long View"
             draggable={false}
-            className="h-7 w-auto select-none brightness-0 invert"
+            className="h-8 w-auto select-none"
           />
         </a>
 
-        <nav className="hidden md:block">
-          <ul className="flex items-center gap-0.5">
-            {NAV_ITEMS.slice(0, 5).map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className="relative inline-flex items-center rounded-full px-3 py-1.5 font-sans text-[12.5px] font-medium text-white/85 transition-colors hover:bg-white/15 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/40"
-                >
-                  {item.label.replace('?', '')}
-                </a>
-              </li>
-            ))}
-          </ul>
+        {/* Nav — fades in once the bar has opened */}
+        <nav
+          className="hidden md:flex items-center gap-8 pt-3"
+          style={{
+            opacity: open ? 1 : 0,
+            pointerEvents: open ? 'auto' : 'none',
+            transition: open
+              ? 'opacity 0.15s ease-out 0.1s'
+              : 'opacity 0.08s ease-out',
+          }}
+        >
+          {NAV_ITEMS.slice(0, 4).map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="group inline-flex items-center gap-2 border-b border-white/40 pb-1.5
+                         font-sans text-[11px] font-semibold uppercase tracking-[0.25em]
+                         text-white/75 transition-all duration-200
+                         hover:border-white hover:text-white
+                         focus:outline-none focus:ring-2 focus:ring-white/40"
+            >
+              {item.label.replace('?', '')}
+              <span aria-hidden className="flex-none transition-transform group-hover:translate-x-1">→</span>
+            </a>
+          ))}
+
+          {/* Kontakt — pill button */}
+          <a
+            href="#kontakt"
+            className="inline-flex items-center gap-2 rounded-full bg-white/95 px-5 py-1.5
+                       font-sans text-[11px] font-semibold uppercase tracking-[0.25em]
+                       text-[#5d4684] transition-all duration-200
+                       hover:bg-white hover:shadow-[0_4px_16px_-4px_rgba(45,31,77,0.5)]
+                       focus:outline-none focus:ring-2 focus:ring-white/60"
+          >
+            Kontakt
+            <span aria-hidden>→</span>
+          </a>
         </nav>
 
-        <a
-          href="#kontakt"
-          className="group inline-flex h-9 items-center gap-2 rounded-full bg-white px-4 font-sans text-[11.5px] font-semibold uppercase tracking-[0.14em] text-[#5d4684] shadow-[0_4px_14px_-4px_rgba(0,0,0,0.35)] transition-all hover:shadow-[0_8px_20px_-4px_rgba(0,0,0,0.45)] focus:outline-none focus:ring-4 focus:ring-white/40 active:scale-[0.97]"
-        >
-          Kontakt
-          <span
-            aria-hidden
-            className="transition-transform group-hover:translate-x-0.5"
-          >
-            →
-          </span>
-        </a>
       </div>
     </header>
   )

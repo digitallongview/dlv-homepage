@@ -1,94 +1,86 @@
 import { useState, type FormEvent } from 'react'
 
-export default function HeroOverlay() {
-  const [email, setEmail] = useState('')
+export default function HeroOverlay({ phase }: { phase: number }) {
+  const [email, setEmail]   = useState('')
   const [status, setStatus] = useState<'idle' | 'sent'>('idle')
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // TODO: Newsletter-Backend anbinden (Phase 2)
     console.info('signup:', email)
     setStatus('sent')
   }
 
   return (
-    <div className="flex w-full max-w-[640px] flex-col items-center pt-4 text-center sm:pt-6">
-      <p className="font-sans text-[11px] font-medium uppercase tracking-[0.42em] text-ink/70 sm:text-[12px]">
-        Die Digitalagentur für Raum, Zeit und Kultur
-      </p>
+    <div className="flex w-full max-w-[580px] flex-col items-center text-center">
 
-      <h1
-        className="mt-3 font-sans font-bold leading-[1.05]"
-        style={{
-          fontSize: 'clamp(30px, 5vw, 48px)',
-          letterSpacing: '0.04em',
-          color: '#2d1f4d',
-        }}
-      >
-        ist gerade{' '}
-        <span
-          className="inline-block bg-clip-text text-transparent"
-          style={{
-            backgroundImage:
-              'linear-gradient(120deg, #b29bd0 0%, #8c74aa 45%, #5d4684 100%)',
-          }}
-        >
-          in Entstehung
-        </span>
-      </h1>
-
-      <p className="mt-4 max-w-[440px] font-serif text-[14px] italic leading-[1.5] text-ink/70 sm:text-[15px]">
-        Falls du bereit jetzt schon erste Inhalte und Benachrichtigungen zu
-        Updates möchtest, trag dich hier ein.
-      </p>
-
-      {status === 'idle' ? (
-        <form
-          onSubmit={onSubmit}
-          className="mt-6 flex w-full max-w-[480px] flex-col gap-3 sm:flex-row sm:gap-2"
-        >
-          <label className="sr-only" htmlFor="signup-email">
-            E-Mail-Adresse
-          </label>
-          <input
-            id="signup-email"
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="deine@email.de"
-            className="h-[56px] flex-1 rounded-xl border-2 border-ink/15 bg-white px-5 font-sans text-[16px] text-ink shadow-sm outline-none transition-colors placeholder:text-ink/40 hover:border-ink/30 focus:border-lavender focus:ring-4 focus:ring-lavender/20"
-            autoComplete="email"
-          />
-          <button
-            type="submit"
-            className="group inline-flex h-[56px] cursor-pointer items-center justify-center gap-2 rounded-xl px-7 font-sans text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_10px_30px_-10px_rgba(93,70,132,0.7)] transition-all hover:shadow-[0_14px_36px_-10px_rgba(93,70,132,0.85)] focus:outline-none focus:ring-4 focus:ring-lavender/40 active:scale-[0.98]"
-            style={{
-              background:
-                'linear-gradient(135deg, #b29bd0 0%, #8c74aa 50%, #5d4684 100%)',
-            }}
+      {/* Headline — erscheint in Phase 2, Animation startet beim Mount */}
+      {phase >= 2 && (
+        <div style={{ animation: 'headline-glow 2.2s ease-out both' }}>
+          <h1
+            className="font-sans font-bold leading-[1.18]"
+            style={{ fontSize: 'clamp(30px, 5.5vw, 58px)', letterSpacing: '0.025em' }}
           >
-            Sign up
             <span
-              aria-hidden
-              className="transition-transform group-hover:translate-x-0.5"
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: 'linear-gradient(135deg, #2d1f4d 0%, #2d1f4d 60%, #181826 100%)' }}
             >
-              →
+              ist gerade{' '}
             </span>
-          </button>
-        </form>
-      ) : (
-        <div
-          role="status"
-          className="mt-6 flex w-full max-w-[480px] items-center justify-center gap-3 rounded-xl border-2 border-lavender/30 bg-lavender/10 px-5 py-4 font-sans text-[15px] text-ink"
-        >
-          <span
-            aria-hidden
-            className="grid h-7 w-7 place-items-center rounded-full bg-lavender text-white"
-          >
-            ✓
-          </span>
-          Danke — wir melden uns, sobald es losgeht.
+            <span
+              className="inline-block bg-clip-text text-transparent"
+              style={{
+                backgroundImage: 'linear-gradient(120deg, #b29bd0 0%, #8c74aa 45%, #5d4684 100%)',
+                paddingBottom: '0.2em',
+              }}
+            >
+              in Entstehung
+            </span>
+          </h1>
+        </div>
+      )}
+
+      {/* Form + Beschreibung — erscheint in Phase 3 */}
+      {phase >= 3 && (
+        <div style={{ animation: 'fade-up 0.7s ease-out both' }}>
+          {status === 'idle' ? (
+            <form
+              onSubmit={onSubmit}
+              className="mt-5 flex w-full max-w-[460px] flex-col gap-2.5 sm:flex-row sm:gap-2"
+            >
+              <label className="sr-only" htmlFor="signup-email">E-Mail-Adresse</label>
+              <input
+                id="signup-email"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="deine@email.de"
+                className="h-[46px] flex-1 rounded-full border-2 border-ink/15 bg-white/90 px-5 font-sans text-[14px] text-ink shadow-sm outline-none backdrop-blur-sm transition-colors placeholder:text-ink/40 hover:border-ink/30 focus:border-lavender focus:ring-4 focus:ring-lavender/20 sm:h-[50px] sm:px-6"
+                autoComplete="email"
+              />
+              <button
+                type="submit"
+                className="group inline-flex h-[46px] cursor-pointer items-center justify-center gap-2 rounded-full px-6 font-sans text-[10px] font-semibold uppercase tracking-[0.3em] text-white shadow-[0_10px_30px_-10px_rgba(93,70,132,0.65)] transition-all duration-200 hover:shadow-[0_14px_36px_-10px_rgba(93,70,132,0.9)] hover:brightness-110 active:scale-[0.97] sm:h-[50px] sm:px-7 sm:text-[11px]"
+                style={{ background: 'linear-gradient(135deg, #b29bd0 0%, #8c74aa 50%, #5d4684 100%)' }}
+              >
+                Sign Up
+                <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+              </button>
+            </form>
+          ) : (
+            <div
+              role="status"
+              className="mt-5 flex w-full max-w-[460px] items-center justify-center gap-3 rounded-xl border-2 border-lavender/30 bg-lavender/10 px-5 py-3 font-sans text-[13px] text-ink sm:text-[15px]"
+            >
+              <span aria-hidden className="grid h-7 w-7 place-items-center rounded-full bg-lavender text-white">✓</span>
+              Danke — wir melden uns, sobald es losgeht.
+            </div>
+          )}
+
+          <p className="mt-3 max-w-[400px] font-serif text-[12px] italic leading-[1.5] text-ink/55 sm:text-[13px]">
+            Falls du bereit jetzt schon erste Inhalte und Benachrichtigungen zu
+            Updates möchtest, trag dich hier ein.
+          </p>
         </div>
       )}
     </div>
