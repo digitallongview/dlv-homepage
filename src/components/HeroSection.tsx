@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import HeroOverlay from './HeroOverlay'
-import { useIsMobile } from '../hooks/useMediaQuery'
+import { useIsPortrait } from '../hooks/useMediaQuery'
 
 // Import sofort starten (beim Laden des Moduls), nicht erst beim ersten Render
 const pyramidSceneImport = import('./PyramidScene')
@@ -12,7 +12,7 @@ export default function HeroSection() {
   const [phase, setPhase] = useState<Phase>(0)
   const [heroVisible, setHeroVisible] = useState(true)
   const sectionRef = useRef<HTMLElement>(null)
-  const isMobile = useIsMobile()
+  const isPortrait = useIsPortrait()
 
   useEffect(() => {
     const el = sectionRef.current
@@ -48,12 +48,16 @@ export default function HeroSection() {
       className="relative w-full overflow-hidden bg-cream"
       style={{ height: '100dvh', minHeight: 580 }}
     >
-      {/* 3D-Pyramide */}
-      <div className="absolute inset-0">
+      {/* 3D-Pyramide — im Hochformat etwas nach oben geschoben, damit sie höher
+          sitzt und der Landing-Content darunter passt (skaliert mit der Höhe). */}
+      <div
+        className="absolute inset-0"
+        style={{ transform: isPortrait ? 'translateY(clamp(-220px, -20vh, -100px))' : undefined }}
+      >
         <Suspense fallback={<div className="absolute inset-0 bg-cream" />}>
           <PyramidScene
             visible={heroVisible}
-            portrait={isMobile}
+            portrait={isPortrait}
             onDropStart={handleDropStart}
             onDropComplete={handleDropComplete}
           />
@@ -88,18 +92,20 @@ export default function HeroSection() {
           src="/assets/logo.png"
           alt="Digital Longview"
           className="h-auto select-none drop-shadow-[0_8px_22px_rgba(24,24,38,0.28)]"
-          style={{ width: 'clamp(180px, 30vw, 320px)' }}
+          style={{ width: 'clamp(210px, 30vw, 320px)' }}
           draggable={false}
         />
-        <p className="mt-2 text-center font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-ink/60 sm:tracking-[0.38em] sm:text-[11px]">
+        <p className="mt-2 text-center font-sans text-[12px] font-medium uppercase tracking-[0.2em] text-ink/60 sm:tracking-[0.38em] sm:text-[11px]">
           Die Digitalagentur für Raum, Zeit und Kultur
         </p>
       </div>
 
-      {/* Unterer Cream-Fade — Phase 2 */}
+      {/* Unterer Cream-Fade — Phase 2. Im Hochformat länger gezogen, damit der
+          Übergang auf Handys sanfter ist. */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[65%]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10"
         style={{
+          height: isPortrait ? '76%' : '65%',
           background: 'linear-gradient(180deg, rgba(247,236,237,0) 0%, rgba(247,236,237,0.75) 28%, rgba(247,236,237,0.96) 58%, var(--color-cream) 100%)',
           ...fadeIn(phase >= 2, 700),
         }}
@@ -108,7 +114,7 @@ export default function HeroSection() {
       {/* Headline + Form — Phase 2/3 via HeroOverlay */}
       <div
         className="absolute inset-x-0 z-20 flex justify-center px-4 sm:px-6"
-        style={{ bottom: 'clamp(60px, 10vh, 120px)' }}
+        style={{ bottom: isPortrait ? 'clamp(90px, 15vh, 160px)' : 'clamp(60px, 10vh, 120px)' }}
       >
         <HeroOverlay phase={phase} />
       </div>

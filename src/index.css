@@ -73,6 +73,13 @@
   to   { opacity: 1; transform: scale(1);    }
 }
 
+/* Scroll-hint chevron (Portfolio ScrollBox) — sanftes Auf-und-Ab.
+   Includes translateX(-50%) so it keeps the Tailwind horizontal centering. */
+@keyframes nudge-down {
+  0%, 100% { transform: translateX(-50%) translateY(0);   }
+  50%      { transform: translateX(-50%) translateY(3px);  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

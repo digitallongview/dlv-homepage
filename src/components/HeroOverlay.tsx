@@ -18,13 +18,16 @@ export default function HeroOverlay({ phase }: { phase: number }) {
         <div style={{ animation: 'headline-glow 2.2s ease-out both' }}>
           <h1
             className="font-sans font-bold leading-[1.18]"
-            style={{ fontSize: 'clamp(30px, 5.5vw, 58px)', letterSpacing: '0.025em' }}
+            style={{ fontSize: 'clamp(40px, 6vw, 58px)', letterSpacing: '0.025em' }}
           >
             <span
-              className="bg-clip-text text-transparent"
-              style={{ backgroundImage: 'linear-gradient(135deg, #2d1f4d 0%, #2d1f4d 60%, #181826 100%)' }}
+              className="block bg-clip-text text-transparent"
+              style={{
+                backgroundImage: 'linear-gradient(135deg, #2d1f4d 0%, #2d1f4d 60%, #181826 100%)',
+                paddingBottom: '0.15em',
+              }}
             >
-              ist gerade{' '}
+              ist gerade
             </span>
             <span
               className="inline-block bg-clip-text text-transparent"
@@ -41,11 +44,11 @@ export default function HeroOverlay({ phase }: { phase: number }) {
 
       {/* Form + Beschreibung — erscheint in Phase 3 */}
       {phase >= 3 && (
-        <div style={{ animation: 'fade-up 0.7s ease-out both' }}>
+        <div className="flex w-full flex-col items-center" style={{ animation: 'fade-up 0.7s ease-out both' }}>
           {status === 'idle' ? (
             <form
               onSubmit={onSubmit}
-              className="mt-5 flex w-full max-w-[460px] flex-col gap-2.5 sm:flex-row sm:gap-2"
+              className="mt-5 flex w-full max-w-[540px] flex-col items-stretch gap-2.5 sm:flex-row sm:items-center sm:gap-2"
             >
               <label className="sr-only" htmlFor="signup-email">E-Mail-Adresse</label>
               <input
@@ -55,12 +58,12 @@ export default function HeroOverlay({ phase }: { phase: number }) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="deine@email.de"
-                className="h-[46px] flex-1 rounded-full border-2 border-ink/15 bg-white/90 px-5 font-sans text-[14px] text-ink shadow-sm outline-none backdrop-blur-sm transition-colors placeholder:text-ink/40 hover:border-ink/30 focus:border-lavender focus:ring-4 focus:ring-lavender/20 sm:h-[50px] sm:px-6"
+                className="h-[52px] w-full rounded-full border-2 border-ink/15 bg-white/90 px-5 font-sans text-[16px] text-ink shadow-sm outline-none backdrop-blur-sm transition-colors placeholder:text-ink/40 hover:border-ink/30 focus:border-lavender focus:ring-4 focus:ring-lavender/20 sm:h-[50px] sm:min-w-[200px] sm:flex-1 sm:px-6 sm:text-[14px]"
                 autoComplete="email"
               />
               <button
                 type="submit"
-                className="group inline-flex h-[46px] cursor-pointer items-center justify-center gap-2 rounded-full px-6 font-sans text-[10px] font-semibold uppercase tracking-[0.3em] text-white shadow-[0_10px_30px_-10px_rgba(93,70,132,0.65)] transition-all duration-200 hover:shadow-[0_14px_36px_-10px_rgba(93,70,132,0.9)] hover:brightness-110 active:scale-[0.97] sm:h-[50px] sm:px-7 sm:text-[11px]"
+                className="group inline-flex h-[52px] min-w-[160px] cursor-pointer items-center justify-center gap-2 self-center rounded-full px-8 font-sans text-[11px] font-semibold uppercase tracking-[0.3em] text-white shadow-[0_10px_30px_-10px_rgba(93,70,132,0.65)] transition-all duration-200 hover:shadow-[0_14px_36px_-10px_rgba(93,70,132,0.9)] hover:brightness-110 active:scale-[0.97] sm:h-[50px] sm:min-w-0 sm:flex-none sm:self-auto sm:px-7 sm:text-[11px]"
                 style={{ background: 'linear-gradient(135deg, #b29bd0 0%, #8c74aa 50%, #5d4684 100%)' }}
               >
                 Sign Up
@@ -77,7 +80,7 @@ export default function HeroOverlay({ phase }: { phase: number }) {
             </div>
           )}
 
-          <p className="mt-3 max-w-[400px] font-serif text-[12px] italic leading-[1.5] text-ink/55 sm:text-[13px]">
+          <p className="mt-9 max-w-[400px] font-serif text-[14px] italic leading-[1.5] text-ink/55 sm:mt-3 sm:text-[13px]">
             Falls du bereit jetzt schon erste Inhalte und Benachrichtigungen zu
             Updates möchtest, trag dich hier ein.
           </p>

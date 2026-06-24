@@ -177,7 +177,7 @@ export default function SectionMotivation() {
                       loading="lazy"
                       className={[
                         'block transition-[width,filter] duration-500 ease-out',
-                        'drop-shadow-[0_12px_32px_rgba(24,24,38,0.22)]',
+                        // PNG already carries its baked drop shadow — no CSS shadow
                         active
                           ? 'w-[168px] sm:w-[200px]'
                           : 'w-[104px] sm:w-[126px]',

@@ -2,7 +2,8 @@ import { lazy, Suspense } from 'react'
 import HeroSection from './components/HeroSection'
 import SiteHeader from './components/SiteHeader'
 import SectionLongView from './components/sections/SectionLongView'
-import { useIsMobile } from './hooks/useMediaQuery'
+import { LegalModalProvider } from './components/legal/LegalModal'
+import { useIsMobile, useMediaQuery } from './hooks/useMediaQuery'
 
 // Below-fold desktop sections — separate JS chunks, laden parallel im Hintergrund
 const SectionMotivation = lazy(() => import('./components/sections/SectionMotivation'))
@@ -20,9 +21,13 @@ const MobileFooter      = lazy(() => import('./components/mobile/MobileFooter'))
 
 export default function App() {
   const isMobile = useIsMobile()
+  // The LongView section keeps its desktop side-by-side composition further down
+  // than the rest of the site — it only collapses to the stacked mobile layout
+  // below 500px, instead of the global 1024px breakpoint used everywhere else.
+  const longViewStacked = useMediaQuery('(max-width: 499px)')
 
   return (
-    <>
+    <LegalModalProvider>
       {/* Skip-to-content for keyboard/screen-reader users */}
       <a
         href="#main-content"
@@ -37,7 +42,7 @@ export default function App() {
         <Suspense fallback={null}>
           <MobileMenu />
           <main id="main-content">
-            <MobileLongView />
+            {longViewStacked ? <MobileLongView /> : <SectionLongView />}
             <MobileMotivation />
             <MobilePortfolio />
             <MobileLeistungen />
@@ -60,6 +65,6 @@ export default function App() {
           </Suspense>
         </>
       )}
-    </>
+    </LegalModalProvider>
   )
 }

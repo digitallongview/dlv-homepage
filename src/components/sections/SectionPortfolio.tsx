@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import SectionHeading from '../SectionHeading'
+import { useHlsVideo } from '../../hooks/useHlsVideo'
+import { HLS, type Lang } from '../../lib/hlsSources'
 
 // ─── Types & Data ─────────────────────────────────────────────────────────────
 
@@ -100,8 +102,20 @@ function LangzeitdesignMedia() {
   const [muted,    setMuted]    = useState(false)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
+  const [lang,     setLang]     = useState<Lang>('de')
   const ref          = useRef<HTMLVideoElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
+
+  const src = lang === 'de' ? HLS.langzeitdesignDE : HLS.langzeitdesignEN
+  // 45-min film → lazy: nothing downloads until the first play.
+  useHlsVideo(ref, src, { preload: false })
+
+  const switchLang = (e: React.MouseEvent, next: Lang) => {
+    e.stopPropagation()
+    if (next === lang) return
+    setLang(next)
+    setPlaying(false) // src swap resets the element to its poster
+  }
 
   const toggle = () => {
     if (!ref.current) return
@@ -154,13 +168,34 @@ function LangzeitdesignMedia() {
           playing ? '' : 'grayscale brightness-75',
         ].join(' ')}
       >
-        <source src="/video/langzeitdesign.webm" type="video/webm" />
-        <source src="/video/LANGZEITDESIGN.mp4"  type="video/mp4"  />
+        {/* Fallback for the rare browser without HLS (native or MSE) */}
+        <source src="/video/LANGZEITDESIGN.mp4" type="video/mp4" />
       </video>
 
       {/* Inner vignette */}
       <div className="pointer-events-none absolute inset-0 rounded-xl"
            style={{ boxShadow: 'inset 0 0 60px rgba(0,0,0,0.45)' }} />
+
+      {/* Language toggle — DE / EN narration */}
+      <div
+        className="absolute top-2.5 right-2.5 z-20 flex overflow-hidden rounded-full border border-white/25 bg-black/35 backdrop-blur-sm"
+        onClick={e => e.stopPropagation()}
+      >
+        {(['de', 'en'] as Lang[]).map(l => (
+          <button
+            key={l}
+            onClick={e => switchLang(e, l)}
+            aria-pressed={lang === l}
+            className={[
+              'px-2.5 py-1 font-sans text-[9px] font-bold uppercase tracking-[0.18em] transition-colors',
+              lang === l ? 'text-white' : 'text-white/45 hover:text-white/75',
+            ].join(' ')}
+            style={lang === l ? { background: 'linear-gradient(135deg, #b29bd0 0%, #5d4684 100%)' } : undefined}
+          >
+            {l}
+          </button>
+        ))}
+      </div>
 
       {/* Paused: title + play */}
       {!playing && (
@@ -268,6 +303,9 @@ function SophienkircheMedia() {
   const [rotated, setRotated] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
+  // Autoplay loop → preload so the first frames are ready on scroll-in.
+  useHlsVideo(videoRef, HLS.sophienkirche, { preload: true })
+
   const toggleMute = () => {
     const v = videoRef.current
     if (!v) return
@@ -300,8 +338,7 @@ function SophienkircheMedia() {
         style={{ top: '2%', left: '3%', right: '3%', bottom: '2%', borderRadius: 18 }}
       >
         <video ref={videoRef} autoPlay muted loop playsInline className="w-full h-full object-cover">
-          <source src="/video/sophienkirche.webm"          type="video/webm" />
-          <source src="/video/Sophienkirche-Prototyp.mp4"  type="video/mp4"  />
+          <source src="/video/Sophienkirche-Prototyp.mp4" type="video/mp4" />
         </video>
       </div>
       {/* Phone frame on top — screen area is nearly transparent */}
@@ -339,6 +376,10 @@ function ZeitpyramideMedia() {
   const [vid, setVid] = useState<'ar' | 'uav' | null>(null)
   const arRef  = useRef<HTMLVideoElement>(null)
   const uavRef = useRef<HTMLVideoElement>(null)
+
+  // Click-to-play → lazy: each stream loads only once its button is hit.
+  useHlsVideo(arRef,  HLS.zpAr,  { preload: false })
+  useHlsVideo(uavRef, HLS.zpUav, { preload: false })
 
   // Play whichever video is selected; pause the other
   useEffect(() => {
@@ -385,8 +426,7 @@ function ZeitpyramideMedia() {
         <video ref={uavRef} playsInline controls preload="auto"
                className="absolute inset-0 w-full h-full bg-black transition-opacity duration-300"
                style={{ objectFit: 'fill', opacity: vid === 'uav' ? 1 : 0, pointerEvents: vid === 'uav' ? 'auto' : 'none' }}>
-          <source src="/video/ZP-UAV.webm" type="video/webm" />
-          <source src="/video/ZP-UAV.mp4"  type="video/mp4"  />
+          <source src="/video/ZP-UAV.mp4" type="video/mp4" />
         </video>
       </div>
 

@@ -6,7 +6,6 @@ const NAV_ITEMS = [
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Leistungen', href: '#leistungen' },
   { label: 'Kontakt', href: '#kontakt' },
-  { label: 'AGBs', href: '#agbs' },
 ]
 
 const LILA_GRADIENT =
@@ -117,6 +116,7 @@ export function CompactTriangleHeader() {
     <header
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
+      onClick={() => setOpen((o) => !o)}
       className="fixed inset-x-0 top-0 z-50"
       style={{
         height: 80,
