@@ -1,0 +1,18 @@
+---
+id: dsg-nrw-13
+type: landesrecht
+law: DSG NRW
+number: 13
+citation: § 13 DSG NRW
+title: Beschränkung der Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Personen nach Artikel 34 der Verordnung (EU) 2016/679
+source: "https://dsgvo-gesetz.de/dsg-nrw/13-dsg-nrw/"
+---
+
+# § 13 DSG NRW – Beschränkung der Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Personen nach Artikel 34 der Verordnung (EU) 2016/679
+
+Der Verantwortliche kann von der Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person absehen, soweit und solange
+1. die Informationen die öffentliche Sicherheit gefährden oder sonst dem Wohle des Bundes oder eines Landes Nachteile bereiten würde,
+2. die personenbezogenen Daten oder die Tatsache ihrer Verarbeitung nach einer Rechtsvorschrift oder wegen der Rechte und Freiheiten anderer Personen geheim zu halten sind oder
+3. die Information die Sicherheit von IT-Systemen gefährden würde.
+
+Quelle: https://dsgvo-gesetz.de/dsg-nrw/13-dsg-nrw/

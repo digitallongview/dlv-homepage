@@ -1,0 +1,19 @@
+---
+id: dsg-nrw-38
+type: landesrecht
+law: DSG NRW
+number: 38
+citation: § 38 DSG NRW
+title: Einwilligung
+source: "https://dsgvo-gesetz.de/dsg-nrw/38-dsg-nrw/"
+---
+
+# § 38 DSG NRW – Einwilligung
+
+(1) Soweit die Verarbeitung personenbezogener Daten auf der Grundlage einer Einwilligung erfolgen kann, muss der Verantwortliche die Einwilligung der betroffenen Person nachweisen können.
+(2) Erfolgt die Einwilligung der betroffenen Person durch eine schriftliche Erklärung, die noch andere Sachverhalte betrifft, muss das Ersuchen um Einwilligung in verständlicher und leicht zugänglicher Form in einer klaren und einfachen Sprache so erfolgen, dass es von den anderen Sachverhalten klar zu unterscheiden ist.
+(3) ¹Die betroffene Person hat das Recht, ihre Einwilligung jederzeit zu widerrufen. ²Durch den Widerruf der Einwilligung wird die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung nicht berührt. ³Die betroffene Person ist vor Abgabe der Einwilligung hiervon in Kenntnis zu setzen.
+(4) ¹Die Einwilligung ist nur wirksam, wenn sie auf der freien Entscheidung der betroffenen Person beruht. ²Bei der Beurteilung, ob die Einwilligung freiwillig erteilt wurde, müssen die Umstände der Erteilung berücksichtigt werden. ³Die betroffene Person ist in geeigneter Weise über die Bedeutung der Einwilligung, insbesondere über den Verwendungszweck der Daten, und bei einer beabsichtigten Übermittlung über die Empfänger der Daten aufzuklären. ⁴Ist dies nach den Umständen des Einzelfalles erforderlich oder verlangt die betroffene Person dies, ist sie auch über die Folgen der Verweigerung der Einwilligung zu belehren.
+(5) Soweit besondere Kategorien personenbezogener Daten verarbeitet werden, muss sich die Einwilligung ausdrücklich auf diese Daten beziehen.
+
+Quelle: https://dsgvo-gesetz.de/dsg-nrw/38-dsg-nrw/

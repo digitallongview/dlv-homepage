@@ -62,7 +62,7 @@ export function ExpandedTriangleHeader() {
               className="flex items-center gap-2 rounded-md transition-opacity hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-white/40"
             >
               <img
-                src="/assets/logo-weiss.png"
+                src="/assets/logo-weiss.webp"
                 alt="Digital Long View"
                 draggable={false}
                 className="h-9 w-auto select-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]"
@@ -138,7 +138,7 @@ export function CompactTriangleHeader() {
                      focus:outline-none focus:ring-2 focus:ring-white/40 rounded"
         >
           <img
-            src="/assets/logo-weiss.png"
+            src="/assets/logo-weiss.webp"
             alt="Digital Long View"
             draggable={false}
             className="h-8 w-auto select-none"

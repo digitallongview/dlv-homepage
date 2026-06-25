@@ -122,7 +122,7 @@ export default function SectionLongView() {
             style={{ transform: row1.inView ? 'translateX(0)' : 'translateX(72vw)' }}
           >
             <img
-              src="/assets/cone-right.png"
+              src="/assets/cone-right.webp"
               alt="" aria-hidden
               className="absolute right-0 top-0 h-full w-auto max-w-none select-none object-contain"
             />
@@ -132,7 +132,7 @@ export default function SectionLongView() {
               style={{ background: 'linear-gradient(to right, #F7ECED 0%, #F7ECED 14%, rgba(247,236,237,0.5) 58%, transparent 100%)' }}
             />
             <img
-              src="/assets/telescope.png"
+              src="/assets/telescope.webp"
               alt="Teleskop auf Stativ"
               className="absolute bottom-0 z-10 w-auto select-none object-contain drop-shadow-2xl"
               style={telescopeStyle}
@@ -150,7 +150,7 @@ export default function SectionLongView() {
             style={{ transform: row2.inView ? 'translateX(0)' : 'translateX(-72vw)' }}
           >
             <img
-              src="/assets/cone-left.png"
+              src="/assets/cone-left.webp"
               alt="" aria-hidden
               className="absolute bottom-0 left-0 h-full w-auto max-w-none select-none object-contain"
             />
@@ -160,7 +160,7 @@ export default function SectionLongView() {
               style={{ background: 'linear-gradient(to left, #F7ECED 0%, #F7ECED 14%, rgba(247,236,237,0.5) 58%, transparent 100%)' }}
             />
             <img
-              src="/assets/vr-headset.png"
+              src="/assets/vr-headset.webp"
               alt="VR-Headset"
               className="absolute z-10 select-none object-contain drop-shadow-2xl"
               style={vrStyle}

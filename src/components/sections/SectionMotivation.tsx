@@ -17,7 +17,7 @@ const TEAM: Member[] = [
   {
     id:           'lukas',
     name:         'Lukas',
-    img:          '/assets/Lukas.png',
+    img:          '/assets/Lukas.webp',
     role:         '… und mir geht es um ZEIT.',
     intro:        'Hi! Ich bin Lukas …',
     body:         'Creative Director bei Digital Long View und Langzeitdenker aus Überzeugung. Als Stiftungsmitglied der Wemdinger Zeitpyramide denke ich in Jahrhunderten, nicht in Quartalen.',
@@ -26,7 +26,7 @@ const TEAM: Member[] = [
   {
     id:           'johan',
     name:         'Johann',
-    img:          '/assets/Johan.png',
+    img:          '/assets/Johan.webp',
     role:         '… und mir geht es um RAUM.',
     intro:        'Hi! Ich bin Johann …',
     body:         'XR Developer & Designer. Ich verbinde visionäres Denken mit pragmatischem Handeln – Programmierung und Design, konsequent nutzerzentriert.',
@@ -35,7 +35,7 @@ const TEAM: Member[] = [
   {
     id:           'domi',
     name:         'Domi',
-    img:          '/assets/Domi.png',
+    img:          '/assets/Domi.webp',
     role:         '… und mir geht es um KULTUR.',
     intro:        'Hi! Ich bin Domi …',
     body:         'Kultur ist kein Produkt, sondern eine Praxis.',

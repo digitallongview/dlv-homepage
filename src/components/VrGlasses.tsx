@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react'
 // source PNGs already carry a lens vignette, so they read as "the view inside the
 // headset". Drawn from the project copy: Benz Patent-Motorwagen & Apollo 13.
 const VR_SLIDES = [
-  { src: '/assets/vr-lab-benz.png',  caption: 'Benz Patent-Motorwagen' },
-  { src: '/assets/vr-lab-rover.png', caption: 'Apollo 13 · Mondlandung' },
+  { src: '/assets/vr-lab-benz.webp',  caption: 'Benz Patent-Motorwagen' },
+  { src: '/assets/vr-lab-rover.webp', caption: 'Apollo 13 · Mondlandung' },
 ]
 
 // Lens "screen" rectangle as a fraction of vrglasses.png — the slideshow plays here.
@@ -42,7 +42,7 @@ export default function VrGlasses({ active = true, className = '' }: { active?: 
     <div className={`w-full ${className}`}>
       {/* Goggle + lens in their own box so the lens % track the goggle, not the caption */}
       <div className="relative w-full">
-        <img src="/assets/vrglasses.png" alt="VR-Brille" draggable={false} className="block w-full select-none" />
+        <img src="/assets/vrglasses.webp" alt="VR-Brille" draggable={false} className="block w-full select-none" />
 
         {/* Lens screen — scenes cross-fade here over the goggle's front face */}
         <div

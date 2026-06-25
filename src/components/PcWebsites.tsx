@@ -24,7 +24,7 @@ export default function PcWebsites({ className = '' }: { className?: string }) {
   return (
     <div className={`relative w-full overflow-hidden [container-type:inline-size] ${className}`} style={{ aspectRatio: '2048 / 1140' }}>
       <img
-        src="/assets/pc-mockup.png"
+        src="/assets/pc-mockup.webp"
         alt="Computer-Mockup mit Website-Links"
         draggable={false}
         className="absolute left-0 top-0 w-full select-none"

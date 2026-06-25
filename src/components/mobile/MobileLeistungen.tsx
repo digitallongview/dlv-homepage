@@ -22,7 +22,7 @@ const SERVICES: Service[] = [
     body2: 'Webseiten, Plattformen und individuelle Software verstehen wir als Systeme, die Kultur ermöglichen: Sie müssen sich verändern können, ohne ihre Identität zu verlieren.',
     body3: 'Von der technischen Architektur bis zur digitalen Erfahrung gestalten wir Lösungen, die heute funktionieren und morgen neugedacht werden.',
     cta: 'Anfrage Coding',
-    icon: '/assets/RetroPC.png',
+    icon: '/assets/RetroPC.webp',
     scale: 1,
   },
   {
@@ -32,7 +32,7 @@ const SERVICES: Service[] = [
     body2: 'Dabei geht es nicht darum, Realität zu ersetzen, sondern sie zu erweitern: durch zusätzliche Ebenen, neue Perspektiven und interaktive Möglichkeiten der Begegnung.',
     body3: 'Wir gestalten immersive Erlebnisse, die über klassische Vermittlung hinausgehen und Menschen auf neue Weise mit Kultur, Wissen und Orten verbinden.',
     cta: 'Anfrage zu VR',
-    icon: '/assets/XR-Media.png',
+    icon: '/assets/XR-Media.webp',
     scale: 1,
   },
   {
@@ -42,7 +42,7 @@ const SERVICES: Service[] = [
     body2: 'Durch Marketing, PR und strategische Kommunikation schaffen wir Zugänge, die Inhalte verständlich machen und Erlebnisse nach außen erweitern.',
     body3: 'Unsere Arbeit verbindet Analyse, Gestaltung und Vermittlung — damit Projekte nicht nur sichtbar werden, sondern Bedeutung entfalten.',
     cta: 'Anfrage Marketing',
-    icon: '/assets/Megaphone.png',
+    icon: '/assets/Megaphone.webp',
     scale: 0.92,
   },
   {
@@ -52,7 +52,7 @@ const SERVICES: Service[] = [
     body2: 'Gestaltung verstehen wir als Mittel, Inhalte einzuordnen, verständlich zu machen und in einen kulturellen Kontext zu setzen, unabhängig davon, ob sie digital, gedruckt oder im Raum stattfindet.',
     body3: 'So entstehen Inhalte, die nicht nur gesehen werden, sondern etwas auslösen, einordnen und über den Moment hinaus wirken.',
     cta: 'Anfrage Grafik',
-    icon: '/assets/Graphics.png',
+    icon: '/assets/Graphics.webp',
     scale: 1,
   },
   {
@@ -62,7 +62,7 @@ const SERVICES: Service[] = [
     body2: 'Wir übertragen diese Logik auf digitale und physische Kontexte, um Storytelling und Inhalte interaktiv erfahrbar zu machen. Im Mittelpunkt steht dabei nicht der passive Konsum, sondern Partizipation: Menschen werden zu aktiven Teilnehmenden, die Inhalte durch ihre Entscheidungen, Handlungen und Perspektiven mitgestalten.',
     body3: 'Durch Narrative, Entscheidungen und Gamification entstehen neue Formen der kulturellen Vermittlung.',
     cta: 'Anfrage Gaming',
-    icon: '/assets/Joystick.png',
+    icon: '/assets/Joystick.webp',
     scale: 1.12,
   },
   {
@@ -72,7 +72,7 @@ const SERVICES: Service[] = [
     body2: 'Historische Orte, zerstörte oder veränderte Räume und kulturelle Objekte werden digital nachvollziehbar gemacht, um sie für Gegenwart und Zukunft zugänglich zu halten. Dabei verstehen wir Rekonstruktion nicht als reine Abbildung, sondern als interpretativen Prozess zwischen Geschichte, Wissen und Perspektive, inklusive kultureller Betrachtungswinkel.',
     body3: 'So entsteht ein Raum für kulturellen Austausch, in dem unterschiedliche Perspektiven sichtbar werden und neue Zugänge zum gemeinsamen Verständnis von Geschichte und Gegenwart entstehen.',
     cta: 'Anfrage 3D',
-    icon: '/assets/Artefact.png',
+    icon: '/assets/Artefact.webp',
     scale: 0.85,
   },
   {
@@ -82,7 +82,7 @@ const SERVICES: Service[] = [
     body2: 'Future Thinking hilft, die Gegenwart in Relation zu setzen und Entscheidungen im Kontext möglicher Zukünfte zu verstehen. Zukunft wird dabei als gestaltbarer Möglichkeitsraum verstanden: Durch bewusstes Langzeitdenken entstehen Systeme, die Orientierung geben, Wandel ermöglichen und positive Entwicklungen fördern.',
     body3: 'So entstehen Ansätze, die Stabilität schaffen, ohne Veränderung zu bremsen und Zukunft als Chance aktiv mitgestalten.',
     cta: 'Anfrage Long View',
-    icon: '/assets/clock.png',
+    icon: '/assets/clock.webp',
     scale: 1.4,
   },
 ]

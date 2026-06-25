@@ -1,0 +1,19 @@
+---
+id: hdsig-5
+type: landesrecht
+law: HDSIG
+number: 5
+citation: § 5 HDSIG
+title: Benennung
+source: "https://dsgvo-gesetz.de/hdsig/5-hdsig/"
+---
+
+# § 5 HDSIG – Benennung
+
+(1) Öffentliche Stellen benennen eine Datenschutzbeauftragte oder einen Datenschutzbeauftragten sowie deren oder dessen Vertreterin oder Vertreter.
+(2) Für mehrere öffentliche Stellen kann unter Berücksichtigung ihrer Organisationsstruktur und ihrer Größe eine gemeinsame Datenschutzbeauftragte oder ein gemeinsamer Datenschutzbeauftragter benannt werden.
+(3) Die oder der Datenschutzbeauftragte wird auf der Grundlage ihrer oder seiner beruflichen Qualifikation und insbesondere ihres oder seines Fachwissens benannt, das sie oder er auf dem Gebiet des Datenschutzrechts und der Datenschutzpraxis besitzt, sowie auf der Grundlage ihrer oder seiner Fähigkeit zur Erfüllung der in § 7 genannten Aufgaben.
+(4) Die oder der Datenschutzbeauftragte kann Beschäftigte oder Beschäftigter der öffentlichen Stelle sein oder ihre oder seine Aufgaben auf der Grundlage eines Dienstleistungsvertrags erfüllen.
+(5) Die öffentliche Stelle veröffentlicht die Kontaktdaten der oder des Datenschutzbeauftragten und teilt diese Daten der oder dem Hessischen Datenschutzbeauftragten mit.
+
+Quelle: https://dsgvo-gesetz.de/hdsig/5-hdsig/

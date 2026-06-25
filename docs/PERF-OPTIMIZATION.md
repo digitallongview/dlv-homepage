@@ -7,6 +7,19 @@
 **Geschätzte Wirkung:** ~30 MB weniger Transfer pro Desktop-Vollbesuch (mobil ~18–20 MB via Poster)
 + ~5 GB CI-/Deploy-Reduktion (Hygiene, kein Per-Visit-Effekt).
 
+## Umsetzungsstand (gemessen)
+- **GLB** 18,15 → 1,56 MB (−91 %), VRAM ~447 → ~28 MB. Struktur/Animation verifiziert.
+- **Bilder** 37 referenzierte Raster → WebP: 23,1 → 2,0 MB (−21,1 MB). Referenzen umgestellt.
+- **leva** raus aus dem eager 3D-Pfad (nur noch bei `?debug`); 3D-Chunk 1229 → 1003 KB.
+- **Erster Paint** (eager): index.js 247→**66 KB brotli**, CSS 73→**9 KB brotli** → ~75 KB.
+- **3D-Hero** für leistungsfähige Geräte: ~1,9 MB (3D-JS br ~280 KB + GLB 1,56 MB) statt ~19 MB.
+- **Fragile Geräte** (reduced-motion/Save-Data/<4 GB/kein WebGL): **15,7-KB-Poster**, kein 3D/GLB.
+- **Deploy/CI** −~38 MB: Font-Quellen 9,6→0,15 MB, 168 Orphans, Duplikat-PDF.
+- **Delivery**: Brotli/Gzip-Precompression (`scripts/precompress.mjs`, in `build` verdrahtet) + `docs/nginx-snippet.conf` (Cache-Header, `brotli_static`/`gzip_static`).
+- **DSGVO/CDN**: Draco-Decoder + 3D-Beleuchtung (statt CDN-HDRI) self-hosted/prozedural — keine Dritt-CDN-Fetches mehr.
+
+**⚠️ Bitte visuell prüfen** (`pnpm dev`): Hero-3D (1K-Texturen + Hemisphere-Beleuchtung statt HDRI), Poster-Fallback (`?poster`), WebP-Qualität der Bilder, fusionDev-Logo.
+
 ## Größte Hebel (mit Zahlen)
 1. **GLB-Texturen 4K→1K WebP:** 18,1 MB → ~3–4 MB (−14,5 MB, ~80 %); VRAM 447 MB → ~28 MB. Geometrie ist
    bereits Draco-komprimiert (60 Primitives) — nur Texturen verkleinern, **kein** Re-Draco.
@@ -57,8 +70,17 @@
 ## Abgelehnt (adversarial widerlegt)
 - **GLB-Preload via `modulepreload`/`as=fetch crossorigin`:** three lädt das GLB per Same-Origin-XHR → Risiko eines **zweiten** 18-MB-Fetch + Verdrängung des First Paint. Stattdessen erst Phase 1 (Textur-Kompression). Erst danach ggf. als DevTools-verifizierter Follow-up.
 
-## Offene Entscheidungen
-1. Mobile-Hero: fragile Geräte gaten vs. Poster auf allen Phones vs. 3D überall.
-2. Bild-Pipeline: sharp-Prebuild + Geschwister committen vs. CI-only vs. manuell.
-3. Video 4,9 GB: CDN vs. Origin-nur-aus-Build-lösen vs. vorerst nichts.
-4. Webserver (Apache/nginx/CDN, statisches Brotli?) — entscheidet, ob Precompression/Caching greifen.
+## Getroffene Entscheidungen
+1. Mobile-Hero: **nur fragile Geräte gaten** (3D bleibt auf leistungsfähigen Phones). ✅
+2. Bild-Pipeline: **einmalig manuell konvertiert** (sharp isoliert, keine Projekt-Dependency). ✅
+3. Video 4,9 GB: **vorerst nichts** (Phase 5-Video übersprungen).
+4. Webserver: **nginx** → `docs/nginx-snippet.conf` (`brotli_static`/`gzip_static` + Cache). ✅
+
+## Bewusst offen / optional (geringer Wert oder visuell zu verifizieren)
+- `headline-glow`: animierter `drop-shadow`-Blur → opacity-Glow-Layer (ändert Hero-Reveal → erst nach Sichtprüfung).
+- `content-visibility:auto` below-fold (Risiko Scroll-Jump bei falscher `contain-intrinsic-size`; Sektionen sind bereits code-split).
+- Font-Subsetting (latin/Gewichte) der 4 woff2 (~−45–70 KB; braucht fonttools).
+- Video → CDN (Phase 5; Infra-Entscheidung, vom User zurückgestellt).
+- `og:url` + `og:image` (absolute URLs) ergänzen, sobald die Domain steht.
+- fusionDev-SVG nutzt Live-`<text>` (Hanken Grotesk, nicht geladen) → Schriftzug ggf. zu Pfaden konvertieren.
+- rsync-Docroot: Ziel ist SSH-Home (`:`); bei Bedarf auf expliziten Docroot umstellen (`--delete`-Risiko).

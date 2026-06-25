@@ -85,10 +85,10 @@ export default function MobileFooter() {
           </p>
 
           <div className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5">
-            <LogoTile src="/assets/mglogo.png" alt="Million Generations" href="https://www.milliongenerations.org/index.php?title=Main_Page" imgClassName="max-h-[50px] w-full" />
+            <LogoTile src="/assets/mglogo.webp" alt="Million Generations" href="https://www.milliongenerations.org/index.php?title=Main_Page" imgClassName="max-h-[50px] w-full" />
             <LogoTile src="/assets/ZPlogo.svg" alt="Wemdinger Zeitpyramide" href="https://zeitpyramide.de/" imgClassName="h-[62px] max-h-none w-auto max-w-none" />
-            <LogoTile src="/assets/LTAP_Logo.png" alt="LTAP" href="https://www.milliongenerations.org/index.php?title=LTAP" imgClassName="h-[84px] max-h-none w-auto max-w-none grayscale" />
-            <LogoTile src="/assets/fusionDev-bw.png" alt="fusionDev" href="https://www.linkedin.com/in/daniel-bucher-3992b1141/" imgClassName="max-h-[44px] w-full opacity-90" />
+            <LogoTile src="/assets/LTAP_Logo.webp" alt="LTAP" href="https://www.milliongenerations.org/index.php?title=LTAP" imgClassName="h-[84px] max-h-none w-auto max-w-none grayscale" />
+            <LogoTile src="/partner-assets/fusiondev-logo/fusionDev-logo.svg" alt="fusionDev" href="https://fusiondev.info/" imgClassName="max-h-[44px] w-full" />
           </div>
         </div>
 
@@ -161,7 +161,7 @@ export default function MobileFooter() {
 
           {/* Logo */}
           <div className="mt-auto flex justify-center pt-12">
-            <img src="/assets/logo-weiss.png" alt="Digital Long View" draggable={false} className="h-14 w-auto select-none opacity-90" />
+            <img src="/assets/logo-weiss.webp" alt="Digital Long View" draggable={false} className="h-14 w-auto select-none opacity-90" />
           </div>
         </div>
       </div>

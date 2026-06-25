@@ -1,0 +1,21 @@
+---
+id: hdsig-42
+type: landesrecht
+law: HDSIG
+number: 42
+citation: § 42 HDSIG
+title: Allgemeine Grundsätze für die Verarbeitung personenbezogener Daten
+source: "https://dsgvo-gesetz.de/hdsig/42-hdsig/"
+---
+
+# § 42 HDSIG – Allgemeine Grundsätze für die Verarbeitung personenbezogener Daten
+
+Personenbezogene Daten müssen
+1. auf rechtmäßige Weise und nach Treu und Glauben verarbeitet werden,
+2. für festgelegte, eindeutige und rechtmäßige Zwecke erhoben und nicht in einer mit diesen Zwecken nicht zu vereinbarenden Weise verarbeitet werden,
+3. dem Verarbeitungszweck entsprechen, für das Erreichen des Verarbeitungszwecks erforderlich sein und ihre Verarbeitung nicht außer Verhältnis zu diesem Zweck stehen,
+4. sachlich richtig und erforderlichenfalls auf dem neuesten Stand sein; dabei sind alle angemessenen Maßnahmen zu treffen, damit personenbezogene Daten, die im Hinblick auf die Zwecke ihrer Verarbeitung unrichtig sind, unverzüglich gelöscht oder berichtigt werden,
+5. nicht länger als es für die Zwecke, für die sie verarbeitet werden, erforderlich ist, in einer Form gespeichert werden, die die Identifizierung der betroffenen Personen ermöglicht, und
+6. in einer Weise verarbeitet werden, die eine angemessene Sicherheit der personenbezogenen Daten gewährleistet; hierzu gehört auch ein durch geeignete technische und organisatorische Maßnahmen zu gewährleistender Schutz vor unbefugter oder unrechtmäßiger Verarbeitung, unbeabsichtigtem Verlust, unbeabsichtigter Zerstörung oder unbeabsichtigter Schädigung.
+
+Quelle: https://dsgvo-gesetz.de/hdsig/42-hdsig/

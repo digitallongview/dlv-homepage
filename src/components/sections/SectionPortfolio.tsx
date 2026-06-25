@@ -18,11 +18,11 @@ const NAV_ITEMS: { id: ProjectId; label: string }[] = [
 ]
 
 const BG_MAP: Record<ProjectId, string> = {
-  langzeitdesign: '/assets/bg-langzeitdesign.png',
-  sophienkirche:  '/assets/bg-sophienkirche.png',
-  zeitpyramide:   '/assets/bg-zeitpyramide.png',
-  vrlab:          '/assets/background-vrlab.png',
-  p5:             '/assets/pacelayer.jpg',
+  langzeitdesign: '/assets/bg-langzeitdesign.webp',
+  sophienkirche:  '/assets/bg-sophienkirche.webp',
+  zeitpyramide:   '/assets/bg-zeitpyramide.webp',
+  vrlab:          '/assets/background-vrlab.webp',
+  p5:             '/assets/pacelayer.webp',
 }
 
 type ProjectData = {
@@ -194,7 +194,6 @@ function LangzeitdesignMedia() {
         ].join(' ')}
       >
         {/* Fallback for the rare browser without HLS (native or MSE) */}
-        <source src="/video/LANGZEITDESIGN.mp4" type="video/mp4" />
       </video>
 
       {/* Inner vignette */}
@@ -365,12 +364,11 @@ function SophienkircheMedia() {
         style={{ top: '2%', left: '3%', right: '3%', bottom: '2%', borderRadius: 18 }}
       >
         <video ref={videoRef} autoPlay muted loop playsInline className="w-full h-full object-cover">
-          <source src="/video/Sophienkirche-Prototyp.mp4" type="video/mp4" />
         </video>
       </div>
       {/* Phone frame on top — screen area is nearly transparent */}
       <img
-        src="/assets/phone.png"
+        src="/assets/phone.webp"
         alt="Smartphone-Mockup Sophienkirche"
         draggable={false}
         className="relative w-full z-10 pointer-events-none select-none"
@@ -438,7 +436,7 @@ function ZeitpyramideMedia() {
     <div className="relative flex-none ml-6" style={{ width: 'clamp(280px, 36vw, 420px)', marginTop: '-3rem' }}>
 
       {/* Spacer — defines container height */}
-      <img src="/assets/phone-empty.png" aria-hidden draggable={false}
+      <img src="/assets/phone-empty.webp" aria-hidden draggable={false}
            className="w-full block select-none opacity-0 pointer-events-none" />
 
       {/* Screen content — fill + both videos, all clipped identically */}
@@ -447,7 +445,7 @@ function ZeitpyramideMedia() {
 
         {/* fil smartphone.png — idle fill, fades when video selected */}
         <img
-          src="/assets/fil smartphone.png"
+          src="/assets/fil-smartphone.webp"
           aria-hidden draggable={false}
           className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none transition-opacity duration-500"
           style={{ opacity: vid ? 0 : 1 }}
@@ -456,19 +454,17 @@ function ZeitpyramideMedia() {
         <video ref={arRef} playsInline controls preload="auto"
                className="absolute inset-0 w-full h-full bg-black transition-opacity duration-300"
                style={{ objectFit: 'fill', opacity: vid === 'ar' ? 1 : 0, pointerEvents: vid === 'ar' ? 'auto' : 'none' }}>
-          <source src="/video/ZP-AR.mp4" type="video/mp4" />
         </video>
 
         <video ref={uavRef} playsInline controls preload="auto"
                className="absolute inset-0 w-full h-full bg-black transition-opacity duration-300"
                style={{ objectFit: 'fill', opacity: vid === 'uav' ? 1 : 0, pointerEvents: vid === 'uav' ? 'auto' : 'none' }}>
-          <source src="/video/ZP-UAV.mp4" type="video/mp4" />
         </video>
       </div>
 
       {/* phone-empty.png — frame always visible */}
       <img
-        src="/assets/phone-empty.png"
+        src="/assets/phone-empty.webp"
         alt="Zeitpyramide Smartphone"
         draggable={false}
         className="absolute inset-0 w-full h-full pointer-events-none select-none
