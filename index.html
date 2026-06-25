@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Digital Longview — Die Digitalagentur für Raum, Zeit und Kultur. Ist gerade in Entstehung." />
     <meta name="robots" content="index,follow" />
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <!-- Fonts werden lokal via @font-face in src/index.css geladen (woff2, font-display:swap).
+         Nur das oberhalb der Falz genutzte Satoshi-Variable wird vorgeladen, damit es
+         nicht mit dem Hero um Bandbreite konkurriert. Kein render-blockierendes CDN mehr. -->
     <link
-      rel="stylesheet"
-      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=erode@300,400,500,500i&display=swap"
+      rel="preload"
+      href="/fonts/satoshi/Satoshi-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <title>Digital Longview — ist gerade in Entstehung!</title>
   </head>
