@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import HeroOverlay from './HeroOverlay'
+import ErrorBoundary from './ErrorBoundary'
 import { useIsPortrait } from '../hooks/useMediaQuery'
 
 // Import sofort starten (beim Laden des Moduls), nicht erst beim ersten Render
@@ -36,6 +37,13 @@ export default function HeroSection() {
     setTimeout(() => setPhase(3), 800)
   }, [])
 
+  // Lädt die 3D-Szene nicht (z. B. GLB-Fehler), feuert onDropStart nie. Dann
+  // direkt auf Phase 3 springen, damit Logo, Headline und Formular trotzdem
+  // erscheinen statt einer leeren Seite.
+  const handleSceneError = useCallback(() => {
+    setPhase((p) => (p < 3 ? 3 : p) as Phase)
+  }, [])
+
   const fadeIn = (active: boolean, duration = 800, delay = 0): React.CSSProperties => ({
     opacity: active ? 1 : 0,
     transition: `opacity ${duration}ms ease ${delay}ms`,
@@ -54,14 +62,19 @@ export default function HeroSection() {
         className="absolute inset-0"
         style={{ transform: isPortrait ? 'translateY(clamp(-220px, -20vh, -100px))' : undefined }}
       >
-        <Suspense fallback={<div className="absolute inset-0 bg-cream" />}>
-          <PyramidScene
-            visible={heroVisible}
-            portrait={isPortrait}
-            onDropStart={handleDropStart}
-            onDropComplete={handleDropComplete}
-          />
-        </Suspense>
+        <ErrorBoundary
+          fallback={<div className="absolute inset-0 bg-cream" />}
+          onError={handleSceneError}
+        >
+          <Suspense fallback={<div className="absolute inset-0 bg-cream" />}>
+            <PyramidScene
+              visible={heroVisible}
+              portrait={isPortrait}
+              onDropStart={handleDropStart}
+              onDropComplete={handleDropComplete}
+            />
+          </Suspense>
+        </ErrorBoundary>
       </div>
 
       {/* Lade-Greeting — nur sichtbar solange GLB noch lädt (Phase 0) */}

@@ -8,7 +8,12 @@ export default defineConfig({
     dedupe: ['react', 'react-dom', 'three'],
   },
   optimizeDeps: {
-    include: ['leva', 'three', '@react-three/fiber', '@react-three/drei'],
+    // leva ist raus: wird nur noch lazy bei ?debug geladen (eigener Chunk), gehört
+    // nicht ins eager Hero-Bundle.
+    include: ['three', '@react-three/fiber', '@react-three/drei'],
+  },
+  build: {
+    target: 'es2022',
   },
   server: {
     host: '127.0.0.1',

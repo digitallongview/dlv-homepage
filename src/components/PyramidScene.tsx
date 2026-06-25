@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import {
   Environment,
@@ -7,10 +7,15 @@ import {
   useAnimations,
   useGLTF,
 } from '@react-three/drei'
-import { Leva, useControls, button } from 'leva'
 import * as THREE from 'three'
 
+// Debug-Panel (leva) wird NUR bei ?debug geladen — eigener Lazy-Chunk, damit die
+// ~200 KB Dev-GUI nicht im eager Hero-Bundle landen.
+const PyramidDebugControls = lazy(() => import('./PyramidDebugControls'))
+
 const GLB_URL = '/3d-assets/Zeitpyramide3D.glb'
+// Draco-Decoder vom eigenen Origin laden statt vom gstatic-CDN (DSGVO + kritischer Pfad).
+useGLTF.setDecoderPath('/draco/')
 useGLTF.preload(GLB_URL)
 
 const TARGET_SIZE = 26
@@ -21,7 +26,7 @@ const DROP_DURATION = 0.6
 const DROP_STAGGER = 0.8
 const DROP_DELAY = 0
 
-const ENV_PRESETS = [
+export const ENV_PRESETS = [
   'city',
   'sunset',
   'dawn',
@@ -34,7 +39,61 @@ const ENV_PRESETS = [
   'lobby',
 ] as const
 
-type EnvPreset = (typeof ENV_PRESETS)[number]
+export type EnvPreset = (typeof ENV_PRESETS)[number]
+
+export type SceneControls = {
+  camY: number
+  camZ: number
+  lookY: number
+  fov: number
+  modelY: number
+  rotationSpeed: number
+}
+
+export type AdvControls = {
+  autoRotate: boolean
+  dropEnabled: boolean
+  animationEnabled: boolean
+  animationSpeed: number
+  ambient: number
+  dir: number
+  dirAzimuth: number
+  dirElevation: number
+  envPreset: EnvPreset
+  envIntensity: number
+  orbitControls: boolean
+  showAxes: boolean
+  showGrid: boolean
+  showStats: boolean
+}
+
+// Production-Defaults — exakt die bisherigen leva-.value-Werte. In Prod die einzigen
+// Werte; PyramidDebugControls überschreibt sie nur bei ?debug.
+const SCENE_DEFAULTS: SceneControls = {
+  camY: 2.5,
+  camZ: 4.2,
+  lookY: 0.8,
+  fov: 62,
+  modelY: 0,
+  rotationSpeed: 0.18,
+}
+
+const ADV_DEFAULTS: AdvControls = {
+  autoRotate: false,
+  dropEnabled: true,
+  animationEnabled: true,
+  animationSpeed: 1.5,
+  ambient: 0.55,
+  dir: 1.1,
+  dirAzimuth: 35,
+  dirElevation: 55,
+  envPreset: 'city',
+  envIntensity: 1.0,
+  orbitControls: false,
+  showAxes: false,
+  showGrid: false,
+  showStats: false,
+}
 
 type PyramidControls = {
   autoRotate: boolean
@@ -268,15 +327,6 @@ const isDebug = () => {
   return new URLSearchParams(window.location.search).has('debug')
 }
 
-function formatValues(o: Record<string, unknown>): string {
-  const lines = Object.entries(o).map(([k, v]) => {
-    if (typeof v === 'number') return `  ${k}: ${Number(v.toFixed(3))},`
-    if (typeof v === 'string') return `  ${k}: '${v}',`
-    return `  ${k}: ${JSON.stringify(v)},`
-  })
-  return `{\n${lines.join('\n')}\n}`
-}
-
 export default function PyramidScene({
   onDropStart,
   onDropComplete,
@@ -294,88 +344,8 @@ export default function PyramidScene({
   const [dropStarted, setDropStarted] = useState(false)
   const [frameloop, setFrameloop] = useState<'always' | 'demand'>('always')
   const animDone = useRef(false)
-  const valuesRef = useRef<Record<string, unknown>>({})
-
-  const scene = useControls(
-    'Scene',
-    {
-      camY: { value: 2.5, min: -5, max: 10, step: 0.05, label: 'Cam Y' },
-      camZ: { value: 4.2, min: 1, max: 30, step: 0.1, label: 'Cam Z' },
-      lookY: { value: 0.8, min: -3, max: 5, step: 0.05, label: 'Look Y' },
-      fov: { value: 62, min: 15, max: 90, step: 1, label: 'FOV' },
-      modelY: { value: 0, min: -5, max: 10, step: 0.05, label: 'Model Y' },
-      rotationSpeed: {
-        value: 0.18,
-        min: 0,
-        max: 2,
-        step: 0.01,
-        label: 'Rotate Speed',
-      },
-      
-      Replay: button(() => setDropTrigger((c) => c + 1)),
-      'Copy as defaults': button(() => {
-        const text = formatValues(valuesRef.current)
-        navigator.clipboard
-          .writeText(text)
-          .then(() => console.info('[leva] copied:\n' + text))
-          .catch(() => console.warn('[leva] clipboard write failed:\n' + text))
-      }),
-    },
-    { collapsed: false },
-  )
-
-  const adv = useControls(
-    'Advanced',
-    {
-      autoRotate: { value: false, label: 'Auto-Rotate' },
-      dropEnabled: { value: true, label: 'Drop' },
-      animationEnabled: { value: true, label: 'GLB Animation' },
-      animationSpeed: {
-        value: 1.5,
-        min: 0,
-        max: 3,
-        step: 0.05,
-        label: 'Anim Speed',
-      },
-      ambient: { value: 0.55, min: 0, max: 3, step: 0.05, label: 'Ambient' },
-      dir: { value: 1.1, min: 0, max: 4, step: 0.05, label: 'Directional' },
-      dirAzimuth: {
-        value: 35,
-        min: -180,
-        max: 180,
-        step: 1,
-        label: 'Sun Az (°)',
-      },
-      dirElevation: {
-        value: 55,
-        min: 0,
-        max: 90,
-        step: 1,
-        label: 'Sun El (°)',
-      },
-      envPreset: {
-        value: 'city' as EnvPreset,
-        options: ENV_PRESETS as unknown as string[],
-        label: 'Env',
-      },
-      envIntensity: {
-        value: 1.0,
-        min: 0,
-        max: 3,
-        step: 0.05,
-        label: 'Env Intensity',
-      },
-      orbitControls: { value: false, label: 'Orbit Drag' },
-      showAxes: { value: false, label: 'Axes' },
-      showGrid: { value: false, label: 'Grid (y=0)' },
-      showStats: { value: false, label: 'FPS' },
-    },
-    { collapsed: true },
-  )
-
-  useEffect(() => {
-    valuesRef.current = { ...scene, ...adv }
-  }, [scene, adv])
+  const [scene, setScene] = useState<SceneControls>(SCENE_DEFAULTS)
+  const [adv, setAdv] = useState<AdvControls>(ADV_DEFAULTS)
 
   // Effektives Kamera-Framing: im Hochformat feste Portrait-Werte, sonst Leva/Scene.
   // Portrait-Werte lassen sich per URL feinjustieren: ?camY=&camZ=&lookY=&fov=
@@ -496,7 +466,15 @@ export default function PyramidScene({
         )}
         {adv.showStats && <Stats className="!left-auto !right-2 !top-2" />}
       </Canvas>
-      <Leva hidden={!debug} collapsed={false} oneLineLabels={false} />
+      {debug && (
+        <Suspense fallback={null}>
+          <PyramidDebugControls
+            onScene={setScene}
+            onAdv={setAdv}
+            onReplay={() => setDropTrigger((c) => c + 1)}
+          />
+        </Suspense>
+      )}
     </div>
   )
 }
