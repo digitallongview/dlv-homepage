@@ -35,9 +35,8 @@ build
 .DS_Store
 Thumbs.db
 
-# 3D-Assets (zu groß für Git; bleiben lokal in 3d-assets/)
-3d-assets/
-public/3d-assets
+# Offline-Inhalte (zu groß für Git; bleiben lokal in offline/)
+offline/
 
 # TS build cache
 *.tsbuildinfo
@@ -50,4 +49,3 @@ screenshots/figma-full.png
 .env
 .env.local
 .env.*.local
-/public/video/
