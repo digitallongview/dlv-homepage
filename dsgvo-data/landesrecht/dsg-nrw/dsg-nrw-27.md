@@ -1,0 +1,19 @@
+---
+id: dsg-nrw-27
+type: landesrecht
+law: DSG NRW
+number: 27
+citation: § 27 DSG NRW
+title: Aufgaben
+source: "https://dsgvo-gesetz.de/dsg-nrw/27-dsg-nrw/"
+---
+
+# § 27 DSG NRW – Aufgaben
+
+(1) Neben den sonstigen in Artikel 57 der Verordnung (EU) 2016/679 genannten Aufgaben berät und informiert die oder der Landesbeauftragte für Datenschutz und Informationsfreiheit die öffentlichen Stellen in Belangen des Datenschutzes.
+(2) ¹Die öffentlichen Stellen sind verpflichtet, die Landesbeauftragte oder den Landesbeauftragten für Datenschutz und Informationsfreiheit bei der Erfüllung ihrer oder seiner Aufgaben und Befugnisse nach Maßgabe von Artikel 57 und 58 der Verordnung (EU) 2016/679 zu unterstützen und Amtshilfe zu leisten. ²Der oder dem Landesbeauftragten für Datenschutz und Informationsfreiheit ist jederzeit Zutritt zu allen Diensträumen und Zugriff auf elektronische Dienste zu gewähren. ³Gesetzliche Geheimhaltungsvorschriften können einem Auskunfts- oder Einsichtsverlangen nicht entgegengehalten werden.
+(3) Abweichend von Absatz 2 bestehen die Untersuchungsbefugnisse der oder des Landesbeauftragten für Datenschutz und Informationsfreiheit gemäß Artikel 58 Absatz 1 Buchstabe e und f der Verordnung (EU) 2016/679 gegenüber den in § 203 Absatz 1 und 3 sowie Absatz 4 Satz 1 des Strafgesetzbuchs genannten Personen oder deren Auftragsverarbeitern nicht, soweit die Inanspruchnahme der Befugnisse zu einem Verstoß gegen die Geheimhaltungspflichten dieser Personen führen würde.
+(4) ¹Sofern die Bereitstellung der geforderten Informationen die Aufgabenerfüllung des Verantwortlichen wesentlich gefährden würde, ist die Gefährdung der oder dem Landesbeauftragten für Datenschutz und Informationsfreiheit schriftlich anzuzeigen und zu begründen. ²Stellt die jeweils zuständige oberste Landesbehörde im Einzelfall fest, dass die Sicherheit des Bundes oder eines Landes dies gebietet, können die Befugnisse der oder des Landesbeauftragten für Datenschutz und Informationsfreiheit nur von dieser oder diesem persönlich ausgeübt werden. ³In diesem Fall müssen personenbezogene Daten einer betroffenen Person, der von der datenverarbeitenden Stelle Vertraulichkeit besonders zugesichert worden ist, auch ihr oder ihm gegenüber nicht offenbart werden.
+(5) ¹Die oder der Landesbeauftragte für Datenschutz und Informationsfreiheit ist frühzeitig über Planungen zur Entwicklung, zum Aufbau oder zur wesentlichen Veränderung automatisierter Datenverarbeitungs- und Informationssysteme zu unterrichten, sofern in dem jeweiligen System personenbezogene Daten verarbeitet werden sollen. ²Entsprechendes gilt für Entwürfe für Rechts- oder Verwaltungsvorschriften des Landes, wenn sie eine Verarbeitung personenbezogener Daten vorsehen.
+
+Quelle: https://dsgvo-gesetz.de/dsg-nrw/27-dsg-nrw/

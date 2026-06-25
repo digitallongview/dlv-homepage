@@ -1,0 +1,17 @@
+---
+id: tdddg-5
+type: landesrecht
+law: TDDDG
+number: 5
+citation: § 5 TDDDG
+title: Abhörverbot, Geheimhaltungspflicht der Betreiber von Funkanlagen
+source: "https://dsgvo-gesetz.de/tdddg/5-tdddg/"
+---
+
+# § 5 TDDDG – Abhörverbot, Geheimhaltungspflicht der Betreiber von Funkanlagen
+
+(1) Mit einer Funkanlage (§ 3 Absatz 1 Nummer 1 des Funkanlagengesetzes) dürfen nur solche Nachrichten abgehört oder in vergleichbarer Weise zur Kenntnis genommen werden, die für den Betreiber der Funkanlage, für Funkamateure im Sinne des § 2 Nummer 1 des Amateurfunkgesetzes, für die Allgemeinheit oder für einen unbestimmten Personenkreis bestimmt sind.
+(2) ¹Der Inhalt anderer als in Absatz 1 genannter Nachrichten sowie die Tatsache ihres Empfangs dürfen, auch wenn der Empfang unbeabsichtigt geschieht, auch von Personen, für die eine Pflicht zur Geheimhaltung nicht schon nach § 3 besteht, anderen nicht mitgeteilt werden. ²§ 3 Absatz 4 gilt entsprechend.
+(3) Das Abhören oder die in vergleichbarer Weise erfolgende Kenntnisnahme und die Weitergabe von Nachrichten aufgrund besonderer gesetzlicher Ermächtigung bleiben unberührt.
+
+Quelle: https://dsgvo-gesetz.de/tdddg/5-tdddg/

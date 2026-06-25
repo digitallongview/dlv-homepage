@@ -1,0 +1,39 @@
+{
+  "name": "dsgvo-dataset",
+  "source": "https://dsgvo-gesetz.de/",
+  "built_with": "build.py",
+  "counts": {
+    "dsgvo_article": 99,
+    "recital": 173,
+    "bdsg": 86,
+    "landesrecht": 827
+  },
+  "total": 1185,
+  "laws": [
+    "BDSG",
+    "BayDSG",
+    "BbgDSG",
+    "BlnDSG",
+    "BremDSGVOAG",
+    "DSAG LSA",
+    "DSG M-V",
+    "DSG NRW",
+    "DSGVO",
+    "HDSIG",
+    "HmbDSG",
+    "LDSG BW",
+    "LDSG RLP",
+    "LDSG SH",
+    "NDSG",
+    "SDSG",
+    "SächsDSDG",
+    "TDDDG",
+    "ThürDSG"
+  ],
+  "errors": [],
+  "schema": {
+    "file": "Eine Markdown-Datei je Vorschrift. YAML-Frontmatter (id,type,law,number,title,kapitel,erwaegungsgruende,bdsg,artikel,source) + Gesetzestext. Absätze (1), Buchstaben a), Satznummern als Hochzahl.",
+    "jsonl": "_data/provisions.jsonl — je Zeile ein Datensatz mit denselben Feldern plus 'path' und 'text'."
+  },
+  "lizenz": "Gesetzestexte sind amtliche Werke (§ 5 UrhG) und gemeinfrei. Inoffizielle Titel/Querverweis-Kuratierung stammen von dsgvo-gesetz.de."
+}

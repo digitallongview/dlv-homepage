@@ -1,0 +1,22 @@
+---
+id: dsg-nrw-64
+type: landesrecht
+law: DSG NRW
+number: 64
+citation: § 64 DSG NRW
+title: Datenübermittlung ohne geeignete Garantien
+source: "https://dsgvo-gesetz.de/dsg-nrw/64-dsg-nrw/"
+---
+
+# § 64 DSG NRW – Datenübermittlung ohne geeignete Garantien
+
+(1) Liegt entgegen § 62 Absatz 1 Nummer 2 kein Beschluss nach Artikel 36 Absatz 3 der Richtlinie (EU) 2016/680 vor und liegen auch keine geeigneten Garantien im Sinne des § 63 Absatz 1 vor, ist eine Übermittlung bei Vorliegen der übrigen Voraussetzungen des § 62 auch dann zulässig, wenn die Übermittlung erforderlich ist
+  a) zum Schutz lebenswichtiger Interessen einer natürlichen Person,
+  b) zur Wahrung berechtigter Interessen der betroffenen Person,
+  c) zur Abwehr einer gegenwärtigen und erheblichen Gefahr für die öffentliche Sicherheit eines Staates,
+  d) im Einzelfall für die in § 35 genannten Zwecke oder
+  e) im Einzelfall zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen im Zusammenhang mit den in § 35 genannten Zwecken.
+(2) Der Verantwortliche hat von einer Übermittlung nach Absatz 1 abzusehen, wenn die Grundrechte der betroffenen Person das öffentliche Interesse an der Übermittlung überwiegen.
+(3) Für Übermittlungen nach Absatz 1 gilt § 63 Absatz 2 entsprechend.
+
+Quelle: https://dsgvo-gesetz.de/dsg-nrw/64-dsg-nrw/

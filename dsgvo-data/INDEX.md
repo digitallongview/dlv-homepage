@@ -1,0 +1,1226 @@
+# DSGVO-Datensatz — Index
+
+Pfadschema: `dsgvo/art-N.md` · `erwaegungsgruende/eg-N.md` · `bdsg/bdsg-N.md` · `landesrecht/<code>/<code>-N.md`
+
+## DSGVO (272)
+- Art. 1 DSGVO – Gegenstand und Ziele · dsgvo/art-1.md
+- Art. 2 DSGVO – Sachlicher Anwendungsbereich · dsgvo/art-2.md
+- Art. 3 DSGVO – Räumlicher Anwendungsbereich · dsgvo/art-3.md
+- Art. 4 DSGVO – Begriffsbestimmungen · dsgvo/art-4.md
+- Art. 5 DSGVO – Grundsätze für die Verarbeitung personenbezogener Daten · dsgvo/art-5.md
+- Art. 6 DSGVO – Rechtmäßigkeit der Verarbeitung · dsgvo/art-6.md
+- Art. 7 DSGVO – Bedingungen für die Einwilligung · dsgvo/art-7.md
+- Art. 8 DSGVO – Bedingungen für die Einwilligung eines Kindes in Bezug auf Dienste der Informationsgesellschaft · dsgvo/art-8.md
+- Art. 9 DSGVO – Verarbeitung besonderer Kategorien personenbezogener Daten · dsgvo/art-9.md
+- Art. 10 DSGVO – Verarbeitung von personenbezogenen Daten über strafrechtliche Verurteilungen und Straftaten · dsgvo/art-10.md
+- Art. 11 DSGVO – Verarbeitung, für die eine Identifizierung der betroffenen Person nicht erforderlich ist · dsgvo/art-11.md
+- Art. 12 DSGVO – Transparente Information, Kommunikation und Modalitäten für die Ausübung der Rechte der betroffenen Person · dsgvo/art-12.md
+- Art. 13 DSGVO – Informationspflicht bei Erhebung von personenbezogenen Daten bei der betroffenen Person · dsgvo/art-13.md
+- Art. 14 DSGVO – Informationspflicht, wenn die personenbezogenen Daten nicht bei der betroffenen Person erhoben wurden · dsgvo/art-14.md
+- Art. 15 DSGVO – Auskunftsrecht der betroffenen Person · dsgvo/art-15.md
+- Art. 16 DSGVO – Recht auf Berichtigung · dsgvo/art-16.md
+- Art. 17 DSGVO – Recht auf Löschung ("Recht auf Vergessenwerden") · dsgvo/art-17.md
+- Art. 18 DSGVO – Recht auf Einschränkung der Verarbeitung · dsgvo/art-18.md
+- Art. 19 DSGVO – Mitteilungspflicht im Zusammenhang mit der Berichtigung oder Löschung personenbezogener Daten oder der Einschränkung der Verarbeitung · dsgvo/art-19.md
+- Art. 20 DSGVO – Recht auf Datenübertragbarkeit · dsgvo/art-20.md
+- Art. 21 DSGVO – Widerspruchsrecht · dsgvo/art-21.md
+- Art. 22 DSGVO – Automatisierte Entscheidungen im Einzelfall einschließlich Profiling · dsgvo/art-22.md
+- Art. 23 DSGVO – Beschränkungen · dsgvo/art-23.md
+- Art. 24 DSGVO – Verantwortung des für die Verarbeitung Verantwortlichen · dsgvo/art-24.md
+- Art. 25 DSGVO – Datenschutz durch Technikgestaltung und durch datenschutzfreundliche Voreinstellungen · dsgvo/art-25.md
+- Art. 26 DSGVO – Gemeinsam Verantwortliche · dsgvo/art-26.md
+- Art. 27 DSGVO – Vertreter von nicht in der Union niedergelassenen Verantwortlichen oder Auftragsverarbeitern · dsgvo/art-27.md
+- Art. 28 DSGVO – Auftragsverarbeiter · dsgvo/art-28.md
+- Art. 29 DSGVO – Verarbeitung unter der Aufsicht des Verantwortlichen oder des Auftragsverarbeiters · dsgvo/art-29.md
+- Art. 30 DSGVO – Verzeichnis von Verarbeitungstätigkeiten · dsgvo/art-30.md
+- Art. 31 DSGVO – Zusammenarbeit mit der Aufsichtsbehörde · dsgvo/art-31.md
+- Art. 32 DSGVO – Sicherheit der Verarbeitung · dsgvo/art-32.md
+- Art. 33 DSGVO – Meldung von Verletzungen des Schutzes personenbezogener Daten an die Aufsichtsbehörde · dsgvo/art-33.md
+- Art. 34 DSGVO – Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person · dsgvo/art-34.md
+- Art. 35 DSGVO – Datenschutz-Folgenabschätzung · dsgvo/art-35.md
+- Art. 36 DSGVO – Vorherige Konsultation · dsgvo/art-36.md
+- Art. 37 DSGVO – Benennung eines Datenschutzbeauftragten · dsgvo/art-37.md
+- Art. 38 DSGVO – Stellung des Datenschutzbeauftragten · dsgvo/art-38.md
+- Art. 39 DSGVO – Aufgaben des Datenschutzbeauftragten · dsgvo/art-39.md
+- Art. 40 DSGVO – Verhaltensregeln · dsgvo/art-40.md
+- Art. 41 DSGVO – Überwachung der genehmigten Verhaltensregeln · dsgvo/art-41.md
+- Art. 42 DSGVO – Zertifizierung · dsgvo/art-42.md
+- Art. 43 DSGVO – Zertifizierungsstellen · dsgvo/art-43.md
+- Art. 44 DSGVO – Allgemeine Grundsätze der Datenübermittlung · dsgvo/art-44.md
+- Art. 45 DSGVO – Datenübermittlung auf der Grundlage eines Angemessenheitsbeschlusses · dsgvo/art-45.md
+- Art. 46 DSGVO – Datenübermittlung vorbehaltlich geeigneter Garantien · dsgvo/art-46.md
+- Art. 47 DSGVO – Verbindliche interne Datenschutzvorschriften · dsgvo/art-47.md
+- Art. 48 DSGVO – Nach dem Unionsrecht nicht zulässige Übermittlung oder Offenlegung · dsgvo/art-48.md
+- Art. 49 DSGVO – Ausnahmen für bestimmte Fälle · dsgvo/art-49.md
+- Art. 50 DSGVO – Internationale Zusammenarbeit zum Schutz personenbezogener Daten · dsgvo/art-50.md
+- Art. 51 DSGVO – Aufsichtsbehörde · dsgvo/art-51.md
+- Art. 52 DSGVO – Unabhängigkeit · dsgvo/art-52.md
+- Art. 53 DSGVO – Allgemeine Bedingungen für die Mitglieder der Aufsichtsbehörde · dsgvo/art-53.md
+- Art. 54 DSGVO – Errichtung der Aufsichtsbehörde · dsgvo/art-54.md
+- Art. 55 DSGVO – Zuständigkeit · dsgvo/art-55.md
+- Art. 56 DSGVO – Zuständigkeit der federführenden Aufsichtsbehörde · dsgvo/art-56.md
+- Art. 57 DSGVO – Aufgaben · dsgvo/art-57.md
+- Art. 58 DSGVO – Befugnisse · dsgvo/art-58.md
+- Art. 59 DSGVO – Tätigkeitsbericht · dsgvo/art-59.md
+- Art. 60 DSGVO – Zusammenarbeit zwischen der federführenden Aufsichtsbehörde und den anderen betroffenen Aufsichtsbehörden · dsgvo/art-60.md
+- Art. 61 DSGVO – Gegenseitige Amtshilfe · dsgvo/art-61.md
+- Art. 62 DSGVO – Gemeinsame Maßnahmen der Aufsichtsbehörden · dsgvo/art-62.md
+- Art. 63 DSGVO – Kohärenzverfahren · dsgvo/art-63.md
+- Art. 64 DSGVO – Stellungnahme des Ausschusses · dsgvo/art-64.md
+- Art. 65 DSGVO – Streitbeilegung durch den Ausschuss · dsgvo/art-65.md
+- Art. 66 DSGVO – Dringlichkeitsverfahren · dsgvo/art-66.md
+- Art. 67 DSGVO – Informationsaustausch · dsgvo/art-67.md
+- Art. 68 DSGVO – Europäischer Datenschutzausschuss · dsgvo/art-68.md
+- Art. 69 DSGVO – Unabhängigkeit · dsgvo/art-69.md
+- Art. 70 DSGVO – Aufgaben des Ausschusses · dsgvo/art-70.md
+- Art. 71 DSGVO – Berichterstattung · dsgvo/art-71.md
+- Art. 72 DSGVO – Verfahrensweise · dsgvo/art-72.md
+- Art. 73 DSGVO – Vorsitz · dsgvo/art-73.md
+- Art. 74 DSGVO – Aufgaben des Vorsitzes · dsgvo/art-74.md
+- Art. 75 DSGVO – Sekretariat · dsgvo/art-75.md
+- Art. 76 DSGVO – Vertraulichkeit · dsgvo/art-76.md
+- Art. 77 DSGVO – Recht auf Beschwerde bei einer Aufsichtsbehörde · dsgvo/art-77.md
+- Art. 78 DSGVO – Recht auf wirksamen gerichtlichen Rechtsbehelf gegen eine Aufsichtsbehörde · dsgvo/art-78.md
+- Art. 79 DSGVO – Recht auf wirksamen gerichtlichen Rechtsbehelf gegen Verantwortliche oder Auftragsverarbeiter · dsgvo/art-79.md
+- Art. 80 DSGVO – Vertretung von betroffenen Personen · dsgvo/art-80.md
+- Art. 81 DSGVO – Aussetzung des Verfahrens · dsgvo/art-81.md
+- Art. 82 DSGVO – Haftung und Recht auf Schadenersatz · dsgvo/art-82.md
+- Art. 83 DSGVO – Allgemeine Bedingungen für die Verhängung von Geldbußen · dsgvo/art-83.md
+- Art. 84 DSGVO – Sanktionen · dsgvo/art-84.md
+- Art. 85 DSGVO – Verarbeitung und Freiheit der Meinungsäußerung und Informationsfreiheit · dsgvo/art-85.md
+- Art. 86 DSGVO – Verarbeitung und Zugang der Öffentlichkeit zu amtlichen Dokumenten · dsgvo/art-86.md
+- Art. 87 DSGVO – Verarbeitung der nationalen Kennziffer · dsgvo/art-87.md
+- Art. 88 DSGVO – Datenverarbeitung im Beschäftigungskontext · dsgvo/art-88.md
+- Art. 89 DSGVO – Garantien und Ausnahmen in Bezug auf die Verarbeitung zu im öffentlichen Interesse liegenden Archivzwecken, zu wissenschaftlichen oder historischen Forschungszwecken und zu statistischen Zwecken · dsgvo/art-89.md
+- Art. 90 DSGVO – Geheimhaltungspflichten · dsgvo/art-90.md
+- Art. 91 DSGVO – Bestehende Datenschutzvorschriften von Kirchen und religiösen Vereinigungen oder Gemeinschaften · dsgvo/art-91.md
+- Art. 92 DSGVO – Ausübung der Befugnisübertragung · dsgvo/art-92.md
+- Art. 93 DSGVO – Ausschussverfahren · dsgvo/art-93.md
+- Art. 94 DSGVO – Aufhebung der Richtlinie 95/46/EG · dsgvo/art-94.md
+- Art. 95 DSGVO – Verhältnis zur Richtlinie 2002/58/EG · dsgvo/art-95.md
+- Art. 96 DSGVO – Verhältnis zu bereits geschlossenen Übereinkünften · dsgvo/art-96.md
+- Art. 97 DSGVO – Berichte der Kommission · dsgvo/art-97.md
+- Art. 98 DSGVO – Überprüfung anderer Rechtsakte der Union zum Datenschutz · dsgvo/art-98.md
+- Art. 99 DSGVO – Inkrafttreten und Anwendung · dsgvo/art-99.md
+- Erwägungsgrund 1 – Datenschutz als Grundrecht · erwaegungsgruende/eg-1.md
+- Erwägungsgrund 2 – Wahrung der Grundrechte · erwaegungsgruende/eg-2.md
+- Erwägungsgrund 3 – Versuchte Harmonisierung der Datenschutzvorschriften durch die RL 95/46/EG · erwaegungsgruende/eg-3.md
+- Erwägungsgrund 4 – Einklang mit anderen Rechten · erwaegungsgruende/eg-4.md
+- Erwägungsgrund 5 – Zusammenarbeit der Mitgliedsstaaten zum Datenaustausch · erwaegungsgruende/eg-5.md
+- Erwägungsgrund 6 – Gewährleistung eines hohen Datenschutzniveaus trotz Zunahme des Datenaustausches · erwaegungsgruende/eg-6.md
+- Erwägungsgrund 7 – Rechtsrahmen und Vertrauensbasis durch Sicherheit und Kontrolle · erwaegungsgruende/eg-7.md
+- Erwägungsgrund 8 – Übernahme in nationale Rechtsvorschriften · erwaegungsgruende/eg-8.md
+- Erwägungsgrund 9 – Unterschiedliche Schutzstandards durch die RL 95/46/EG · erwaegungsgruende/eg-9.md
+- Erwägungsgrund 10 – Gleichwertiges Schutzniveau trotz nationaler Spielräume · erwaegungsgruende/eg-10.md
+- Erwägungsgrund 11 – Gleiche Befugnisse und Sanktionen · erwaegungsgruende/eg-11.md
+- Erwägungsgrund 12 – Ermächtigung des Europäischen Parlaments und des Rates · erwaegungsgruende/eg-12.md
+- Erwägungsgrund 13 – Berücksichtigung von Kleinstunternehmen sowie kleinen und mittleren Unternehmen · erwaegungsgruende/eg-13.md
+- Erwägungsgrund 14 – Keine Anwendung auf juristische Personen · erwaegungsgruende/eg-14.md
+- Erwägungsgrund 15 – Technologieneutralität · erwaegungsgruende/eg-15.md
+- Erwägungsgrund 16 – Keine Anwendung auf Tätigkeiten der nationalen und gemeinsamen Sicherheit · erwaegungsgruende/eg-16.md
+- Erwägungsgrund 17 – Anpassung der VO (EG) Nr. 45/2001 · erwaegungsgruende/eg-17.md
+- Erwägungsgrund 18 – Keine Anwendung auf den persönlichen oder familiären Bereich · erwaegungsgruende/eg-18.md
+- Erwägungsgrund 19 – Keine Anwendung auf die Strafverfolgung · erwaegungsgruende/eg-19.md
+- Erwägungsgrund 20 – Kein Einfluss auf die Unabhängigkeit der Justiz · erwaegungsgruende/eg-20.md
+- Erwägungsgrund 21 – Verantwortlichkeit von Anbietern reiner Vermittlungsdienste bleibt unberührt · erwaegungsgruende/eg-21.md
+- Erwägungsgrund 22 – Verarbeitung durch eine Niederlassung · erwaegungsgruende/eg-22.md
+- Erwägungsgrund 23 – Anwendung auf Verarbeiter/Auftragsverarbeiter außerhalb der Union bei gezieltem Anbieten an Betroffene innerhalb der Union · erwaegungsgruende/eg-23.md
+- Erwägungsgrund 24 – Anwendung auf Verarbeiter/Auftragsverarbeiter außerhalb der Union bei Profilerstellung von Betroffenen innerhalb der Union · erwaegungsgruende/eg-24.md
+- Erwägungsgrund 25 – Anwendung auf Verarbeiter außerhalb der Union aufgrund völkerrechtlicher Bestimmungen · erwaegungsgruende/eg-25.md
+- Erwägungsgrund 26 – Keine Anwendung auf anonymisierte Daten · erwaegungsgruende/eg-26.md
+- Erwägungsgrund 27 – Keine Anwendung auf Daten Verstorbener · erwaegungsgruende/eg-27.md
+- Erwägungsgrund 28 – Einführung der Pseudonymisierung · erwaegungsgruende/eg-28.md
+- Erwägungsgrund 29 – Pseudonymisierung bei demselben Verantwortlichen · erwaegungsgruende/eg-29.md
+- Erwägungsgrund 30 – Online-Kennungen zur Profilerstellung und Identifizierung · erwaegungsgruende/eg-30.md
+- Erwägungsgrund 31 – Keine Anwendung auf Behörden in Ausübung ihres offiziellen Auftrages · erwaegungsgruende/eg-31.md
+- Erwägungsgrund 32 – Einwilligung · erwaegungsgruende/eg-32.md
+- Erwägungsgrund 33 – Einwilligung zur wissenschaftlichen Forschung · erwaegungsgruende/eg-33.md
+- Erwägungsgrund 34 – Genetische Daten · erwaegungsgruende/eg-34.md
+- Erwägungsgrund 35 – Gesundheitsdaten · erwaegungsgruende/eg-35.md
+- Erwägungsgrund 36 – Festlegung der Hauptniederlassung · erwaegungsgruende/eg-36.md
+- Erwägungsgrund 37 – Unternehmensgruppe · erwaegungsgruende/eg-37.md
+- Erwägungsgrund 38 – Besonderer Schutz der Daten von Kindern · erwaegungsgruende/eg-38.md
+- Erwägungsgrund 39 – Grundsätze der Datenverarbeitung · erwaegungsgruende/eg-39.md
+- Erwägungsgrund 40 – Rechtmäßigkeit der Datenverarbeitung · erwaegungsgruende/eg-40.md
+- Erwägungsgrund 41 – Rechtsgrundlagen und Gesetzgebungsmaßnahmen · erwaegungsgruende/eg-41.md
+- Erwägungsgrund 42 – Beweislast und Erfordernisse einer Einwilligung · erwaegungsgruende/eg-42.md
+- Erwägungsgrund 43 – Zwanglose Einwilligung · erwaegungsgruende/eg-43.md
+- Erwägungsgrund 44 – Vertragserfüllung oder -abschluss · erwaegungsgruende/eg-44.md
+- Erwägungsgrund 45 – Erfüllung rechtlicher Pflichten · erwaegungsgruende/eg-45.md
+- Erwägungsgrund 46 – Lebenswichtige Interessen · erwaegungsgruende/eg-46.md
+- Erwägungsgrund 47 – Überwiegende berechtigte Interessen · erwaegungsgruende/eg-47.md
+- Erwägungsgrund 48 – Überwiegende berechtigte Interessen in der Unternehmensgruppe · erwaegungsgruende/eg-48.md
+- Erwägungsgrund 49 – Netz- und Informationssicherheit als überwiegendes berechtigtes Interesse · erwaegungsgruende/eg-49.md
+- Erwägungsgrund 50 – Weiterverarbeitung · erwaegungsgruende/eg-50.md
+- Erwägungsgrund 51 – Besonderer Schutz sensibler Daten · erwaegungsgruende/eg-51.md
+- Erwägungsgrund 52 – Ausnahmen vom Verbot der Verarbeitung sensibler Daten · erwaegungsgruende/eg-52.md
+- Erwägungsgrund 53 – Verarbeitung sensibler Daten im Gesundheits- und Sozialbereich · erwaegungsgruende/eg-53.md
+- Erwägungsgrund 54 – Verarbeitung sensibler Daten zu Zwecken der öffentlichen Gesundheit · erwaegungsgruende/eg-54.md
+- Erwägungsgrund 55 – Öffentliches Interesse bei Verarbeitung durch staatliche Stellen für Ziele anerkannter Religionsgemeinschaften · erwaegungsgruende/eg-55.md
+- Erwägungsgrund 56 – Verarbeitung von Daten zur politischen Einstellung durch Parteien · erwaegungsgruende/eg-56.md
+- Erwägungsgrund 57 – Zusätzliche Daten zur Identifizierung · erwaegungsgruende/eg-57.md
+- Erwägungsgrund 58 – Grundsatz der Transparenz · erwaegungsgruende/eg-58.md
+- Erwägungsgrund 59 – Modalitäten für die Ausübung der Rechte der Betroffenen · erwaegungsgruende/eg-59.md
+- Erwägungsgrund 60 – Informationspflicht · erwaegungsgruende/eg-60.md
+- Erwägungsgrund 61 – Zeitpunkt der Information · erwaegungsgruende/eg-61.md
+- Erwägungsgrund 62 – Ausnahmen von der Informationspflicht · erwaegungsgruende/eg-62.md
+- Erwägungsgrund 63 – Auskunftsrecht · erwaegungsgruende/eg-63.md
+- Erwägungsgrund 64 – Identitätsprüfung · erwaegungsgruende/eg-64.md
+- Erwägungsgrund 65 – Recht auf Berichtigung und Löschung · erwaegungsgruende/eg-65.md
+- Erwägungsgrund 66 – Recht auf Vergessenwerden · erwaegungsgruende/eg-66.md
+- Erwägungsgrund 67 – Beschränkung der Verarbeitung · erwaegungsgruende/eg-67.md
+- Erwägungsgrund 68 – Recht auf Datenübertragbarkeit · erwaegungsgruende/eg-68.md
+- Erwägungsgrund 69 – Widerspruchsrecht · erwaegungsgruende/eg-69.md
+- Erwägungsgrund 70 – Widerspruchsrecht gegen Direktwerbung · erwaegungsgruende/eg-70.md
+- Erwägungsgrund 71 – Profiling · erwaegungsgruende/eg-71.md
+- Erwägungsgrund 72 – Leitlinienkompetenz des Europäischen Datenschutzausschusses bezüglich Profiling · erwaegungsgruende/eg-72.md
+- Erwägungsgrund 73 – Beschränkungen von Rechten und Grundsätzen · erwaegungsgruende/eg-73.md
+- Erwägungsgrund 74 – Verantwortung und Haftung des Verantwortlichen · erwaegungsgruende/eg-74.md
+- Erwägungsgrund 75 – Risiken für die Rechte und Freiheiten natürlicher Personen · erwaegungsgruende/eg-75.md
+- Erwägungsgrund 76 – Risikobewertung · erwaegungsgruende/eg-76.md
+- Erwägungsgrund 77 – Leitlinien zur Risikobewertung · erwaegungsgruende/eg-77.md
+- Erwägungsgrund 78 – Geeignete technische und organisatorische Maßnahmen · erwaegungsgruende/eg-78.md
+- Erwägungsgrund 79 – Zuteilung der Verantwortlichkeit · erwaegungsgruende/eg-79.md
+- Erwägungsgrund 80 – Benennung eines Vertreters · erwaegungsgruende/eg-80.md
+- Erwägungsgrund 81 – Heranziehung eines Auftragsverarbeiters · erwaegungsgruende/eg-81.md
+- Erwägungsgrund 82 – Verzeichnis der Verarbeitungstätigkeiten · erwaegungsgruende/eg-82.md
+- Erwägungsgrund 83 – Sicherheit der Verarbeitung · erwaegungsgruende/eg-83.md
+- Erwägungsgrund 84 – Risikoevaluierung und Folgenabschätzung · erwaegungsgruende/eg-84.md
+- Erwägungsgrund 85 – Meldepflicht von Verletzungen an die Aufsichtsbehörde · erwaegungsgruende/eg-85.md
+- Erwägungsgrund 86 – Benachrichtigung von Verletzungen an die Betroffenen · erwaegungsgruende/eg-86.md
+- Erwägungsgrund 87 – Unverzüglichkeit der Meldung/Benachrichtigung · erwaegungsgruende/eg-87.md
+- Erwägungsgrund 88 – Format und Verfahren der Meldung · erwaegungsgruende/eg-88.md
+- Erwägungsgrund 89 – Entfall der generellen Meldepflicht · erwaegungsgruende/eg-89.md
+- Erwägungsgrund 90 – Datenschutz-Folgenabschätzung · erwaegungsgruende/eg-90.md
+- Erwägungsgrund 91 – Erforderlichkeit einer Datenschutz-Folgenabschätzung · erwaegungsgruende/eg-91.md
+- Erwägungsgrund 92 – Thematische Datenschutz-Folgenabschätzung · erwaegungsgruende/eg-92.md
+- Erwägungsgrund 93 – Datenschutz-Folgenabschätzung bei Behörden · erwaegungsgruende/eg-93.md
+- Erwägungsgrund 94 – Konsultierung der Aufsichtsbehörde · erwaegungsgruende/eg-94.md
+- Erwägungsgrund 95 – Unterstützung durch den Auftragsverarbeiter · erwaegungsgruende/eg-95.md
+- Erwägungsgrund 96 – Konsultierung der Aufsichtsbehörde im Zuge eines Gesetzgebungsprozesses · erwaegungsgruende/eg-96.md
+- Erwägungsgrund 97 – Datenschutzbeauftragter · erwaegungsgruende/eg-97.md
+- Erwägungsgrund 98 – Erstellung von Verhaltensregeln durch Verbände und Vereinigungen · erwaegungsgruende/eg-98.md
+- Erwägungsgrund 99 – Konsultation von Interessenträgern und Betroffenen bei der Ausarbeitung von Verhaltensregeln · erwaegungsgruende/eg-99.md
+- Erwägungsgrund 100 – Zertifizierung · erwaegungsgruende/eg-100.md
+- Erwägungsgrund 101 – Grundsätze des internationalen Datenverkehrs · erwaegungsgruende/eg-101.md
+- Erwägungsgrund 102 – Internationale Abkommen für angemessenes Schutzniveau · erwaegungsgruende/eg-102.md
+- Erwägungsgrund 103 – Adäquates Schutzniveau von Drittländern aufgrund eines Angemessenheitsbeschlusses · erwaegungsgruende/eg-103.md
+- Erwägungsgrund 104 – Kriterien für Angemessenheitsbeschluss · erwaegungsgruende/eg-104.md
+- Erwägungsgrund 105 – Berücksichtigung internationaler Abkommen für Angemessenheitsbeschluss · erwaegungsgruende/eg-105.md
+- Erwägungsgrund 106 – Überwachung und regelmäßige Überprüfung des Schutzniveaus · erwaegungsgruende/eg-106.md
+- Erwägungsgrund 107 – Abänderung, Widerruf und Außerkraftsetzung von Angemessenheitsbeschlüssen · erwaegungsgruende/eg-107.md
+- Erwägungsgrund 108 – Geeignete Garantien · erwaegungsgruende/eg-108.md
+- Erwägungsgrund 109 – Standard-Datenschutzklauseln · erwaegungsgruende/eg-109.md
+- Erwägungsgrund 110 – Verbindliche interne Datenschutzvorschriften · erwaegungsgruende/eg-110.md
+- Erwägungsgrund 111 – Ausnahmen für bestimmte Fälle internationaler Übermittlungen · erwaegungsgruende/eg-111.md
+- Erwägungsgrund 112 – Datenübermittlungen aufgrund wichtiger Gründe des öffentlichen Interesses · erwaegungsgruende/eg-112.md
+- Erwägungsgrund 113 – Nicht wiederholend erfolgende und nur eine begrenzte Zahl von Betroffenen betreffende Übermittlungen · erwaegungsgruende/eg-113.md
+- Erwägungsgrund 114 – Sicherstellung der Durchsetzbarkeit von Rechten und Pflichten bei Fehlen eines Angemessenheitsbeschlusses · erwaegungsgruende/eg-114.md
+- Erwägungsgrund 115 – Vorschriften in Drittländern die der Verordnung zuwiderlaufen · erwaegungsgruende/eg-115.md
+- Erwägungsgrund 116 – Kooperation zwischen den Aufsichtsbehörden · erwaegungsgruende/eg-116.md
+- Erwägungsgrund 117 – Errichtung von Aufsichtsbehörden · erwaegungsgruende/eg-117.md
+- Erwägungsgrund 118 – Kontrolle der Aufsichtsbehörden · erwaegungsgruende/eg-118.md
+- Erwägungsgrund 119 – Organisation mehrerer Aufsichtsbehörden eines Mitgliedsstaates · erwaegungsgruende/eg-119.md
+- Erwägungsgrund 120 – Ausstattung der Aufsichtsbehörden · erwaegungsgruende/eg-120.md
+- Erwägungsgrund 121 – Unabhängigkeit der Aufsichtsbehörde · erwaegungsgruende/eg-121.md
+- Erwägungsgrund 122 – Zuständigkeit der Aufsichtsbehörde · erwaegungsgruende/eg-122.md
+- Erwägungsgrund 123 – Kooperation der Aufsichtsbehörden untereinander und mit der Kommission · erwaegungsgruende/eg-123.md
+- Erwägungsgrund 124 – Federführende Behörde bei Verarbeitung in mehreren Mitgliedsstaaten · erwaegungsgruende/eg-124.md
+- Erwägungsgrund 125 – Kompetenzen der federführenden Behörde · erwaegungsgruende/eg-125.md
+- Erwägungsgrund 126 – Gemeinsame Beschlüsse · erwaegungsgruende/eg-126.md
+- Erwägungsgrund 127 – Unterrichtung der federführenden Behörde bei nationalen Verarbeitungen · erwaegungsgruende/eg-127.md
+- Erwägungsgrund 128 – Zuständigkeit bei Verarbeitung im öffentlichen Interesse · erwaegungsgruende/eg-128.md
+- Erwägungsgrund 129 – Aufgaben und Befugnisse der Aufsichtsbehörden · erwaegungsgruende/eg-129.md
+- Erwägungsgrund 130 – Berücksichtigung der Behörde, bei der eine Beschwerde eingebracht wurde · erwaegungsgruende/eg-130.md
+- Erwägungsgrund 131 – Versuch einer gütlichen Einigung · erwaegungsgruende/eg-131.md
+- Erwägungsgrund 132 – Sensibilisierungsmaßnahmen und spezifische Maßnahmen · erwaegungsgruende/eg-132.md
+- Erwägungsgrund 133 – Gegenseitige Unterstützung und einstweilige Maßnahmen · erwaegungsgruende/eg-133.md
+- Erwägungsgrund 134 – Teilnahme an gemeinsamen Maßnahmen · erwaegungsgruende/eg-134.md
+- Erwägungsgrund 135 – Kohärenzverfahren · erwaegungsgruende/eg-135.md
+- Erwägungsgrund 136 – Beschlüsse und Stellungnahmen des Datenschutzausschusses · erwaegungsgruende/eg-136.md
+- Erwägungsgrund 137 – Einstweilige Maßnahmen · erwaegungsgruende/eg-137.md
+- Erwägungsgrund 138 – Dringlichkeitsverfahren · erwaegungsgruende/eg-138.md
+- Erwägungsgrund 139 – Europäischer Datenschutzausschuss · erwaegungsgruende/eg-139.md
+- Erwägungsgrund 140 – Sekretariat und Personal des Datenschutzausschusses · erwaegungsgruende/eg-140.md
+- Erwägungsgrund 141 – Recht auf Beschwerde · erwaegungsgruende/eg-141.md
+- Erwägungsgrund 142 – Vertretung von Betroffenen durch Einrichtungen, Organisationen und Verbände · erwaegungsgruende/eg-142.md
+- Erwägungsgrund 143 – Gerichtliche Rechtsbehelfe · erwaegungsgruende/eg-143.md
+- Erwägungsgrund 144 – Verwandte Verfahren · erwaegungsgruende/eg-144.md
+- Erwägungsgrund 145 – Wahlrecht des Betroffenen · erwaegungsgruende/eg-145.md
+- Erwägungsgrund 146 – Schadenersatz · erwaegungsgruende/eg-146.md
+- Erwägungsgrund 147 – Gerichtsbarkeit · erwaegungsgruende/eg-147.md
+- Erwägungsgrund 148 – Sanktionen · erwaegungsgruende/eg-148.md
+- Erwägungsgrund 149 – Sanktionen für Verstöße gegen nationale Vorschriften · erwaegungsgruende/eg-149.md
+- Erwägungsgrund 150 – Geldbußen · erwaegungsgruende/eg-150.md
+- Erwägungsgrund 151 – Geldbußenregelung in Dänemark und Estland · erwaegungsgruende/eg-151.md
+- Erwägungsgrund 152 – Sanktionsbefugnis der Mitgliedsstaaten · erwaegungsgruende/eg-152.md
+- Erwägungsgrund 153 – Verarbeitung zu journalistischen oder wissenschaftlichen, künstlerischen oder literarischen Zwecken · erwaegungsgruende/eg-153.md
+- Erwägungsgrund 154 – Zugang der Öffentlichkeit zu amtlichen Dokumenten · erwaegungsgruende/eg-154.md
+- Erwägungsgrund 155 – Verarbeitung im Beschäftigungskontext · erwaegungsgruende/eg-155.md
+- Erwägungsgrund 156 – Verarbeitung für Archivzwecke und zu wissenschaftlichen oder historischen Forschungszwecken · erwaegungsgruende/eg-156.md
+- Erwägungsgrund 157 – Informationen aus Registern und wissenschaftliche Forschung · erwaegungsgruende/eg-157.md
+- Erwägungsgrund 158 – Verarbeitung zu Archivzwecken · erwaegungsgruende/eg-158.md
+- Erwägungsgrund 159 – Verarbeitung zu wissenschaftlichen Forschungszwecken · erwaegungsgruende/eg-159.md
+- Erwägungsgrund 160 – Verarbeitung zu historischen Forschungszwecken · erwaegungsgruende/eg-160.md
+- Erwägungsgrund 161 – Einwilligung zur Teilnahme an klinischen Prüfungen · erwaegungsgruende/eg-161.md
+- Erwägungsgrund 162 – Verarbeitung zu statistischen Zwecken · erwaegungsgruende/eg-162.md
+- Erwägungsgrund 163 – Europäische Statistiken · erwaegungsgruende/eg-163.md
+- Erwägungsgrund 164 – Berufsgeheimnisse und andere Geheimhaltungsvorschriften · erwaegungsgruende/eg-164.md
+- Erwägungsgrund 165 – Keine Beeinträchtigung des Status der Kirchen und religiösen Vereinigungen · erwaegungsgruende/eg-165.md
+- Erwägungsgrund 166 – Delegierte Rechtsakte der Kommission · erwaegungsgruende/eg-166.md
+- Erwägungsgrund 167 – Durchführungsbefugnisse der Kommission · erwaegungsgruende/eg-167.md
+- Erwägungsgrund 168 – Anwendung des Prüfverfahrens für den Erlass von Durchführungsrechtsakten · erwaegungsgruende/eg-168.md
+- Erwägungsgrund 169 – Sofort geltende Durchführungsrechtsakte · erwaegungsgruende/eg-169.md
+- Erwägungsgrund 170 – Subsidiaritätsprinzip und Grundsatz der Verhältnismäßigkeit · erwaegungsgruende/eg-170.md
+- Erwägungsgrund 171 – Aufhebung der RL 95/46/EG und Übergangsbestimmungen · erwaegungsgruende/eg-171.md
+- Erwägungsgrund 172 – Konsultation des Europäischen Datenschutzbeauftragten · erwaegungsgruende/eg-172.md
+- Erwägungsgrund 173 – Verhältnis zur RL 2002/58/EG · erwaegungsgruende/eg-173.md
+
+## BDSG (86)
+- § 1 BDSG – Anwendungsbereich des Gesetzes · bdsg/bdsg-1.md
+- § 2 BDSG – Begriffsbestimmungen · bdsg/bdsg-2.md
+- § 3 BDSG – Verarbeitung personenbezogener Daten durch öffentliche Stellen · bdsg/bdsg-3.md
+- § 4 BDSG – Videoüberwachung öffentlich zugänglicher Räume · bdsg/bdsg-4.md
+- § 5 BDSG – Benennung · bdsg/bdsg-5.md
+- § 6 BDSG – Stellung · bdsg/bdsg-6.md
+- § 7 BDSG – Aufgaben · bdsg/bdsg-7.md
+- § 8 BDSG – Errichtung · bdsg/bdsg-8.md
+- § 9 BDSG – Zuständigkeit · bdsg/bdsg-9.md
+- § 10 BDSG – Unabhängigkeit · bdsg/bdsg-10.md
+- § 11 BDSG – Ernennung und Amtszeit · bdsg/bdsg-11.md
+- § 12 BDSG – Amtsverhältnis · bdsg/bdsg-12.md
+- § 13 BDSG – Rechte und Pflichten · bdsg/bdsg-13.md
+- § 14 BDSG – Aufgaben · bdsg/bdsg-14.md
+- § 15 BDSG – Tätigkeitsbericht · bdsg/bdsg-15.md
+- § 16 BDSG – Befugnisse · bdsg/bdsg-16.md
+- § 17 BDSG – Vertretung im Europäischen Datenschutzausschuss, zentrale Anlaufstelle · bdsg/bdsg-17.md
+- § 18 BDSG – Verfahren der Zusammenarbeit der Aufsichtsbehörden des Bundes und der Länder · bdsg/bdsg-18.md
+- § 19 BDSG – Zuständigkeiten · bdsg/bdsg-19.md
+- § 20 BDSG – Gerichtlicher Rechtsschutz · bdsg/bdsg-20.md
+- § 21 BDSG – Antrag der Aufsichtsbehörde auf gerichtliche Entscheidung bei angenommener Rechtswidrigkeit eines Beschlusses der Europäischen Kommission · bdsg/bdsg-21.md
+- § 22 BDSG – Verarbeitung besonderer Kategorien personenbezogener Daten · bdsg/bdsg-22.md
+- § 23 BDSG – Verarbeitung zu anderen Zwecken durch öffentliche Stellen · bdsg/bdsg-23.md
+- § 24 BDSG – Verarbeitung zu anderen Zwecken durch nichtöffentliche Stellen · bdsg/bdsg-24.md
+- § 25 BDSG – Datenübermittlungen durch öffentliche Stellen · bdsg/bdsg-25.md
+- § 26 BDSG – Datenverarbeitung für Zwecke des Beschäftigungsverhältnisses · bdsg/bdsg-26.md
+- § 27 BDSG – Datenverarbeitung zu wissenschaftlichen oder historischen Forschungszwecken und zu statistischen Zwecken · bdsg/bdsg-27.md
+- § 28 BDSG – Datenverarbeitung zu im öffentlichen Interesse liegenden Archivzwecken · bdsg/bdsg-28.md
+- § 29 BDSG – Rechte der betroffenen Person und aufsichtsbehördliche Befugnisse im Fall von Geheimhaltungspflichten · bdsg/bdsg-29.md
+- § 30 BDSG – Verbraucherkredite · bdsg/bdsg-30.md
+- § 31 BDSG – Schutz des Wirtschaftsverkehrs bei Scoring und Bonitätsauskünften · bdsg/bdsg-31.md
+- § 32 BDSG – Informationspflicht bei Erhebung von personenbezogenen Daten bei der betroffenen Person · bdsg/bdsg-32.md
+- § 33 BDSG – Informationspflicht, wenn die personenbezogenen Daten nicht bei der betroffenen Person erhoben wurden · bdsg/bdsg-33.md
+- § 34 BDSG – Auskunftsrecht der betroffenen Person · bdsg/bdsg-34.md
+- § 35 BDSG – Recht auf Löschung · bdsg/bdsg-35.md
+- § 36 BDSG – Widerspruchsrecht · bdsg/bdsg-36.md
+- § 37 BDSG – Automatisierte Entscheidungen im Einzelfall einschließlich Profiling · bdsg/bdsg-37.md
+- § 38 BDSG – Datenschutzbeauftragte nichtöffentlicher Stellen · bdsg/bdsg-38.md
+- § 39 BDSG – Akkreditierung · bdsg/bdsg-39.md
+- § 40 BDSG – Aufsichtsbehörden der Länder · bdsg/bdsg-40.md
+- § 41 BDSG – Anwendung der Vorschriften über das Bußgeld- und Strafverfahren · bdsg/bdsg-41.md
+- § 42 BDSG – Strafvorschriften · bdsg/bdsg-42.md
+- § 43 BDSG – Bußgeldvorschriften · bdsg/bdsg-43.md
+- § 44 BDSG – Klagen gegen den Verantwortlichen oder Auftragsverarbeiter · bdsg/bdsg-44.md
+- § 45 BDSG – Anwendungsbereich · bdsg/bdsg-45.md
+- § 46 BDSG – Begriffsbestimmungen · bdsg/bdsg-46.md
+- § 47 BDSG – Allgemeine Grundsätze für die Verarbeitung personenbezogener Daten · bdsg/bdsg-47.md
+- § 48 BDSG – Verarbeitung besonderer Kategorien personenbezogener Daten · bdsg/bdsg-48.md
+- § 49 BDSG – Verarbeitung zu anderen Zwecken · bdsg/bdsg-49.md
+- § 50 BDSG – Verarbeitung zu archivarischen, wissenschaftlichen und statistischen Zwecken · bdsg/bdsg-50.md
+- § 51 BDSG – Einwilligung · bdsg/bdsg-51.md
+- § 52 BDSG – Verarbeitung auf Weisung des Verantwortlichen · bdsg/bdsg-52.md
+- § 53 BDSG – Datengeheimnis · bdsg/bdsg-53.md
+- § 54 BDSG – Automatisierte Einzelentscheidung · bdsg/bdsg-54.md
+- § 55 BDSG – Allgemeine Informationen zu Datenverarbeitungen · bdsg/bdsg-55.md
+- § 56 BDSG – Benachrichtigung betroffener Personen · bdsg/bdsg-56.md
+- § 57 BDSG – Auskunftsrecht · bdsg/bdsg-57.md
+- § 58 BDSG – Rechte auf Berichtigung und Löschung sowie Einschränkung der Verarbeitung · bdsg/bdsg-58.md
+- § 59 BDSG – Verfahren für die Ausübung der Rechte der betroffenen Person · bdsg/bdsg-59.md
+- § 60 BDSG – Anrufung der oder des Bundesbeauftragten · bdsg/bdsg-60.md
+- § 61 BDSG – Rechtsschutz gegen Entscheidungen der oder des Bundesbeauftragten oder bei deren oder dessen Untätigkeit · bdsg/bdsg-61.md
+- § 62 BDSG – Auftragsverarbeitung · bdsg/bdsg-62.md
+- § 63 BDSG – Gemeinsam Verantwortliche · bdsg/bdsg-63.md
+- § 64 BDSG – Anforderungen an die Sicherheit der Datenverarbeitung · bdsg/bdsg-64.md
+- § 65 BDSG – Meldung von Verletzungen des Schutzes personenbezogener Daten an die oder den Bundesbeauftragten · bdsg/bdsg-65.md
+- § 66 BDSG – Benachrichtigung betroffener Personen bei Verletzungen des Schutzes personenbezogener Daten · bdsg/bdsg-66.md
+- § 67 BDSG – Durchführung einer Datenschutz-Folgenabschätzung · bdsg/bdsg-67.md
+- § 68 BDSG – Zusammenarbeit mit der oder dem Bundesbeauftragten · bdsg/bdsg-68.md
+- § 69 BDSG – Anhörung der oder des Bundesbeauftragten · bdsg/bdsg-69.md
+- § 70 BDSG – Verzeichnis von Verarbeitungstätigkeiten · bdsg/bdsg-70.md
+- § 71 BDSG – Datenschutz durch Technikgestaltung und datenschutzfreundliche Voreinstellungen · bdsg/bdsg-71.md
+- § 72 BDSG – Unterscheidung zwischen verschiedenen Kategorien betroffener Personen · bdsg/bdsg-72.md
+- § 73 BDSG – Unterscheidung zwischen Tatsachen und persönlichen Einschätzungen · bdsg/bdsg-73.md
+- § 74 BDSG – Verfahren bei Übermittlungen · bdsg/bdsg-74.md
+- § 75 BDSG – Berichtigung und Löschung personenbezogener Daten sowie Einschränkung der Verarbeitung · bdsg/bdsg-75.md
+- § 76 BDSG – Protokollierung · bdsg/bdsg-76.md
+- § 77 BDSG – Vertrauliche Meldung von Verstößen · bdsg/bdsg-77.md
+- § 78 BDSG – Allgemeine Voraussetzungen · bdsg/bdsg-78.md
+- § 79 BDSG – Datenübermittlung bei geeigneten Garantien · bdsg/bdsg-79.md
+- § 80 BDSG – Datenübermittlung ohne geeignete Garantien · bdsg/bdsg-80.md
+- § 81 BDSG – Sonstige Datenübermittlung an Empfänger in Drittstaaten · bdsg/bdsg-81.md
+- § 82 BDSG – Gegenseitige Amtshilfe · bdsg/bdsg-82.md
+- § 83 BDSG – Schadensersatz und Entschädigung · bdsg/bdsg-83.md
+- § 84 BDSG – Strafvorschriften · bdsg/bdsg-84.md
+- § 85 BDSG – Verarbeitung personenbezogener Daten im Rahmen von nicht in die Anwendungsbereiche der Verordnung (EU) 2016/679 und der Richtlinie (EU) 2016/680 fallenden Tätigkeiten · bdsg/bdsg-85.md
+- § 86 BDSG – Verarbeitung personenbezogener Daten für Zwecke staatlicher Auszeichnungen und Ehrungen · bdsg/bdsg-86.md
+
+## BayDSG (42)
+- Art. 1 BayDSG – Anwendungsbereich des Gesetzes · landesrecht/baydsg/baydsg-1.md
+- Art. 2 BayDSG – Anwendung der Verordnung (EU) 2016/679 · landesrecht/baydsg/baydsg-2.md
+- Art. 3 BayDSG – Sicherstellung des Datenschutzes, Verantwortlicher · landesrecht/baydsg/baydsg-3.md
+- Art. 4 BayDSG – Rechtmäßigkeit der Verarbeitung · landesrecht/baydsg/baydsg-4.md
+- Art. 5 BayDSG – Übermittlung · landesrecht/baydsg/baydsg-5.md
+- Art. 6 BayDSG – Zweckbindung · landesrecht/baydsg/baydsg-6.md
+- Art. 7 BayDSG – Besondere automatisierte Verfahren · landesrecht/baydsg/baydsg-7.md
+- Art. 8 BayDSG – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/baydsg/baydsg-8.md
+- Art. 9 BayDSG – Informationspflicht · landesrecht/baydsg/baydsg-9.md
+- Art. 10 BayDSG – Auskunftsrecht der betroffenen Person · landesrecht/baydsg/baydsg-10.md
+- Art. 11 BayDSG – Datengeheimnis · landesrecht/baydsg/baydsg-11.md
+- Art. 12 BayDSG – Behördliche Datenschutzbeauftragte · landesrecht/baydsg/baydsg-12.md
+- Art. 13 BayDSG – Benachrichtigung bei Datenschutzverletzungen · landesrecht/baydsg/baydsg-13.md
+- Art. 14 BayDSG – Datenschutz-Folgenabschätzung · landesrecht/baydsg/baydsg-14.md
+- Art. 15 BayDSG – Ernennung und Aufgaben · landesrecht/baydsg/baydsg-15.md
+- Art. 16 BayDSG – Ergänzende Rechte und Befugnisse · landesrecht/baydsg/baydsg-16.md
+- Art. 17 BayDSG – Datenschutzkommission · landesrecht/baydsg/baydsg-17.md
+- Art. 18 BayDSG – Einrichtung und Aufgaben · landesrecht/baydsg/baydsg-18.md
+- Art. 19 BayDSG – Unabhängigkeit und Rechtsstellung · landesrecht/baydsg/baydsg-19.md
+- Art. 20 BayDSG – Anrufung der Aufsichtsbehörden · landesrecht/baydsg/baydsg-20.md
+- Art. 21 BayDSG – Zusammenarbeit · landesrecht/baydsg/baydsg-21.md
+- Art. 22 BayDSG – Geldbußen · landesrecht/baydsg/baydsg-22.md
+- Art. 23 BayDSG – Ordnungswidrigkeiten, Strafvorschrift · landesrecht/baydsg/baydsg-23.md
+- Art. 24 BayDSG – Videoüberwachung · landesrecht/baydsg/baydsg-24.md
+- Art. 25 BayDSG – Verarbeitung zu Forschungszwecken · landesrecht/baydsg/baydsg-25.md
+- Art. 26 BayDSG – Verarbeitung zu Archivzwecken · landesrecht/baydsg/baydsg-26.md
+- Art. 27 BayDSG – Staatliche und kommunale Auszeichnungen und Ehrungen · landesrecht/baydsg/baydsg-27.md
+- Art. 28 BayDSG – Anwendungsbereich dieses Kapitels · landesrecht/baydsg/baydsg-28.md
+- Art. 29 BayDSG – Verarbeitung zu anderen Zwecken und besonderer Kategorien personenbezogener Daten, DNA-Untersuchungen · landesrecht/baydsg/baydsg-29.md
+- Art. 30 BayDSG – Gemeinsam Verantwortliche · landesrecht/baydsg/baydsg-30.md
+- Art. 31 BayDSG – Verzeichnis von Verarbeitungstätigkeiten · landesrecht/baydsg/baydsg-31.md
+- Art. 32 BayDSG – Anforderungen an die Sicherheit der Verarbeitung · landesrecht/baydsg/baydsg-32.md
+- Art. 33 BayDSG – Meldung von Verletzungen des Schutzes personenbezogener Daten an die Aufsichtsbehörde · landesrecht/baydsg/baydsg-33.md
+- Art. 34 BayDSG – Aufsicht durch den Landesbeauftragten für den Datenschutz · landesrecht/baydsg/baydsg-34.md
+- Art. 35 BayDSG – Automatisierte Einzelentscheidungen · landesrecht/baydsg/baydsg-35.md
+- Art. 36 BayDSG – Vertrauliche Meldung von Datenschutzverstößen · landesrecht/baydsg/baydsg-36.md
+- Art. 37 BayDSG – Schadenersatz · landesrecht/baydsg/baydsg-37.md
+- Art. 38 BayDSG – Verarbeitung zu journalistischen, künstlerischen oder literarischen Zwecken · landesrecht/baydsg/baydsg-38.md
+- Art. 39 BayDSG – Allgemeines Auskunftsrecht · landesrecht/baydsg/baydsg-39.md
+- Art. 39a BayDSG – Übergangsvorschrift · landesrecht/baydsg/baydsg-39a.md
+- Art. 39b BayDSG – Änderung weiterer Rechtsvorschriften · landesrecht/baydsg/baydsg-39b.md
+- Art. 40 BayDSG – Inkrafttreten, Außerkrafttreten · landesrecht/baydsg/baydsg-40.md
+
+## BbgDSG (35)
+- § 1 BbgDSG – Zweck · landesrecht/bbgdsg/bbgdsg-1.md
+- § 2 BbgDSG – Anwendungsbereich · landesrecht/bbgdsg/bbgdsg-2.md
+- § 3 BbgDSG – Begriffsbestimmung · landesrecht/bbgdsg/bbgdsg-3.md
+- § 4 BbgDSG – Freigabeverfahren und Einsicht in das Verzeichnis der Verarbeitungstätigkeiten · landesrecht/bbgdsg/bbgdsg-4.md
+- § 5 BbgDSG – Zulässigkeit der Verarbeitung personenbezogener Daten · landesrecht/bbgdsg/bbgdsg-5.md
+- § 6 BbgDSG – Zulässigkeit der Verarbeitung personenbezogener Daten zu anderen Zwecken · landesrecht/bbgdsg/bbgdsg-6.md
+- § 7 BbgDSG – Erhebung personenbezogener Daten · landesrecht/bbgdsg/bbgdsg-7.md
+- § 8 BbgDSG – Übermittlung personenbezogener Daten · landesrecht/bbgdsg/bbgdsg-8.md
+- § 9 BbgDSG – Löschung personenbezogener Daten · landesrecht/bbgdsg/bbgdsg-9.md
+- § 10 BbgDSG – Informationspflicht bei der Erhebung personenbezogener Daten · landesrecht/bbgdsg/bbgdsg-10.md
+- § 11 BbgDSG – Auskunftsrecht der betroffenen Person und Einsicht in Akten · landesrecht/bbgdsg/bbgdsg-11.md
+- § 12 BbgDSG – Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person · landesrecht/bbgdsg/bbgdsg-12.md
+- § 13 BbgDSG – Widerspruchsrecht · landesrecht/bbgdsg/bbgdsg-13.md
+- § 14 BbgDSG – Errichtung · landesrecht/bbgdsg/bbgdsg-14.md
+- § 15 BbgDSG – Ernennung und Amtszeit · landesrecht/bbgdsg/bbgdsg-15.md
+- § 16 BbgDSG – Amtsverhältnis · landesrecht/bbgdsg/bbgdsg-16.md
+- § 17 BbgDSG – Rechte und Pflichten · landesrecht/bbgdsg/bbgdsg-17.md
+- § 18 BbgDSG – Aufgaben und Befugnisse, Mitwirkungspflichten · landesrecht/bbgdsg/bbgdsg-18.md
+- § 19 BbgDSG – Kostenerhebung · landesrecht/bbgdsg/bbgdsg-19.md
+- § 20 BbgDSG – Gerichtlicher Rechtsschutz · landesrecht/bbgdsg/bbgdsg-20.md
+- § 21 BbgDSG – Durchführung der Kontrolle · landesrecht/bbgdsg/bbgdsg-21.md
+- § 22 BbgDSG – Mitteilungen an die Fach- oder Rechtsaufsichtsbehörde · landesrecht/bbgdsg/bbgdsg-22.md
+- § 23 BbgDSG – Stellungnahme der Landesregierung zum Tätigkeitsbericht · landesrecht/bbgdsg/bbgdsg-23.md
+- § 24 BbgDS24 – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/bbgdsg/bbgdsg-24.md
+- § 25 BbgDSG – Datenverarbeitung für wissenschaftliche und historische Forschungszwecke · landesrecht/bbgdsg/bbgdsg-25.md
+- § 26 BbgDSG – Datenverarbeitung bei Beschäftigungsverhältnissen · landesrecht/bbgdsg/bbgdsg-26.md
+- § 27 BbgDSG – Verarbeitung personenbezogener Daten zu Zwecken der parlamentarischen Kontrolle · landesrecht/bbgdsg/bbgdsg-27.md
+- § 28 BbgDSG – Videoüberwachung öffentlich zugänglicher Räume · landesrecht/bbgdsg/bbgdsg-28.md
+- § 29 BbgDSG – Verarbeitung personenbezogener Daten zu Zwecken der freien Meinungsäußerung und der Informationsfreiheit · landesrecht/bbgdsg/bbgdsg-29.md
+- § 30 BbgDSG – Öffentliche Auszeichnungen und Ehrungen · landesrecht/bbgdsg/bbgdsg-30.md
+- § 31 BbgDSG – Begnadigungsverfahren · landesrecht/bbgdsg/bbgdsg-31.md
+- § 32 BbgDSG – Ordnungswidrigkeiten · landesrecht/bbgdsg/bbgdsg-32.md
+- § 33 BbgDSG – Strafvorschrift · landesrecht/bbgdsg/bbgdsg-33.md
+- § 34 BbgDSG – Einschränkung eines Grundrechts · landesrecht/bbgdsg/bbgdsg-34.md
+- § 35 BbgDSG – Übergangsvorschrift · landesrecht/bbgdsg/bbgdsg-35.md
+
+## BlnDSG (74)
+- § 1 BlnDSG – Zweck · landesrecht/blndsg/blndsg-1.md
+- § 2 BlnDSG – Anwendungsbereich · landesrecht/blndsg/blndsg-2.md
+- § 3 BlnDSG – Verarbeitung personenbezogener Daten · landesrecht/blndsg/blndsg-3.md
+- § 4 BlnDSG – Benennung · landesrecht/blndsg/blndsg-4.md
+- § 5 BlnDSG – Stellung · landesrecht/blndsg/blndsg-5.md
+- § 6 BlnDSG – Aufgaben · landesrecht/blndsg/blndsg-6.md
+- § 7 BlnDSG – Errichtung · landesrecht/blndsg/blndsg-7.md
+- § 8 BlnDSG – Zuständigkeit · landesrecht/blndsg/blndsg-8.md
+- § 9 BlnDSG – Ernennung und Beendigung des Amtsverhältnisses · landesrecht/blndsg/blndsg-9.md
+- § 10 BlnDSG – Rechtsstellung · landesrecht/blndsg/blndsg-10.md
+- § 11 BlnDSG – Aufgaben · landesrecht/blndsg/blndsg-11.md
+- § 12 BlnDSG – Tätigkeitsbericht · landesrecht/blndsg/blndsg-12.md
+- § 13 BlnDSG – Befugnisse · landesrecht/blndsg/blndsg-13.md
+- § 14 BlnDSG – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/blndsg/blndsg-14.md
+- § 15 BlnDSG – Verarbeitung zu anderen Zwecken · landesrecht/blndsg/blndsg-15.md
+- § 16 BlnDSG – Verantwortlichkeit bei der Übermittlung personenbezogener Daten · landesrecht/blndsg/blndsg-16.md
+- § 17 BlnDSG – Verarbeitung personenbezogeneDaten zu wissenschaftlichen oder historischen Forschungszwecken und zu statistischen Zwecken · landesrecht/blndsg/blndsg-17.md
+- § 18 BlnDSG – Verarbeitung personenbezogener Beschäftigtendaten · landesrecht/blndsg/blndsg-18.md
+- § 19 BlnDSG – Verarbeitung personenbezogener Daten zu Zwecken der freien Meinungsäußerung und der Informationsfreiheit · landesrecht/blndsg/blndsg-19.md
+- § 20 BlnDSG – Videoüberwachung · landesrecht/blndsg/blndsg-20.md
+- § 20a BlnDSG – Verarbeitung personenbezogener Daten zu Zwecken parlamentarischer Kontrolle · landesrecht/blndsg/blndsg-20a.md
+- § 21 BlnDSG – Gemeinsames Verfahren und automatisiertes Verfahren auf Abruf · landesrecht/blndsg/blndsg-21.md
+- § 22 BlnDSG – Fernmess- und Fernwirkdienste · landesrecht/blndsg/blndsg-22.md
+- § 23 BlnDSG – Informationspflicht bei Erhebung von personenbezogenen Daten · landesrecht/blndsg/blndsg-23.md
+- § 24 BlnDSG – Auskunftsrecht der betroffenen Person · landesrecht/blndsg/blndsg-24.md
+- § 25 BlnDSG – Recht auf Löschung · landesrecht/blndsg/blndsg-25.md
+- § 26 BlnDSG – Spezifische technische und organisatorische Maßnahmen zur Gewährleistung einer rechtmäßigen Verarbeitung · landesrecht/blndsg/blndsg-26.md
+- § 27 BlnDSG – Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person · landesrecht/blndsg/blndsg-27.md
+- § 28 BlnDSG – Geldbußen · landesrecht/blndsg/blndsg-28.md
+- § 29 BlnDSG – Ordnungswidrigkeiten, Strafvorschriften · landesrecht/blndsg/blndsg-29.md
+- § 30 BlnDSG – Anwendungsbereich · landesrecht/blndsg/blndsg-30.md
+- § 31 BlnDSG – Begriffsbestimmungen · landesrecht/blndsg/blndsg-31.md
+- § 32 BlnDSG – Allgemeine Grundsätze für die Verarbeitung personenbezogener Daten · landesrecht/blndsg/blndsg-32.md
+- § 33 BlnDSG – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/blndsg/blndsg-33.md
+- § 34 BlnDSG – Verarbeitung zu anderen Zwecken · landesrecht/blndsg/blndsg-34.md
+- § 35 BlnDSG – Verarbeitung zu wissenschaftlichen, historischen, archivarischen und statistischen Zwecken · landesrecht/blndsg/blndsg-35.md
+- § 35a BlnDSG – Verarbeitung zu besonderen Untersuchungszwecken · landesrecht/blndsg/blndsg-35a.md
+- § 36 BlnDSG – Einwilligung · landesrecht/blndsg/blndsg-36.md
+- § 37 BlnDSG – Verarbeitung auf Weisung des Verantwortlichen · landesrecht/blndsg/blndsg-37.md
+- § 38 BlnDSG – Datengeheimnis · landesrecht/blndsg/blndsg-38.md
+- § 39 BlnDSG – Automatisierte Einzelentscheidung · landesrecht/blndsg/blndsg-39.md
+- § 40 BlnDSG – Gemeinsames Verfahren und automatisiertes Verfahren auf Abruf · landesrecht/blndsg/blndsg-40.md
+- § 41 BlnDSG – Allgemeine Informationen zu Datenverarbeitungen · landesrecht/blndsg/blndsg-41.md
+- § 42 BlnDSG – Benachrichtigung betroffener Personen · landesrecht/blndsg/blndsg-42.md
+- § 43 BlnDSG – Auskunftsrecht · landesrecht/blndsg/blndsg-43.md
+- § 44 BlnDSG – Rechte auf Berichtigung und Löschung sowie Einschränkung der Verarbeitung · landesrecht/blndsg/blndsg-44.md
+- § 45 BlnDSG – Verfahren für die Ausübung der Rechte der betroffenen Person · landesrecht/blndsg/blndsg-45.md
+- § 46 BlnDSG – Anrufung der oder des Berliner Beauftragten für Datenschutz und Informationsfreiheit · landesrecht/blndsg/blndsg-46.md
+- § 47 BlnDSG – Rechtsschutz gegen Entscheidungen oder bei Untätigkeit der oder des Berliner Beauftragten für Datenschutz und Informationsfreiheit · landesrecht/blndsg/blndsg-47.md
+- § 48 BlnDSG – Auftragsverarbeitung · landesrecht/blndsg/blndsg-48.md
+- § 49 BlnDSG – Gemeinsam Verantwortliche · landesrecht/blndsg/blndsg-49.md
+- § 50 BlnDSG – Anforderungen an die Sicherheit der Datenverarbeitung · landesrecht/blndsg/blndsg-50.md
+- § 51 BlnDSG – Meldung von Verletzungen des Schutzes personenbezogener Daten an die Berliner Beauftragte oder den Berliner Beauftragten für Datenschutz und Informationsfreiheit · landesrecht/blndsg/blndsg-51.md
+- § 52 BlnDSG – Benachrichtigung betroffener Personen bei Verletzungen des Schutzes personenbezogener Daten · landesrecht/blndsg/blndsg-52.md
+- § 53 BlnDSG – Durchführung einer Datenschutz-Folgenabschätzung · landesrecht/blndsg/blndsg-53.md
+- § 54 BlnDSG – Zusammenarbeit mit der oder dem Berliner Beauftragten für Datenschutz und Informationsfreiheit · landesrecht/blndsg/blndsg-54.md
+- § 55 BlnDSG – Anhörung der oder des Berliner Beauftragten für Datenschutz und Informationsfreiheit · landesrecht/blndsg/blndsg-55.md
+- § 56 BlnDSG – Verzeichnis von Verarbeitungstätigkeiten · landesrecht/blndsg/blndsg-56.md
+- §57 BlnDSG – Datenschutz durch Technikgestaltung und datenschutzfreundliche Voreinstellungen · landesrecht/blndsg/blndsg-57.md
+- § 58 BlnDSG – Unterscheidung zwischen verschiedenen Kategorien betroffener Personen · landesrecht/blndsg/blndsg-58.md
+- § 59 BlnDSG – Unterscheidung zwischen Tatsachen und persönlichen Einschätzungen · landesrecht/blndsg/blndsg-59.md
+- § 60 BlnDSG – Verfahren bei Übermittlungen · landesrecht/blndsg/blndsg-60.md
+- § 61 BlnDSG – Berichtigung und Löschung personenbezogener Daten sowie Einschränkung der Verarbeitung · landesrecht/blndsg/blndsg-61.md
+- § 62 BlnDSG – Protokollierung · landesrecht/blndsg/blndsg-62.md
+- § 63 BlnDSG – Vertrauliche Meldung von Datenschutzverstößen · landesrecht/blndsg/blndsg-63.md
+- § 64 BlnDSG – Allgemeine Voraussetzungen · landesrecht/blndsg/blndsg-64.md
+- § 65 BlnDSG – Datenübermittlung bei geeigneten Garantien · landesrecht/blndsg/blndsg-65.md
+- § 66 BlnDSG – Datenübermittlung ohne geeignete Garantien · landesrecht/blndsg/blndsg-66.md
+- § 67 BlnDSG – Sonstige Datenübermittlung an Empfänger in Drittstaaten · landesrecht/blndsg/blndsg-67.md
+- § 68 BlnDSG – Gegenseitige Amtshilfe · landesrecht/blndsg/blndsg-68.md
+- § 69 BlnDSG – Schadensersatz und Entschädigung · landesrecht/blndsg/blndsg-69.md
+- § 70 BlnDSG – Ordnungswidrigkeiten, Strafvorschriften · landesrecht/blndsg/blndsg-70.md
+- § 71 BlnDSG – Öffentliche Auszeichnungen und Ehrungen · landesrecht/blndsg/blndsg-71.md
+- § 72 BlnDSG – Übergangsvorschriften · landesrecht/blndsg/blndsg-72.md
+
+## BremDSGVOAG (26)
+- § 1 BremDSGVOAG – Zweck · landesrecht/bremdsgvoag/bremdsgvoag-1.md
+- § 2 BremDSGVOAG – Anwendungsbereich · landesrecht/bremdsgvoag/bremdsgvoag-2.md
+- § 3 BremDSGVOAG – Zulässigkeit der Verarbeitung personenbezogener Daten · landesrecht/bremdsgvoag/bremdsgvoag-3.md
+- § 4 BremDSGVOAG – Verarbeitung personenbezogener Daten zu anderen Zwecken · landesrecht/bremdsgvoag/bremdsgvoag-4.md
+- § 5 BremDSGVOAG – Erhebung personenbezogener Daten bei einer nicht-öffentlichen Stelle · landesrecht/bremdsgvoag/bremdsgvoag-5.md
+- § 6 BremDSGVOAG – Verantwortlicher bei der Übermittlung personenbezogener Daten · landesrecht/bremdsgvoag/bremdsgvoag-6.md
+- § 7 BremDSGVOAG – Abrufverfahren und gemeinsame Verfahren · landesrecht/bremdsgvoag/bremdsgvoag-7.md
+- § 8 BremDSGVOAG – Beschränkung der Informationspflicht · landesrecht/bremdsgvoag/bremdsgvoag-8.md
+- § 9 BremDSGVOAG – Beschränkung des Auskunftsrechts · landesrecht/bremdsgvoag/bremdsgvoag-9.md
+- § 10 BremDSGVOAG – Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person · landesrecht/bremdsgvoag/bremdsgvoag-10.md
+- § 11 BremDSGVOAG – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/bremdsgvoag/bremdsgvoag-11.md
+- § 12 BremDSGVOAG – Datenverarbeitung im Beschäftigungskontext · landesrecht/bremdsgvoag/bremdsgvoag-12.md
+- § 13 BremDSGVOAG – Verarbeitung besonderer Kategorien personenbezogener Daten zu wissenschaftlichen oder historischen Forschungszwecken oder zu statistischen Zwecken · landesrecht/bremdsgvoag/bremdsgvoag-13.md
+- § 14 BremDSGVOAG – Sonderbestimmung für Radio Bremen · landesrecht/bremdsgvoag/bremdsgvoag-14.md
+- § 15 BremDSGVOAG – Videoüberwachung · landesrecht/bremdsgvoag/bremdsgvoag-15.md
+- § 16 BremDSGVOAG – Errichtung · landesrecht/bremdsgvoag/bremdsgvoag-16.md
+- § 17 BremDSGVOAG – Unabhängigkeit · landesrecht/bremdsgvoag/bremdsgvoag-17.md
+- § 18 BremDSGVOAG – Ernennung und Amtszeit · landesrecht/bremdsgvoag/bremdsgvoag-18.md
+- § 19 BremDSGVOAG – Amtsverhältnis · landesrecht/bremdsgvoag/bremdsgvoag-19.md
+- § 20 BremDSGVOAG – Rechte und Pflichten · landesrecht/bremdsgvoag/bremdsgvoag-20.md
+- § 21 BremDSGVOAG – Aufgaben und Befugnisse · landesrecht/bremdsgvoag/bremdsgvoag-21.md
+- § 22 BremDSGVOAG – Tätigkeitsbericht · landesrecht/bremdsgvoag/bremdsgvoag-22.md
+- § 23 BremDSGVOAG – Ordnungswidrigkeiten · landesrecht/bremdsgvoag/bremdsgvoag-23.md
+- § 24 BremDSGVOAG – Strafvorschrift · landesrecht/bremdsgvoag/bremdsgvoag-24.md
+- § 25 BremDSGVOAG – Übergangsvorschrift · landesrecht/bremdsgvoag/bremdsgvoag-25.md
+- § 26 BremDSGVOAG – Inkrafttreten, Außerkrafttreten · landesrecht/bremdsgvoag/bremdsgvoag-26.md
+
+## DSAG LSA (36)
+- § 1 DSAG LSA – Zweck des Gesetzes · landesrecht/dsag-lsa/dsag-lsa-1.md
+- § 2 DSAG LSA – Anwendungsbereich · landesrecht/dsag-lsa/dsag-lsa-2.md
+- § 3 DSAG LSA – Anwendung der Verordnung (EU) 2016/679 auf Tätigkeiten, die nicht in den Anwendungsbereich der Verordnung (EU) 2016/679 fallen · landesrecht/dsag-lsa/dsag-lsa-3.md
+- § 4 DSAG LSA – Zulässigkeit der Verarbeitung personenbezogener Daten · landesrecht/dsag-lsa/dsag-lsa-4.md
+- § 5 DSAG LSA – Erhebung personenbezogener Daten bei anderen Personen · landesrecht/dsag-lsa/dsag-lsa-5.md
+- § 6 DSAG LSA – Übermittlung personenbezogener Daten · landesrecht/dsag-lsa/dsag-lsa-6.md
+- § 7 DSAG LSA – Zweckbindung, Zweckänderung · landesrecht/dsag-lsa/dsag-lsa-7.md
+- § 8 DSAG LSA – Optisch-elektronische Beobachtung · landesrecht/dsag-lsa/dsag-lsa-8.md
+- § 9 DSAG LSA – Zulässigkeit der Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/dsag-lsa/dsag-lsa-9.md
+- § 10 DSAG LSA – Beschränkung der Informationspflicht bei der Erhebung von personenbezogenen Daten nach den Artikeln 13 und 14 der Verordnung (EU) 2016/679 · landesrecht/dsag-lsa/dsag-lsa-10.md
+- § 11 DSAG LSA – Beschränkung des Auskunftsrechts der betroffenen Person nach Artikel 15 der Verordnung (EU) 2016/679 · landesrecht/dsag-lsa/dsag-lsa-11.md
+- § 12 DSAG LSA – Beschränkung des Rechts auf Löschung nach Artikel 17 der Verordnung (EU) 2016/679 · landesrecht/dsag-lsa/dsag-lsa-12.md
+- § 13 DSAG LSA – Datengeheimnis · landesrecht/dsag-lsa/dsag-lsa-13.md
+- § 14 DSAG LSA – Schutzmaßnahmen bei der Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/dsag-lsa/dsag-lsa-14.md
+- § 15 DSAG LSA – Automatisierte Verfahren, gemeinsame Dateisysteme, Vertragspflichten · landesrecht/dsag-lsa/dsag-lsa-15.md
+- § 16 DSAG LSA – Beschränkung der Benachrichtigungspflicht nach Artikel 34 der Verordnung (EU) 2016/679 · landesrecht/dsag-lsa/dsag-lsa-16.md
+- § 17 DSAG LSA – Geltungsbereich · landesrecht/dsag-lsa/dsag-lsa-17.md
+- § 18 DSAG LSA – Bestellung · landesrecht/dsag-lsa/dsag-lsa-18.md
+- § 19 DSAG LSA – Stellung · landesrecht/dsag-lsa/dsag-lsa-19.md
+- § 20 DSAG LSA – Aufgaben · landesrecht/dsag-lsa/dsag-lsa-20.md
+- § 21 DSAG LSA – Berufung des Landesbeauftragten für den Datenschutz · landesrecht/dsag-lsa/dsag-lsa-21.md
+- § 22 DSAG LSA – Rechtsstellung, Geschäftsstelle · landesrecht/dsag-lsa/dsag-lsa-22.md
+- § 23 DSAG LSA – Aufgaben und Befugnisse · landesrecht/dsag-lsa/dsag-lsa-23.md
+- § 24 DSAG LSA – Rechte und Pflichten · landesrecht/dsag-lsa/dsag-lsa-24.md
+- § 25 DSAG LSA – Vorschriften für die Datenverarbeitung zu journalistischen, künstlerischen oder literarischen Zwecken nach Artikel 85 der Verordnung (EU) 2016/679 · landesrecht/dsag-lsa/dsag-lsa-25.md
+- § 26 DSAG LSA – Vorschriften für die Datenverarbeitung im Beschäftigungskontext nach Artikel 88 der Verordnung (EU) 2016/679 · landesrecht/dsag-lsa/dsag-lsa-26.md
+- § 27 DSAG LSA – Ausnahmen in Bezug auf die Datenverarbeitung zu wissenschaftlichen oder historischen Forschungszwecken und zu statistischen Zwecken nach Artikel 89 der Verordnung (EU) 2016/679 · landesrecht/dsag-lsa/dsag-lsa-27.md
+- § 28 DSAG LSA – Öffentliche Auszeichnungen und Ehrungen · landesrecht/dsag-lsa/dsag-lsa-28.md
+- § 29 DSAG LSA – Begnadigungsverfahren · landesrecht/dsag-lsa/dsag-lsa-29.md
+- § 30 DSAG LSA – Gerichtlicher Rechtsschutz · landesrecht/dsag-lsa/dsag-lsa-30.md
+- § 31 DSAG LSA – Anwendung der Vorschriften über das Bußgeld- und Strafverfahren · landesrecht/dsag-lsa/dsag-lsa-31.md
+- § 32 DSAG LSA – Ordnungswidrigkeiten · landesrecht/dsag-lsa/dsag-lsa-32.md
+- § 33 DSAG LSA – Straftaten · landesrecht/dsag-lsa/dsag-lsa-33.md
+- § 34 DSAG LSA – Übergangsvorschriften · landesrecht/dsag-lsa/dsag-lsa-34.md
+- § 35 DSAG LSA – Sprachliche Gleichstellung · landesrecht/dsag-lsa/dsag-lsa-35.md
+- § 36 DSAG LSA – Einschränkung von Grundrechten · landesrecht/dsag-lsa/dsag-lsa-36.md
+
+## DSG M-V (24)
+- § 1 DSG M-V – Zweck des Gesetzes · landesrecht/dsg-m-v/dsg-m-v-1.md
+- § 2 DSG M-V – Anwendungsbereich · landesrecht/dsg-m-v/dsg-m-v-2.md
+- § 3 DSG M-V – Entsprechende Anwendung zur Umsetzung der Richtlinie (EU) 2016/680 · landesrecht/dsg-m-v/dsg-m-v-3.md
+- § 4 DSG M-V – Zulässigkeit der Verarbeitung · landesrecht/dsg-m-v/dsg-m-v-4.md
+- § 5 DSG M-V – Beschränkung der Informationspflicht · landesrecht/dsg-m-v/dsg-m-v-5.md
+- § 6 DSG M-V – Beschränkung des Auskunftsrechts · landesrecht/dsg-m-v/dsg-m-v-6.md
+- § 7 DSG M-V – Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person nach Artikel 34 der Verordnung (EU) 2016/679 · landesrecht/dsg-m-v/dsg-m-v-7.md
+- § 8 DSG M-V – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/dsg-m-v/dsg-m-v-8.md
+- § 9 DSG M-V – Datenverarbeitung für wissenschaftliche oder historische Forschung · landesrecht/dsg-m-v/dsg-m-v-9.md
+- § 10 DSG M-V – Datenverarbeitung bei Beschäftigungsverhältnissen · landesrecht/dsg-m-v/dsg-m-v-10.md
+- § 11 DSG M-V – Videoüberwachung · landesrecht/dsg-m-v/dsg-m-v-11.md
+- § 12 DSG M-V – Verarbeitung personenbezogener Daten zu Zwecken der freien Meinungsäußerung und der Informationsfreiheit · landesrecht/dsg-m-v/dsg-m-v-12.md
+- § 13 DSG M-V – Öffentliche Auszeichnungen und Ehrungen · landesrecht/dsg-m-v/dsg-m-v-13.md
+- § 14 DSG M-V – Begnadigungsverfahren · landesrecht/dsg-m-v/dsg-m-v-14.md
+- § 15 DSG M-V – Errichtung · landesrecht/dsg-m-v/dsg-m-v-15.md
+- § 16 DSG M-V – Ernennung und Amtszeit · landesrecht/dsg-m-v/dsg-m-v-16.md
+- § 17 DSG M-V – Unabhängigkeit · landesrecht/dsg-m-v/dsg-m-v-17.md
+- § 18 DSG M-V – Rechte und Pflichten · landesrecht/dsg-m-v/dsg-m-v-18.md
+- § 19 DSG M-V – Aufgaben und Befugnisse · landesrecht/dsg-m-v/dsg-m-v-19.md
+- § 20 DSG M-V – Mitwirkungspflicht · landesrecht/dsg-m-v/dsg-m-v-20.md
+- § 21 DSG M-V – Stellungnahme der Landesregierung zum Tätigkeitsbericht · landesrecht/dsg-m-v/dsg-m-v-21.md
+- § 22 DSG M-V – Ordnungswidrigkeiten · landesrecht/dsg-m-v/dsg-m-v-22.md
+- § 23 DSG M-V – Straftaten · landesrecht/dsg-m-v/dsg-m-v-23.md
+- § 24 DSG M-V – Einschränkung von Grundrechten · landesrecht/dsg-m-v/dsg-m-v-24.md
+
+## DSG NRW (72)
+- § 1 DSG NRW – Zweck · landesrecht/dsg-nrw/dsg-nrw-1.md
+- § 2 DSG NRW – Sicherstellung des Datenschutzes · landesrecht/dsg-nrw/dsg-nrw-2.md
+- § 3 DSG NRW – Zulässigkeit der Verarbeitung personenbezogener Daten · landesrecht/dsg-nrw/dsg-nrw-3.md
+- § 4 DSG NRW – Begriffsbestimmung · landesrecht/dsg-nrw/dsg-nrw-4.md
+- § 5 DSG NRW – Anwendungsbereich · landesrecht/dsg-nrw/dsg-nrw-5.md
+- § 6 DSG NRW – Automatisierte Abrufverfahren und regelmäßige Datenübermittlung · landesrecht/dsg-nrw/dsg-nrw-6.md
+- § 7 DSG NRW – Erhebung personenbezogener Daten bei dritten Personen und nicht-öffentlichen Stellen · landesrecht/dsg-nrw/dsg-nrw-7.md
+- § 8 DSG NRW – Verantwortung für die Datenübermittlung · landesrecht/dsg-nrw/dsg-nrw-8.md
+- § 9 DSG NRW – Zulässigkeit der Datenverarbeitung im Hinblick auf die Zweckbindung · landesrecht/dsg-nrw/dsg-nrw-9.md
+- § 10 DSG NRW – Löschung personenbezogener Daten · landesrecht/dsg-nrw/dsg-nrw-10.md
+- § 11 DSG NRW – Beschränkung der Informationspflicht bei der Erhebung von personenbezogenen Daten nach Artikel 13 und 14 der Verordnung (EU) 2016/679 · landesrecht/dsg-nrw/dsg-nrw-11.md
+- § 12 DSG NRW – Beschränkung des Auskunftsrechts der betroffenen Person nach Artikel 15 der Verordnung (EU) 2016/679 · landesrecht/dsg-nrw/dsg-nrw-12.md
+- § 13 DSG NRW – Beschränkung der Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Personen nach Artikel 34 der Verordnung (EU) 2016/679 · landesrecht/dsg-nrw/dsg-nrw-13.md
+- § 14 DSG NRW – Beschränkung des Widerspruchsrechts · landesrecht/dsg-nrw/dsg-nrw-14.md
+- § 15 DSG NRW – Garantien zum Schutz personenbezogener Daten und anderer Grundrechte · landesrecht/dsg-nrw/dsg-nrw-15.md
+- § 16 DSG NRW – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/dsg-nrw/dsg-nrw-16.md
+- § 17 DSG NRW – Datenverarbeitung personenbezogener Daten zu wissenschaftlichen oder historischen Forschungszwecken oder zu statistischen Zwecken · landesrecht/dsg-nrw/dsg-nrw-17.md
+- § 18 DSG NRW – Datenverarbeitung im Beschäftigungskontext · landesrecht/dsg-nrw/dsg-nrw-18.md
+- § 19 DSG NRW – Verarbeitung zu künstlerischen oder literarischen Zwecken · landesrecht/dsg-nrw/dsg-nrw-19.md
+- § 20 DSG NRW – Videoüberwachung · landesrecht/dsg-nrw/dsg-nrw-20.md
+- § 21 DSG NRW – Anwendbarkeit der Verordnung (EU) 2016/679 · landesrecht/dsg-nrw/dsg-nrw-21.md
+- § 22 DSG NRW – Öffentliche Auszeichnungen und Ehrungen · landesrecht/dsg-nrw/dsg-nrw-22.md
+- § 23 DSG NRW – Begnadigungsverfahren · landesrecht/dsg-nrw/dsg-nrw-23.md
+- § 24 DSG NRW – Datenschutz-Folgenabschätzung · landesrecht/dsg-nrw/dsg-nrw-24.md
+- § 25 DSG NRW – Errichtung und Rechtsstellung · landesrecht/dsg-nrw/dsg-nrw-25.md
+- § 26 DSG NRW – Zuständigkeit · landesrecht/dsg-nrw/dsg-nrw-26.md
+- § 27 DSG NRW – Aufgaben · landesrecht/dsg-nrw/dsg-nrw-27.md
+- § 28 DSG NRW – Befugnisse · landesrecht/dsg-nrw/dsg-nrw-28.md
+- § 29 DSG NRW – Beschwerderecht nach Artikel 77 der Verordnung (EU) 2016/679 · landesrecht/dsg-nrw/dsg-nrw-29.md
+- § 30 DSG NRW – Tätigkeitsbericht, Gutachtertätigkeit · landesrecht/dsg-nrw/dsg-nrw-30.md
+- § 31 DSG NRW – Verschwiegenheitspflicht, Zeugnisverweigerungsrecht und Abberufung · landesrecht/dsg-nrw/dsg-nrw-31.md
+- § 32 DSG NRW – Geldbußen · landesrecht/dsg-nrw/dsg-nrw-32.md
+- § 33 DSG NRW – Ordnungswidrigkeiten · landesrecht/dsg-nrw/dsg-nrw-33.md
+- § 34 DSG NRW – Straftaten · landesrecht/dsg-nrw/dsg-nrw-34.md
+- § 35 DSG NRW – Anwendungsbereich · landesrecht/dsg-nrw/dsg-nrw-35.md
+- § 36 DSG NRW – Begriffsbestimmungen · landesrecht/dsg-nrw/dsg-nrw-36.md
+- § 37 DSG NRW – Allgemeine Grundsätze für die Verarbeitung personenbezogener Daten · landesrecht/dsg-nrw/dsg-nrw-37.md
+- § 38 DSG NRW – Einwilligung · landesrecht/dsg-nrw/dsg-nrw-38.md
+- § 39 DSG NRW – Verarbeitung zu einem anderen Zweck als dem Erhebungszweck · landesrecht/dsg-nrw/dsg-nrw-39.md
+- § 40 DSG NRW – Verarbeitung zu wissenschaftlichen oder statistischen Zwecken · landesrecht/dsg-nrw/dsg-nrw-40.md
+- § 41 DSG NRW – Datengeheimnis · landesrecht/dsg-nrw/dsg-nrw-41.md
+- § 42 DSG NRW – Unterscheidung zwischen verschiedenen Kategorien betroffener Personen · landesrecht/dsg-nrw/dsg-nrw-42.md
+- § 43 DSG NRW – Unterscheidung zwischen Tatsachen und persönlichen Einschätzungen · landesrecht/dsg-nrw/dsg-nrw-43.md
+- § 44 DSG NRW – Verfahren bei Übermittlungen · landesrecht/dsg-nrw/dsg-nrw-44.md
+- § 45 DSG NRW – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/dsg-nrw/dsg-nrw-45.md
+- § 46 DSG NRW – Automatisierte Einzelentscheidungen · landesrecht/dsg-nrw/dsg-nrw-46.md
+- § 47 DSG NRW – Allgemeine Informationen zu Datenverarbeitungen · landesrecht/dsg-nrw/dsg-nrw-47.md
+- § 48 DSG NRW – Benachrichtigung betroffener Personen · landesrecht/dsg-nrw/dsg-nrw-48.md
+- § 49 DSG NRW – Auskunftsrecht · landesrecht/dsg-nrw/dsg-nrw-49.md
+- § 50 DSG NRW – Rechte auf Berichtigung und Löschung sowie Einschränkung der Verarbeitung · landesrecht/dsg-nrw/dsg-nrw-50.md
+- § 51 DSG NRW – Verfahren · landesrecht/dsg-nrw/dsg-nrw-51.md
+- § 52 DSG NRW – Verarbeitung personenbezogener Daten im Auftrag · landesrecht/dsg-nrw/dsg-nrw-52.md
+- § 53 DSG NRW – Verzeichnis von Verarbeitungstätigkeiten · landesrecht/dsg-nrw/dsg-nrw-53.md
+- § 54 DSG NRW – Berichtigung und Löschung personenbezogener Daten sowie Einschränkung der Verarbeitung · landesrecht/dsg-nrw/dsg-nrw-54.md
+- § 55 DSG NRW – Protokollierung · landesrecht/dsg-nrw/dsg-nrw-55.md
+- § 56 DSG NRW – Datenschutz-Folgenabschätzung · landesrecht/dsg-nrw/dsg-nrw-56.md
+- § 57 DSG NRW – Konsultation der oder des Landesbeauftragten für Datenschutz und Informationsfreiheit · landesrecht/dsg-nrw/dsg-nrw-57.md
+- § 58 DSG NRW – Anforderungen an die Sicherheit der Verarbeitung · landesrecht/dsg-nrw/dsg-nrw-58.md
+- § 59 DSG NRW – Meldung von Verletzungen des Schutzes personenbezogener Daten an die Aufsichtsbehörde · landesrecht/dsg-nrw/dsg-nrw-59.md
+- § 60 DSG NRW – Die oder der Landesbeauftragte für Datenschutz und Informationsfreiheit · landesrecht/dsg-nrw/dsg-nrw-60.md
+- § 61 DSG NRW – Recht auf Beschwerde bei einer Aufsichtsbehörde · landesrecht/dsg-nrw/dsg-nrw-61.md
+- § 62 DSG NRW – Allgemeine Voraussetzungen · landesrecht/dsg-nrw/dsg-nrw-62.md
+- § 63 DSG NRW – Datenübermittlung bei geeigneten Garantien · landesrecht/dsg-nrw/dsg-nrw-63.md
+- § 64 DSG NRW – Datenübermittlung ohne geeignete Garantien · landesrecht/dsg-nrw/dsg-nrw-64.md
+- § 65 DSG NRW – Sonstige Datenübermittlung an Empfänger in Drittstaaten · landesrecht/dsg-nrw/dsg-nrw-65.md
+- § 66 DSG NRW – Vertrauliche Meldung von Datenschutzverstößen · landesrecht/dsg-nrw/dsg-nrw-66.md
+- § 67 DSG NRW – Ergänzende Anwendung der Verordnung (EU) 2016/679 · landesrecht/dsg-nrw/dsg-nrw-67.md
+- § 68 DSG NRW – Schadensersatz · landesrecht/dsg-nrw/dsg-nrw-68.md
+- § 69 DSG NRW – Straf- und Bußgeldvorschriften · landesrecht/dsg-nrw/dsg-nrw-69.md
+- § 70 DSG NRW – Übergangsvorschrift · landesrecht/dsg-nrw/dsg-nrw-70.md
+- § 71 DSG NRW – Einschränkung von Grundrechten · landesrecht/dsg-nrw/dsg-nrw-71.md
+- § 72 DSG NRW – Inkrafttreten, Außerkrafttreten · landesrecht/dsg-nrw/dsg-nrw-72.md
+
+## HDSIG (94)
+- § 1 HDSIG – Anwendungsbereich · landesrecht/hdsig/hdsig-1.md
+- § 2 HDSIG – Begriffsbestimmungen · landesrecht/hdsig/hdsig-2.md
+- § 3 HDSIG – Verarbeitung personenbezogener Daten, Auftragsverarbeitung · landesrecht/hdsig/hdsig-3.md
+- § 4 HDSIG – Videoüberwachung öffentlich zugänglicher Räume · landesrecht/hdsig/hdsig-4.md
+- § 5 HDSIG – Benennung · landesrecht/hdsig/hdsig-5.md
+- § 6 HDSIG – Rechtsstellung · landesrecht/hdsig/hdsig-6.md
+- § 7 HDSIG – Aufgaben · landesrecht/hdsig/hdsig-7.md
+- § 8 HDSIG – Rechtsstellung und Unabhängigkeit · landesrecht/hdsig/hdsig-8.md
+- § 9 HDSIG – Wahl · landesrecht/hdsig/hdsig-9.md
+- § 10 HDSIG – Persönliche Voraussetzungen · landesrecht/hdsig/hdsig-10.md
+- § 11 HDSIG – Amtsverhältnis · landesrecht/hdsig/hdsig-11.md
+- § 12 HDSIG – Verschwiegenheitspflicht · landesrecht/hdsig/hdsig-12.md
+- § 13 HDSIG – Zuständigkeit und Aufgaben · landesrecht/hdsig/hdsig-13.md
+- § 14 HDSIG – Befugnisse · landesrecht/hdsig/hdsig-14.md
+- § 15 HDSIG – Gutachten und Untersuchungen, Tätigkeitsbericht · landesrecht/hdsig/hdsig-15.md
+- § 16 HDSIG – Informationspflichten · landesrecht/hdsig/hdsig-16.md
+- § 17 HDSIG – Benachteiligungsverbot bei Anrufung der oder des Hessischen Datenschutzbeauftragten · landesrecht/hdsig/hdsig-17.md
+- § 18 HDSIG – Personal- und Sachausstattung · landesrecht/hdsig/hdsig-18.md
+- § 19 HDSIG – Gerichtlicher Rechtsschutz · landesrecht/hdsig/hdsig-19.md
+- § 20 HDSIG – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/hdsig/hdsig-20.md
+- § 21 HDSIG – Verarbeitung zu anderen Zwecken · landesrecht/hdsig/hdsig-21.md
+- § 22 HDSIG – Datenübermittlungen durch öffentliche Stellen · landesrecht/hdsig/hdsig-22.md
+- § 23 HDSIG – Datenverarbeitung für Zwecke des Beschäftigungsverhältnisses · landesrecht/hdsig/hdsig-23.md
+- § 24 HDSIG – Datenverarbeitung zu wissenschaftlichen oder historischen Forschungszwecken und zu statistischen Zwecken · landesrecht/hdsig/hdsig-24.md
+- § 25 HDSIG – Datenverarbeitung zu im öffentlichen Interesse liegenden Archivzwecken · landesrecht/hdsig/hdsig-25.md
+- § 26 HDSIG – Rechte der betroffenen Person und auf sichtsbehördliche Untersuchungen im Fall von Geheimhaltungspflichten · landesrecht/hdsig/hdsig-26.md
+- § 27 HDSIG – Datenübermittlung an öffentlich-rechtliche Religionsgemeinschaften · landesrecht/hdsig/hdsig-27.md
+- § 28 HDSIG – Datenverarbeitung des Hessischen Rundfunks zu journalistischen Zwecken · landesrecht/hdsig/hdsig-28.md
+- § 28a HDSIG – Datenverarbeitung bei öffentlichen Auszeichnungen und Ehrungen · landesrecht/hdsig/hdsig-28a.md
+- § 28b HDSIG – Datenverarbeitung in Gnadenverfahren · landesrecht/hdsig/hdsig-28b.md
+- § 28c HDSIG – Datenübermittlung durch berufsständische Versorgungseinrichtungen · landesrecht/hdsig/hdsig-28c.md
+- § 29 HDSIG – Auskunftsrecht des Landtags und der kommunalen Vertretungsorgane · landesrecht/hdsig/hdsig-29.md
+- § 30 HDSIG – Verarbeitung personenbezogener Daten durch den Landtag und die kommunalen Vertretungsorgane · landesrecht/hdsig/hdsig-30.md
+- § 31 HDSIG – Informationspflicht bei Erhebung von personenbezogenen Daten bei der betroffenen Person · landesrecht/hdsig/hdsig-31.md
+- § 32 HDSIG – Informationspflicht, wenn die personenbezogenen Daten nicht bei der betroffenen Person erhoben wurden · landesrecht/hdsig/hdsig-32.md
+- § 33 HDSIG – Auskunftsrecht der betroffenen Person · landesrecht/hdsig/hdsig-33.md
+- § 34 HDSIG – Recht auf Löschung („Recht auf Vergessenwerden“) · landesrecht/hdsig/hdsig-34.md
+- § 35 HDSIG – Widerspruchsrecht · landesrecht/hdsig/hdsig-35.md
+- § 36 HDSIG – Anwendung der Vorschriften über das Bußgeld- und Strafverfahren bei Verstößen nach Artikel 83 der Verordnung (EU) Nr. 2016/679 · landesrecht/hdsig/hdsig-36.md
+- § 37 HDSIG – Strafvorschriften · landesrecht/hdsig/hdsig-37.md
+- § 38 HDSIG – Bußgeldvorschriften · landesrecht/hdsig/hdsig-38.md
+- § 39 HDSIG – Gemeinsame Verfahren, Gemeinsam Verantwortliche · landesrecht/hdsig/hdsig-39.md
+- § 40 HDSIG – Anwendungsbereich · landesrecht/hdsig/hdsig-40.md
+- § 41 HDSIG – Begriffsbestimmungen · landesrecht/hdsig/hdsig-41.md
+- § 42 HDSIG – Allgemeine Grundsätze für die Verarbeitung personenbezogener Daten · landesrecht/hdsig/hdsig-42.md
+- § 43 HDSIG – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/hdsig/hdsig-43.md
+- § 44 HDSIG – Verarbeitung zu anderen Zwecken · landesrecht/hdsig/hdsig-44.md
+- § 45 HDSIG – Verarbeitung zu wissenschaftlichen oder historischen Forschungszwecken, archivarischen oder statistischen Zwecken · landesrecht/hdsig/hdsig-45.md
+- § 46 HDSIG – Einwilligung · landesrecht/hdsig/hdsig-46.md
+- § 47 HDSIG – Verarbeitung auf Weisung des Verantwortlichen · landesrecht/hdsig/hdsig-47.md
+- § 48 HDSIG – Datengeheimnis · landesrecht/hdsig/hdsig-48.md
+- § 49 HDSIG – Automatisierte Einzelentscheidung · landesrecht/hdsig/hdsig-49.md
+- § 50 HDSIG – Allgemeine Informationen zu Datenverarbeitungen · landesrecht/hdsig/hdsig-50.md
+- § 51 HDSIG – Benachrichtigung betroffener Personen · landesrecht/hdsig/hdsig-51.md
+- § 52 HDSIG – Auskunftsrecht · landesrecht/hdsig/hdsig-52.md
+- § 53 HDSIG – Rechte auf Berichtigung und Löschung sowie Einschränkung der Verarbeitung · landesrecht/hdsig/hdsig-53.md
+- § 54 HDSIG – Verfahren für die Ausübung der Rechte der betroffenen Person · landesrecht/hdsig/hdsig-54.md
+- § 55 HDSIG – Anrufung der oder des Hessischen Datenschutzbeauftragten · landesrecht/hdsig/hdsig-55.md
+- § 56 HDSIG – Rechtsschutz gegen Entscheidungen der oder des Hessischen Datenschutzbeauftragten oder bei deren oder dessen Untätigkeit · landesrecht/hdsig/hdsig-56.md
+- § 57 HDSIG – Auftragsverarbeitung · landesrecht/hdsig/hdsig-57.md
+- § 58 HDSIG – Gemeinsame Verfahren, Gemeinsam Verantwortliche · landesrecht/hdsig/hdsig-58.md
+- § 59 HDSIG – Anforderungen an die Sicherheit der Datenverarbeitung · landesrecht/hdsig/hdsig-59.md
+- § 60 HDSIG – Meldung von Verletzungen des Schutzes personenbezogener Daten an die Hessische Datenschutzbeauftragte oder den Hessischen Datenschutzbeauftragten · landesrecht/hdsig/hdsig-60.md
+- § 61 HDSIG – Benachrichtigung betroffener Personen bei Verletzungen des Schutzes personenbezogener Daten · landesrecht/hdsig/hdsig-61.md
+- § 62 HDSIG – Durchführung einer Datenschutz-Folgenabschätzung · landesrecht/hdsig/hdsig-62.md
+- § 63 HDSIG – Zusammenarbeit mit der oder dem Hessischen Datenschutzbeauftragten · landesrecht/hdsig/hdsig-63.md
+- § 64 HDSIG – Vorherige Konsultation der oder des Hessischen Datenschutzbeauftragten · landesrecht/hdsig/hdsig-64.md
+- §65 HDSIG – Verzeichnis von Verarbeitungstätigkeiten · landesrecht/hdsig/hdsig-65.md
+- § 66 HDSIG – Datenschutz durch Technikgestaltung und datenschutzfreundliche Voreinstellungen · landesrecht/hdsig/hdsig-66.md
+- § 67 HDSIG – Unterscheidung zwischen verschiedenen Kategorien betroffener Personen · landesrecht/hdsig/hdsig-67.md
+- § 68 HDSIG – Unterscheidung zwischen Tatsachen und persönlichen Einschätzungen · landesrecht/hdsig/hdsig-68.md
+- § 69 HDSIG – Qualitätssicherung personenbezogener Daten vor deren Übermittlung · landesrecht/hdsig/hdsig-69.md
+- § 70 HDSIG – Berichtigung und Löschung personenbezogener Daten sowie Einschränkung der Verarbeitung · landesrecht/hdsig/hdsig-70.md
+- § 71 HDSIG – Protokollierung · landesrecht/hdsig/hdsig-71.md
+- § 72 HDSIG – Vertrauliche Meldung von Verstößen · landesrecht/hdsig/hdsig-72.md
+- § 73 HDSIG – Allgemeine Voraussetzungen · landesrecht/hdsig/hdsig-73.md
+- § 74 HDSIG – Datenübermittlung bei geeigneten Garantien · landesrecht/hdsig/hdsig-74.md
+- § 75 HDSIG – Ausnahmen für eine Datenübermittlung ohne geeignete Garantien · landesrecht/hdsig/hdsig-75.md
+- § 76 HDSIG – Sonstige Datenübermittlung an Empfänger in Drittländern · landesrecht/hdsig/hdsig-76.md
+- § 77 HDSIG – Gegenseitige Amtshilfe · landesrecht/hdsig/hdsig-77.md
+- § 78 HDSIG – Schadensersatz und Entschädigung · landesrecht/hdsig/hdsig-78.md
+- § 79 HDSIG – Strafvorschriften · landesrecht/hdsig/hdsig-79.md
+- § 80 HDSIG – Anspruch auf Informationszugang · landesrecht/hdsig/hdsig-80.md
+- § 81 HDSIG – Anwendungsbereich · landesrecht/hdsig/hdsig-81.md
+- § 82 HDSIG – Schutz besonderer öffentlicher und privater Belange · landesrecht/hdsig/hdsig-82.md
+- § 83 HDSIG – Schutz personenbezogener Daten · landesrecht/hdsig/hdsig-83.md
+- § 84 HDSIG – Schutz behördlicher Entscheidungsprozesse · landesrecht/hdsig/hdsig-84.md
+- § 85 HDSIG – Antrag · landesrecht/hdsig/hdsig-85.md
+- § 86 HDSIG – Verfahren bei Beteiligung Dritter · landesrecht/hdsig/hdsig-86.md
+- § 87 HDSIG – Entscheidung · landesrecht/hdsig/hdsig-87.md
+- § 88 HDSIG – Kosten · landesrecht/hdsig/hdsig-88.md
+- § 89 HDSIG – Die oder der Hessische Informationsfreiheitsbeauftragte · landesrecht/hdsig/hdsig-89.md
+- § 90 HDSIG – Übergangsvorschriften · landesrecht/hdsig/hdsig-90.md
+- § 91 HDSIG – Inkrafttreten · landesrecht/hdsig/hdsig-91.md
+
+## HmbDSG (27)
+- § 1 HmbDSG – Zweck · landesrecht/hmbdsg/hmbdsg-1.md
+- § 2 HmbDSG – Anwendungsbereich · landesrecht/hmbdsg/hmbdsg-2.md
+- § 3 HmbDSG – Datengeheimnis · landesrecht/hmbdsg/hmbdsg-3.md
+- § 4 HmbDSG – Zulässigkeit der Verarbeitung personenbezogener Daten · landesrecht/hmbdsg/hmbdsg-4.md
+- § 5 HmbDSG – Erhebung personenbezogener Daten · landesrecht/hmbdsg/hmbdsg-5.md
+- § 6 HmbDSG – Zweckbindung · landesrecht/hmbdsg/hmbdsg-6.md
+- § 7 HmbDSG – Automatisierte Verfahren und Gemeinsame Dateien · landesrecht/hmbdsg/hmbdsg-7.md
+- § 8 HmbDSG – Verantwortung bei der Offenlegung personenbezogener Daten · landesrecht/hmbdsg/hmbdsg-8.md
+- § 9 HmbDSG – Videoüberwachung · landesrecht/hmbdsg/hmbdsg-9.md
+- § 10 HmbDSG – Verarbeitung von Beschäftigtendaten · landesrecht/hmbdsg/hmbdsg-10.md
+- § 11 HmbDSG – Datenverarbeitung zum Zwecke wissenschaftlicher und historischer Forschung sowie Statistik · landesrecht/hmbdsg/hmbdsg-11.md
+- § 12 HmbDSG – Datenverarbeitung zu künstlerischen Zwecken · landesrecht/hmbdsg/hmbdsg-12.md
+- § 13 HmbDSG – Öffentliche Auszeichnungen und Ehrungen · landesrecht/hmbdsg/hmbdsg-13.md
+- § 14 HmbDSG – Begnadigungsverfahren · landesrecht/hmbdsg/hmbdsg-14.md
+- § 15 HmbDSG – Beschränkung der Informationspflicht · landesrecht/hmbdsg/hmbdsg-15.md
+- § 16 HmbDSG – Beschränkung des Auskunftsrechts · landesrecht/hmbdsg/hmbdsg-16.md
+- § 17 HmbDSG – Beschränkung der Löschungspflicht · landesrecht/hmbdsg/hmbdsg-17.md
+- § 18 HmbDSG – Beschränkung der Benachrichtigungspflicht · landesrecht/hmbdsg/hmbdsg-18.md
+- § 19 HmbDSG – Zuständigkeit · landesrecht/hmbdsg/hmbdsg-19.md
+- § 20 HmbDSG – Ernennungsvoraussetzungen · landesrecht/hmbdsg/hmbdsg-20.md
+- § 21 HmbDSG – Rechtsstellung · landesrecht/hmbdsg/hmbdsg-21.md
+- § 22 HmbDSG – Besondere Pflichten · landesrecht/hmbdsg/hmbdsg-22.md
+- § 23 HmbDSG – Tätigkeit nach Beendigung des Amtsverhältnisses · landesrecht/hmbdsg/hmbdsg-23.md
+- § 24 HmbDSG – Befugnisse und Rechte · landesrecht/hmbdsg/hmbdsg-24.md
+- § 25 HmbDSG – Verwaltungsgebühren · landesrecht/hmbdsg/hmbdsg-25.md
+- § 26 HmbDSG – Strafvorschrift · landesrecht/hmbdsg/hmbdsg-26.md
+- § 27 HmbDSG – Ordnungswidrigkeiten · landesrecht/hmbdsg/hmbdsg-27.md
+
+## LDSG BW (47)
+- § 1 LDSG (BW) – Zweck des Gesetzes · landesrecht/ldsg-bw/ldsg-bw-1.md
+- § 2 LDSG (BW) – Anwendungsbereich · landesrecht/ldsg-bw/ldsg-bw-2.md
+- § 2a LDSG (BW) – Begriffsbestimmungen · landesrecht/ldsg-bw/ldsg-bw-2a.md
+- § 3 LDSG (BW) – Sicherstellung des Datenschutzes · landesrecht/ldsg-bw/ldsg-bw-3.md
+- § 3a LDSG (BW) – Nutzung von KI-Systemen · landesrecht/ldsg-bw/ldsg-bw-3a.md
+- § 4 LDSG (BW) – Zulässigkeit der Verarbeitung personenbezogener Daten · landesrecht/ldsg-bw/ldsg-bw-4.md
+- § 5 LDSG (BW) – Datenverarbeitung zu anderen Zwecken · landesrecht/ldsg-bw/ldsg-bw-5.md
+- § 6 LDSG (BW) – Übermittlung personenbezogener Daten · landesrecht/ldsg-bw/ldsg-bw-6.md
+- § 7 LDSG (BW) – Datenverarbeitung in der gemeinsamen Dienststelle · landesrecht/ldsg-bw/ldsg-bw-7.md
+- § 7a LDSG (BW) – Auftragsverarbeitung; Verordnungsermächtigung · landesrecht/ldsg-bw/ldsg-bw-7a.md
+- § 8 LDSG (BW) – Beschränkung der Informationspflicht · landesrecht/ldsg-bw/ldsg-bw-8.md
+- § 9 LDSG (BW) – Beschränkung des Auskunftsrechts · landesrecht/ldsg-bw/ldsg-bw-9.md
+- § 9a LDSG (BW) – Beschränkung des Rechts auf Berichtigung · landesrecht/ldsg-bw/ldsg-bw-9a.md
+- § 10 LDSG (BW) – Beschränkung des Rechts auf Löschung · landesrecht/ldsg-bw/ldsg-bw-10.md
+- § 11 LDSG (BW) – Beschränkung der Benachrichtigungspflicht · landesrecht/ldsg-bw/ldsg-bw-11.md
+- § 11a LDSG (BW) – Entwicklung, Training, Testen, Validierung und Beobachtung von KI-Systemen und KI-Modellen · landesrecht/ldsg-bw/ldsg-bw-11a.md
+- § 12 LDSG (BW) – Verarbeitung personenbezogener Daten, die einem Berufs- oder besonderen Amtsgeheimnis unterliegen · landesrecht/ldsg-bw/ldsg-bw-12.md
+- § 12a LDSG (BW) – Verarbeitung zu Zwecken der parlamentarischen Kontrolle · landesrecht/ldsg-bw/ldsg-bw-12a.md
+- § 13 LDSG (BW) – Datenverarbeitung zu wissenschaftlichen oder historischen Forschungszwecken und zu statistischen Zwecken · landesrecht/ldsg-bw/ldsg-bw-13.md
+- § 14 LDSG (BW) – Datenverarbeitung zu im öffentlichen Interesse liegenden Archivzwecken · landesrecht/ldsg-bw/ldsg-bw-14.md
+- § 15 LDSG (BW) – Datenverarbeitung bei Dienst- und Arbeitsverhältnissen · landesrecht/ldsg-bw/ldsg-bw-15.md
+- § 16 LDSG (BW) – Öffentliche Auszeichnungen und Ehrungen · landesrecht/ldsg-bw/ldsg-bw-16.md
+- § 17 LDSG (BW) – Verarbeitung personenbezogener Daten im öffentlichen Interesse · landesrecht/ldsg-bw/ldsg-bw-17.md
+- § 17a LDSG (BW) – Absicherung des Zugangs zu personenbezogenen Daten · landesrecht/ldsg-bw/ldsg-bw-17a.md
+- § 17b LDSG (BW) – Öffentlichkeitsarbeit · landesrecht/ldsg-bw/ldsg-bw-17b.md
+- § 18 LDSG (BW) – Videoschutz öffentlich zugänglicher Räume · landesrecht/ldsg-bw/ldsg-bw-18.md
+- § 18a LDSG (BW) – Videoüberwachung nicht öffentlich zugänglicher Räume · landesrecht/ldsg-bw/ldsg-bw-18a.md
+- § 18b LDSG (BW) – Sonstige technische Überwachung · landesrecht/ldsg-bw/ldsg-bw-18b.md
+- § 19 LDSG (BW) – Verarbeitung personenbezogener Daten zu künstlerischen und literarischen Zwecken · landesrecht/ldsg-bw/ldsg-bw-19.md
+- § 19a LDSG (BW) – Verarbeitung personenbezogener Daten im Landtag · landesrecht/ldsg-bw/ldsg-bw-19a.md
+- § 19b LDSG (BW) – Zulässigkeit der Datenverarbeitung · landesrecht/ldsg-bw/ldsg-bw-19b.md
+- § 19c LDSG (BW) – Verantwortlicher · landesrecht/ldsg-bw/ldsg-bw-19c.md
+- § 19d LDSG (BW) – Rechte betroffener Personen · landesrecht/ldsg-bw/ldsg-bw-19d.md
+- § 19e LDSG (BW) – Datenschutzaufsicht · landesrecht/ldsg-bw/ldsg-bw-19e.md
+- § 20 LDSG (BW) – Errichtung · landesrecht/ldsg-bw/ldsg-bw-20.md
+- § 21 LDSG (BW) – Unabhängigkeit · landesrecht/ldsg-bw/ldsg-bw-21.md
+- § 22 LDSG (BW) – Ernennung und Amtszeit · landesrecht/ldsg-bw/ldsg-bw-22.md
+- § 23 LDSG (BW) – Amtsverhältnis · landesrecht/ldsg-bw/ldsg-bw-23.md
+- § 24 LDSG (BW) – Rechte und Pflichten · landesrecht/ldsg-bw/ldsg-bw-24.md
+- § 25 LDSG (BW) – Aufgaben und Befugnisse · landesrecht/ldsg-bw/ldsg-bw-25.md
+- § 26 LDSG (BW) – Pflicht zur Unterstützung · landesrecht/ldsg-bw/ldsg-bw-26.md
+- § 27 LDSG (BW) – Rundfunkbeauftragte oder Rundfunkbeauftragter für den Datenschutz · landesrecht/ldsg-bw/ldsg-bw-27.md
+- § 27a LDSG (BW) – Datenschutzaufsicht für digitale Dienste · landesrecht/ldsg-bw/ldsg-bw-27a.md
+- § 28 LDSG (BW) – Ordnungswidrigkeiten · landesrecht/ldsg-bw/ldsg-bw-28.md
+- § 29 LDSG (BW) – Strafvorschrift · landesrecht/ldsg-bw/ldsg-bw-29.md
+- § 30 LDSG (BW) – Polizeibehörden und Polizeivollzugsdienst, Justizbehörden, Landesamt für Verfassungsschutz und Vollzug des Landessicherheitsüberprüfungsgesetzes · landesrecht/ldsg-bw/ldsg-bw-30.md
+- § 31 LDSG (BW) – Überleitungsvorschriften · landesrecht/ldsg-bw/ldsg-bw-31.md
+
+## LDSG RLP (74)
+- § 1 LDSG (RLP) – Zweck · landesrecht/ldsg-rlp/ldsg-rlp-1.md
+- § 2 LDSG (RLP) – Anwendungsbereich · landesrecht/ldsg-rlp/ldsg-rlp-2.md
+- § 3 LDSG (RLP) – Zulässigkeit · landesrecht/ldsg-rlp/ldsg-rlp-3.md
+- § 4 LDSG (RLP) – Erhebung bei Dritten · landesrecht/ldsg-rlp/ldsg-rlp-4.md
+- § 5 LDSG (RLP) – Übermittlung an öffentliche Stellen · landesrecht/ldsg-rlp/ldsg-rlp-5.md
+- § 6 LDSG (RLP) – Löschung · landesrecht/ldsg-rlp/ldsg-rlp-6.md
+- § 7 LDSG (RLP) – Verarbeitung zu anderen Zwecken · landesrecht/ldsg-rlp/ldsg-rlp-7.md
+- § 8 LDSG (RLP) – Datengeheimnis · landesrecht/ldsg-rlp/ldsg-rlp-8.md
+- § 9 LDSG (RLP) – Datenschutz-Folgenabschätzung · landesrecht/ldsg-rlp/ldsg-rlp-9.md
+- § 10 LDSG (RLP) – Entsprechende Anwendung der Datenschutz-Grundverordnung · landesrecht/ldsg-rlp/ldsg-rlp-10.md
+- § 11 LDSG (RLP) – Beschränkung der Informationspflicht nach den Artikeln 13 und 14 der Datenschutz-Grundverordnung · landesrecht/ldsg-rlp/ldsg-rlp-11.md
+- § 12 LDSG (RLP) – Auskunftsrecht der betroffenen Person nach Artikel 15 der Datenschutz-Grundverordnung · landesrecht/ldsg-rlp/ldsg-rlp-12.md
+- § 13 LDSG (RLP) – Beschränkung der Benachrichtigung nach Artikel 34 der Datenschutz-Grundverordnung · landesrecht/ldsg-rlp/ldsg-rlp-13.md
+- § 14 LDSG (RLP) – Rechtsstellung · landesrecht/ldsg-rlp/ldsg-rlp-14.md
+- § 15 LDSG (RLP) – Zuständigkeit und Organisation · landesrecht/ldsg-rlp/ldsg-rlp-15.md
+- § 16 LDSG (RLP) – Aufgaben, Mitwirkungspflichten · landesrecht/ldsg-rlp/ldsg-rlp-16.md
+- § 17 LDSG (RLP) – Befugnisse nach Artikel 58 der Datenschutz-Grundverordnung · landesrecht/ldsg-rlp/ldsg-rlp-17.md
+- § 18 LDSG (RLP) – Datenschutzkommission · landesrecht/ldsg-rlp/ldsg-rlp-18.md
+- § 19 LDSG (RLP) – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/ldsg-rlp/ldsg-rlp-19.md
+- § 20 LDSG (RLP) – Datenverarbeitung bei Dienst- und Beschäftigungsverhältnissen · landesrecht/ldsg-rlp/ldsg-rlp-20.md
+- § 21 LDSG (RLP) – Videoüberwachung · landesrecht/ldsg-rlp/ldsg-rlp-21.md
+- § 22 LDSG (RLP) – Datenverarbeitung zu wissenschaftlichen oder historischen Forschungszwecken und zu statistischen Zwecken · landesrecht/ldsg-rlp/ldsg-rlp-22.md
+- § 23 LDSG (RLP) – Verarbeitung zu Zwecken der parlamentarischen Kontrolle · landesrecht/ldsg-rlp/ldsg-rlp-23.md
+- § 24 LDSG (RLP) – Ordnungswidrigkeiten · landesrecht/ldsg-rlp/ldsg-rlp-24.md
+- § 25 LDSG (RLP) – Strafbestimmung · landesrecht/ldsg-rlp/ldsg-rlp-25.md
+- § 26 LDSG (RLP) – Anwendungsbereich · landesrecht/ldsg-rlp/ldsg-rlp-26.md
+- § 27 LDSG (RLP) – Begriffsbestimmungen · landesrecht/ldsg-rlp/ldsg-rlp-27.md
+- § 28 LDSG (RLP) – Allgemeine Grundsätze · landesrecht/ldsg-rlp/ldsg-rlp-28.md
+- § 29 LDSG (RLP) – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/ldsg-rlp/ldsg-rlp-29.md
+- § 30 LDSG (RLP) – Verarbeitung zu anderen Zwecken · landesrecht/ldsg-rlp/ldsg-rlp-30.md
+- § 31 LDSG (RLP) – Verarbeitung zu archivarischen, wissenschaftlichen und statistischen Zwecken · landesrecht/ldsg-rlp/ldsg-rlp-31.md
+- § 32 LDSG (RLP) – Nachweis der Einhaltung durch den Verantwortlichen · landesrecht/ldsg-rlp/ldsg-rlp-32.md
+- § 33 LDSG (RLP) – Einwilligung · landesrecht/ldsg-rlp/ldsg-rlp-33.md
+- § 34 LDSG (RLP) – Verarbeitung auf Weisung des Verantwortlichen · landesrecht/ldsg-rlp/ldsg-rlp-34.md
+- § 35 LDSG (RLP) – Datengeheimnis · landesrecht/ldsg-rlp/ldsg-rlp-35.md
+- § 36 LDSG (RLP) – Automatisierte Einzelentscheidung · landesrecht/ldsg-rlp/ldsg-rlp-36.md
+- § 37 LDSG (RLP) – Benennung · landesrecht/ldsg-rlp/ldsg-rlp-37.md
+- § 38 LDSG (RLP) – Stellung · landesrecht/ldsg-rlp/ldsg-rlp-38.md
+- § 39 LDSG (RLP) – Aufgaben · landesrecht/ldsg-rlp/ldsg-rlp-39.md
+- § 40 LDSG (RLP) – Rechtsstellung und Organisation · landesrecht/ldsg-rlp/ldsg-rlp-40.md
+- § 41 LDSG (RLP) – Aufgaben · landesrecht/ldsg-rlp/ldsg-rlp-41.md
+- § 42 LDSG (RLP) – Befugnisse · landesrecht/ldsg-rlp/ldsg-rlp-42.md
+- § 43 LDSG (RLP) – Allgemeine Informationen zu Datenverarbeitungen · landesrecht/ldsg-rlp/ldsg-rlp-43.md
+- § 44 LDSG (RLP) – Benachrichtigung betroffener Personen · landesrecht/ldsg-rlp/ldsg-rlp-44.md
+- § 45 LDSG (RLP) – Auskunftsrecht · landesrecht/ldsg-rlp/ldsg-rlp-45.md
+- § 46 LDSG (RLP) – Rechte auf Berichtigung und Löschung sowie Einschränkung der Verarbeitung · landesrecht/ldsg-rlp/ldsg-rlp-46.md
+- § 47 LDSG (RLP) – Verfahren für die Ausübung der Rechte der betroffenen Person · landesrecht/ldsg-rlp/ldsg-rlp-47.md
+- § 48 LDSG (RLP) – Anrufung der oder des Landesbeauftragten für den Datenschutz und die Informationsfreiheit · landesrecht/ldsg-rlp/ldsg-rlp-48.md
+- § 49 LDSG (RLP) – Rechtsschutz gegen Entscheidungen der oder des Landesbeauftragten für den Datenschutz und die Informationsfreiheit oder bei deren oder dessen Untätigkeit · landesrecht/ldsg-rlp/ldsg-rlp-49.md
+- § 50 LDSG (RLP) – Vertretung von betroffenen Personen · landesrecht/ldsg-rlp/ldsg-rlp-50.md
+- § 51 LDSG (RLP) – Auftragsverarbeitung · landesrecht/ldsg-rlp/ldsg-rlp-51.md
+- § 52 LDSG (RLP) – Gemeinsam Verantwortliche · landesrecht/ldsg-rlp/ldsg-rlp-52.md
+- § 53 LDSG (RLP) – Anforderungen an die Sicherheit der Datenverarbeitung · landesrecht/ldsg-rlp/ldsg-rlp-53.md
+- § 54 LDSG (RLP) – Meldung von Verletzungen des Schutzes personenbezogener Daten · landesrecht/ldsg-rlp/ldsg-rlp-54.md
+- § 55 LDSG (RLP) – Benachrichtigung betroffener Personen bei Verletzungen des Schutzes personenbezogener Daten · landesrecht/ldsg-rlp/ldsg-rlp-55.md
+- § 56 LDSG (RLP) – Durchführung einer Datenschutz-Folgenabschätzung · landesrecht/ldsg-rlp/ldsg-rlp-56.md
+- § 57 LDSG (RLP) – Konsultation der oder des Landesbeauftragten für den Datenschutz und die Informationsfreiheit · landesrecht/ldsg-rlp/ldsg-rlp-57.md
+- § 58 LDSG (RLP) – Verzeichnis von Verarbeitungstätigkeiten · landesrecht/ldsg-rlp/ldsg-rlp-58.md
+- § 59 LDSG (RLP) – Datenschutz durch Technikgestaltung und datenschutzfreundliche Voreinstellungen · landesrecht/ldsg-rlp/ldsg-rlp-59.md
+- § 60 LDSG (RLP) – Unterscheidung zwischen verschiedenen Kategorien betroffener Personen · landesrecht/ldsg-rlp/ldsg-rlp-60.md
+- § 61 LDSG (RLP) – Unterscheidung zwischen Tatsachen und persönlichen Einschätzungen · landesrecht/ldsg-rlp/ldsg-rlp-61.md
+- § 62 LDSG (RLP) – Verfahren bei Übermittlungen · landesrecht/ldsg-rlp/ldsg-rlp-62.md
+- § 63 LDSG (RLP) – Berichtigung und Löschung sowie Einschränkung der Verarbeitung · landesrecht/ldsg-rlp/ldsg-rlp-63.md
+- § 64 LDSG (RLP) – Protokollierung · landesrecht/ldsg-rlp/ldsg-rlp-64.md
+- § 65 LDSG (RLP) – Vertrauliche Meldung von Verstößen · landesrecht/ldsg-rlp/ldsg-rlp-65.md
+- § 66 LDSG (RLP) – Allgemeine Voraussetzungen · landesrecht/ldsg-rlp/ldsg-rlp-66.md
+- § 67 LDSG (RLP) – Datenübermittlung bei geeigneten Garantien · landesrecht/ldsg-rlp/ldsg-rlp-67.md
+- § 68 LDSG (RLP) – Datenübermittlung ohne geeignete Garantien · landesrecht/ldsg-rlp/ldsg-rlp-68.md
+- § 69 LDSG (RLP) – Sonstige Datenübermittlungen an Empfänger in Drittstaaten · landesrecht/ldsg-rlp/ldsg-rlp-69.md
+- § 70 LDSG (RLP) – Gegenseitige Amtshilfe · landesrecht/ldsg-rlp/ldsg-rlp-70.md
+- § 71 LDSG (RLP) – Schadensersatz · landesrecht/ldsg-rlp/ldsg-rlp-71.md
+- § 72 LDSG (RLP) – Ordnungswidrigkeiten und Strafbestimmungen · landesrecht/ldsg-rlp/ldsg-rlp-72.md
+- § 73 LDSG (RLP) – Verweisungen und Bezeichnungen in anderen Vorschriften · landesrecht/ldsg-rlp/ldsg-rlp-73.md
+- § 74 LDSG (RLP) – Inkrafttreten · landesrecht/ldsg-rlp/ldsg-rlp-74.md
+
+## LDSG SH (68)
+- § 1 LDSG (SH) – Gesetzeszweck · landesrecht/ldsg-sh/ldsg-sh-1.md
+- § 2 LDSG (SH) – Anwendungsbereich · landesrecht/ldsg-sh/ldsg-sh-2.md
+- § 3 LDSG (SH) – Zulässigkeit der Verarbeitung personenbezogener Daten · landesrecht/ldsg-sh/ldsg-sh-3.md
+- § 4 LDSG (SH) – Zulässigkeit der Verarbeitung personenbezogener Daten zu anderen Zwecken · landesrecht/ldsg-sh/ldsg-sh-4.md
+- § 5 LDSG (SH) – Übermittlung personenbezogener Daten · landesrecht/ldsg-sh/ldsg-sh-5.md
+- § 6 LDSG (SH) – Verfahren bei der Löschung personenbezogener Daten · landesrecht/ldsg-sh/ldsg-sh-6.md
+- § 7 LDSG (SH) – Automatisierte Verfahren · landesrecht/ldsg-sh/ldsg-sh-7.md
+- § 8 LDSG (SH) – Beschränkung der Informationspflicht · landesrecht/ldsg-sh/ldsg-sh-8.md
+- § 9 LDSG (SH) – Beschränkung der Auskunftspflicht · landesrecht/ldsg-sh/ldsg-sh-9.md
+- § 10 LDSG (SH) – Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person · landesrecht/ldsg-sh/ldsg-sh-10.md
+- § 11 LDSG (SH) – Widerspruchsrecht · landesrecht/ldsg-sh/ldsg-sh-11.md
+- § 12 LDSG (SH) – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/ldsg-sh/ldsg-sh-12.md
+- § 13 LDSG (SH) – Datenverarbeitung zu wissenschaftlichen oder historischen Forschungszwecken und zu statistischen Zwecken · landesrecht/ldsg-sh/ldsg-sh-13.md
+- § 14 LDSG (SH) – Videoüberwachung öffentlich zugänglicher Räume · landesrecht/ldsg-sh/ldsg-sh-14.md
+- § 15 LDSG (SH) – Datenverarbeitung im Beschäftigungszusammenhang · landesrecht/ldsg-sh/ldsg-sh-15.md
+- § 16 LDSG (SH) – Öffentliche Auszeichnungen · landesrecht/ldsg-sh/ldsg-sh-16.md
+- § 17 LDSG (SH) – Aufgaben und Befugnisse · landesrecht/ldsg-sh/ldsg-sh-17.md
+- § 18 LDSG (SH) – Durchführung von Kontrollen · landesrecht/ldsg-sh/ldsg-sh-18.md
+- § 19 LDSG (SH) – Geldbußen, Strafvorschrift · landesrecht/ldsg-sh/ldsg-sh-19.md
+- § 20 LDSG (SH) – Anwendungsbereich · landesrecht/ldsg-sh/ldsg-sh-20.md
+- § 21 LDSG (SH) – Begriffsbestimmungen · landesrecht/ldsg-sh/ldsg-sh-21.md
+- § 22 LDSG (SH) – Allgemeine Grundsätze für die Verarbeitung personenbezogener Daten · landesrecht/ldsg-sh/ldsg-sh-22.md
+- § 23 LDSG (SH) – Zulässigkeit der Verarbeitung personenbezogener Daten · landesrecht/ldsg-sh/ldsg-sh-23.md
+- § 24 LDSG (SH) – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/ldsg-sh/ldsg-sh-24.md
+- § 25 LDSG (SH) – Verarbeitung zu anderen Zwecken · landesrecht/ldsg-sh/ldsg-sh-25.md
+- § 26 LDSG (SH) – Verarbeitung zu archivarischen, wissenschaftlichen und statistischen Zwecken · landesrecht/ldsg-sh/ldsg-sh-26.md
+- § 27 LDSG (SH) – Einwilligung · landesrecht/ldsg-sh/ldsg-sh-27.md
+- § 28 LDSG (SH) – Verarbeitung auf Weisung des Verantwortlichen · landesrecht/ldsg-sh/ldsg-sh-28.md
+- § 29 LDSG (SH) – Datengeheimnis · landesrecht/ldsg-sh/ldsg-sh-29.md
+- § 30 LDSG (SH) – Automatisierte Einzelentscheidung · landesrecht/ldsg-sh/ldsg-sh-30.md
+- § 31 LDSG (SH) – Allgemeine Informationen zu Datenverarbeitungen · landesrecht/ldsg-sh/ldsg-sh-31.md
+- § 32 LDSG (SH) – Benachrichtigung betroffener Personen · landesrecht/ldsg-sh/ldsg-sh-32.md
+- § 33 LDSG (SH) – Auskunftsrecht · landesrecht/ldsg-sh/ldsg-sh-33.md
+- § 34 LDSG (SH) – Rechte auf Berichtigung und Löschung sowie Einschränkung der Verarbeitung · landesrecht/ldsg-sh/ldsg-sh-34.md
+- § 35 LDSG (SH) – Verfahren für die Ausübung der Rechte der betroffenen Person · landesrecht/ldsg-sh/ldsg-sh-35.md
+- § 36 LDSG (SH) – Anrufung der oder des Landesbeauftragten · landesrecht/ldsg-sh/ldsg-sh-36.md
+- § 37 LDSG (SH) – Rechtsschutz gegen Entscheidungen der oder des Landesbeauftragten oder bei deren oder dessen Untätigkeit · landesrecht/ldsg-sh/ldsg-sh-37.md
+- § 38 LDSG (SH) – Auftragsverarbeitung · landesrecht/ldsg-sh/ldsg-sh-38.md
+- § 39 LDSG (SH) – Gemeinsam Verantwortliche · landesrecht/ldsg-sh/ldsg-sh-39.md
+- § 40 LDSG (SH) – Anforderungen an die Sicherheit der Datenverarbeitung · landesrecht/ldsg-sh/ldsg-sh-40.md
+- § 41 LDSG (SH) – Meldung von Verletzungen des Schutzes personenbezogener Daten an die oder den Landesbeauftragten · landesrecht/ldsg-sh/ldsg-sh-41.md
+- § 42 LDSG (SH) – Benachrichtigung betroffener Personen bei Verletzungen des Schutzes personenbezogener Daten · landesrecht/ldsg-sh/ldsg-sh-42.md
+- § 43 LDSG (SH) – Durchführung einer Datenschutz-Folgenabschätzung · landesrecht/ldsg-sh/ldsg-sh-43.md
+- § 44 LDSG (SH) – Zusammenarbeit mit der oder dem Landesbeauftragten · landesrecht/ldsg-sh/ldsg-sh-44.md
+- § 45 LDSG (SH) – Anhörung der oder des Landesbeauftragten · landesrecht/ldsg-sh/ldsg-sh-45.md
+- § 46 LDSG (SH) – Verzeichnis von Verarbeitungstätigkeiten · landesrecht/ldsg-sh/ldsg-sh-46.md
+- § 47 LDSG (SH) – Datenschutz durch Technikgestaltung und datenschutzfreundliche Voreinstellungen · landesrecht/ldsg-sh/ldsg-sh-47.md
+- § 48 LDSG (SH) – Unterscheidung zwischen verschiedenen Kategorien betroffener Personen · landesrecht/ldsg-sh/ldsg-sh-48.md
+- § 49 LDSG (SH) – Unterscheidung zwischen Tatsachen und persönlichen Einschätzungen · landesrecht/ldsg-sh/ldsg-sh-49.md
+- § 50 LDSG (SH) – Verfahren bei Übermittlungen · landesrecht/ldsg-sh/ldsg-sh-50.md
+- § 51 LDSG (SH) – Berichtigung und Löschung personenbezogener Daten sowie Einschränkung der Verarbeitung · landesrecht/ldsg-sh/ldsg-sh-51.md
+- § 52 LDSG (SH) – Protokollierung · landesrecht/ldsg-sh/ldsg-sh-52.md
+- § 53 LDSG (SH) – Vertrauliche Meldung von Verstößen · landesrecht/ldsg-sh/ldsg-sh-53.md
+- § 54 LDSG (SH) – Allgemeine Voraussetzungen · landesrecht/ldsg-sh/ldsg-sh-54.md
+- § 55 LDSG (SH) – Datenübermittlung bei geeigneten Garantien · landesrecht/ldsg-sh/ldsg-sh-55.md
+- § 56 LDSG (SH) – Datenübermittlung ohne geeignete Garantien · landesrecht/ldsg-sh/ldsg-sh-56.md
+- § 57 LDSG (SH) – Sonstige Datenübermittlung an Empfänger in Drittstaaten · landesrecht/ldsg-sh/ldsg-sh-57.md
+- § 58 LDSG (SH) – Benennung · landesrecht/ldsg-sh/ldsg-sh-58.md
+- § 59 LDSG (SH) – Stellung · landesrecht/ldsg-sh/ldsg-sh-59.md
+- § 60 LDSG (SH) – Aufgaben · landesrecht/ldsg-sh/ldsg-sh-60.md
+- § 61 LDSG (SH) – Zuständigkeit · landesrecht/ldsg-sh/ldsg-sh-61.md
+- § 62 LDSG (SH) – Aufgaben · landesrecht/ldsg-sh/ldsg-sh-62.md
+- § 63 LDSG (SH) – Tätigkeitsbericht · landesrecht/ldsg-sh/ldsg-sh-63.md
+- § 64 LDSG (SH) – Befugnisse · landesrecht/ldsg-sh/ldsg-sh-64.md
+- § 65 LDSG (SH) – Gegenseitige Amtshilfe · landesrecht/ldsg-sh/ldsg-sh-65.md
+- § 66 LDSG (SH) – Schadensersatz und Entschädigung · landesrecht/ldsg-sh/ldsg-sh-66.md
+- § 67 LDSG (SH) – Strafvorschriften · landesrecht/ldsg-sh/ldsg-sh-67.md
+- § 68 LDSG (SH) – Ordnungswidrigkeiten · landesrecht/ldsg-sh/ldsg-sh-68.md
+
+## NDSG (61)
+- § 1 NDSG – Regelungsgegenstand und Anwendungsbereich · landesrecht/ndsg/ndsg-1.md
+- § 2 NDSG – Erweiterte Anwendung der Datenschutz-Grundverordnung · landesrecht/ndsg/ndsg-2.md
+- § 3 NDSG – Zulässigkeit der Verarbeitung personenbezogener Daten · landesrecht/ndsg/ndsg-3.md
+- § 4 NDSG – Hinweis bei Datenerhebung bei anderen Personen · landesrecht/ndsg/ndsg-4.md
+- § 5 NDSG – Übermittlung personenbezogener Daten · landesrecht/ndsg/ndsg-5.md
+- § 6 NDSG – Zweckbindung, Zweckänderung · landesrecht/ndsg/ndsg-6.md
+- § 7 NDSG – Automatisierte Verfahren und gemeinsame Dateisysteme · landesrecht/ndsg/ndsg-7.md
+- § 8 NDSG – Beschränkung der Informationspflicht nach Artikel 13 Abs. 1 und 2 und Artikel 14 Abs. 1 bis 3 der Datenschutz-Grundverordnung · landesrecht/ndsg/ndsg-8.md
+- § 9 NDSG – Beschränkung des Auskunftsrechts nach Artikel 15 der Datenschutz-Grundverordnung · landesrecht/ndsg/ndsg-9.md
+- § 10 NDSG – Beschränkung der Benachrichtigungspflicht nach Artikel 34 der Datenschutz-Grundverordnung · landesrecht/ndsg/ndsg-10.md
+- § 11 NDSG – Dokumentationspflicht bei der Beschränkung von Rechten der betroffenen Person · landesrecht/ndsg/ndsg-11.md
+- § 12 NDSG – Verarbeitung personenbezogener Daten bei Dienst- und Arbeitsverhältnissen · landesrecht/ndsg/ndsg-12.md
+- § 13 NDSG – Verarbeitung personenbezogener Daten zu wissenschaftlichen oder historischen Forschungszwecken · landesrecht/ndsg/ndsg-13.md
+- § 14 NDSG – Videoüberwachung · landesrecht/ndsg/ndsg-14.md
+- § 15 NDSG – Öffentliche Auszeichnungen und Ehrungen · landesrecht/ndsg/ndsg-15.md
+- § 16 NDSG – Begnadigungsverfahren · landesrecht/ndsg/ndsg-16.md
+- § 17 NDSG – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/ndsg/ndsg-17.md
+- § 18 NDSG – Aufsichtsbehörde, Rechtsstellung der oder des Landesbeauftragten für den Datenschutz · landesrecht/ndsg/ndsg-18.md
+- § 19 NDSG – Aufgaben der Aufsichtsbehörde · landesrecht/ndsg/ndsg-19.md
+- § 20 NDSG – Befugnisse der Aufsichtsbehörde, Mitwirkung · landesrecht/ndsg/ndsg-20.md
+- § 21 NDSG – Stellungnahme zum Tätigkeitsbericht · landesrecht/ndsg/ndsg-21.md
+- § 22 NDSG – Aufsichtsbehörde für die Datenverarbeitung außerhalb des Anwendungsbereichs der · landesrecht/ndsg/ndsg-22.md
+- § 23 NDSG – Anwendungsbereich · landesrecht/ndsg/ndsg-23.md
+- § 24 NDSG – Begriffsbestimmungen · landesrecht/ndsg/ndsg-24.md
+- § 25 NDSG – Grundsätze für die Verarbeitung personenbezogener Daten · landesrecht/ndsg/ndsg-25.md
+- § 26 NDSG – Unterscheidung verschiedener Kategorien betroffener Personen · landesrecht/ndsg/ndsg-26.md
+- § 27 NDSG – Unterscheidung zwischen Tatsachen und persönlichen Einschätzungen · landesrecht/ndsg/ndsg-27.md
+- § 28 NDSG – Löschung personenbezogener Daten sowie Einschränkung der Verarbeitung · landesrecht/ndsg/ndsg-28.md
+- § 29 NDSG – Automatisierte Entscheidungsfindung · landesrecht/ndsg/ndsg-29.md
+- § 30 NDSG – Datenübermittlung außerhalb des öffentlichen Bereichs · landesrecht/ndsg/ndsg-30.md
+- § 31 NDSG – Automatisiertes Abrufverfahren · landesrecht/ndsg/ndsg-31.md
+- § 32 NDSG – Gewährleistung des Datenschutzes bei Übermittlungen oder sonstiger Bereitstellung · landesrecht/ndsg/ndsg-32.md
+- § 33 NDSG – Einwilligung · landesrecht/ndsg/ndsg-33.md
+- § 34 NDSG – Technische und organisatorische Maßnahmen zum Datenschutz und zur Datensicherheit · landesrecht/ndsg/ndsg-34.md
+- § 35 NDSG – Anforderungen bei der automatisierten Datenverarbeitung, Protokollierung · landesrecht/ndsg/ndsg-35.md
+- § 36 NDSG – Datengeheimnis · landesrecht/ndsg/ndsg-36.md
+- § 37 NDSG – Verarbeitung auf Weisung · landesrecht/ndsg/ndsg-37.md
+- § 38 NDSG – Verzeichnis von Verarbeitungstätigkeiten · landesrecht/ndsg/ndsg-38.md
+- § 39 NDSG – Datenschutz-Folgenabschätzung · landesrecht/ndsg/ndsg-39.md
+- § 40 NDSG – Vorherige Anhörung der Aufsichtsbehörde · landesrecht/ndsg/ndsg-40.md
+- § 41 NDSG – Meldung von Verletzungen des Schutzes personenbezogener Daten an die Aufsichtsbehörde · landesrecht/ndsg/ndsg-41.md
+- § 42 NDSG – Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person · landesrecht/ndsg/ndsg-42.md
+- § 43 NDSG – Vertrauliche Meldung von Verstößen · landesrecht/ndsg/ndsg-43.md
+- § 44 NDSG – Gemeinsam Verantwortliche · landesrecht/ndsg/ndsg-44.md
+- § 45 NDSG – Auftragsverarbeitung · landesrecht/ndsg/ndsg-45.md
+- § 46 NDSG – Allgemeine Voraussetzungen · landesrecht/ndsg/ndsg-46.md
+- § 47 NDSG – Datenübermittlung bei geeigneten Garantien · landesrecht/ndsg/ndsg-47.md
+- § 48 NDSG – Ausnahmen für eine Datenübermittlung ohne geeignete Garantien · landesrecht/ndsg/ndsg-48.md
+- § 49 NDSG – Sonstige Datenübermittlung an Empfänger in Drittländern · landesrecht/ndsg/ndsg-49.md
+- § 50 NDSG – Allgemeine Informationen · landesrecht/ndsg/ndsg-50.md
+- § 51 NDSG – Auskunft · landesrecht/ndsg/ndsg-51.md
+- § 52 NDSG – Berichtigung, Löschung und Einschränkung der Verarbeitung · landesrecht/ndsg/ndsg-52.md
+- § 53 NDSG – Verfahren für die Ausübung der Rechte der betroffenen Person · landesrecht/ndsg/ndsg-53.md
+- § 54 NDSG – Schadensersatz · landesrecht/ndsg/ndsg-54.md
+- § 55 NDSG – Anrufung der Aufsichtsbehörde · landesrecht/ndsg/ndsg-55.md
+- § 56 NDSG – Rechtsschutz bei Untätigkeit der Aufsichtsbehörde · landesrecht/ndsg/ndsg-56.md
+- § 57 NDSG – Aufgaben und Befugnisse der Aufsichtsbehörde · landesrecht/ndsg/ndsg-57.md
+- § 58 NDSG – Datenschutzbeauftragte öffentlicher Stellen · landesrecht/ndsg/ndsg-58.md
+- § 59 NDSG – Ordnungswidrigkeiten · landesrecht/ndsg/ndsg-59.md
+- § 60 NDSG – Straftaten · landesrecht/ndsg/ndsg-60.md
+- § 61 NDSG – Übergangsvorschrift · landesrecht/ndsg/ndsg-61.md
+
+## SDSG (28)
+- § 1 SDSG – Zweck · landesrecht/sdsg/sdsg-1.md
+- § 2 SDSG – Anwendungsbereich des Gesetzes · landesrecht/sdsg/sdsg-2.md
+- § 3 SDSG – Entsprechende Anwendung · landesrecht/sdsg/sdsg-3.md
+- § 4 SDSG – Rechtmäßigkeit der Verarbeitung personenbezogener Daten · landesrecht/sdsg/sdsg-4.md
+- § 5 SDSG – Erhebung personenbezogener Daten · landesrecht/sdsg/sdsg-5.md
+- § 6 SDSG – Verantwortung bei der Übermittlung personenbezogener Daten · landesrecht/sdsg/sdsg-6.md
+- § 7 SDSG – Zweckbindung, Zweckänderung · landesrecht/sdsg/sdsg-7.md
+- § 8 SDSG – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/sdsg/sdsg-8.md
+- § 9 SDSG – Verarbeitung personenbezogener Daten zu Zwecken der parlamentarischen Kontrolle · landesrecht/sdsg/sdsg-9.md
+- § 10 SDSG – Beschränkung der Informationspflicht bei Erhebung der personenbezogenen Daten nach Artikel 13 und Artikel 14 der Verordnung (EU) 2016/679 · landesrecht/sdsg/sdsg-10.md
+- § 11 SDSG – Beschränkung des Auskunftsrechts der betroffenen Person nach Artikel 15 der Verordnung (EU) 2016/679 · landesrecht/sdsg/sdsg-11.md
+- § 12 SDSG – Beschränkung der Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person nach Artikel 34 der Verordnung (EU) 2016/679 · landesrecht/sdsg/sdsg-12.md
+- § 13 SDSG – Datengeheimnis · landesrecht/sdsg/sdsg-13.md
+- § 14 SDSG – Datenschutz-Folgenabschätzung · landesrecht/sdsg/sdsg-14.md
+- § 15 SDSG – Freigabeverfahren und Einsicht in das Verzeichnis der Verarbeitungstätigkeiten · landesrecht/sdsg/sdsg-15.md
+- § 16 SDSG – Rechtsstellung der oder des Landesbeauftragten für Datenschutz · landesrecht/sdsg/sdsg-16.md
+- § 17 SDSG – Ernennung und Amtszeit · landesrecht/sdsg/sdsg-17.md
+- § 18 SDSG – Rechte und Pflichten · landesrecht/sdsg/sdsg-18.md
+- § 19 SDSG – Wahrnehmung der Aufgaben nach Artikel 57 und Artikel 59 der Verordnung (EU) 2016/679; sonstige Aufgaben und Mitwirkungspflichten · landesrecht/sdsg/sdsg-19.md
+- § 20 SDSG – Wahrnehmung der Befugnisse der oder des Landesbeauftragten für Datenschutz nach Artikel 58 der Verordnung (EU) 2016/679; sonstige Befugnisse · landesrecht/sdsg/sdsg-20.md
+- § 21 SDSG – Kostenerhebung · landesrecht/sdsg/sdsg-21.md
+- § 22 SDSG – Verarbeitung von Beschäftigtendaten · landesrecht/sdsg/sdsg-22.md
+- § 23 SDSG – Verarbeitung personenbezogener Daten zu wissenschaftlichen oder historischen Forschungszwecken · landesrecht/sdsg/sdsg-23.md
+- § 24 SDSG – Verarbeitung zu Archivzwecken · landesrecht/sdsg/sdsg-24.md
+- § 25 SDSG – Videoüberwachung · landesrecht/sdsg/sdsg-25.md
+- § 26 SDSG – Gerichtlicher Rechtsschutz · landesrecht/sdsg/sdsg-26.md
+- § 27 SDSG – Ordnungswidrigkeiten und Strafvorschrift · landesrecht/sdsg/sdsg-27.md
+- § 28 SDSG – Einschränkung eines Grundrechts · landesrecht/sdsg/sdsg-28.md
+
+## SächsDSDG (24)
+- § 1 SächsDSDG – Zweck · landesrecht/saechsdsdg/saechsdsdg-1.md
+- § 2 SächsDSDG – Anwendungsbereich · landesrecht/saechsdsdg/saechsdsdg-2.md
+- § 3 SächsDSDG – Zulässigkeit der Verarbeitung personenbezogener Daten · landesrecht/saechsdsdg/saechsdsdg-3.md
+- § 4 SächsDSDG – Zulässigkeit der Verarbeitung personenbezogener Daten zu einem anderen Zweck · landesrecht/saechsdsdg/saechsdsdg-4.md
+- § 5 SächsDSDG – Erhebung personenbezogener Daten · landesrecht/saechsdsdg/saechsdsdg-5.md
+- § 6 SächsDSDG – Verantwortung bei der Übermittlung personenbezogener Daten · landesrecht/saechsdsdg/saechsdsdg-6.md
+- § 7 SächsDSDG – Beschränkungen zur Löschung, Vernichtung oder Einschränkung der Verarbeitung personenbezogener Daten · landesrecht/saechsdsdg/saechsdsdg-7.md
+- § 8 SächsDSDG – Beschränkung der Informationspflicht · landesrecht/saechsdsdg/saechsdsdg-8.md
+- § 9 SächsDSDG – Beschränkung des Auskunftsrechts · landesrecht/saechsdsdg/saechsdsdg-9.md
+- § 10 SächsDSDG – Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person · landesrecht/saechsdsdg/saechsdsdg-10.md
+- § 11 SächsDSDG – Verarbeitung von Beschäftigtendaten · landesrecht/saechsdsdg/saechsdsdg-11.md
+- § 12 SächsDSDG – Verarbeitung personenbezogener Daten zu wissenschaftlichen oder historischen Forschungszwecken · landesrecht/saechsdsdg/saechsdsdg-12.md
+- § 13 SächsDSDG – Videoüberwachung öffentlich zugänglicher Räume · landesrecht/saechsdsdg/saechsdsdg-13.md
+- § 14 SächsDSDG – Zuständigkeit · landesrecht/saechsdsdg/saechsdsdg-14.md
+- § 15 SächsDSDG – Errichtung · landesrecht/saechsdsdg/saechsdsdg-15.md
+- § 16 SächsDSDG – Ernennung und Amtszeit · landesrecht/saechsdsdg/saechsdsdg-16.md
+- § 17 SächsDSDG – Amtsverhältnis · landesrecht/saechsdsdg/saechsdsdg-17.md
+- § 18 SächsDSDG – Besondere Pflichten · landesrecht/saechsdsdg/saechsdsdg-18.md
+- § 19 SächsDSDG – Befugnisse · landesrecht/saechsdsdg/saechsdsdg-19.md
+- § 20 SächsDSDG – Pflicht zur Information des Sächsischen Datenschutzbeauftragten · landesrecht/saechsdsdg/saechsdsdg-20.md
+- § 21 SächsDSDG – Kostenerhebung · landesrecht/saechsdsdg/saechsdsdg-21.md
+- § 22 SächsDSDG – Ordnungswidrigkeiten und Strafvorschrift · landesrecht/saechsdsdg/saechsdsdg-22.md
+- § 23 SächsDSDG – Einschränkung eines Grundrechts · landesrecht/saechsdsdg/saechsdsdg-23.md
+- § 24 SächsDSDG – Übergangsregelung · landesrecht/saechsdsdg/saechsdsdg-24.md
+
+## TDDDG (30)
+- § 1 TDDDG – Anwendungsbereich des Gesetzes · landesrecht/tdddg/tdddg-1.md
+- § 2 TDDDG – Begriffsbestimmungen · landesrecht/tdddg/tdddg-2.md
+- § 3 TDDDG – Vertraulichkeit der Kommunikation – Fernmeldegeheimnis · landesrecht/tdddg/tdddg-3.md
+- § 4 TDDDG – Rechte des Erben des Endnutzers und anderer berechtigter Personen · landesrecht/tdddg/tdddg-4.md
+- § 5 TDDDG – Abhörverbot, Geheimhaltungspflicht der Betreiber von Funkanlagen · landesrecht/tdddg/tdddg-5.md
+- § 6 TDDDG – Nachrichtenübermittlung mit Zwischenspeicherung · landesrecht/tdddg/tdddg-6.md
+- § 7 TDDDG – Verlangen eines amtlichen Ausweises · landesrecht/tdddg/tdddg-7.md
+- § 8 TDDDG – Missbrauch von Telekommunikationsanlagen · landesrecht/tdddg/tdddg-8.md
+- § 9 TDDDG – Verarbeitung von Verkehrsdaten · landesrecht/tdddg/tdddg-9.md
+- § 10 TDDDG – Entgeltermittlung und Entgeltabrechnung · landesrecht/tdddg/tdddg-10.md
+- § 11 TDDDG – Einzelverbindungsnachweis · landesrecht/tdddg/tdddg-11.md
+- § 12 TDDDG – Störungen von Telekommunikationsanlagen und Missbrauch von Telekommunikationsdiensten · landesrecht/tdddg/tdddg-12.md
+- § 13 TDDDG – Standortdaten · landesrecht/tdddg/tdddg-13.md
+- § 14 TDDDG – Mitteilen ankommender Verbindungen · landesrecht/tdddg/tdddg-14.md
+- § 15 TDDDG – Rufnummernanzeige und -unterdrückung · landesrecht/tdddg/tdddg-15.md
+- § 16 TDDDG – Automatische Anrufweiterschaltung · landesrecht/tdddg/tdddg-16.md
+- § 17 TDDDG – Endnutzerverzeichnisse · landesrecht/tdddg/tdddg-17.md
+- § 18 TDDDG – Bereitstellen von Endnutzerdaten · landesrecht/tdddg/tdddg-18.md
+- § 19 TDDDG – Technische und organisatorische Vorkehrungen · landesrecht/tdddg/tdddg-19.md
+- § 20 TDDDG – Verarbeitung personenbezogener Daten Minderjähriger · landesrecht/tdddg/tdddg-20.md
+- § 21 TDDDG – Bestandsdaten · landesrecht/tdddg/tdddg-21.md
+- § 22 TDDDG – Auskunftsverfahren bei Bestandsdaten · landesrecht/tdddg/tdddg-22.md
+- § 23 TDDDG – Auskunftsverfahren bei Passwörtern und anderen Zugangsdaten · landesrecht/tdddg/tdddg-23.md
+- § 24 TDDDG – Auskunftsverfahren bei Nutzungsdaten · landesrecht/tdddg/tdddg-24.md
+- § 25 TDDDG – Schutz der Privatsphäre bei Endeinrichtungen · landesrecht/tdddg/tdddg-25.md
+- § 26 TDDDG – Anerkannte Dienste zur Einwilligungsverwaltung, Endnutzereinstellungen · landesrecht/tdddg/tdddg-26.md
+- § 27 TDDDG – Strafvorschriften · landesrecht/tdddg/tdddg-27.md
+- § 28 TDDDG – Bußgeldvorschriften · landesrecht/tdddg/tdddg-28.md
+- § 29 TDDDG – Zuständigkeit, Aufgaben und Befugnisse der oder des Bundesbeauftragten für den Datenschutz und die Informationsfreiheit · landesrecht/tdddg/tdddg-29.md
+- § 30 TDDDG – Zuständigkeit, Aufgaben und Befugnisse der Bundesnetzagentur · landesrecht/tdddg/tdddg-30.md
+
+## ThürDSG (65)
+- § 1 ThürDSG – Zweck des Gesetzes · landesrecht/thuerdsg/thuerdsg-1.md
+- § 2 ThürDSG – Anwendungsbereich · landesrecht/thuerdsg/thuerdsg-2.md
+- § 3 ThürDSG – Landesbeauftragter für den Datenschutz · landesrecht/thuerdsg/thuerdsg-3.md
+- § 4 ThürDSG – Rechtsstellung und Verschwiegenheitspflicht des Landesbeauftragten für den Datenschutz · landesrecht/thuerdsg/thuerdsg-4.md
+- § 5 ThürDSG – Anwendung beamtenrechtlicher Vorschriften auf den Landesbeauftragten für den Datenschutz · landesrecht/thuerdsg/thuerdsg-5.md
+- § 6 ThürDSG – Aufgaben des Landesbeauftragten für den Datenschutz · landesrecht/thuerdsg/thuerdsg-6.md
+- § 7 ThürDSG – Befugnisse des Landesbeauftragten für den Datenschutz · landesrecht/thuerdsg/thuerdsg-7.md
+- § 8 ThürDSG – Anrufung des Landesbeauftragten für den Datenschutz · landesrecht/thuerdsg/thuerdsg-8.md
+- § 9 ThürDSG – Gerichtlicher Rechtsschutz · landesrecht/thuerdsg/thuerdsg-9.md
+- § 10 ThürDSG – Weitere Aufgaben des Landesbeauftragten für den Datenschutz · landesrecht/thuerdsg/thuerdsg-10.md
+- § 11 ThürDSG – Aufsichtsbehörde gegenüber nichtöffentlichen Stellen und öffentlichen Stellen, die am Wettbewerb teilnehmen · landesrecht/thuerdsg/thuerdsg-11.md
+- § 12 ThürDSG – Beirat · landesrecht/thuerdsg/thuerdsg-12.md
+- § 13 ThürDSG – Bestellung des Datenschutzbeauftragten · landesrecht/thuerdsg/thuerdsg-13.md
+- § 14 ThürDSG – Stellung des Datenschutzbeauftragten · landesrecht/thuerdsg/thuerdsg-14.md
+- § 15 ThürDSG – Aufgaben des Datenschutzbeauftragten · landesrecht/thuerdsg/thuerdsg-15.md
+- § 16 ThürDSG – Verarbeitung personenbezogener Daten · landesrecht/thuerdsg/thuerdsg-16.md
+- § 17 ThürDSG – Zweckbindung und Zulässigkeit der Weiterverarbeitung · landesrecht/thuerdsg/thuerdsg-17.md
+- § 18 ThürDSG – Übermittlung · landesrecht/thuerdsg/thuerdsg-18.md
+- § 19 ThürDSG – Auftragsverarbeitung · landesrecht/thuerdsg/thuerdsg-19.md
+- § 20 ThürDSG – Informationspflichten · landesrecht/thuerdsg/thuerdsg-20.md
+- § 21 ThürDSG – Auskunftsrecht · landesrecht/thuerdsg/thuerdsg-21.md
+- § 22 ThürDSG – Recht auf Einschränkung der Verarbeitung · landesrecht/thuerdsg/thuerdsg-22.md
+- § 23 ThürDSG – Löschung personenbezogener Daten · landesrecht/thuerdsg/thuerdsg-23.md
+- § 24 ThürDSG – Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person · landesrecht/thuerdsg/thuerdsg-24.md
+- § 25 ThürDSG – Verarbeitung personenbezogener Daten zu Zwecken der freien Meinungsäußerung und der Informationsfreiheit · landesrecht/thuerdsg/thuerdsg-25.md
+- § 26 ThürDSG – Öffentliche Stellen, die am Wettbewerb teilnehmen · landesrecht/thuerdsg/thuerdsg-26.md
+- § 27 ThürDSG – Datenschutz im Beschäftigungskontext · landesrecht/thuerdsg/thuerdsg-27.md
+- § 28 ThürDSG – Verarbeitung personenbezogener Daten durch Forschungseinrichtungen · landesrecht/thuerdsg/thuerdsg-28.md
+- § 29 ThürDSG – Zweckbindung von personenbezogenen Daten, die einem Berufsgeheimnis unterliegen · landesrecht/thuerdsg/thuerdsg-29.md
+- § 30 ThürDSG – Videoüberwachung · landesrecht/thuerdsg/thuerdsg-30.md
+- § 31 ThürDSG – Anwendungsbereich · landesrecht/thuerdsg/thuerdsg-31.md
+- § 32 ThürDSG – Begriffsbestimmungen · landesrecht/thuerdsg/thuerdsg-32.md
+- § 33 ThürDSG – Grundsätze bei der Verarbeitung personenbezogener Daten · landesrecht/thuerdsg/thuerdsg-33.md
+- § 34 ThürDSG – Unterscheidung verschiedener Kategorien betroffener Personen sowie zwischen Tatsachen und Bewertungen · landesrecht/thuerdsg/thuerdsg-34.md
+- § 35 ThürDSG – Berichtigung und Löschung personenbezogener Daten sowie die Einschränkung der Verarbeitung · landesrecht/thuerdsg/thuerdsg-35.md
+- § 36 ThürDSG – Verfahren bei Übermittlungen · landesrecht/thuerdsg/thuerdsg-36.md
+- § 37 ThürDSG – Verarbeitung besonderer Kategorien personenbezogener Daten · landesrecht/thuerdsg/thuerdsg-37.md
+- § 38 ThürDSG – Automatisierte Einzelentscheidung · landesrecht/thuerdsg/thuerdsg-38.md
+- § 39 ThürDSG – Einwilligung · landesrecht/thuerdsg/thuerdsg-39.md
+- § 40 ThürDSG – Allgemeiner Informationsanspruch · landesrecht/thuerdsg/thuerdsg-40.md
+- § 41 ThürDSG – Benachrichtigung betroffener Personen · landesrecht/thuerdsg/thuerdsg-41.md
+- § 42 ThürDSG – Auskunftsrecht · landesrecht/thuerdsg/thuerdsg-42.md
+- § 43 ThürDSG – Rechte auf Berichtigung und Löschung sowie Einschränkung der Verarbeitung · landesrecht/thuerdsg/thuerdsg-43.md
+- § 44 ThürDSG – Verfahren für die Ausübung der Rechte der betroffenen Person · landesrecht/thuerdsg/thuerdsg-44.md
+- § 45 ThürDSG – Schadensersatz · landesrecht/thuerdsg/thuerdsg-45.md
+- § 46 ThürDSG – Pflichten des Verantwortlichen · landesrecht/thuerdsg/thuerdsg-46.md
+- § 47 ThürDSG – Gemeinsam Verantwortliche · landesrecht/thuerdsg/thuerdsg-47.md
+- § 48 ThürDSG – Auftragsverarbeitung · landesrecht/thuerdsg/thuerdsg-48.md
+- § 49 ThürDSG – Verarbeitung auf Weisung, Datengeheimnis · landesrecht/thuerdsg/thuerdsg-49.md
+- § 50 ThürDSG – Verzeichnis von Verarbeitungstätigkeiten · landesrecht/thuerdsg/thuerdsg-50.md
+- § 51 ThürDSG – Protokollierung · landesrecht/thuerdsg/thuerdsg-51.md
+- § 52 ThürDSG – Durchführung einer Datenschutz-Folgenabschätzung · landesrecht/thuerdsg/thuerdsg-52.md
+- § 53 ThürDSG – Anhörung des Landesbeauftragten für den Datenschutz · landesrecht/thuerdsg/thuerdsg-53.md
+- § 54 ThürDSG – Anforderungen an die Sicherheit der Datenverarbeitung · landesrecht/thuerdsg/thuerdsg-54.md
+- § 55 ThürDSG – Meldung von Verletzungen des Schutzes personenbezogener Daten an den Landesbeauftragten für den Datenschutz · landesrecht/thuerdsg/thuerdsg-55.md
+- § 56 ThürDSG – Benachrichtigung der betroffenen Person bei Verletzungen des Schutzes personenbezogener Daten · landesrecht/thuerdsg/thuerdsg-56.md
+- § 57 ThürDSG – Allgemeine Voraussetzungen für Datenübermittlungen an Stellen in Drittstaaten und internationale Organisationen · landesrecht/thuerdsg/thuerdsg-57.md
+- § 58 ThürDSG – Datenübermittlung bei geeigneten Garantien · landesrecht/thuerdsg/thuerdsg-58.md
+- § 59 ThürDSG – Datenübermittlung ohne Angemessenheitsbeschluss und ohne geeignete Garantien · landesrecht/thuerdsg/thuerdsg-59.md
+- § 60 ThürDSG – Sonstige Datenübermittlung an Empfänger in Drittstaaten · landesrecht/thuerdsg/thuerdsg-60.md
+- § 61 ThürDSG – Ordnungswidrigkeiten und Strafbestimmungen · landesrecht/thuerdsg/thuerdsg-61.md
+- § 62 ThürDSG – Orden und Ehrenzeichen · landesrecht/thuerdsg/thuerdsg-62.md
+- § 63 ThürDSG – Gnadensachen · landesrecht/thuerdsg/thuerdsg-63.md
+- § 64 ThürDSG – Übergangsbestimmungen · landesrecht/thuerdsg/thuerdsg-64.md
+- § 65 ThürDSG – Gleichstellungsbestimmung · landesrecht/thuerdsg/thuerdsg-65.md

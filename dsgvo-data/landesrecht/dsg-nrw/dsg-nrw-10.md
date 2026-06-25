@@ -1,0 +1,16 @@
+---
+id: dsg-nrw-10
+type: landesrecht
+law: DSG NRW
+number: 10
+citation: § 10 DSG NRW
+title: Löschung personenbezogener Daten
+source: "https://dsgvo-gesetz.de/dsg-nrw/10-dsg-nrw/"
+---
+
+# § 10 DSG NRW – Löschung personenbezogener Daten
+
+(1) Sofern öffentliche Stellen verpflichtet sind, einem öffentlichen Archiv Unterlagen zur Übernahme anzubieten, ist eine Löschung personenbezogener Daten erst zulässig, nachdem die Unterlagen dem öffentlichen Archiv angeboten und als nicht archivwürdig bewertet worden sind oder die Verpflichtung zur weiteren Aufbewahrung nach § 4 Absatz 5 Satz 1 des Archivgesetzes Nordrhein-Westfalen vom 16. März 2010 (GV. NRW. S. 188) in der jeweils geltenden Fassung, entfallen ist.
+(2) ¹Ist eine Löschung im Fall nicht automatisierter Datenverarbeitung wegen der besonderen Art der Speicherung nicht oder nur mit unverhältnismäßig hohem Aufwand möglich und ist das Interesse der betroffenen Person an der Löschung als gering anzusehen, besteht das Recht der betroffenen Person auf und die Pflicht des Verantwortlichen zur Löschung personenbezogener Daten gemäß Artikel 17 Absatz 1 der Verordnung (EU) 2016/679 ergänzend zu den in Artikel 17 Absatz 3 der Verordnung (EU) 2016/679 genannten Ausnahmen nicht. ²In diesem Fall tritt an die Stelle einer Löschung die Einschränkung der Verarbeitung gemäß Artikel 18 der Verordnung (EU) 2016/679. ³Die Sätze 1 und 2 finden keine Anwendung, wenn die personenbezogenen Daten unrechtmäßig verarbeitet wurden.
+
+Quelle: https://dsgvo-gesetz.de/dsg-nrw/10-dsg-nrw/

@@ -1,0 +1,17 @@
+---
+id: bbgdsg-15
+type: landesrecht
+law: BbgDSG
+number: 15
+citation: § 15 BbgDSG
+title: Ernennung und Amtszeit
+source: "https://dsgvo-gesetz.de/bbgdsg/15-bbgdsg/"
+---
+
+# § 15 BbgDSG – Ernennung und Amtszeit
+
+(1) ¹Der Landtag wählt die Landesbeauftragte oder den Landesbeauftragten mit mehr als der Hälfte der gesetzlichen Zahl seiner Mitglieder. ²Die oder der Gewählte ist von der Präsidentin oder dem Präsidenten des Landtages zu ernennen. ³Die oder der Landesbeauftragte muss die Befähigung zum Richteramt oder zum höheren Verwaltungsdienst oder eine nach dem Einigungsvertrag gleichgestellte Befähigung haben und die zur Erfüllung der Aufgaben erforderliche Qualifikation, Erfahrung und Sachkunde, insbesondere im Bereich des Schutzes personenbezogener Daten, besitzen.
+(2) Die oder der Landesbeauftragte leistet vor der Präsidentin oder dem Präsidenten des Landtages folgenden Eid: „Ich schwöre, mein Amt gerecht und unparteiisch getreu dem Grundgesetz, der Verfassung von Brandenburg und den Gesetzen zu führen und meine ganze Kraft dafür einzusetzen.“ Der Eid kann auch mit einer religiösen Beteuerung geleistet werden.
+(3) ¹Die Amtszeit der oder des Landesbeauftragten beträgt sechs Jahre. ²Die Wiederwahl ist zulässig. ³Die Amtszeit verlängert sich bis zur Bestellung einer Nachfolgerin oder eines Nachfolgers, längstens jedoch um sechs Monate.
+
+Quelle: https://dsgvo-gesetz.de/bbgdsg/15-bbgdsg/

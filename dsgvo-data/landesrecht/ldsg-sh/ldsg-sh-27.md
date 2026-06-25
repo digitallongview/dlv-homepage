@@ -1,0 +1,19 @@
+---
+id: ldsg-sh-27
+type: landesrecht
+law: LDSG SH
+number: 27
+citation: § 27 LDSG (SH)
+title: Einwilligung
+source: "https://dsgvo-gesetz.de/ldsg-sh/27-ldsg-sh/"
+---
+
+# § 27 LDSG (SH) – Einwilligung
+
+(1) Soweit die Verarbeitung personenbezogener Daten auf Grundlage einer Rechtsvorschrift, welche die Einwilligung der betroffenen Person vorsieht, erfolgt, muss der Verantwortliche die Einwilligung der betroffenen Person nachweisen können.
+(2) Erfolgt die Einwilligung der betroffenen Person durch eine schriftliche Erklärung, die weitere Sachverhalte betrifft, muss das Ersuchen um Einwilligung in verständlicher und leicht zugänglicher Form in einer klaren und einfachen Sprache so erfolgen, dass es von den anderen Sachverhalten klar zu unterscheiden ist.
+(3) Die betroffene Person hat das Recht, ihre Einwilligung jederzeit zu widerrufen. Durch den Widerruf der Einwilligung wird die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung nicht berührt. Die betroffene Person ist vor Abgabe der Einwilligung hiervon in Kenntnis zu setzen.
+(4) Die Einwilligung ist nur wirksam, wenn sie auf der freien Entscheidung der betroffenen Person beruht. Bei der Beurteilung, ob die Einwilligung freiwillig erteilt wurde, müssen die Umstände der Erteilung berücksichtigt werden. Die betroffene Person ist auf den vorgesehenen Zweck der Verarbeitung hinzuweisen. Ist dies nach den Umständen des Einzelfalles erforderlich oder verlangt die betroffene Person dies, ist sie auch über die Folgen der Verweigerung der Einwilligung zu belehren.
+(5) Soweit besondere Kategorien personenbezogener Daten verarbeitet werden, muss sich die Einwilligung ausdrücklich auf diese Daten beziehen.
+
+Quelle: https://dsgvo-gesetz.de/ldsg-sh/27-ldsg-sh/

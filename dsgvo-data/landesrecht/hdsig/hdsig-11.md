@@ -1,0 +1,21 @@
+---
+id: hdsig-11
+type: landesrecht
+law: HDSIG
+number: 11
+citation: § 11 HDSIG
+title: Amtsverhältnis
+source: "https://dsgvo-gesetz.de/hdsig/11-hdsig/"
+---
+
+# § 11 HDSIG – Amtsverhältnis
+
+(1) ¹Die oder der Hessische Datenschutzbeauftragte steht nach Maßgabe dieses Gesetzes zum Land in einem öffentlich-rechtlichen Amtsverhältnis. ²Sie oder er übt ihre oder seine Tätigkeit hauptamtlich aus. ³Die oder der Hessische Datenschutzbeauftragte sieht von allen mit den Aufgaben ihres oder seines Amtes nicht zu vereinbarenden Handlungen ab und übt während der Amtszeit keine mit dem Amt nicht zu vereinbarende entgeltliche oder unentgeltliche Tätigkeit aus. ⁴Die oder der Hessische Datenschutzbeauftragte erteilt dem Landtag jährlich Auskunft über Art und Umfang der von ihr oder ihm im Kalenderjahr ausgeübten Nebentätigkeiten sowie über die dafür erhaltenen Vergütungen.
+(2) ¹Die oder der Hessische Datenschutzbeauftragte wird für die Dauer von fünf Jahren gewählt. ²Das Amtsverhältnis endet mit Ablauf der Amtszeit oder mit dem Rücktritt. ³Die oder der Hessische Datenschutzbeauftragte bleibt bis zur Neuwahl im Amt. ⁴Die Wiederwahl ist zulässig. ⁵Durch Urteil des Staatsgerichtshofs können ihr oder ihm das Amt und die Rechte aus dem Amt abgesprochen werden, wenn Tatsachen vorliegen, die bei einer Beamtin oder einem Beamten die Entlassung nach den §§ 22 und 23 Abs. 1 und 3 Nr. 1 des Beamtenstatusgesetzes vom 17. Juni 2008 (BGBl. I S. 1010), zuletzt geändert durch Gesetz vom 8. Juni 2017 (BGBl. I S. 1570), oder die Beendigung des Dienstverhältnisses nach § 24 des Beamtenstatusgesetzes rechtfertigen. ⁶Der Antrag auf Erhebung der Klage muss von mindestens 15 Mitgliedern des Landtags unterzeichnet sein und bedarf der Zustimmung von zwei Dritteln der gesetzlichen Zahl seiner Mitglieder. ⁷Die §§ 31 bis 35 des Gesetzes über den Staatsgerichtshof in der Fassung der Bekanntmachung vom 19. Januar 2001 (GVBl. I S. 78), zuletzt geändert durch Gesetz vom 28. März 2015 (GVBl. S. 158), sind entsprechend anzuwenden.
+(3) Die oder der Hessische Datenschutzbeauftragte kann jederzeit von ihrem oder seinem Amt zurücktreten.
+(4) ¹Die oder der Hessische Datenschutzbeauftragte ernennt für den Fall der Verhinderung oder des vorzeitigen Ausscheidens aus dem Amt für die Zeit bis zur Wahl einer oder eines neuen Hessischen Datenschutzbeauftragten eine Beschäftigte oder einen Beschäftigten ihrer oder seiner Dienststelle zur Vertreterin oder zum Vertreter. ²Als Verhinderung gilt auch, wenn im Einzelfall in der Person der oder des Hessischen Datenschutzbeauftragten Gründe vorliegen, die bei einer Richterin oder einem Richter zum Ausschluss von der Mitwirkung oder zur Ablehnung wegen Besorgnis der Befangenheit führen können.
+(5) ¹Die oder der Hessische Datenschutzbeauftragte erhält vom Beginn des Kalendermonats an, in dem das Amtsverhältnis beginnt, bis zum Ende des Kalendermonats, in dem das Amtsverhältnis endet, als Amtsbezüge ein Amtsgehalt in Höhe des Grundgehalts der Besoldungsgruppe B 7 sowie einen Familienzuschlag in entsprechender Anwendung des Hessischen Besoldungsgesetzes vom 27. Mai 2013 (GVBl. S. 218, 256, 508), zuletzt geändert durch Gesetz vom 30. Juni 2017 (GVBl. S. 114), in der jeweils geltenden Fassung. ²Für Reise- und Umzugskosten, Trennungsgeld, Beihilfen und Urlaubsangelegenheiten der oder des Hessischen Datenschutzbeauftragten gelten die für die Beamtinnen und Beamten des Landes geltenden Vorschriften entsprechend.
+(6) ¹Zuständig für die Festsetzung, Berechnung und Anordnung der Zahlung der Amtsbezüge einschließlich der Sonderzahlungen sowie der Rückforderung zu viel gezahlter Amtsbezüge ist die Hessische Bezügestelle im Auftrag der oder des Hessischen Datenschutzbeauftragten. ²Zuständig für die Festsetzung von Reise- und Umzugskosten sowie Trennungsgeld ist die Dienststelle der oder des Hessischen Datenschutzbeauftragten. ³Zuständig für die Festsetzung der Beihilfe ist die Kanzlei des Hessischen Landtags.
+(7) ¹Die oder der Hessische Datenschutzbeauftragte und deren oder dessen Hinterbliebene erhalten Versorgung in entsprechender Anwendung der in Hessen für die Mitglieder der Landesregierung geltenden Bestimmungen. ²Zuständig für die Festsetzung der Versorgungsbezüge ist das Regierungspräsidium Kassel im Auftrag der oder des Hessischen Datenschutzbeauftragten.
+
+Quelle: https://dsgvo-gesetz.de/hdsig/11-hdsig/
