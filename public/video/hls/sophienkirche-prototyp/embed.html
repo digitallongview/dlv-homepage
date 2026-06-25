@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><title>sophienkirche-prototyp</title>
+<style>html,body{margin:0;background:#000}video{width:100%;height:auto;display:block}</style></head>
+<body>
+<!-- Hinweis: hls.js wird hier per CDN geladen. Für Produktion hls.js selbst hosten
+     oder auf eine feste Version mit integrity/SRI pinnen. -->
+<video id="v" poster="poster.jpg" controls playsinline></video>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+<script>
+  var v = document.getElementById('v'), src = 'master.m3u8';
+  if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = src; }
+  else if (window.Hls && Hls.isSupported()) { var h = new Hls(); h.loadSource(src); h.attachMedia(v); }
+</script>
+</body>
+</html>
