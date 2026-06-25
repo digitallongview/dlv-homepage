@@ -124,7 +124,7 @@ function MenuPanel({ wedgeShown, onNavClick, onClose, fill = false }: { wedgeSho
         }}
       >
         <img
-          src="/assets/logo.png"
+          src="/assets/logo.webp"
           alt="Digital Long View"
           draggable={false}
           className="w-auto max-w-none select-none"

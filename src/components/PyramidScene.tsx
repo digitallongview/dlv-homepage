@@ -1,7 +1,6 @@
 import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import {
-  Environment,
   OrbitControls,
   Stats,
   useAnimations,
@@ -456,9 +455,13 @@ export default function PyramidScene({
             onDropComplete={handleDropComplete}
             onGLBAnimationDone={handleGLBAnimationDone}
           />
-          <Environment
-            preset={adv.envPreset as EnvPreset}
-            environmentIntensity={adv.envIntensity}
+          {/* Kein drei Environment-preset mehr — das lud ~1,5 MB HDRI von einem
+              Dritt-CDN (raw.githack/pmndrs) → DSGVO-Leak + kritischer Pfad. Ersatz:
+              prozedurales Hemisphere-Fill, kein Netzwerk. envIntensity steuert die
+              Intensität weiter. Revert: Environment-Import + preset/environmentIntensity
+              aus adv.envPreset / adv.envIntensity wieder einsetzen. */}
+          <hemisphereLight
+            args={['#fdf6f6', '#cabbce', adv.envIntensity * 0.9]}
           />
         </Suspense>
         {adv.orbitControls && (

@@ -34,7 +34,7 @@ const LOGO_BASE = 'select-none object-contain object-center'
 
 const PARTNERS = [
   {
-    src: '/assets/mglogo.png',
+    src: '/assets/mglogo.webp',
     alt: 'Million Generations',
     href: 'https://www.milliongenerations.org/index.php?title=Main_Page',
     imgClassName: 'max-h-[54px] w-full',
@@ -50,17 +50,16 @@ const PARTNERS = [
   {
     // Wordmark ships with generous transparent padding — render it larger so its
     // glyphs match the others; grayscale drops the green to a neutral B/W tone.
-    src: '/assets/LTAP_Logo.png',
+    src: '/assets/LTAP_Logo.webp',
     alt: 'LTAP',
     href: 'https://www.milliongenerations.org/index.php?title=LTAP',
     imgClassName: 'h-[90px] max-h-none w-auto max-w-none grayscale',
   },
   {
-    // Slightly smaller + a touch of transparency to soften its hard outline.
-    src: '/assets/fusionDev-bw.png',
+    src: '/partner-assets/fusiondev-logo/fusionDev-logo.svg',
     alt: 'fusionDev',
-    href: 'https://www.linkedin.com/in/daniel-bucher-3992b1141/',
-    imgClassName: 'max-h-[47px] w-full opacity-90',
+    href: 'https://fusiondev.info/',
+    imgClassName: 'max-h-[47px] w-full',
   },
 ]
 
@@ -282,7 +281,7 @@ export default function SiteFooter() {
                        hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-lavender/40"
           >
             <img
-              src="/assets/logo.png"
+              src="/assets/logo.webp"
               alt="Digital Long View"
               draggable={false}
               className="h-11 w-auto select-none"

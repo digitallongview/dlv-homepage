@@ -75,7 +75,7 @@ export default function MobileLongView() {
             style={{ transform: tele.inView ? 'translateX(0)' : 'translateX(55%)' }}
           >
             <img
-              src="/assets/cone-right.png"
+              src="/assets/cone-right.webp"
               alt="" aria-hidden draggable={false}
               className="absolute top-[-10%] right-0 h-[69%] w-auto max-w-none select-none object-contain object-right-top"
             />
@@ -86,7 +86,7 @@ export default function MobileLongView() {
             />
           </div>
           <img
-            src="/assets/telescope.png"
+            src="/assets/telescope.webp"
             alt="Teleskop auf Stativ"
             draggable={false}
             className="absolute bottom-0 left-[3%] z-10 h-[100%] w-auto select-none object-contain object-bottom drop-shadow-2xl"
@@ -132,7 +132,7 @@ export default function MobileLongView() {
             style={{ transform: vr.inView ? 'translateX(0)' : 'translateX(-55%)' }}
           >
             <img
-              src="/assets/cone-left.png"
+              src="/assets/cone-left.webp"
               alt="" aria-hidden draggable={false}
               className="absolute bottom-0 left-0 h-full w-auto max-w-[82%] select-none object-contain object-left-bottom"
             />
@@ -143,7 +143,7 @@ export default function MobileLongView() {
             />
           </div>
           <img
-            src="/assets/vr-headset.png"
+            src="/assets/vr-headset.webp"
             alt="VR-Headset"
             draggable={false}
             className="absolute bottom-[18%] right-[6%] z-10 w-[52%] max-w-[280px] select-none object-contain drop-shadow-2xl"

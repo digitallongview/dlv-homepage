@@ -45,7 +45,7 @@ const PROJECTS: Project[] = [
     label: 'Langzeitdesign',
     title: 'Langzeit-Design: Herrnhuter Galaxie',
     subtitle: 'Forschung · Workshops & Umsetzung',
-    bg: '/assets/bg-langzeitdesign.png',
+    bg: '/assets/bg-langzeitdesign.webp',
     bgPos: '78% center',
     kind: 'video',
     textA: 'Das Langzeit-Design-Projekt untersucht, wie gestalterische Entscheidungen über Generationen hinweg Bestand haben. Gemeinsam mit der Herrnhuter Brüdergemeine entstanden Workshops zu handwerklicher und digitaler Langlebigkeit.',
@@ -60,7 +60,7 @@ const PROJECTS: Project[] = [
     label: 'Sophienkirche',
     title: 'Denkraum Sophienkirche',
     subtitle: 'Immersives Prototyping als virtuelles Erinnerungsmedium',
-    bg: '/assets/bg-sophienkriche-glocke.jpg',
+    bg: '/assets/bg-sophienkriche-glocke.webp',
     // Interior lapidarium: the carved relief slabs sit on the left wall, so we pull
     // left to feature them (unlike the star/pyramid, whose subjects are on the right).
     bgPos: '38% center',
@@ -77,7 +77,7 @@ const PROJECTS: Project[] = [
     label: 'Zeitpyramide',
     title: 'Die Wemdinger Zeitpyramide',
     subtitle: 'Langzeitkunstprojekt & AR-Visualisierung',
-    bg: '/assets/bg-zeitpyramide.png',
+    bg: '/assets/bg-zeitpyramide.webp',
     bgPos: '55% center',
     kind: 'videoPopup',
     textA: 'Alle zehn Jahre wird ein Betonblock gesetzt — 120 Blöcke, 1.200 Jahre. Wir bauen das digitale Gegenstück: eine AR-Erfahrung, die den Jahrhunderten ein Interface gibt, ohne sie zu beschleunigen.',
@@ -91,7 +91,7 @@ const PROJECTS: Project[] = [
     label: 'VRlab',
     title: 'VRlab',
     subtitle: 'VR-Entwicklung für das Deutsche Museum',
-    bg: '/assets/background-vrlab.png',
+    bg: '/assets/background-vrlab.webp',
     // Pan the crop toward the right so Lilienthal's glider (on the right of the
     // scene) stays in frame instead of being cropped out by the portrait/narrow cut.
     bgPos: '72% center',
@@ -109,7 +109,7 @@ const PROJECTS: Project[] = [
     label: 'Pace Layers',
     title: 'Pace Layering',
     subtitle: 'Abgeschlossene Web- & Agenturprojekte & Kooperationen',
-    bg: '/assets/pacelayer.jpg',
+    bg: '/assets/pacelayer.webp',
     scrim: true,
     kind: 'websites',
     textA: 'Digitale Wirkung entsteht nicht durch sichtbare Ergebnisse allein – sondern durch das, was trägt: verlässliche Systeme, stabile Infrastruktur und die Verbindung aus Technologie, Menschen und Kultur.',
@@ -288,7 +288,6 @@ function InlineVideo({ align = 'center', active = true }: { align?: 'center' | '
         ].join(' ')}
       >
         {/* Fallback for the rare browser without HLS (native or MSE) */}
-        <source src="/video/LANGZEITDESIGN.mp4" type="video/mp4" />
       </video>
 
       {/* Inner shadow — desktop look (lighter); its dark edge also hides any residual
@@ -455,10 +454,9 @@ function SophienPhonePopup({ onClose }: { onClose: () => void }) {
         <div className="absolute overflow-hidden" style={{ top: '2%', left: '3%', right: '3%', bottom: '2%', borderRadius: 22 }}>
           <video ref={videoRef} autoPlay muted loop playsInline className="h-full w-full object-cover">
             {/* Fallback for the rare browser without HLS (native or MSE) */}
-            <source src="/video/Sophienkirche-Prototyp.mp4" type="video/mp4" />
           </video>
         </div>
-        <img src="/assets/phone.png" alt="Smartphone Sophienkirche" draggable={false} className="relative z-10 w-full select-none" />
+        <img src="/assets/phone.webp" alt="Smartphone Sophienkirche" draggable={false} className="relative z-10 w-full select-none" />
         <button
           onClick={toggleMute}
           aria-label={muted ? 'Ton ein' : 'Ton aus'}
@@ -520,10 +518,8 @@ function ZeitVideoPopup({ onClose }: { onClose: () => void }) {
               fully-opaque frame always behind, the crossfade never dips to black — that
               was the flicker. object-contain keeps both clips uncropped. */}
           <video ref={arRef} autoPlay playsInline controls preload="auto" className="absolute inset-0 h-full w-full bg-black object-contain">
-            <source src="/video/ZP-AR.mp4" type="video/mp4" />
           </video>
           <video ref={uavRef} playsInline controls preload="auto" className="absolute inset-0 h-full w-full bg-black object-contain transition-opacity duration-300" style={{ opacity: vid === 'uav' ? 1 : 0, pointerEvents: vid === 'uav' ? 'auto' : 'none' }}>
-            <source src="/video/ZP-UAV.mp4" type="video/mp4" />
           </video>
 
           {/* UAV narration language — only the UAV clip has an English cut */}
@@ -759,10 +755,9 @@ function SophienPhoneInline({ active = true }: { active?: boolean }) {
       <div className="absolute overflow-hidden" style={{ top: '2%', left: '3%', right: '3%', bottom: '2%', borderRadius: '9cqw' }}>
         <video ref={videoRef} muted loop playsInline className="h-full w-full object-cover">
           {/* Fallback for the rare browser without HLS (native or MSE) */}
-          <source src="/video/Sophienkirche-Prototyp.mp4" type="video/mp4" />
         </video>
       </div>
-      <img src="/assets/phone.png" alt="Smartphone Sophienkirche" draggable={false} className="relative z-10 w-full select-none pointer-events-none" />
+      <img src="/assets/phone.webp" alt="Smartphone Sophienkirche" draggable={false} className="relative z-10 w-full select-none pointer-events-none" />
       <button
         onClick={toggleMute}
         aria-label={muted ? 'Ton ein' : 'Ton aus'}
@@ -817,12 +812,12 @@ function ZeitPhoneInline({ active = true }: { active?: boolean }) {
   return (
     <div className="relative w-full max-w-[460px]">
       {/* Spacer — defines container height */}
-      <img src="/assets/phone-empty.png" aria-hidden draggable={false} className="block w-full select-none opacity-0 pointer-events-none" />
+      <img src="/assets/phone-empty.webp" aria-hidden draggable={false} className="block w-full select-none opacity-0 pointer-events-none" />
 
       {/* Screen content — idle fill + both videos, clipped identically */}
       <div className="absolute overflow-hidden pointer-events-none" style={{ top: '2%', left: '0.5%', right: '0.5%', bottom: '2%', borderRadius: 16, zIndex: 2 }}>
         <img
-          src="/assets/fil smartphone.png"
+          src="/assets/fil-smartphone.webp"
           aria-hidden draggable={false}
           className="absolute inset-0 h-full w-full select-none object-cover pointer-events-none transition-opacity duration-500"
           style={{ opacity: vid ? 0 : 1 }}
@@ -830,18 +825,16 @@ function ZeitPhoneInline({ active = true }: { active?: boolean }) {
         <video ref={arRef} playsInline controls preload="auto"
                className="absolute inset-0 h-full w-full bg-black transition-opacity duration-300"
                style={{ objectFit: 'fill', opacity: vid === 'ar' ? 1 : 0, pointerEvents: vid === 'ar' ? 'auto' : 'none' }}>
-          <source src="/video/ZP-AR.mp4" type="video/mp4" />
         </video>
         <video ref={uavRef} playsInline controls preload="auto"
                className="absolute inset-0 h-full w-full bg-black transition-opacity duration-300"
                style={{ objectFit: 'fill', opacity: vid === 'uav' ? 1 : 0, pointerEvents: vid === 'uav' ? 'auto' : 'none' }}>
-          <source src="/video/ZP-UAV.mp4" type="video/mp4" />
         </video>
       </div>
 
       {/* Frame always on top */}
       <img
-        src="/assets/phone-empty.png"
+        src="/assets/phone-empty.webp"
         alt="Zeitpyramide Smartphone"
         draggable={false}
         className="absolute inset-0 h-full w-full pointer-events-none select-none"
