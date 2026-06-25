@@ -14,11 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          # GLB-Modelle liegen in Git LFS — ohne dies bekommt der Runner nur
-          # die ~130-Byte-Pointer und /3d-assets/*.glb wäre auf dem Server 404.
-          lfs: true
-
       - uses: pnpm/action-setup@v4
         with:
           version: 9
