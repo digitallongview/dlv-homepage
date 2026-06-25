@@ -1,0 +1,4 @@
+allowBuilds:
+  # sharp ist nur Dev-Tooling für scripts/convert-images.mjs (Bild-Pipeline) und
+  # läuft mit vorkompilierten Binaries — sein Install-Build-Script wird nicht benötigt.
+  sharp: false

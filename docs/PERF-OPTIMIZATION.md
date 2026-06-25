@@ -10,6 +10,10 @@
 ## Umsetzungsstand (gemessen)
 - **GLB** 18,15 → 1,56 MB (−91 %), VRAM ~447 → ~28 MB. Struktur/Animation verifiziert.
 - **Bilder** 37 referenzierte Raster → WebP: 23,1 → 2,0 MB (−21,1 MB). Referenzen umgestellt.
+- **Bilder-Nachlauf** (`scripts/convert-images.mjs`, sharp): 30 überdimensionierte WebPs auf Anzeigegröße
+  (@~2×) verkleinert + rekomprimiert, in-place, keep-if-smaller. **1,85 → 1,17 MB (−683 KiB / −37 %).**
+  Größte Treffer aus dem PSI-Report: `logo` 3136→640px (31,3→8,9 KiB), `LTAP_Logo` 1678→358px (50,3→7,7),
+  `mglogo` 600→260px (14,2→3,6); Portfolio-BGs `pacelayer`/`vr-lab-*` je ~−50 %. **⚠️ WebP-Qualität visuell prüfen.**
 - **leva** raus aus dem eager 3D-Pfad (nur noch bei `?debug`); 3D-Chunk 1229 → 1003 KB.
 - **Erster Paint** (eager): index.js 247→**66 KB brotli**, CSS 73→**9 KB brotli** → ~75 KB.
 - **3D-Hero** für leistungsfähige Geräte: ~1,9 MB (3D-JS br ~280 KB + GLB 1,56 MB) statt ~19 MB.
@@ -44,7 +48,9 @@
 - [x] leva → neues `PyramidDebugControls.tsx` (einziger leva-Import, lazy nur bei `?debug`); getypte `SCENE_DEFAULTS`/`ADV_DEFAULTS` mit **exakt** den bisherigen Werten; aus `optimizeDeps.include` genommen. ✅ **PyramidScene-Chunk 1229→1002 KB; leva (198 KB) lädt nur noch bei `?debug`.** Behebt zugleich die IDE-`unknown`-TS-Fehler. *(Hero visuell prüfen: Kamera/Licht unverändert.)* — Offen: leva nach devDependencies (Lockfile-Churn, später); console-Drop via oxc (Vite 8 = Rolldown, `esbuild.drop` wirkungslos); Vendor-Split verworfen (zog leva eager).
 
 ## Phase 2 — Bild-Pipeline (AVIF/WebP)
-- [ ] sharp-Prebuild `scripts/convert-images.mjs` → `.avif`(q55)/`.webp`(q80)-Geschwister; Alpha/Line-Art schonen; `<Picture>`-Komponente (reicht className/style/loading an inneres `<img>`).
+- [x] **sharp-Pipeline `scripts/convert-images.mjs`** — überdimensionierte WebPs auf Anzeigegröße (@~2×) re-encodiert,
+  **in-place** (gleiche Pfade, kein Code-Change), keep-if-smaller, Originale ins Scratchpad gesichert.
+  **−683 KiB / −37 %** über 30 Dateien. *(Noch offen: AVIF-Geschwister + `<Picture>`-Komponente; aktuell nur WebP.)*
 - [ ] Nur aktives Portfolio-Background rendern (−~5,9 MB); `loading='lazy'`/`decoding='async'` an alle below-fold-`<img>`; width/height gegen CLS.
 - [ ] Video-Poster → WebP (cwebp -q72 -resize 640); `poster=` an sichtbare Player; ungenutzte Poster aus dem Deploy.
 
