@@ -227,6 +227,11 @@ function Pyramid(ctl: PyramidControls) {
 
 // Kamera-Startposition für die Intro-Fahrt (zeigt Basissteine von unten/weitem)
 const INTRO_START = { y: 1.0, z: 8.5, lookY: 0.0, fov: 70 } as const
+
+// Portrait-Framing: weiter weg + höherer Blickpunkt, damit die breite, gestufte
+// Pyramide im Hochformat vollständig & zentriert ins Bild passt (Desktop-Look bleibt).
+// Per URL feinjustierbar: ?camY=&camZ=&lookY=&fov=
+const PORTRAIT_FRAMING = { camY: 5, camZ: 13, lookY: 3.2, fov: 55 } as const
 // Kamerafahrt startet wenn Steine fallen (nach DROP_DELAY) → Dauer bis alle landen
 const INTRO_CAM_DURATION = DROP_STAGGER + DROP_DURATION
 
@@ -276,10 +281,12 @@ export default function PyramidScene({
   onDropStart,
   onDropComplete,
   visible = true,
+  portrait = false,
 }: {
   onDropStart?: () => void
   onDropComplete?: () => void
   visible?: boolean
+  portrait?: boolean
 }) {
   const debug = useMemo(isDebug, [])
   const [dropTrigger, setDropTrigger] = useState(0)
@@ -370,6 +377,24 @@ export default function PyramidScene({
     valuesRef.current = { ...scene, ...adv }
   }, [scene, adv])
 
+  // Effektives Kamera-Framing: im Hochformat feste Portrait-Werte, sonst Leva/Scene.
+  // Portrait-Werte lassen sich per URL feinjustieren: ?camY=&camZ=&lookY=&fov=
+  const framing = useMemo(() => {
+    if (!portrait) return { camY: scene.camY, camZ: scene.camZ, lookY: scene.lookY, fov: scene.fov }
+    const p = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
+    const num = (k: string, d: number) => {
+      const v = p?.get(k)
+      const n = v != null ? Number(v) : NaN
+      return Number.isFinite(n) ? n : d
+    }
+    return {
+      camY:  num('camY',  PORTRAIT_FRAMING.camY),
+      camZ:  num('camZ',  PORTRAIT_FRAMING.camZ),
+      lookY: num('lookY', PORTRAIT_FRAMING.lookY),
+      fov:   num('fov',   PORTRAIT_FRAMING.fov),
+    }
+  }, [portrait, scene.camY, scene.camZ, scene.lookY, scene.fov])
+
   const handleDropStart = useCallback(() => {
     setDropStarted(true)
     onDropStart?.()
@@ -432,11 +457,11 @@ export default function PyramidScene({
         <color attach="background" args={['#f7eced']} />
         {introActive && dropStarted ? (
           <CameraIntro
-            endY={scene.camY} endZ={scene.camZ} endLookY={scene.lookY} endFov={scene.fov}
+            endY={framing.camY} endZ={framing.camZ} endLookY={framing.lookY} endFov={framing.fov}
             onDone={() => setIntroActive(false)}
           />
         ) : !introActive ? (
-          <CameraSync y={scene.camY} z={scene.camZ} fov={scene.fov} lookY={scene.lookY} enabled={!adv.orbitControls} />
+          <CameraSync y={framing.camY} z={framing.camZ} fov={framing.fov} lookY={framing.lookY} enabled={!adv.orbitControls} />
         ) : null}
         <ambientLight intensity={adv.ambient} />
         <directionalLight position={sunPos} intensity={adv.dir} />

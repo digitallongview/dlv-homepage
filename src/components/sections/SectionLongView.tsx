@@ -19,20 +19,20 @@ function useInView(threshold = 0.12) {
 
 const FEATURES = [
   {
-    title: 'Digitale Anwendungen',
-    body: 'Webseiten, Apps und immersive Plattformen, die für lange Zeiträume gedacht sind.',
+    title: 'Digitales Erbe bewahren',
+    body: 'Wir nutzen immersive Medien (XR) und interaktive Erlebnisse, um Kultur digital, barrierefrei und ethisch für die Zukunft zu sichern.',
   },
   {
-    title: 'Storytelling & Immersion',
-    body: 'Geschichten, die Raum und Zeit überbrücken — von AR bis Audio-Walk.',
+    title: 'Für Generationen gestalten',
+    body: 'Wir bringen Langzeitdenken in die Praxis, damit Wissen und Kultur generationsgerecht Jahrzehnte überdauern.',
   },
   {
-    title: 'Langzeit-Projekte',
-    body: 'Begleitung von Initiativen, die ihre Wirkung erst über Jahrzehnte entfalten.',
+    title: 'Ganzheitliche Co-Creation',
+    body: 'Wir gestalten Erlebnisse gemeinsam mit Menschen (Co-Creation) und richten den Blick auf das gesamte lebendige Umfeld (Life-Centred).',
   },
   {
-    title: 'Kulturgestaltung',
-    body: 'Kuratorische Konzepte für Institutionen, Stiftungen und Communitys.',
+    title: 'Digitale Entschleunigung',
+    body: 'Wir nutzen digitale Vielfalt als bewussten Gegenpol zur heutigen Schnelllebigkeit — um an die zukünftigen Generationen anzuknüpfen.',
   },
 ]
 
@@ -43,6 +43,27 @@ const FEATURES = [
  * max(24px, ...) clamps to a minimum on narrow viewports.
  */
 const textPadX = 'max(24px, calc((100vw - 1200px) / 2 + 40px))'
+
+/*
+ * Below 1280px the fixed half-width image column makes the foreground objects
+ * (telescope, VR headset) shrink and cluster in the far corner, leaving an
+ * awkward gap to the text. `narrowPush` is 0 at ≥1280px — so the original wide
+ * composition is left untouched — and grows as the viewport narrows. We feed it
+ * into the objects so they stay large and pull inward toward the text; the cones
+ * themselves keep their size. The clamp caps hold from ~1024px all the way down
+ * to the 500px breakpoint (where the stacked mobile layout takes over), so the
+ * objects keep a healthy size-relative-to-column instead of growing unbounded.
+ */
+const narrowPush = 'max(0px, (1280px - 100vw))'
+const telescopeStyle = {
+  height: `clamp(88%, calc(88% + ${narrowPush} * 0.22), 102%)`,
+  right: `clamp(8%, calc(8% + ${narrowPush} * 0.18), 17%)`,
+}
+const vrStyle = {
+  width: `clamp(58%, calc(58% + ${narrowPush} * 0.28), 72%)`,
+  left: `clamp(4%, calc(4% + ${narrowPush} * 0.10), 9%)`,
+  bottom: `clamp(24px, calc(24px + ${narrowPush} * 0.055), 9%)`,
+}
 
 export default function SectionLongView() {
   const row1 = useInView(0.02)
@@ -59,33 +80,36 @@ export default function SectionLongView() {
       </div>
 
       {/* ── Row 1: text left | cone-right + telescope flush to right edge ── */}
-      <div className="mt-14 grid items-center lg:grid-cols-2">
+      <div className="mt-14 grid items-center min-[500px]:grid-cols-2">
         {/* Text column */}
         <div
           className="py-10 lg:py-16"
           style={{ paddingLeft: textPadX, paddingRight: 'clamp(24px, 5vw, 64px)' }}
         >
-          <p className="font-sans text-[clamp(20px,2vw,26px)] font-semibold leading-tight tracking-tight text-ink">
+          <p className="font-sans text-[clamp(18px,1.9vw,24px)] font-semibold leading-tight tracking-tight text-ink">
             Die Digitalagentur für Raum, Zeit und Kultur.
           </p>
           <p className="mt-4 max-w-[480px] font-serif text-[16px] leading-[1.65] text-ink/75">
-            Wir entwerfen, programmieren und kuratieren digitale Erlebnisse,
-            die nicht nach der nächsten Quartalsrelease verfallen — sondern
-            langlebige Spuren in Kultur und Erinnerung hinterlassen.
+            Wir schaffen <strong className="font-normal italic">Kommunikation</strong> für{' '}
+            <strong className="font-normal italic">Kulturschaffende und Erlebende</strong>. Wir
+            glauben daran eine Verbesserung lässt sich durch{' '}
+            <strong className="font-normal italic">Partizipation und Erleben schaffen</strong>, das
+            durch digitale Stützen ermöglicht wird. Somit versprechen wir uns{' '}
+            <strong className="font-normal italic">Langzeitdenken zu erwecken</strong>.
           </p>
           <div className="mt-8 flex flex-col items-start gap-3">
             <a
               href="#wer-sind-wir"
               className="group inline-flex items-center gap-2 border-b border-ink/25 pb-1 font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-ink/60 transition-all duration-200 hover:border-ink/60 hover:text-ink"
             >
-              Erfahre mehr über unsere Long View
+              Erfahre mehr über unseren Long View
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </a>
             <a
-              href="#kontakt"
+              href="#wer-sind-wir"
               className="group inline-flex items-center gap-2 border-b border-ink/25 pb-1 font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-ink/60 transition-all duration-200 hover:border-ink/60 hover:text-ink"
             >
-              Kontaktiere uns
+              Wieso Langzeitdenken?
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>
@@ -110,14 +134,15 @@ export default function SectionLongView() {
             <img
               src="/assets/telescope.png"
               alt="Teleskop auf Stativ"
-              className="absolute bottom-0 right-[8%] z-10 h-[88%] w-auto select-none object-contain drop-shadow-2xl"
+              className="absolute bottom-0 z-10 w-auto select-none object-contain drop-shadow-2xl"
+              style={telescopeStyle}
             />
           </div>
         </div>
       </div>
 
       {/* ── Row 2: cone-left + VR flush to left edge | feature text right ── */}
-      <div className="grid items-center lg:grid-cols-2">
+      <div className="grid items-center min-[500px]:grid-cols-2">
         {/* Outer: layout anchor for observer — inner: slides in from left */}
         <div ref={row2.ref} className="relative aspect-[4/3] w-full overflow-hidden">
           <div
@@ -137,7 +162,8 @@ export default function SectionLongView() {
             <img
               src="/assets/vr-headset.png"
               alt="VR-Headset"
-              className="absolute bottom-6 left-[4%] z-10 w-[58%] select-none object-contain drop-shadow-2xl"
+              className="absolute z-10 select-none object-contain drop-shadow-2xl"
+              style={vrStyle}
             />
           </div>
         </div>
@@ -147,8 +173,8 @@ export default function SectionLongView() {
           className="py-10 lg:py-16"
           style={{ paddingRight: textPadX, paddingLeft: 'clamp(24px, 5vw, 64px)' }}
         >
-          <p className="font-sans text-[clamp(22px,2.5vw,30px)] font-semibold leading-tight tracking-tight text-ink">
-            … um das Langzeitdenken zu fördern.
+          <p className="font-sans text-[clamp(18px,1.9vw,24px)] font-semibold leading-tight tracking-tight text-ink">
+            Um das Langzeitdenken zu fördern.
           </p>
           <div className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2">
             {FEATURES.map((f) => (

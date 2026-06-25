@@ -20,8 +20,8 @@ const TEAM: Member[] = [
     img:          '/assets/Lukas.png',
     role:         '… und mir geht es um ZEIT.',
     intro:        'Hi! Ich bin Lukas …',
-    body:         'Mich interessiert, wie wir digitale Räume so bauen, dass sie nicht nach drei Jahren wieder abgerissen werden.',
-    bodyExtended: 'Langlebige Software, langlebige Geschichten, langlebige Kultur – das ist mein Antrieb bei Digital Long View.',
+    body:         'Creative Director bei Digital Long View und Langzeitdenker aus Überzeugung. Als Stiftungsmitglied der Wemdinger Zeitpyramide denke ich in Jahrhunderten, nicht in Quartalen.',
+    bodyExtended: 'Zeit ist mein Gestaltungsraum. Ich entwickle Zukunftsbilder und Future-Design-Prozesse, die sich an der Vergangenheit orientieren – an dem, was sich bewährt hat und Bestand hatte. Daraus schöpfe ich Zuversicht: Langzeitdenken ist für mich kein abstraktes Konzept, sondern ein Akt der Hoffnung – für kommende Generationen und lange Zukünfte, im Einklang mit dem Hier und Jetzt.',
   },
   {
     id:           'johan',
@@ -29,8 +29,8 @@ const TEAM: Member[] = [
     img:          '/assets/Johan.png',
     role:         '… und mir geht es um RAUM.',
     intro:        'Hi! Ich bin Johann …',
-    body:         'Ich denke vom Ort aus: wie Architektur, Landschaft und Digitalität ineinandergreifen.',
-    bodyExtended: 'Mein Lieblingswerkzeug ist die Konzeptzeichnung – direkt am Stein, direkt in der Wirklichkeit.',
+    body:         'XR Developer & Designer. Ich verbinde visionäres Denken mit pragmatischem Handeln – Programmierung und Design, konsequent nutzerzentriert.',
+    bodyExtended: 'Raum ist für mich die Schnittstelle von Mensch, Technologie und Interaktion. XR erweitert ihn um neue Dimensionen und verbindet Vergangenheit, Gegenwart und Zukunft. Mich fasziniert, durch immersive Räume neue Formen von Wahrnehmung und Präsenz zu schaffen – Ideen nicht nur sichtbar, sondern erlebbar zu machen.',
   },
   {
     id:           'domi',
@@ -120,13 +120,13 @@ export default function SectionMotivation() {
                 <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-lavender">
                   {selected.intro}
                 </p>
-                <h3 className="mt-4 font-sans text-[clamp(20px,2.2vw,28px)] font-bold leading-snug tracking-tight text-ink">
-                  {selected.role}
-                </h3>
-                <p className="mt-5 font-serif text-[15px] leading-[1.72] text-ink/70">
+                <p className="mt-4 font-serif text-[15px] leading-[1.72] text-ink/70">
                   {selected.body}
                 </p>
-                <p className="mt-3 font-serif text-[15px] leading-[1.72] text-ink/70">
+                <h3 className="mt-6 font-sans text-[clamp(20px,2.2vw,28px)] font-bold leading-snug tracking-tight text-ink">
+                  {selected.role}
+                </h3>
+                <p className="mt-4 font-serif text-[15px] leading-[1.72] text-ink/70">
                   {selected.bodyExtended}
                 </p>
               </div>
@@ -177,7 +177,7 @@ export default function SectionMotivation() {
                       loading="lazy"
                       className={[
                         'block transition-[width,filter] duration-500 ease-out',
-                        'drop-shadow-[0_12px_32px_rgba(24,24,38,0.22)]',
+                        // PNG already carries its baked drop shadow — no CSS shadow
                         active
                           ? 'w-[168px] sm:w-[200px]'
                           : 'w-[104px] sm:w-[126px]',
