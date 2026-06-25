@@ -106,14 +106,18 @@ const PROJECTS: Project[] = [
   },
   {
     id: 'p5',
-    label: 'Titel 5',
-    title: 'Kommt bald',
-    subtitle: 'Nächstes Projekt in Vorbereitung',
+    label: 'Pace Layers',
+    title: 'Pace Layering',
+    subtitle: 'Abgeschlossene Web- & Agenturprojekte & Kooperationen',
     bg: '/assets/pacelayer.jpg',
     scrim: true,
     kind: 'websites',
-    textA: 'Dieses Projekt befindet sich derzeit in der Entwicklung. Mehr Informationen folgen in Kürze.',
+    textA: 'Digitale Wirkung entsteht nicht durch sichtbare Ergebnisse allein – sondern durch das, was trägt: verlässliche Systeme, stabile Infrastruktur und die Verbindung aus Technologie, Menschen und Kultur.',
+    textB: 'Wir denken in langen Zeithorizonten – und handeln trotzdem im Jetzt. Stewart Brands Pace Layering zeigt: Wer die langsamen, bewahrenden Schichten der Kultur gestalten will, muss in den schnellen Schichten präsent sein – in Commerce, Fashion, Lifestyle. Das kurzfristige, lukrative Tagesgeschäft ist kein Widerspruch zum Langzeitanspruch. Es ist seine Voraussetzung. Wer sich der Kultur bedient, gibt zurück.',
+    textC: 'Deshalb arbeiten wir ohne Hierarchie: Familienunternehmen und Kulturinstitution, Subkultur und Hochkultur, Verein und Alltagskultur. Die folgenden Referenzen sind abgeschlossene Web- und Agenturprojekte sowie ehemalige Kooperationen – pragmatisch, ethisch, auf Wirkung ausgerichtet.',
+    link: { href: 'https://longnow.org/ideas/pace-layers/', label: 'Pace Layering – Long Now Foundation', external: true },
     button: 'Websites',
+    source: 'Hintergrundbild & Idee: Long Now Foundation · Pace Layering (Stewart Brand)',
   },
 ]
 

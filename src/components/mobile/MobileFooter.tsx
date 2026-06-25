@@ -81,8 +81,7 @@ export default function MobileFooter() {
         <div className="max-w-[340px]">
           <h2 className="font-sans text-[26px] font-bold leading-tight tracking-tight text-ink">Unsere Partner & Freunde</h2>
           <p className="mt-3 font-serif text-[13.5px] leading-[1.6] text-ink/60">
-            Wir arbeiten mit Stiftungen, Initiativen und Kunstprojekten zusammen, deren
-            Horizont über die nächste Förderperiode hinausreicht. <em>Gemeinsam, mit langem Atem.</em>
+            Unsere Partner kommen aus Kultur, Bildung, Technologie und kreativen Bereichen, die langfristig denken und Zeit als Arbeitsraum und -material verstehen.
           </p>
 
           <div className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5">
@@ -117,29 +116,27 @@ export default function MobileFooter() {
           <h3 className="font-sans text-[17px] font-semibold text-ink">Kontakt</h3>
           <a href="mailto:info@digitallongview.com" className="mt-3 block font-sans text-[15px] text-ink/70 transition-colors hover:text-lavender">info@digitallongview.com</a>
           <a href="tel:+4915141441262" className="mt-1.5 block font-sans text-[15px] text-ink/70 transition-colors hover:text-lavender">+49 151 4144 1262</a>
+          {/* CTA pill sits directly below the contact details (matches desktop layout). */}
+          <a
+            href="mailto:info@digitallongview.com"
+            className="group mt-5 inline-flex h-12 items-center gap-2 rounded-full px-7 font-sans text-[13px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_12px_30px_-10px_rgba(93,70,132,0.7)]"
+            style={{ background: 'linear-gradient(135deg, #8c74aa 0%, #5d4684 100%)' }}
+          >
+            Kontakt
+            <span aria-hidden className="text-white/80 transition-transform group-hover:translate-x-1">→</span>
+          </a>
         </div>
       </div>
 
       {/* ─────────── Lower footer — keil ─────────── */}
       <div className="relative min-h-[100svh] overflow-hidden bg-cream">
         {/* Magenta keil — vertical mirror of the nav keil: the raised diagonal runs
-            to a SINGLE point at the top-left corner; large cream triangle across the
-            top holds the KONTAKT pill. */}
+            to a SINGLE point at the top-left corner; large cream triangle across the top. */}
         <div
           aria-hidden
           className="absolute inset-0"
           style={{ background: MAGENTA_GRAD, clipPath: 'polygon(0 0, 100% 26%, 100% 100%, 0 100%)' }}
         />
-
-        {/* KONTAKT pill in the cream corner — pill-shaped, sits clear of the magenta */}
-        <a
-          href="#kontakt"
-          className="group absolute right-5 top-0 z-20 inline-flex h-12 items-center gap-2 rounded-full px-7 font-sans text-[13px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_12px_30px_-10px_rgba(93,70,132,0.7)]"
-          style={{ background: 'linear-gradient(135deg, #8c74aa 0%, #5d4684 100%)' }}
-        >
-          Kontakt
-          <span aria-hidden className="text-white/80 transition-transform group-hover:translate-x-1">→</span>
-        </a>
 
         <div className="relative z-10 flex min-h-[100svh] flex-col px-7 pt-28 pb-12">
           {/* START button */}

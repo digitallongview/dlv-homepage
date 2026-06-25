@@ -7,6 +7,7 @@ type Service = {
   title: string
   body: string
   body2?: string
+  body3?: string
   cta: string
   icon: string
   /** Optical balancing — some PNGs carry a lot of empty space (e.g. the watch + chain). */
@@ -17,8 +18,9 @@ const SERVICES: Service[] = [
   {
     id: 'programmierung',
     title: 'Programmierung & Web',
-    body: 'Maßgeschneiderte Webseiten, APIs und Backend-Architekturen — gebaut, um nicht in zwei Jahren weggeworfen zu werden.',
-    body2: 'Von der Konzeption bis zum Launch, ganzheitlich und nachhaltig.',
+    body: 'Wir entwickeln digitale Systeme, die nicht für den nächsten Trend gebaut werden, sondern für nachhaltige Nutzung, Weiterentwicklung und kulturelle Relevanz.',
+    body2: 'Webseiten, Plattformen und individuelle Software verstehen wir als Systeme, die Kultur ermöglichen: Sie müssen sich verändern können, ohne ihre Identität zu verlieren.',
+    body3: 'Von der technischen Architektur bis zur digitalen Erfahrung gestalten wir Lösungen, die heute funktionieren und morgen neugedacht werden.',
     cta: 'Anfrage Coding',
     icon: '/assets/RetroPC.png',
     scale: 1,
@@ -26,8 +28,9 @@ const SERVICES: Service[] = [
   {
     id: 'immersive',
     title: 'Immersive Medien',
-    body: 'Augmented, Virtual und Mixed Reality für Kultur, Bildung und Erlebnis — von der ersten Skizze bis zum Stage-Deploy.',
-    body2: 'Erlebnisse, die in Erinnerung bleiben.',
+    body: 'Wir nutzen Augmented, Virtual und Mixed Reality, um neue Räume zwischen dem Digitalen und Physischen entstehen zu lassen.',
+    body2: 'Dabei geht es nicht darum, Realität zu ersetzen, sondern sie zu erweitern: durch zusätzliche Ebenen, neue Perspektiven und interaktive Möglichkeiten der Begegnung.',
+    body3: 'Wir gestalten immersive Erlebnisse, die über klassische Vermittlung hinausgehen und Menschen auf neue Weise mit Kultur, Wissen und Orten verbinden.',
     cta: 'Anfrage zu VR',
     icon: '/assets/XR-Media.png',
     scale: 1,
@@ -35,8 +38,9 @@ const SERVICES: Service[] = [
   {
     id: 'marketing',
     title: 'Marketing & PR',
-    body: 'Digitale Kommunikationsstrategien für Kulturinstitutionen, NGOs und visionäre Unternehmen.',
-    body2: 'Wir erzählen Geschichten, die haften bleiben.',
+    body: 'Wir bringen Kultur, Räume und Ideen in den Dialog mit Menschen.',
+    body2: 'Durch Marketing, PR und strategische Kommunikation schaffen wir Zugänge, die Inhalte verständlich machen und Erlebnisse nach außen erweitern.',
+    body3: 'Unsere Arbeit verbindet Analyse, Gestaltung und Vermittlung — damit Projekte nicht nur sichtbar werden, sondern Bedeutung entfalten.',
     cta: 'Anfrage Marketing',
     icon: '/assets/Megaphone.png',
     scale: 0.92,
@@ -44,8 +48,9 @@ const SERVICES: Service[] = [
   {
     id: 'grafik',
     title: 'Grafik & Content',
-    body: 'Visuelle Identität, Print, Editorial, Foto- und Bewegtbild — alles, was eurer Sache eine unverwechselbare Form gibt.',
-    body2: 'Konsistent über alle Kanäle hinweg.',
+    body: 'Wir entwickeln visuelle Kommunikation, die nicht nur Aufmerksamkeit erzeugt, sondern Bedeutung schafft.',
+    body2: 'Gestaltung verstehen wir als Mittel, Inhalte einzuordnen, verständlich zu machen und in einen kulturellen Kontext zu setzen, unabhängig davon, ob sie digital, gedruckt oder im Raum stattfindet.',
+    body3: 'So entstehen Inhalte, die nicht nur gesehen werden, sondern etwas auslösen, einordnen und über den Moment hinaus wirken.',
     cta: 'Anfrage Grafik',
     icon: '/assets/Graphics.png',
     scale: 1,
@@ -53,8 +58,9 @@ const SERVICES: Service[] = [
   {
     id: 'gamification',
     title: 'Gamification & Storytelling',
-    body: 'Spielmechaniken und narrative Formate für Lern-, Kultur- und Markenprojekte.',
-    body2: 'Wir machen Komplexes erfahrbar.',
+    body: 'Videospiele sind kulturelle Systeme, in denen Menschen lernen, handeln und Bedeutung selbst erzeugen.',
+    body2: 'Wir übertragen diese Logik auf digitale und physische Kontexte, um Storytelling und Inhalte interaktiv erfahrbar zu machen. Im Mittelpunkt steht dabei nicht der passive Konsum, sondern Partizipation: Menschen werden zu aktiven Teilnehmenden, die Inhalte durch ihre Entscheidungen, Handlungen und Perspektiven mitgestalten.',
+    body3: 'Durch Narrative, Entscheidungen und Gamification entstehen neue Formen der kulturellen Vermittlung.',
     cta: 'Anfrage Gaming',
     icon: '/assets/Joystick.png',
     scale: 1.12,
@@ -62,8 +68,9 @@ const SERVICES: Service[] = [
   {
     id: '3d',
     title: '3D & Visualisierung',
-    body: '3D-Modellierung, Architekturvisualisierung und Produktrenderings in Museumsqualität.',
-    body2: 'Wir machen das Unsichtbare sichtbar und greifbar.',
+    body: '3D-Visualisierungen, die darauf ausgelegt sind, Kultur, Architektur und Objekte zu bewahren, verständlich zu machen und weiterzudenken, wie die digitale Aufbereitung stehen bei uns im Mittelpunkt.',
+    body2: 'Historische Orte, zerstörte oder veränderte Räume und kulturelle Objekte werden digital nachvollziehbar gemacht, um sie für Gegenwart und Zukunft zugänglich zu halten. Dabei verstehen wir Rekonstruktion nicht als reine Abbildung, sondern als interpretativen Prozess zwischen Geschichte, Wissen und Perspektive, inklusive kultureller Betrachtungswinkel.',
+    body3: 'So entsteht ein Raum für kulturellen Austausch, in dem unterschiedliche Perspektiven sichtbar werden und neue Zugänge zum gemeinsamen Verständnis von Geschichte und Gegenwart entstehen.',
     cta: 'Anfrage 3D',
     icon: '/assets/Artefact.png',
     scale: 0.85,
@@ -71,8 +78,9 @@ const SERVICES: Service[] = [
   {
     id: 'langzeit',
     title: 'Langzeit- & Futuring Design',
-    body: 'Strategisches Design für die Zukunft — Szenarien, Konzepte und Prozesse, die weit hinausdenken.',
-    body2: 'Damit Organisationen langfristig handeln.',
+    body: 'Strategische Perspektiven, die nicht auf kurzfristige Ergebnisse, sondern auf langfristige kulturelle und gesellschaftliche Entwicklung ausgerichtet sind.',
+    body2: 'Future Thinking hilft, die Gegenwart in Relation zu setzen und Entscheidungen im Kontext möglicher Zukünfte zu verstehen. Zukunft wird dabei als gestaltbarer Möglichkeitsraum verstanden: Durch bewusstes Langzeitdenken entstehen Systeme, die Orientierung geben, Wandel ermöglichen und positive Entwicklungen fördern.',
+    body3: 'So entstehen Ansätze, die Stabilität schaffen, ohne Veränderung zu bremsen und Zukunft als Chance aktiv mitgestalten.',
     cta: 'Anfrage Long View',
     icon: '/assets/clock.png',
     scale: 1.4,
@@ -140,8 +148,19 @@ function ServicePanel({ s, tone }: { s: Service; tone: Tone }) {
             {s.body}
           </p>
           {s.body2 && (
-            <p className="mt-[clamp(0.4rem,1vh,0.75rem)] font-sans text-[clamp(13.5px,1.5vw,15px)] font-semibold leading-[1.5] text-ink/85">
-              {s.body2}
+            s.body3 ? (
+              <p className="mt-[clamp(0.4rem,1.2vh,0.85rem)] font-serif text-[clamp(13.5px,1.5vw,15px)] leading-[1.66] text-ink/68">
+                {s.body2}
+              </p>
+            ) : (
+              <p className="mt-[clamp(0.4rem,1vh,0.75rem)] font-sans text-[clamp(13.5px,1.5vw,15px)] font-semibold leading-[1.5] text-ink/85">
+                {s.body2}
+              </p>
+            )
+          )}
+          {s.body3 && (
+            <p className="mt-[clamp(0.4rem,1.2vh,0.85rem)] font-serif text-[clamp(13.5px,1.5vw,15px)] leading-[1.66] text-ink/68">
+              {s.body3}
             </p>
           )}
         </div>

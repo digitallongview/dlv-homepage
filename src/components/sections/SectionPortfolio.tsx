@@ -14,7 +14,7 @@ const NAV_ITEMS: { id: ProjectId; label: string }[] = [
   { id: 'sophienkirche',  label: 'Sophienkirche'   },
   { id: 'zeitpyramide',  label: 'Zeitpyramide'    },
   { id: 'vrlab',         label: 'VRlab'            },
-  { id: 'p5',            label: 'Titel 5'          },
+  { id: 'p5',            label: 'Pace Layers'      },
 ]
 
 const BG_MAP: Record<ProjectId, string> = {
@@ -77,10 +77,14 @@ const PROJECTS: Record<ProjectId, ProjectData> = {
     source:     'Bilder: Deutsches Museum · Forum der Zukunft, 2022',
   },
   p5: {
-    title:      'Kommt bald',
-    subtitle:   'Nächstes Projekt in Vorbereitung',
-    textA:      'Dieses Projekt befindet sich derzeit in der Entwicklung. Mehr Informationen folgen in Kürze.',
+    title:      'Pace Layering',
+    subtitle:   'Abgeschlossene Web- & Agenturprojekte & Kooperationen',
+    textA:      'Digitale Wirkung entsteht nicht durch sichtbare Ergebnisse allein – sondern durch das, was trägt: verlässliche Systeme, stabile Infrastruktur und die Verbindung aus Technologie, Menschen und Kultur.',
+    textB:      'Wir denken in langen Zeithorizonten – und handeln trotzdem im Jetzt. Stewart Brands Pace Layering zeigt: Wer die langsamen, bewahrenden Schichten der Kultur gestalten will, muss in den schnellen Schichten präsent sein – in Commerce, Fashion, Lifestyle. Das kurzfristige, lukrative Tagesgeschäft ist kein Widerspruch zum Langzeitanspruch. Es ist seine Voraussetzung. Wer sich der Kultur bedient, gibt zurück.',
+    textC:      'Deshalb arbeiten wir ohne Hierarchie: Familienunternehmen und Kulturinstitution, Subkultur und Hochkultur, Verein und Alltagskultur. Die folgenden Referenzen sind abgeschlossene Web- und Agenturprojekte sowie ehemalige Kooperationen – pragmatisch, ethisch, auf Wirkung ausgerichtet.',
     twoColText: false,
+    link:       { href: 'https://longnow.org/ideas/pace-layers/', label: 'Pace Layering – Long Now Foundation', external: true },
+    source:     'Hintergrundbild & Idee: Long Now Foundation · Pace Layering (Stewart Brand)',
   },
 }
 

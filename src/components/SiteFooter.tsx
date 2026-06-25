@@ -172,8 +172,7 @@ export default function SiteFooter() {
               Unsere Partner & Freunde
             </h2>
             <p className="mt-2.5 font-serif text-[13.5px] leading-[1.65] text-ink/60">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
-              <em>Consectetur adipiscing elit.</em>
+              Unsere Partner kommen aus Kultur, Bildung, Technologie und kreativen Bereichen, die langfristig denken und Zeit als Arbeitsraum und -material verstehen.
             </p>
 
             {/* 4 partner logos — 2×2, transparent PNGs, no frame */}
