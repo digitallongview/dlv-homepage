@@ -1,17 +1,19 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, type ReactNode } from 'react'
 import SectionHeading from '../SectionHeading'
+import VrGlasses from '../VrGlasses'
+import PcWebsites from '../PcWebsites'
 import { useHlsVideo } from '../../hooks/useHlsVideo'
 import { HLS, type Lang } from '../../lib/hlsSources'
 
 // ─── Types & Data ─────────────────────────────────────────────────────────────
 
-type ProjectId = 'langzeitdesign' | 'sophienkirche' | 'zeitpyramide' | 'p4' | 'p5'
+type ProjectId = 'langzeitdesign' | 'sophienkirche' | 'zeitpyramide' | 'vrlab' | 'p5'
 
 const NAV_ITEMS: { id: ProjectId; label: string }[] = [
   { id: 'langzeitdesign', label: 'Langzeit-Design' },
   { id: 'sophienkirche',  label: 'Sophienkirche'   },
   { id: 'zeitpyramide',  label: 'Zeitpyramide'    },
-  { id: 'p4',            label: 'Titel 4'          },
+  { id: 'vrlab',         label: 'VRlab'            },
   { id: 'p5',            label: 'Titel 5'          },
 ]
 
@@ -19,8 +21,8 @@ const BG_MAP: Record<ProjectId, string> = {
   langzeitdesign: '/assets/bg-langzeitdesign.png',
   sophienkirche:  '/assets/bg-sophienkirche.png',
   zeitpyramide:   '/assets/bg-zeitpyramide.png',
-  p4:             '/assets/bg-zeitpyramide.png',
-  p5:             '/assets/bg-zeitpyramide.png',
+  vrlab:          '/assets/background-vrlab.png',
+  p5:             '/assets/pacelayer.jpg',
 }
 
 type ProjectData = {
@@ -28,6 +30,7 @@ type ProjectData = {
   subtitle:   string
   textA:      string
   textB?:     string
+  textC?:     ReactNode
   twoColText: boolean
   link?:      { href: string; label: string; external?: boolean }
   download?:  { href: string; label: string }
@@ -41,7 +44,7 @@ const PROJECTS: Record<ProjectId, ProjectData> = {
     textA:      'Das Langzeit-Design-Projekt untersucht, wie gestalterische Entscheidungen über Generationen hinweg Bestand haben. Gemeinsam mit der Herrnhuter Brüdergemeine entstanden Workshops zu handwerklicher und digitaler Langlebigkeit.',
     textB:      'Das Ergebnis: eine lebendige Forschungsgrundlage für Design-Prinzipien, die weit über Trends hinausdenken — verankert in Tradition, offen für Transformation.',
     twoColText: false,
-    link:       { href: '#', label: 'Prototyp Herrnhuter Galaxie', external: true },
+    link:       { href: 'https://herrnhuter.digitallongview.com/', label: 'Prototyp Herrnhuter Galaxie', external: true },
     download:   { href: '/assets/Was ist Langzeitdesign.pdf', label: 'Download PDF zu LTD' },
     source:     'Quelle: Herrnhuter Brüdergemeine, 2024',
   },
@@ -51,7 +54,7 @@ const PROJECTS: Record<ProjectId, ProjectData> = {
     textA:      'Die Sophienkirche in Berlin steht als Zeugnis eines wechselvollen Jahrhunderts. Mit einem immersiven AR-Prototyp haben wir erkundet, wie digitale Erinnerungsräume historische Schichten zugänglich machen können.',
     textB:      'Der Prototyp lädt ein, Geschichte körperlich zu erfahren — durch Klang, Bild und Raum. Ein Denkraum, kein Ausstellungsstück.',
     twoColText:      false,
-    link:       { href: '#', label: 'Webseite Sophienkirche', external: true },
+    link:       { href: 'https://www.denkraum-sophienkirche.de/', label: 'Webseite Sophienkirche', external: true },
     source:     'Kooperation mit Förderkreis Sophienkirche e. V.',
   },
   zeitpyramide: {
@@ -63,11 +66,15 @@ const PROJECTS: Record<ProjectId, ProjectData> = {
     link:       { href: 'https://zeitpyramide.de', label: 'Webseite Stiftung', external: true },
     source:     'Quelle: Stadtmuseum Wemding · Suter + Wittwer, 1993',
   },
-  p4: {
-    title:      'Kommt bald',
-    subtitle:   'Nächstes Projekt in Vorbereitung',
-    textA:      'Dieses Projekt befindet sich derzeit in der Entwicklung. Mehr Informationen folgen in Kürze.',
+  vrlab: {
+    title:      'VRlab',
+    subtitle:   'VR-Entwicklung für das Deutsche Museum',
+    textA:      'Im XR Hub des Deutschen Museums wurde eine bestehende VR Experience weiterentwickelt, um historische Inhalte durch immersive Erlebnisse zugänglicher und interaktiver zu gestalten. Dabei stand die Verbindung von User Experience, Storytelling und historischer Einordnung im Mittelpunkt.',
+    textB:      'Aus der virtuellen Betrachtung bedeutender Exponate wie dem Benz Patent-Motorwagen, Otto Lilienthals Flugapparat, der Sulzer Dampfmaschine oder der Apollo-13-Mission entsteht eine Erfahrung, in der Besucher aktiv in vergangene Momente eintauchen können. Ob beim Zusammenbau des Motors gemeinsam mit Bertha Benz vor ihrer ersten längeren Testfahrt oder als Reporter einer Berliner Tageszeitung beim Start zu Otto Lilienthals nächstem Flug – die Besucher werden Teil historischer Ereignisse und erleben technische Meilensteine aus einer neuen Perspektive.',
+    textC:      <strong className="font-normal italic">Der XR Raum schafft so eine Brücke zwischen Museum, Technologie und interaktivem Lernen – Geschichte wird nicht nur betrachtet, sondern erlebbar gemacht.</strong>,
     twoColText: false,
+    link:       { href: 'https://www.deutsches-museum.de/museumsinsel/programm/programm-a-z/vrlab', label: 'VRlab am Deutschen Museum', external: true },
+    source:     'Bilder: Deutsches Museum · Forum der Zukunft, 2022',
   },
   p5: {
     title:      'Kommt bald',
@@ -103,12 +110,21 @@ function LangzeitdesignMedia() {
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
   const [lang,     setLang]     = useState<Lang>('de')
+  const [isFs,     setIsFs]     = useState(false)
   const ref          = useRef<HTMLVideoElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
   const src = lang === 'de' ? HLS.langzeitdesignDE : HLS.langzeitdesignEN
   // 45-min film → lazy: nothing downloads until the first play.
   useHlsVideo(ref, src, { preload: false })
+
+  // Inline we crop to fill the rounded frame (object-cover); fullscreen we letterbox
+  // (object-contain) so the whole 16:9 frame is visible and never cropped on any screen.
+  useEffect(() => {
+    const onFs = () => setIsFs(document.fullscreenElement === containerRef.current)
+    document.addEventListener('fullscreenchange', onFs)
+    return () => document.removeEventListener('fullscreenchange', onFs)
+  }, [])
 
   const switchLang = (e: React.MouseEvent, next: Lang) => {
     e.stopPropagation()
@@ -150,11 +166,15 @@ function LangzeitdesignMedia() {
   return (
     <div
       ref={containerRef}
-      className="relative overflow-hidden rounded-xl bg-black cursor-pointer select-none"
-      style={{
-        aspectRatio: '16/9',
-        boxShadow: 'inset 0 0 40px rgba(0,0,0,0.55), 0 16px 40px -12px rgba(0,0,0,0.35)',
-      }}
+      className={[
+        'relative overflow-hidden bg-black cursor-pointer select-none',
+        isFs ? '' : 'rounded-xl',
+      ].join(' ')}
+      style={
+        isFs
+          ? { aspectRatio: 'auto' }
+          : { aspectRatio: '16/9', boxShadow: 'inset 0 0 40px rgba(0,0,0,0.55), 0 16px 40px -12px rgba(0,0,0,0.35)' }
+      }
       onClick={toggle}
     >
       <video
@@ -164,7 +184,8 @@ function LangzeitdesignMedia() {
         onLoadedMetadata={() => setDuration(ref.current?.duration ?? 0)}
         preload="metadata"
         className={[
-          'w-full h-full object-cover transition-all duration-700',
+          'w-full h-full transition-all duration-700',
+          isFs ? 'object-contain' : 'object-cover',
           playing ? '' : 'grayscale brightness-75',
         ].join(' ')}
       >
@@ -173,8 +194,10 @@ function LangzeitdesignMedia() {
       </video>
 
       {/* Inner vignette */}
-      <div className="pointer-events-none absolute inset-0 rounded-xl"
-           style={{ boxShadow: 'inset 0 0 60px rgba(0,0,0,0.45)' }} />
+      {!isFs && (
+        <div className="pointer-events-none absolute inset-0 rounded-xl"
+             style={{ boxShadow: 'inset 0 0 60px rgba(0,0,0,0.45)' }} />
+      )}
 
       {/* Language toggle — DE / EN narration */}
       <div
@@ -374,14 +397,17 @@ function SophienkircheMedia() {
 
 function ZeitpyramideMedia() {
   const [vid, setVid] = useState<'ar' | 'uav' | null>(null)
+  const [uavLang, setUavLang] = useState<Lang>('de')
   const arRef  = useRef<HTMLVideoElement>(null)
   const uavRef = useRef<HTMLVideoElement>(null)
 
   // Click-to-play → lazy: each stream loads only once its button is hit.
-  useHlsVideo(arRef,  HLS.zpAr,  { preload: false })
-  useHlsVideo(uavRef, HLS.zpUav, { preload: false })
+  // The UAV clip has DE/EN narration; swapping the source re-attaches the stream.
+  useHlsVideo(arRef,  HLS.zpAr, { preload: false })
+  useHlsVideo(uavRef, uavLang === 'de' ? HLS.zpUav : HLS.zpUavEN, { preload: false })
 
-  // Play whichever video is selected; pause the other
+  // Play whichever video is selected; pause the other. A UAV language swap re-runs
+  // this (uavLang dep) and resumes playback once the new stream has re-attached.
   useEffect(() => {
     const ar  = arRef.current
     const uav = uavRef.current
@@ -391,9 +417,15 @@ function ZeitpyramideMedia() {
       ar.play().catch(() => {})
     } else if (vid === 'uav') {
       ar.pause()
-      uav.play().catch(() => {})
+      const id = setTimeout(() => uav.play().catch(() => {}), 150)
+      return () => clearTimeout(id)
     }
-  }, [vid])
+  }, [vid, uavLang])
+
+  const switchUavLang = (e: React.MouseEvent, next: Lang) => {
+    e.stopPropagation()
+    setUavLang(next)
+  }
 
   const btnClass = "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-sans text-[9.5px] font-bold uppercase tracking-[0.25em] text-white shadow-[0_4px_14px_-4px_rgba(93,70,132,0.7)] transition-all hover:shadow-[0_6px_18px_-4px_rgba(93,70,132,0.9)] active:scale-[0.97]"
   const btnStyle = { background: 'linear-gradient(135deg, #b29bd0 0%, #5d4684 100%)' }
@@ -463,19 +495,30 @@ function ZeitpyramideMedia() {
           <span aria-hidden className="opacity-70 text-[8px]">▶</span>
         </button>
       )}
-    </div>
-  )
-}
 
-// ─── Placeholder ──────────────────────────────────────────────────────────────
-
-function PlaceholderMedia() {
-  return (
-    <div
-      className="flex-none flex items-center justify-center rounded-xl border-2 border-dashed border-ink/12 bg-white/20"
-      style={{ width: 200, height: 200 }}
-    >
-      <span className="font-sans text-[11px] uppercase tracking-widest text-ink/25">Demnächst</span>
+      {/* UAV narration language — only the UAV clip has an English cut */}
+      {vid === 'uav' && (
+        <div
+          className="absolute top-2 left-2 flex overflow-hidden rounded-full border border-white/25 bg-black/40 backdrop-blur-sm"
+          style={{ zIndex: 30 }}
+          onClick={e => e.stopPropagation()}
+        >
+          {(['de', 'en'] as Lang[]).map(l => (
+            <button
+              key={l}
+              onClick={e => switchUavLang(e, l)}
+              aria-pressed={uavLang === l}
+              className={[
+                'px-2.5 py-1 font-sans text-[9px] font-bold uppercase tracking-[0.18em] transition-colors',
+                uavLang === l ? 'text-white' : 'text-white/45 hover:text-white/75',
+              ].join(' ')}
+              style={uavLang === l ? { background: 'linear-gradient(135deg, #b29bd0 0%, #5d4684 100%)' } : undefined}
+            >
+              {l}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -496,6 +539,8 @@ export default function SectionPortfolio() {
           src={BG_MAP[item.id]}
           aria-hidden
           draggable={false}
+          // VRlab: pan right so Lilienthal's glider (right of the scene) stays fully in frame.
+          style={{ objectPosition: item.id === 'vrlab' ? '62% center' : 'center' }}
           className={[
             'pointer-events-none absolute inset-0 h-full w-full select-none object-cover',
             'transition-opacity duration-700 ease-in-out',
@@ -503,13 +548,34 @@ export default function SectionPortfolio() {
           ].join(' ')}
         />
       ))}
-      {/* Cream overlay keeps content legible */}
-      <div className="pointer-events-none absolute inset-0 bg-cream/62" aria-hidden />
-      {/* Edge fades — independent of image crop, always blend section boundaries */}
+      {/* Directional cream scrim — strong on the left (nav + copy), clearing toward
+          the right so the photo keeps its colour around the media. Replaces the old
+          flat full-cover wash. */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden
+        style={{
+          background:
+            'linear-gradient(to right, rgba(247,236,237,0.92) 0%, rgba(247,236,237,0.85) 36%, rgba(247,236,237,0.45) 66%, rgba(247,236,237,0.15) 100%)',
+        }}
+      />
+      {/* Extra cream for slides whose photo isn't graphically supported (VRlab is a full
+          render, not a faded artwork) — boosts the right edge so the bright scene reads
+          calmer behind the media. Crossfades with the background as the slide changes. */}
+      <div
+        className="pointer-events-none absolute inset-0 transition-opacity duration-700"
+        aria-hidden
+        style={{
+          opacity: active === 'vrlab' || active === 'p5' ? 1 : 0,
+          background:
+            'linear-gradient(to right, rgba(247,236,237,0.35) 0%, rgba(247,236,237,0.38) 55%, rgba(247,236,237,0.62) 100%)',
+        }}
+      />
+      {/* Edge fades blend the top/bottom into the cream page; the left edge reinforces
+          legibility. The right edge stays clear so the subject keeps its colour. */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-cream to-transparent" aria-hidden />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-cream to-transparent" aria-hidden />
       <div className="pointer-events-none absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-cream to-transparent" aria-hidden />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-cream to-transparent" aria-hidden />
 
       {/* ── Content ──────────────────────────────────────────────────────────── */}
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 pt-24 pb-14 sm:px-10 sm:pt-32 sm:pb-18">
@@ -590,6 +656,11 @@ export default function SectionPortfolio() {
                       {project.textB}
                     </p>
                   )}
+                  {project.textC && (
+                    <p className="font-serif text-[14px] leading-[1.72] text-ink/70">
+                      {project.textC}
+                    </p>
+                  )}
                 </div>
 
                 {/* Links */}
@@ -633,7 +704,16 @@ export default function SectionPortfolio() {
               )}
               {active === 'sophienkirche' && <SophienkircheMedia />}
               {active === 'zeitpyramide'  && <ZeitpyramideMedia  />}
-              {(active === 'p4' || active === 'p5') && <PlaceholderMedia />}
+              {active === 'vrlab' && (
+                <div className="flex-none" style={{ width: 'clamp(240px,34vw,440px)', marginTop: '-2rem' }}>
+                  <VrGlasses />
+                </div>
+              )}
+              {active === 'p5' && (
+                <div className="flex-none" style={{ width: 'clamp(260px,36vw,460px)' }}>
+                  <PcWebsites />
+                </div>
+              )}
 
             </div>
           </div>

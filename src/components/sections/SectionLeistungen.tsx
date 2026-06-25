@@ -260,7 +260,7 @@ export default function SectionLeistungen() {
 
       {/* Section heading above the cards */}
       <div className="mx-auto max-w-[1200px] px-6 pb-10 pt-20 sm:px-10 sm:pt-24">
-        <SectionHeading eyebrow="Services" title="Unsere Leistungen & Service" />
+        <SectionHeading eyebrow="Wie wir der Kultur dienen" title="Unsere Leistungen & Service" />
       </div>
 
       {/* 7 service cards, alternating violet-left / magenta-right */}

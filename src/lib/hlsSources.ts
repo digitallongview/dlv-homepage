@@ -10,7 +10,10 @@ export const HLS = {
   langzeitdesignEN: '/video/hls/long-term-design-en/master.m3u8',
   sophienkirche: '/video/hls/sophienkirche-prototyp/master.m3u8',
   zpAr: '/video/hls/zp-ar/master.m3u8',
+  /** UAV aerial photogrammetry / visualisation clip — German narration. */
   zpUav: '/video/hls/zp-uav/master.m3u8',
+  /** Same clip — English narration ("A look into the future …"). */
+  zpUavEN: '/video/hls/zp-uav-en/master.m3u8',
 } as const
 
 export type Lang = 'de' | 'en'

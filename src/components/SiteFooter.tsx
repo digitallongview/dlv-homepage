@@ -164,7 +164,7 @@ export default function SiteFooter() {
 
       {/* ══ TOP: Partner · Zeitgeist · Kontakt · CTA ══ */}
       <div className="relative z-10 mx-auto max-w-[1320px] px-6 pb-0 pt-12 sm:px-10 -mb-20">
-        <div className="grid grid-cols-12 items-start gap-5 lg:gap-8">
+        <div className="grid grid-cols-12 items-start gap-5 lg:gap-14">
 
           {/* ── Partner & Freunde — 5 cols, content capped a bit narrower ── */}
           <div className="col-span-5 max-w-[430px]">

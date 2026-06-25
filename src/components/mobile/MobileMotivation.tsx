@@ -24,8 +24,8 @@ const TEAM: Member[] = [
     imgPhone: '/assets/lukas-bild.png',
     role: '… und mir geht es um ZEIT!',
     intro: 'Hi! Ich bin Lukas …',
-    body: 'Mich interessiert, wie wir digitale Räume so bauen, dass sie nicht nach drei Jahren wieder abgerissen werden.',
-    bodyExtended: 'Langlebige Software, langlebige Geschichten, langlebige Kultur – das ist mein Antrieb bei Digital Long View. Ich denke in Zeiträumen, nicht in Releases.',
+    body: 'Creative Director bei Digital Long View und Langzeitdenker aus Überzeugung. Als Stiftungsmitglied der Wemdinger Zeitpyramide denke ich in Jahrhunderten, nicht in Quartalen.',
+    bodyExtended: 'Zeit ist mein Gestaltungsraum. Ich entwickle Zukunftsbilder und Future-Design-Prozesse, die sich an der Vergangenheit orientieren – an dem, was sich bewährt hat und Bestand hatte. Daraus schöpfe ich Zuversicht: Langzeitdenken ist für mich kein abstraktes Konzept, sondern ein Akt der Hoffnung – für kommende Generationen und lange Zukünfte, im Einklang mit dem Hier und Jetzt.',
   },
   {
     id: 'johan',
@@ -34,8 +34,8 @@ const TEAM: Member[] = [
     imgPhone: '/assets/johann-bild.png',
     role: '… und mir geht es um RAUM!',
     intro: 'Hi! Ich bin Johann …',
-    body: 'Ich denke vom Ort aus: wie Architektur, Landschaft und Digitalität ineinandergreifen.',
-    bodyExtended: 'Mein Lieblingswerkzeug ist die Konzeptzeichnung – direkt am Stein, direkt in der Wirklichkeit. So entstehen Räume, die Bestand haben.',
+    body: 'XR Developer & Designer. Ich verbinde visionäres Denken mit pragmatischem Handeln – Programmierung und Design, konsequent nutzerzentriert.',
+    bodyExtended: 'Raum ist für mich die Schnittstelle von Mensch, Technologie und Interaktion. XR erweitert ihn um neue Dimensionen und verbindet Vergangenheit, Gegenwart und Zukunft. Mich fasziniert, durch immersive Räume neue Formen von Wahrnehmung und Präsenz zu schaffen – Ideen nicht nur sichtbar, sondern erlebbar zu machen.',
   },
   {
     id: 'domi',
@@ -165,7 +165,7 @@ function MemberPanelPhone({ m, dots }: { m: Member; dots: ReactNode }) {
         {/* Role + extended body — right-aligned to play off the indented intro above */}
         <h3 className="mt-16 text-right font-sans text-[19px] font-bold tracking-tight text-ink">{m.role}</h3>
         <p className="mt-4 text-right font-serif text-[14.5px] leading-[1.72] text-ink/72">
-          {m.body} {m.bodyExtended}
+          {m.bodyExtended}
         </p>
       </div>
     </div>

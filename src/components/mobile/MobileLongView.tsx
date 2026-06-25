@@ -17,10 +17,10 @@ function useInView(threshold = 0.18) {
 }
 
 const FEATURES = [
-  { title: 'Digitale Anwendungen', body: 'Webseiten, Apps und immersive Plattformen, gedacht für lange Zeiträume.' },
-  { title: 'Langzeit-Projekte', body: 'Begleitung von Initiativen, die ihre Wirkung erst über Jahrzehnte entfalten.' },
-  { title: 'Storytelling & Immersion', body: 'Geschichten, die Raum und Zeit überbrücken — von AR bis Audio-Walk.' },
-  { title: 'Kulturgestaltung', body: 'Kuratorische Konzepte für Institutionen, Stiftungen und Communitys.' },
+  { title: 'Digitales Erbe bewahren', body: 'Wir nutzen immersive Medien (XR) und interaktive Erlebnisse, um Kultur digital, barrierefrei und ethisch für die Zukunft zu sichern.' },
+  { title: 'Für Generationen gestalten', body: 'Wir bringen Langzeitdenken in die Praxis, damit Wissen und Kultur generationsgerecht Jahrzehnte überdauern.' },
+  { title: 'Ganzheitliche Co-Creation', body: 'Wir gestalten Erlebnisse gemeinsam mit Menschen (Co-Creation) und richten den Blick auf das gesamte lebendige Umfeld (Life-Centred).' },
+  { title: 'Digitale Entschleunigung', body: 'Wir nutzen digitale Vielfalt als bewussten Gegenpol zur heutigen Schnelllebigkeit — um an die zukünftigen Generationen anzuknüpfen.' },
 ]
 
 function ArrowUnderlineLink({ href, children }: { href: string; children: string }) {
@@ -50,18 +50,21 @@ export default function MobileLongView() {
           </h2>
           <div className="mt-5 h-px w-full bg-gradient-to-r from-ink/35 via-ink/12 to-transparent" />
 
-          <p className="mt-7 font-sans text-[19px] font-semibold leading-snug tracking-tight text-ink">
+          <p className="mt-7 font-sans text-[clamp(18px,5vw,22px)] font-semibold leading-snug tracking-tight text-ink">
             Die Digitalagentur für Raum, Zeit und Kultur …
           </p>
           <p className="mt-5 font-serif text-[15px] leading-[1.7] text-ink/70">
-            Wir entwerfen, programmieren und kuratieren digitale Erlebnisse, die nicht
-            nach der nächsten Quartalsrelease verfallen — sondern langlebige Spuren in
-            Kultur und Erinnerung hinterlassen.
+            Wir schaffen <strong className="font-normal italic">Kommunikation</strong> für{' '}
+            <strong className="font-normal italic">Kulturschaffende und Erlebende</strong>. Wir glauben
+            daran eine Verbesserung lässt sich durch{' '}
+            <strong className="font-normal italic">Partizipation und Erleben schaffen</strong>,
+            das durch digitale Stützen ermöglicht wird. Somit versprechen wir uns{' '}
+            <strong className="font-normal italic">Langzeitdenken zu erwecken</strong>.
           </p>
 
           <div className="mt-8 flex flex-col gap-5">
-            <ArrowUnderlineLink href="#wer-sind-wir">Erfahre mehr über Digital Long View</ArrowUnderlineLink>
-            <ArrowUnderlineLink href="#kontakt">Kontaktiere uns jetzt</ArrowUnderlineLink>
+            <ArrowUnderlineLink href="#wer-sind-wir">Erfahre mehr über unseren Long View</ArrowUnderlineLink>
+            <ArrowUnderlineLink href="#wer-sind-wir">Wieso Langzeitdenken?</ArrowUnderlineLink>
           </div>
         </div>
 
@@ -94,8 +97,8 @@ export default function MobileLongView() {
       {/* ─────────── Frame II ─────────── */}
       <div className="flex min-h-[100svh] flex-col">
         <div className="mx-auto flex w-full max-w-[600px] flex-1 flex-col px-6 pt-4">
-          <h2 className="self-end text-right font-sans text-[26px] font-semibold leading-tight tracking-tight text-ink">
-            … um Langzeitdenken<br />zu fördern!
+          <h2 className="self-end text-right font-sans text-[clamp(18px,5vw,22px)] font-semibold leading-tight tracking-tight text-ink">
+            Um Langzeitdenken<br />zu fördern!
           </h2>
 
           <p className="mt-8 text-center font-serif text-[16px] leading-[1.7] text-ink/75">

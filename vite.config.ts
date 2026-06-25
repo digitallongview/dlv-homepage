@@ -13,5 +13,9 @@ export default defineConfig({
   server: {
     host: '127.0.0.1',
     port: 5173,
+    // Don't watch the screenshots dir — locked PNGs there crash the FS watcher (EBUSY).
+    watch: {
+      ignored: ['**/screenshots/**'],
+    },
   },
 })

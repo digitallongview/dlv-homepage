@@ -75,7 +75,7 @@ export default function MobileFooter() {
   return (
     <footer id="footer" className="bg-cream">
       {/* ─────────── Upper footer ─────────── */}
-      <div id="kontakt" className="relative flex min-h-[100svh] scroll-mt-4 flex-col justify-start px-7 pt-12 pb-32">
+      <div id="kontakt" className="relative flex min-h-[100svh] scroll-mt-4 flex-col px-7 pt-12 pb-16">
         {/* Partner block — capped width + left-aligned so it doesn't stretch
             edge-to-edge on wide portrait tablets (which still get this layout). */}
         <div className="max-w-[340px]">
@@ -93,23 +93,27 @@ export default function MobileFooter() {
           </div>
         </div>
 
-        {/* "Teile den Zeitgeist" — centered block, fixed 250px width, text stays left-aligned */}
-        <div className="mt-20 w-[250px] self-center text-left">
-          <h3 className="font-sans text-[17px] font-semibold text-ink">Teile den Zeitgeist</h3>
-          <p className="mt-3 font-serif text-[14px] leading-[1.7] text-ink/65">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam nisi, tempus
-            pretium sodales quis, bibendum in nibh.
-          </p>
-          {SHOW_SOCIALS && (
-            <div className="mt-6 flex items-center gap-7 text-ink/55">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer noopener" aria-label="Instagram" className="transition-colors hover:text-ink"><IconInstagram /></a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer noopener" aria-label="Facebook" className="transition-colors hover:text-ink"><IconFacebook /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn" className="transition-colors hover:text-ink"><IconLinkedIn /></a>
-            </div>
-          )}
+        {/* "Teile den Zeitgeist" — the staggered middle block. Inter-block spacing is a
+            width-based clamp (not svh) so phones stay tight and wider/narrow-desktop
+            viewports open up. Horizontally centred; the text itself stays left-aligned. */}
+        <div className="mt-[clamp(2.5rem,10vw,6rem)] flex justify-center">
+          <div className="w-[250px] text-left">
+            <h3 className="font-sans text-[17px] font-semibold text-ink">Teile den Zeitgeist</h3>
+            <p className="mt-3 font-serif text-[14px] leading-[1.7] text-ink/65">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam nisi, tempus
+              pretium sodales quis, bibendum in nibh.
+            </p>
+            {SHOW_SOCIALS && (
+              <div className="mt-6 flex items-center gap-7 text-ink/55">
+                <a href="https://instagram.com" target="_blank" rel="noreferrer noopener" aria-label="Instagram" className="transition-colors hover:text-ink"><IconInstagram /></a>
+                <a href="https://facebook.com" target="_blank" rel="noreferrer noopener" aria-label="Facebook" className="transition-colors hover:text-ink"><IconFacebook /></a>
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn" className="transition-colors hover:text-ink"><IconLinkedIn /></a>
+              </div>
+            )}
+          </div>
         </div>
 
-        <div className="absolute bottom-6 right-7 text-right">
+        <div className="mt-[clamp(2.5rem,10vw,6rem)] self-end text-right">
           <h3 className="font-sans text-[17px] font-semibold text-ink">Kontakt</h3>
           <a href="mailto:info@digitallongview.com" className="mt-3 block font-sans text-[15px] text-ink/70 transition-colors hover:text-lavender">info@digitallongview.com</a>
           <a href="tel:+4915141441262" className="mt-1.5 block font-sans text-[15px] text-ink/70 transition-colors hover:text-lavender">+49 151 4144 1262</a>
