@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Zeitpyramide · Digital Long View</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #07070d; font-family: 'Inter', 'Helvetica Neue', sans-serif; }
+    textarea, input { font-family: inherit; }
+  </style>
+  <!--
+    Production: no in-browser Babel and no third-party CDN. React + ReactDOM are
+    self-hosted UMD builds (pinned 18.2.0) served from this same origin, and the
+    funnel is plain ES (React.createElement, no JSX) in funnel.js. This resolves
+    the "CDN script without Subresource Integrity" finding cleanly: there is no
+    cross-origin script to integrity-check.
+  -->
+  <script src="vendor/react.production.min.js"></script>
+  <script src="vendor/react-dom.production.min.js"></script>
+  <script src="funnel.js" defer></script>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>

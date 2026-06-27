@@ -31,7 +31,10 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
 }
 
 // ── Konfiguration laden ─────────────────────────────────────────────────────
-$configFile = __DIR__ . '/contact.config.php';
+// Pfad per CONTACT_CONFIG überschreibbar (z. B. via k8s-Secret-Mount außerhalb des
+// Docroots), sonst neben dieser Datei. Hält Secrets aus dem statisch ausgelieferten
+// Verzeichnis heraus.
+$configFile = getenv('CONTACT_CONFIG') ?: (__DIR__ . '/contact.config.php');
 if (!is_file($configFile)) {
     error_log('contact.php: contact.config.php fehlt');
     respond(false, 'server_not_configured', 500);
@@ -55,7 +58,8 @@ if (!is_array($in)) {
     respond(false, 'invalid_payload', 400);
 }
 
-$type    = ($in['type'] ?? 'contact') === 'signup' ? 'signup' : 'contact';
+$rawType = (string)($in['type'] ?? 'contact');
+$type    = in_array($rawType, ['signup', 'funnel'], true) ? $rawType : 'contact';
 $lang    = ($in['lang'] ?? 'de') === 'en' ? 'en' : 'de';
 $name    = trim((string)($in['name'] ?? ''));
 $email   = trim((string)($in['email'] ?? ''));
@@ -68,41 +72,94 @@ if ($company !== '') {
     respond(true);
 }
 
+// ── Optionaler Bild-Upload (nur Funnel) ─────────────────────────────────────
+// Erwartetes Format: { filename, mime, dataBase64 } (Base64 ohne data:-Präfix).
+// Wird – falls vorhanden – dekodiert, validiert (image/*, ≤ 5 MB) und der
+// Team-Mail später als echter MIME-Anhang beigelegt.
+$attachment = null;
+if ($type === 'funnel' && isset($in['image']) && is_array($in['image'])) {
+    $imgMime = trim((string)($in['image']['mime'] ?? ''));
+    $imgName = (string)($in['image']['filename'] ?? '');
+    $imgB64  = (string)($in['image']['dataBase64'] ?? '');
+
+    if ($imgB64 !== '') {
+        // Roh-Base64 grob deckeln, bevor wir dekodieren (~6 MB Bild ≈ 8 MB Base64).
+        if (strlen($imgB64) > 8 * 1024 * 1024) {
+            respond(false, 'image_too_large', 422);
+        }
+        if (!preg_match('#^image/[a-z0-9.+-]+$#i', $imgMime)) {
+            respond(false, 'invalid_image', 422);
+        }
+        $bin = base64_decode($imgB64, true);
+        if ($bin === false || $bin === '') {
+            respond(false, 'invalid_image', 422);
+        }
+        if (strlen($bin) > 5 * 1024 * 1024) { // ≤ 5 MB nach Dekodierung
+            respond(false, 'image_too_large', 422);
+        }
+        $attachment = [
+            'filename' => safe_filename($imgName, $imgMime),
+            'mime'     => $imgMime,
+            'data'     => $bin,
+        ];
+    }
+}
+
 // ── Validierung ─────────────────────────────────────────────────────────────
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    respond(false, 'invalid_email', 422);
+if ($type === 'funnel') {
+    // E-Mail ist optional; wenn angegeben, muss sie gültig sein.
+    if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        respond(false, 'invalid_email', 422);
+    }
+    // Mindestens Text ODER Bild.
+    if ($message === '' && $attachment === null) {
+        respond(false, 'message_required', 422);
+    }
+} else {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        respond(false, 'invalid_email', 422);
+    }
+    if ($type === 'contact' && $message === '') {
+        respond(false, 'message_required', 422);
+    }
 }
-if ($type === 'contact' && $message === '') {
-    respond(false, 'message_required', 422);
-}
-// Header-Injection verhindern (Namen/Betreff dürfen keine Zeilenumbrüche tragen).
+// Header-Injection verhindern (Namen/Betreff/E-Mail dürfen keine Umbrüche tragen).
+$email   = preg_replace('/[\r\n]+/', '', mb_substr($email, 0, 254));
 $name    = preg_replace('/[\r\n]+/', ' ', mb_substr($name, 0, 120));
 $subject = preg_replace('/[\r\n]+/', ' ', mb_substr($subject, 0, 160));
 $message = mb_substr($message, 0, 5000);
 
 // ── Mails bauen ─────────────────────────────────────────────────────────────
-$tpl = build_emails($type, $lang, $name, $email, $subject, $message);
+$tpl = build_emails($type, $lang, $name, $email, $subject, $message, $attachment);
+
+// Reply-To nur setzen, wenn eine Absender-Mail vorliegt (Funnel: optional).
+$replyTo     = $email !== '' ? $email : null;
+$replyToName = $name !== '' ? $name : ($email !== '' ? $email : null);
 
 try {
-    // 1) Team-Benachrichtigung (Reply-To = Absender, damit man direkt antworten kann)
+    // 1) Team-Benachrichtigung (Reply-To = Absender, damit man direkt antworten kann).
+    //    Beim Funnel kommt – falls vorhanden – das Bild als echter Anhang mit.
     smtp_send(
         $cfg,
         $cfg['to_email'], $cfg['to_name'],
         $tpl['team']['subject'], $tpl['team']['html'], $tpl['team']['text'],
-        $email, ($name !== '' ? $name : $email)
+        $replyTo, $replyToName,
+        $attachment
     );
 
-    // 2) Bestätigung / Auto-Antwort an den Absender (best effort)
-    try {
-        smtp_send(
-            $cfg,
-            $email, ($name !== '' ? $name : $email),
-            $tpl['reply']['subject'], $tpl['reply']['html'], $tpl['reply']['text'],
-            $cfg['from_email'], $cfg['from_name']
-        );
-    } catch (Throwable $e) {
-        error_log('contact.php: Auto-Antwort fehlgeschlagen: ' . $e->getMessage());
-        // Team-Mail ist raus → für den Nutzer trotzdem Erfolg.
+    // 2) Bestätigung / Auto-Antwort an den Absender (best effort, nur wenn E-Mail da).
+    if ($email !== '') {
+        try {
+            smtp_send(
+                $cfg,
+                $email, ($name !== '' ? $name : $email),
+                $tpl['reply']['subject'], $tpl['reply']['html'], $tpl['reply']['text'],
+                $cfg['from_email'], $cfg['from_name']
+            );
+        } catch (Throwable $e) {
+            error_log('contact.php: Auto-Antwort fehlgeschlagen: ' . $e->getMessage());
+            // Team-Mail ist raus → für den Nutzer trotzdem Erfolg.
+        }
     }
 
     respond(true);
@@ -118,7 +175,7 @@ try {
 /**
  * Liefert ['team' => [...], 'reply' => [...]] mit je subject/html/text.
  */
-function build_emails(string $type, string $lang, string $name, string $email, string $subject, string $message): array
+function build_emails(string $type, string $lang, string $name, string $email, string $subject, string $message, ?array $attachment = null): array
 {
     $safeName    = $name !== '' ? $name : ($lang === 'en' ? 'No name given' : 'Kein Name angegeben');
     $safeSubject = $subject !== '' ? $subject : ($type === 'signup'
@@ -134,6 +191,18 @@ function build_emails(string $type, string $lang, string $name, string $email, s
             ['Sprache', strtoupper($lang)],
         ];
         $teamIntro = 'Jemand möchte über den Launch informiert werden.';
+    } elseif ($type === 'funnel') {
+        $teamSubject = 'Neue Zeitpyramide-Funnel-Einsendung';
+        $teamRows = [
+            ['Quelle', 'Zeitpyramide-Funnel'],
+            ['E-Mail', $email !== '' ? $email : 'keine angegeben'],
+            ['Sprache', strtoupper($lang)],
+            ['Zeitpunkt', date('d.m.Y H:i')],
+        ];
+        if ($attachment !== null) {
+            $teamRows[] = ['Bild', $attachment['filename'] . ' (' . $attachment['mime'] . ')'];
+        }
+        $teamIntro = 'Über den Zeitpyramide-Funnel ist eine neue Einsendung eingegangen.';
     } else {
         $teamSubject = 'Neue Kontaktanfrage — ' . $safeName;
         $teamRows = [
@@ -147,17 +216,20 @@ function build_emails(string $type, string $lang, string $name, string $email, s
 
     $teamBodyHtml = '<p style="margin:0 0 18px;font-size:15px;line-height:1.6;color:#3a3a44;">' . esc($teamIntro) . '</p>'
         . rows_html($teamRows);
-    if ($type === 'contact') {
+    if ($type === 'contact' || $type === 'funnel') {
+        $msgHtml = $message !== ''
+            ? nl2br(esc($message))
+            : '<em style="color:#9a93a4;">(kein Text — nur Bild)</em>';
         $teamBodyHtml .= '<p style="margin:22px 0 6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8c74aa;">Nachricht</p>'
-            . '<div style="font-size:15px;line-height:1.65;color:#1a1a22;white-space:pre-line;">' . nl2br(esc($message)) . '</div>';
+            . '<div style="font-size:15px;line-height:1.65;color:#1a1a22;white-space:pre-line;">' . $msgHtml . '</div>';
     }
 
     $teamText = $teamIntro . "\n\n";
     foreach ($teamRows as $r) {
         $teamText .= $r[0] . ': ' . $r[1] . "\n";
     }
-    if ($type === 'contact') {
-        $teamText .= "\nNachricht:\n" . $message . "\n";
+    if ($type === 'contact' || $type === 'funnel') {
+        $teamText .= "\nNachricht:\n" . ($message !== '' ? $message : '(kein Text — nur Bild)') . "\n";
     }
 
     // ── Auto-Antwort an den Absender (sprachabhängig) ────────────────────────
@@ -171,6 +243,15 @@ function build_emails(string $type, string $lang, string $name, string $email, s
                 . '<p style="margin:0 0 16px;">Thank you for signing up. We’ll let you know as soon as Digital Long View goes live — with first content and updates along the way.</p>'
                 . '<p style="margin:0 0 16px;">In the meantime, feel free to reply to this e-mail if you’d like to share an idea or a project with a long breath.</p>';
             $replyText = "$greeting\n\nThank you for signing up. We’ll let you know as soon as Digital Long View goes live — with first content and updates along the way.\n\nIn the meantime, feel free to reply to this e-mail.\n\n— Digital Long View";
+        } elseif ($type === 'funnel') {
+            $replySubject = 'Your words are part of the Zeitpyramide — Digital Long View';
+            $greeting = $name !== '' ? "Hi $name," : 'Hello,';
+            $greetingHtml = $name !== '' ? 'Hi ' . esc($name) . ',' : 'Hello,';
+            $replyBodyHtml =
+                "<p style=\"margin:0 0 16px;\">$greetingHtml</p>"
+                . '<p style="margin:0 0 16px;">Thank you for your contribution to the Zeitpyramide. Your words — and your image, if you shared one — are now part of the record that future generations in Wemding will inherit.</p>'
+                . '<p style="margin:0 0 16px;">Somewhere between 1993 and 3183, your thoughts are here. Feel free to reply to this e-mail if you’d like to stay in touch.</p>';
+            $replyText = "$greeting\n\nThank you for your contribution to the Zeitpyramide. Your words — and your image, if you shared one — are now part of the record that future generations in Wemding will inherit.\n\nSomewhere between 1993 and 3183, your thoughts are here. Feel free to reply to this e-mail if you’d like to stay in touch.\n\n— Digital Long View";
         } else {
             $replySubject = 'We received your message — Digital Long View';
             $greeting = $name !== '' ? "Hi $name," : 'Hello,';
@@ -193,6 +274,15 @@ function build_emails(string $type, string $lang, string $name, string $email, s
                 . '<p style="margin:0 0 16px;">danke für deine Anmeldung. Wir melden uns, sobald Digital Long View startet — mit ersten Inhalten und Updates auf dem Weg dorthin.</p>'
                 . '<p style="margin:0 0 16px;">Bis dahin: Antworte gern direkt auf diese E-Mail, wenn du eine Idee oder ein Projekt mit langem Atem teilen möchtest.</p>';
             $replyText = "$greeting\n\ndanke für deine Anmeldung. Wir melden uns, sobald Digital Long View startet — mit ersten Inhalten und Updates auf dem Weg dorthin.\n\nBis dahin: Antworte gern direkt auf diese E-Mail.\n\n— Digital Long View";
+        } elseif ($type === 'funnel') {
+            $replySubject = 'Deine Worte sind Teil der Zeitpyramide — Digital Long View';
+            $greeting = $name !== '' ? "Hallo $name," : 'Hallo,';
+            $greetingHtml = $name !== '' ? 'Hallo ' . esc($name) . ',' : 'Hallo,';
+            $replyBodyHtml =
+                "<p style=\"margin:0 0 16px;\">$greetingHtml</p>"
+                . '<p style="margin:0 0 16px;">vielen Dank für deinen Beitrag zur Zeitpyramide. Deine Worte — und dein Bild, falls du eins geteilt hast — sind jetzt Teil des Vermächtnisses, das künftige Generationen in Wemding erben werden.</p>'
+                . '<p style="margin:0 0 16px;">Irgendwo zwischen 1993 und 3183 sind deine Gedanken nun aufgehoben. Antworte gern direkt auf diese E-Mail, wenn du in Kontakt bleiben möchtest.</p>';
+            $replyText = "$greeting\n\nvielen Dank für deinen Beitrag zur Zeitpyramide. Deine Worte — und dein Bild, falls du eins geteilt hast — sind jetzt Teil des Vermächtnisses, das künftige Generationen in Wemding erben werden.\n\nIrgendwo zwischen 1993 und 3183 sind deine Gedanken nun aufgehoben. Antworte gern direkt auf diese E-Mail, wenn du in Kontakt bleiben möchtest.\n\n— Digital Long View";
         } else {
             $replySubject = 'Wir haben deine Nachricht erhalten — Digital Long View';
             $greeting = $name !== '' ? "Hallo $name," : 'Hallo,';
@@ -210,7 +300,7 @@ function build_emails(string $type, string $lang, string $name, string $email, s
     return [
         'team' => [
             'subject' => $teamSubject,
-            'html'    => email_shell($type === 'signup' ? 'Newsletter-Anmeldung' : 'Kontaktanfrage', $teamBodyHtml, 'Digital Long View · interne Benachrichtigung'),
+            'html'    => email_shell($type === 'signup' ? 'Newsletter-Anmeldung' : ($type === 'funnel' ? 'Zeitpyramide-Funnel' : 'Kontaktanfrage'), $teamBodyHtml, 'Digital Long View · interne Benachrichtigung'),
             'text'    => $teamText . "\n\n— Digital Long View",
         ],
         'reply' => [
@@ -273,6 +363,27 @@ function esc(string $s): string
     return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 }
 
+/**
+ * Dateinamen für Content-Disposition säubern: keine Pfade, keine Steuerzeichen,
+ * keine Anführungszeichen — schützt vor Header-Injection im Attachment-Part.
+ */
+function safe_filename(string $name, string $mime): string
+{
+    $name = preg_replace('/[\r\n\x00]+/', '', $name);
+    $name = str_replace('\\', '/', $name);
+    $name = basename($name);                                // Pfadanteile entfernen
+    $name = preg_replace('/[^A-Za-z0-9._-]/', '_', $name);  // nur sichere Zeichen
+    $name = trim($name, '._');
+    if ($name === '') {
+        $ext = '';
+        if (preg_match('#/([a-z0-9]+)#i', $mime, $m)) {
+            $ext = '.' . strtolower($m[1]);
+        }
+        $name = 'upload' . $ext;
+    }
+    return mb_substr($name, 0, 120);
+}
+
 /** RFC-2047-Kodierung für Header mit Nicht-ASCII (Betreff, Anzeigenamen). */
 function mime_header(string $s): string
 {
@@ -287,9 +398,11 @@ function mime_header(string $s): string
 
 /**
  * Verschickt eine multipart/alternative-Mail (Text + HTML).
+ * Optional kann ein Anhang ($attachment = ['filename','mime','data']) beigelegt
+ * werden; dann wird das alternative-Part in ein multipart/mixed gewickelt.
  * Wirft bei jedem Protokollfehler eine RuntimeException.
  */
-function smtp_send(array $cfg, string $toEmail, string $toName, string $subject, string $html, string $text, ?string $replyTo = null, ?string $replyToName = null): void
+function smtp_send(array $cfg, string $toEmail, string $toName, string $subject, string $html, string $text, ?string $replyTo = null, ?string $replyToName = null, ?array $attachment = null): void
 {
     $host   = (string)($cfg['smtp_host'] ?? '');
     $port   = (int)($cfg['smtp_port'] ?? 587);
@@ -349,9 +462,40 @@ function smtp_send(array $cfg, string $toEmail, string $toName, string $subject,
     $expect($cmd('RCPT TO:<' . $toEmail . '>'), [250, 251], 'rcpt-to');
     $expect($cmd('DATA'), [354], 'data');
 
-    $boundary = 'dlv-' . bin2hex(random_bytes(8));
+    $altBoundary = 'dlv-alt-' . bin2hex(random_bytes(8));
     $date = date('r');
     $msgId = '<' . bin2hex(random_bytes(12)) . '@digitallongview.com>';
+
+    // Text + HTML als multipart/alternative (der eigentliche Nachrichtentext).
+    $altBody = '--' . $altBoundary . "\r\n"
+        . "Content-Type: text/plain; charset=UTF-8\r\n"
+        . "Content-Transfer-Encoding: base64\r\n\r\n"
+        . chunk_split(base64_encode($text)) . "\r\n"
+        . '--' . $altBoundary . "\r\n"
+        . "Content-Type: text/html; charset=UTF-8\r\n"
+        . "Content-Transfer-Encoding: base64\r\n\r\n"
+        . chunk_split(base64_encode($html)) . "\r\n"
+        . '--' . $altBoundary . "--\r\n";
+
+    if ($attachment !== null) {
+        // multipart/mixed: alternative-Part + Datei-Anhang.
+        $mixedBoundary = 'dlv-mix-' . bin2hex(random_bytes(8));
+        $fname = (string)$attachment['filename'];
+        $fmime = (string)$attachment['mime'];
+        $contentType = 'multipart/mixed; boundary="' . $mixedBoundary . '"';
+        $body = '--' . $mixedBoundary . "\r\n"
+            . 'Content-Type: multipart/alternative; boundary="' . $altBoundary . '"' . "\r\n\r\n"
+            . $altBody . "\r\n"
+            . '--' . $mixedBoundary . "\r\n"
+            . 'Content-Type: ' . $fmime . '; name="' . $fname . '"' . "\r\n"
+            . "Content-Transfer-Encoding: base64\r\n"
+            . 'Content-Disposition: attachment; filename="' . $fname . '"' . "\r\n\r\n"
+            . chunk_split(base64_encode((string)$attachment['data'])) . "\r\n"
+            . '--' . $mixedBoundary . "--\r\n";
+    } else {
+        $contentType = 'multipart/alternative; boundary="' . $altBoundary . '"';
+        $body = $altBody;
+    }
 
     $headers = [
         'Date: ' . $date,
@@ -360,21 +504,11 @@ function smtp_send(array $cfg, string $toEmail, string $toName, string $subject,
         'To: ' . mime_header($toName) . ' <' . $toEmail . '>',
         'Subject: ' . mime_header($subject),
         'MIME-Version: 1.0',
-        'Content-Type: multipart/alternative; boundary="' . $boundary . '"',
+        'Content-Type: ' . $contentType,
     ];
     if ($replyTo) {
         $headers[] = 'Reply-To: ' . mime_header($replyToName ?? '') . ' <' . $replyTo . '>';
     }
-
-    $body = '--' . $boundary . "\r\n"
-        . "Content-Type: text/plain; charset=UTF-8\r\n"
-        . "Content-Transfer-Encoding: base64\r\n\r\n"
-        . chunk_split(base64_encode($text)) . "\r\n"
-        . '--' . $boundary . "\r\n"
-        . "Content-Type: text/html; charset=UTF-8\r\n"
-        . "Content-Transfer-Encoding: base64\r\n\r\n"
-        . chunk_split(base64_encode($html)) . "\r\n"
-        . '--' . $boundary . "--\r\n";
 
     // Dot-Stuffing: Zeilen, die mit "." beginnen, escapen.
     $data = implode("\r\n", $headers) . "\r\n\r\n" . $body;
