@@ -7,13 +7,14 @@ import { HLS, type Lang } from '../../lib/hlsSources'
 import SectionHeading from '../SectionHeading'
 import VrGlasses from '../VrGlasses'
 import PcWebsites from '../PcWebsites'
+import { useStrings, useProjectText, type ProjectId } from '../../i18n/content'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 type Kind = 'video' | 'phonePopup' | 'videoPopup' | 'glasses' | 'websites' | 'placeholder'
 
 type Project = {
-  id: string
+  id: ProjectId
   label: string
   title: string
   subtitle: string
@@ -40,145 +41,52 @@ type Project = {
   source?: ReactNode
 }
 
-const PROJECTS: Project[] = [
-  {
-    id: 'langzeitdesign',
-    label: 'Langzeitdesign',
-    title: 'Langzeit-Design: Herrnhuter Galaxie',
-    subtitle: 'Forschung · Workshops & Umsetzung',
-    bg: '/assets/bg-langzeitdesign.webp',
-    bgPos: '78% center',
-    kind: 'video',
-    textA: 'Wir leben in einer Zeitwahrnehmungskrise: Quartalsgewinne, Wahlzyklen und sofortige Befriedigung verengen unseren Horizont. Wir kolonisieren die Zukunft, indem wir ökologische und technologische Schulden an Generationen ohne Mitspracherecht abtreten — und verlieren die positiven Zukunftsbilder, ohne die keine Zivilisation Bestand hat. Langzeitdesign ist die Antwort: eine Disziplin und Dienstleistung, die Institutionen und Projekten hilft, langfristiges Denken erfahrbar und über Generationen kommunizierbar zu machen.',
-    textB: 'Langzeitdesign entwickelt Werkzeuge und Plattformen, die ferne Zukünfte im Rahmen menschlicher Tiefenzeit antizipierbar machen, erzeugt Zuversicht und stärkt die Verantwortung gegenüber denen, die nach uns kommen — für sie zu entwerfen heißt, ein guter Vorfahre zu sein. Es entstehen keine statischen Produkte, sondern resiliente Systeme: Eine duale Architektur trennt einen zeitstabilen Kern aus Werten und Ritualen von einer flexiblen Schnittstelle aus Technologie und Ästhetik — so bleibt ein Projekt anpassungsfähig, ohne seine Identität zu verlieren. Statt fertiger Baupläne entstehen Heuristiken: ein offenes Skript, das jede Generation dort weiterschreibt, wo die vorige aufhörte. Anders als Langzeitkunst — subjektiv und elitär — ist es pragmatisch, partizipativ und demokratisch zugänglich: kein blinder Optimismus, sondern Zuversicht gegenüber unsicheren Zukünften.',
-    textC: 'Wie das in der Praxis aussieht, zeigt die Herrnhuter Galaxie, ein 1100-jähriges partizipatives Projekt zur sächsischen Landesausstellung 2029: ein Ritual, ein Stern, jede Generation. Der Herrnhuter Stern wird zum Taktgeber eines kosmologischen Kalenders — in der längsten Nacht des Jahres knüpft jede Generation eine neue Zacke an, bis aus einzelnen Sternen über die Jahrhunderte eine ganze Galaxie wächst. Eine analoge Kette macht die Weitergabe taktil, ein digitales XR-Observatorium lässt Menschen ihre Vision von Sachsens ferner Zukunft erschaffen. Entscheidend ist das Verhältnis von Design und Kunst: Langzeitkunst ruft die Emotion hervor, die tiefes Zukunftsdenken erst eröffnet — Langzeitdesign verstärkt ihre Wirkung, macht das Erlebnis zugänglich und alltagstauglich und sichert die Kontinuität, die ein Kunstwerk allein nicht trägt. Kunst liefert den Funken, Design die Infrastruktur.',
-    textD: <strong className="font-normal italic">Damit ein Vorhaben Generationen überdauert, braucht es tragfähige Strukturen: ein Hybridmodell aus kultureller Agentur, Stiftungswesen und Ritualisierung, das Förderzyklen und politische Umbrüche übersteht. Die eigentliche Resilienz aber stiftet das Ritual — denn was Bestand hatte, besteht weiter. So wird Langzeitdesign, was es sein will: kein Service fürs nächste Quartal, sondern ein Beitrag zum kulturellen Erbe der nächsten Jahrhunderte.</strong>,
-    link: { href: 'https://herrnhuter.digitallongview.com/', label: 'Prototyp Herrnhuter Galaxie', external: true },
-    download: { href: '/assets/Was ist Langzeitdesign.pdf', label: 'Download PDF zu LTD' },
-    button: 'Vortrag',
-    source: (
-      <>
-        Vielen Dank an die Organisation der Landesausstellung 2029 in Sachsen (
-        <a
-          href="https://www.schloesserland-sachsen.de/de/news-presse/pressemitteilungen/?tx_news_pi1%5Bnews%5D=1676&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Baction%5D=detail&cHash=042ed97d0870c8f4886f5540037a8447"
-          target="_blank"
-          rel="noreferrer noopener"
-          className="underline underline-offset-2 transition-colors hover:text-ink/60"
-        >
-          Schlösserland Sachsen
-        </a>
-        ) und die Herrnhuter Brüdergemeinde
-      </>
-    ),
-  },
-  {
-    id: 'sophienkirche',
-    label: 'Sophienkirche',
-    title: 'Denkraum Sophienkirche',
-    subtitle: 'Immersives Prototyping als virtuelles Erinnerungsmedium',
-    bg: '/assets/bg-sophienkriche-glocke.webp',
-    // Interior lapidarium: the carved relief slabs sit on the left wall, so we pull
-    // left to feature them (unlike the star/pyramid, whose subjects are on the right).
-    bgPos: '38% center',
-    scrim: true,
-    kind: 'phonePopup',
-    textA: 'Mitten in Dresden, unweit des Zwingers, erinnert der DenkRaum Sophienkirche an einen verschwundenen Ort. Die Sophienkirche — einst Franziskanerklosterkirche, später evangelische Hof- und Domkirche und lange die einzige gotisch erhaltene Kirche der Stadt — wurde 1945 zur Ruine und 1962/63 trotz Protesten abgerissen. An ihrer Stelle steht heute die Busmannkapelle: ein Ort des kollektiven Gedächtnisses — und zugleich spürbaren Identitätsverlusts.',
-    textB: 'Genau hier setzt das Projekt an: die unsichtbare Kirche wieder sichtbar zu machen. Über Extended Reality wird die zerstörte Sophienkirche am echten Standort erlebbar — die Erinnerung gegen Zeit und Realität verteidigt, auch für kommende Generationen. Denn das Fortbestehen des Gedenkens ist selbst ein digitales Langzeitprojekt.',
-    textC: 'Der Prototyp erprobt gezielt Gamification an einem Kulturort, um Geschichte engaging und zielgruppenorientierter zu vermitteln — für jüngere Besucher, Schulen und Stadtrundgänge. Als gespielte Zeitreise durch die Stockwerke der Geschichte erzählen historische Figuren von ihren Grabsteinen, laden über kleine Quests zur Bindung ein; der Verlust der Kirche wird spürbar, bis aktives Handeln sie wieder über dem realen Ort erstehen lässt. Das Finale fragt „Was bleibt?“ und überführt die Erinnerung in ein immersives Gästebuch — ein wachsendes Zukunftsarchiv.',
-    textD: 'Entscheidend ist die Rolle des Designs: Es tritt nicht an die Stelle des Ortes, sondern verstärkt seine Wirkung — es übersetzt kuratierte, geprüfte Inhalte in ein zugängliches, spielerisches Erlebnis. Technisch bleibt die Lösung niederschwellig: smartphone-basierte AR, offen für weitere Erinnerungsorte in Dresden. So wird aus Verlust eine digitale Auferstehung — getragen von Erinnerungskultur, Technologie und Langzeitperspektive. Am Ende steht ein einfacher Gedanke: Ich will nicht vergessen werden.',
-    link: { href: 'https://www.denkraum-sophienkirche.de/', label: 'Webseite Sophienkirche', external: true },
-    button: 'Prototyp',
-    source: (
-      <>
-        Vielen Dank an Christian Curschmann · Kooperation mit{' '}
-        <a
-          href="https://buergerstiftung-dresden.de/"
-          target="_blank"
-          rel="noreferrer noopener"
-          className="underline underline-offset-2 transition-colors hover:text-ink/60"
-        >
-          Bürgerstiftung Dresden
-        </a>
-      </>
-    ),
-  },
-  {
-    id: 'zeitpyramide',
-    label: 'Zeitpyramide',
-    title: 'Die Wemdinger Zeitpyramide',
-    subtitle: 'Langzeitkunstprojekt & AR-Visualisierung',
-    bg: '/assets/bg-zeitpyramide.webp',
-    bgPos: '55% center',
-    kind: 'videoPopup',
-    textA: 'Mitten im Nördlinger Ries, in der bayerischen Kleinstadt Wemding, entsteht eines der ersten Langzeitkunstprojekte überhaupt: die Zeitpyramide. Zum 1200-jährigen Stadtjubiläum 1993 vom Künstler Manfred Laber als Geschenk an die Stadt konzipiert, wächst sie über exakt 1200 Jahre — alle zehn Jahre wird ein Betonstein gesetzt, bis das Bauwerk 3183 aus 120 Steinen vollendet ist. Als Werk der konkreten Kunst ist sie kein statisches Monument, sondern ein bewusst entschleunigter Prozess: Der Beton nimmt mit der Zeit Patina und Risse an und macht so Vergänglichkeit und den langen Atem der Zeit sichtbar — ein Denkmal für die Langsamkeit, dessen Vollendung niemand erlebt, der heute lebt.',
-    textB: 'Das Problem jeder Langzeitkunst ist ihre Abstraktion: Vier Steine auf einer Wiese lassen sich kaum als künftige Pyramide lesen. Eine UAV-Photogrammetrie-Visualisierung setzt hier an — per Drohne erfasste Aufnahmen werden zu einem präzisen digitalen Modell des realen Standorts zusammengeführt, in das sich der vollständige Bau einrechnen lässt. So wird die ferne Endgestalt aus dem heutigen Bestand heraus greifbar und an den tatsächlichen Ort rückgebunden.',
-    textC: 'Daran knüpft eine AR-Visualisierung an, die wie ein Fenster in eine spekulative Zukunft funktioniert: Über das Smartphone erscheinen die noch ausstehenden Steine direkt vor Ort, bis die fertige Pyramide über der realen Landschaft steht. Dass dies mehr ist als ein Effekt, stützt eine Umfrage in der Region: Wer die Zeitpyramide positiv bewertet, glaubt zugleich signifikant häufiger an weitere 1200 Jahre Wemding und blickt optimistischer in die Zukunft — Langzeitprojekte wirken so als soziale Katalysatoren für Zukunftsvertrauen. Genau diese Wirkung verstärkt die Visualisierung: Indem sie die ferne Vollendung sinnlich erfahrbar macht, hilft sie den Wemdingern, sich eine Zukunft in 1200 Jahren tatsächlich vorzustellen — und stärkt die Zuversicht, die jedes Langzeitprojekt trägt. Dabei arbeiten wir eng mit der Stiftung Wemdinger Zeitpyramide zusammen, um die Pyramide zu ermöglichen, ihre Aufgaben und Projekte zu unterstützen und ihre Vollendung zu befördern — und ihr die Präsentation, Wirksamkeit und kommunikative Strahlkraft zu verleihen, die ihr gebührt.',
-    link: { href: 'https://zeitpyramide.de', label: 'Webseite der Zeitpyramiden Stiftung', external: true },
-    button: 'Visualisierung',
-    source: (
-      <>
-        Die{' '}
-        <a
-          href="https://www.donau-ries-aktuell.de/kultur/virtuelle-reise-durch-die-zeitpyramide-der-zukunft-wemding-81669"
-          target="_blank"
-          rel="noreferrer noopener"
-          className="underline underline-offset-2 transition-colors hover:text-ink/60"
-        >
-          AR-Visualisierung
-        </a>{' '}
-        ist an der Zeitpyramide einzusehen, die WebXR-Anwendung wird gefördert vom
-        <a
-          href="https://www.fff-bayern.de/"
-          target="_blank"
-          rel="noreferrer noopener"
-          aria-label="FilmFernsehFonds Bayern"
-          className="mt-2 -ml-2.5 block w-fit"
-        >
-          <img
-            src="/assets/fff-logo.png"
-            alt="FilmFernsehFonds Bayern"
-            width={900}
-            height={360}
-            className="h-11 w-auto opacity-60 transition-opacity hover:opacity-100"
-          />
-        </a>
-      </>
-    ),
-  },
-  {
-    id: 'vrlab',
-    label: 'VRlab',
-    title: 'VRlab',
-    subtitle: 'VR-Entwicklung für das Deutsche Museum',
-    bg: '/assets/background-vrlab.webp',
-    // Pan the crop toward the right so Lilienthal's glider (on the right of the
-    // scene) stays in frame instead of being cropped out by the portrait/narrow cut.
-    bgPos: '72% center',
-    scrim: true,
-    kind: 'glasses',
-    textA: 'Im XR Hub des Deutschen Museums wurde eine bestehende VR Experience weiterentwickelt, um historische Inhalte durch immersive Erlebnisse zugänglicher und interaktiver zu gestalten. Dabei stand die Verbindung von User Experience, Storytelling und historischer Einordnung im Mittelpunkt.',
-    textB: 'Aus der virtuellen Betrachtung bedeutender Exponate wie dem Benz Patent-Motorwagen, Otto Lilienthals Flugapparat, der Sulzer Dampfmaschine oder der Apollo-13-Mission entsteht eine Erfahrung, in der Besucher aktiv in vergangene Momente eintauchen können. Ob beim Zusammenbau des Motors gemeinsam mit Bertha Benz vor ihrer ersten längeren Testfahrt oder als Reporter einer Berliner Tageszeitung beim Start zu Otto Lilienthals nächstem Flug – die Besucher werden Teil historischer Ereignisse und erleben technische Meilensteine aus einer neuen Perspektive.',
-    textC: <strong className="font-normal italic">Der XR Raum schafft so eine Brücke zwischen Museum, Technologie und interaktivem Lernen – Geschichte wird nicht nur betrachtet, sondern erlebbar gemacht.</strong>,
-    link: { href: 'https://www.deutsches-museum.de/museumsinsel/programm/programm-a-z/vrlab', label: 'VRlab am Deutschen Museum', external: true },
-    button: 'VR-Experience',
-    source: 'Bilder: Deutsches Museum · Forum der Zukunft, 2022',
-  },
-  {
-    id: 'p5',
-    label: 'Kommerz & Kultur',
-    title: 'Kommerz und Kulturkapital pragmatisch bündeln',
-    subtitle: 'Abgeschlossene Web- & Agenturprojekte & Kooperationen',
-    bg: '/assets/pacelayer.webp',
-    scrim: true,
-    kind: 'websites',
-    textA: 'Kommerz und Kultur sind für uns kein Gegensatz, sondern Hebel füreinander. Das kurzfristige, lukrative Tagesgeschäft – in Commerce, Fashion, Lifestyle – schafft die Mittel und die Reichweite, aus denen langfristiges Kulturkapital wächst. Digitale Wirkung entsteht dabei nicht durch sichtbare Ergebnisse allein, sondern durch das, was trägt: verlässliche Systeme, stabile Infrastruktur und die Verbindung aus Technologie, Menschen und Kultur.',
-    textB: 'Den Rahmen dafür liefert Stewart Brands Pace Layering: Wer die langsamen, bewahrenden Schichten der Kultur gestalten will, muss in den schnellen Schichten präsent sein. So denken wir in langen Zeithorizonten – und handeln trotzdem im Jetzt. Das schnelle Geschäft ist kein Widerspruch zum Langzeitanspruch, sondern seine Voraussetzung. Wer sich der Kultur bedient, gibt zurück.',
-    textC: 'Deshalb arbeiten wir ohne Hierarchie: Familienunternehmen und Kulturinstitution, Subkultur und Hochkultur, Verein und Alltagskultur. Die folgenden Referenzen sind abgeschlossene Web- und Agenturprojekte sowie ehemalige Kooperationen – pragmatisch, ethisch, auf Wirkung ausgerichtet.',
-    link: { href: 'https://longnow.org/ideas/pace-layers/', label: 'Pace Layering – Long Now Foundation', external: true },
-    button: 'Websites',
-    source: 'Hintergrundbild & Idee: Long Now Foundation · Pace Layering (Stewart Brand)',
-  },
+// Layout only — copy (title, subtitle, textA–D, link/button labels, source) comes
+// from the i18n catalogue, keyed by id, and is merged in below.
+type ProjectLayout = {
+  id: ProjectId
+  bg: string
+  bgPos?: string
+  scrim?: boolean
+  kind: Kind
+  linkHref?: string
+  linkExternal?: boolean
+  downloadHref?: string
+}
+
+const PROJECT_LAYOUT: ProjectLayout[] = [
+  { id: 'langzeitdesign', bg: '/assets/bg-langzeitdesign.webp', bgPos: '78% center', kind: 'video', linkHref: 'https://herrnhuter.digitallongview.com/', linkExternal: true, downloadHref: '/assets/Was ist Langzeitdesign.pdf' },
+  { id: 'sophienkirche', bg: '/assets/bg-sophienkriche-glocke.webp', bgPos: '38% center', scrim: true, kind: 'phonePopup', linkHref: 'https://www.denkraum-sophienkirche.de/', linkExternal: true },
+  { id: 'zeitpyramide', bg: '/assets/bg-zeitpyramide.webp', bgPos: '55% center', kind: 'videoPopup', linkHref: 'https://zeitpyramide.de', linkExternal: true },
+  { id: 'vrlab', bg: '/assets/background-vrlab.webp', bgPos: '72% center', scrim: true, kind: 'glasses', linkHref: 'https://www.deutsches-museum.de/museumsinsel/programm/programm-a-z/vrlab', linkExternal: true },
+  { id: 'p5', bg: '/assets/pacelayer.webp', scrim: true, kind: 'websites', linkHref: 'https://longnow.org/ideas/pace-layers/', linkExternal: true },
 ]
+
+/** Merge layout + localised text into the `Project` shape the UI renders. */
+function useProjects(): Project[] {
+  const pt = useProjectText()
+  return PROJECT_LAYOUT.map((l) => {
+    const t = pt[l.id]
+    return {
+      id: l.id,
+      label: t.label,
+      bg: l.bg,
+      bgPos: l.bgPos,
+      scrim: l.scrim,
+      kind: l.kind,
+      title: t.title,
+      subtitle: t.subtitle,
+      textA: t.textA,
+      textB: t.textB,
+      textC: t.textC,
+      textD: t.textD,
+      button: t.button,
+      source: t.source,
+      link: l.linkHref ? { href: l.linkHref, label: t.linkLabel ?? '', external: l.linkExternal } : undefined,
+      download: l.downloadHref ? { href: l.downloadHref, label: t.downloadLabel ?? '' } : undefined,
+    }
+  })
+}
 
 const PILL_BG = { background: 'linear-gradient(135deg, #b29bd0 0%, #8c74aa 50%, #5d4684 100%)' }
 // Consistent pill shape for every button in this section
@@ -1039,6 +947,8 @@ function NarrowPanel({ p, active }: { p: Project; active: boolean }) {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 export default function MobilePortfolio() {
+  const s = useStrings()
+  const projects = useProjects()
   const { trackRef, active, goTo } = useCarousel()
   const [popup, setPopup] = useState<string | null>(null)
   const isPhone = useIsPhone()
@@ -1095,7 +1005,7 @@ export default function MobilePortfolio() {
     >
       {/* Background crossfade — right-biased object-position keeps each photo's
           subject (star, bell, pyramid) in frame under the narrow/portrait crop. */}
-      {PROJECTS.map((p, i) => (
+      {projects.map((p, i) => (
         <img
           key={p.id}
           src={p.bg}
@@ -1131,7 +1041,7 @@ export default function MobilePortfolio() {
             aria-hidden
             className="pointer-events-none absolute inset-0 transition-opacity duration-700"
             style={{
-              opacity: PROJECTS[active]?.scrim ? 1 : 0,
+              opacity: projects[active]?.scrim ? 1 : 0,
               background:
                 'linear-gradient(to right, rgba(247,236,237,0) 0%, rgba(247,236,237,0) 28%, rgba(247,236,237,0.2) 55%, rgba(247,236,237,0.42) 78%, rgba(247,236,237,0.55) 100%)',
             }}
@@ -1160,11 +1070,11 @@ export default function MobilePortfolio() {
       {/* Heading — desktop wording on narrow-desktop, stacked title on mobile */}
       <div className={`relative z-10 ${frame}`}>
         {isNarrow ? (
-          <SectionHeading eyebrow="Langzeit-Kultur & Portfolio" title="Für das Langzeitdenken" />
+          <SectionHeading eyebrow={s.sections.portfolioEyebrow} title={s.sections.portfolioTitle} />
         ) : (
           <>
             <h2 className="font-sans text-[28px] font-bold uppercase leading-[1.1] tracking-[0.02em] text-ink">
-              Langzeit-Kultur{' '}<br />& Portfolio
+              {s.sections.portfolioEyebrow}
             </h2>
             <div className="mt-4 h-px w-full bg-gradient-to-r from-ink/35 via-ink/12 to-transparent" />
           </>
@@ -1179,7 +1089,7 @@ export default function MobilePortfolio() {
           isNarrow ? 'mt-8' : 'mt-5 min-h-0 flex-1',
         ].join(' ')}
       >
-        {PROJECTS.map((p, i) => {
+        {projects.map((p, i) => {
           const slideActive = inView && active === i
           return isNarrow ? (
             <NarrowPanel key={p.id} p={p} active={slideActive} />
@@ -1191,8 +1101,8 @@ export default function MobilePortfolio() {
 
       {/* Indicator + active label — centred across the full width */}
       <div className="relative z-10 mt-6">
-        <Dots count={PROJECTS.length} active={active} onSelect={goTo} showArrows={!isPhone} />
-        <p className="mt-3 text-center font-serif text-[13px] italic text-ink/60">{PROJECTS[active]?.label}</p>
+        <Dots count={projects.length} active={active} onSelect={goTo} showArrows={!isPhone} />
+        <p className="mt-3 text-center font-serif text-[13px] italic text-ink/60">{projects[active]?.label}</p>
       </div>
 
       {/* Popups — mobile layout only */}

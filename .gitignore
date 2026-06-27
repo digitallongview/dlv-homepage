@@ -49,3 +49,6 @@ screenshots/figma-full.png
 .env
 .env.local
 .env.*.local
+
+# Server-only Mail-Config (echte SMTP-Secrets liegen auf dem Server, nie im Git)
+public/api/contact.config.php

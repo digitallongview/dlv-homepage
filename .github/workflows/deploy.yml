@@ -47,5 +47,6 @@ jobs:
         run: |
           rsync -az --delete --delete-after --chmod=D755,F644 \
             --skip-compress=br/gz/woff2/webp/png/jpg/jpeg/glb/mp4/m4s/ts/pdf \
+            --exclude='api/contact.config.php' \
             -e "ssh -i $HOME/.ssh/deploy_key -o IdentitiesOnly=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts" \
             dist/ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:"

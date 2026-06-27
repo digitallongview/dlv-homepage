@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLegalModal } from '../legal/LegalModal'
+import { useStrings, useFeatures } from '../../i18n/content'
 
 function useInView(threshold = 0.18) {
   const ref = useRef<HTMLDivElement>(null)
@@ -16,13 +17,6 @@ function useInView(threshold = 0.18) {
   }, [threshold])
   return { ref, inView }
 }
-
-const FEATURES = [
-  { title: 'Digitales Erbe bewahren', body: 'Wir nutzen immersive Medien (XR) und interaktive Erlebnisse, um Kultur digital, barrierefrei und ethisch für die Zukunft zu sichern.' },
-  { title: 'Für Generationen gestalten', body: 'Wir bringen Langzeitdenken in die Praxis, damit Wissen und Kultur generationsgerecht Jahrzehnte überdauern.' },
-  { title: 'Ganzheitliche Co-Creation', body: 'Wir gestalten Erlebnisse gemeinsam mit Menschen (Co-Creation) und richten den Blick auf das gesamte lebendige Umfeld (Life-Centred).' },
-  { title: 'Digitale Entschleunigung', body: 'Wir nutzen digitale Vielfalt als bewussten Gegenpol zur heutigen Schnelllebigkeit — um an die zukünftigen Generationen anzuknüpfen.' },
-]
 
 function ArrowUnderlineLink({ onClick, children }: { onClick: () => void; children: string }) {
   return (
@@ -41,6 +35,8 @@ export default function MobileLongView() {
   const tele = useInView(0.25)
   const vr = useInView(0.25)
   const { open } = useLegalModal()
+  const s = useStrings()
+  const features = useFeatures()
 
   return (
     <section id="was-ist" className="scroll-mt-4 bg-cream">
@@ -49,25 +45,20 @@ export default function MobileLongView() {
       <div className="flex min-h-[106svh] flex-col">
         <div className="mx-auto flex w-full max-w-[600px] flex-1 flex-col px-6 pt-16">
           <h2 className="font-sans text-[clamp(30px,9vw,40px)] font-bold uppercase leading-[1.12] tracking-[0.04em] text-ink">
-            Was ist Digital<br />Long View ?
+            {s.sections.longviewTitle}
           </h2>
           <div className="mt-5 h-px w-full bg-gradient-to-r from-ink/35 via-ink/12 to-transparent" />
 
           <p className="mt-7 font-sans text-[clamp(18px,5vw,22px)] font-semibold leading-snug tracking-tight text-ink">
-            Die Digitalagentur für Raum, Zeit und Kultur …
+            {s.longview.lead}
           </p>
           <p className="mt-5 font-serif text-[15px] leading-[1.7] text-ink/70">
-            Wir schaffen <strong className="font-normal italic">Kommunikation</strong> für{' '}
-            <strong className="font-normal italic">Kulturschaffende und Erlebende</strong>. Wir glauben
-            daran eine Verbesserung lässt sich durch{' '}
-            <strong className="font-normal italic">Partizipation und Erleben schaffen</strong>,
-            das durch digitale Stützen ermöglicht wird. Somit versprechen wir uns{' '}
-            <strong className="font-normal italic">Langzeitdenken zu erwecken</strong>.
+            {s.longview.body}
           </p>
 
           <div className="mt-8 flex flex-col gap-5">
-            <ArrowUnderlineLink onClick={() => open('longview')}>Erfahre mehr über unseren Long View</ArrowUnderlineLink>
-            <ArrowUnderlineLink onClick={() => open('langzeitdenken')}>Wieso Langzeitdenken?</ArrowUnderlineLink>
+            <ArrowUnderlineLink onClick={() => open('longview')}>{s.longview.moreLongView}</ArrowUnderlineLink>
+            <ArrowUnderlineLink onClick={() => open('langzeitdenken')}>{s.longview.whyLongterm}</ArrowUnderlineLink>
           </div>
         </div>
 
@@ -101,20 +92,18 @@ export default function MobileLongView() {
       <div className="flex min-h-[100svh] flex-col">
         <div className="mx-auto flex w-full max-w-[600px] flex-1 flex-col px-6 pt-4">
           <h2 className="self-end text-right font-sans text-[clamp(18px,5vw,22px)] font-semibold leading-tight tracking-tight text-ink">
-            Um Langzeitdenken<br />zu fördern!
+            {s.longview.featuresTitleMobile}
           </h2>
 
           <p className="mt-8 text-center font-serif text-[16px] leading-[1.7] text-ink/75">
-            Wir verbinden Gestaltung, Technologie und Kultur zu Erlebnissen, die über
-            Generationen hinweg Bestand haben — und das Denken in langen Zeiträumen
-            selbstverständlich machen.
+            {s.longview.featuresIntroMobile}
           </p>
           <p className="mt-5 text-center font-serif text-[14px] italic leading-[1.6] text-ink/55">
-            Vier Felder, in denen wir die Long View in die Praxis bringen.
+            {s.longview.featuresLeadMobile}
           </p>
 
           <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8">
-            {FEATURES.map((f) => (
+            {features.map((f) => (
               <div key={f.title}>
                 <span
                   aria-hidden

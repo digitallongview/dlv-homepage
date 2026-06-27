@@ -1,50 +1,21 @@
 import { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react'
 import SectionHeading from '../SectionHeading'
+import { useStrings, useTeamText, type MemberId } from '../../i18n/content'
 
-type MemberId = 'lukas' | 'johan' | 'domi'
-
-type Member = {
-  id:           MemberId
-  name:         string
-  img:          string
-  role:         string
-  intro:        string
-  body:         string
-  bodyExtended: string
-}
+// Layout only — the localised name/role/intro/body live in the i18n catalogue,
+// keyed by id, so both desktop & mobile share one source of truth.
+type Member = { id: MemberId; img: string }
 
 const TEAM: Member[] = [
-  {
-    id:           'lukas',
-    name:         'Lukas',
-    img:          '/assets/Lukas.webp',
-    role:         '… und mir geht es um ZEIT.',
-    intro:        'Hi! Ich bin Lukas …',
-    body:         'Creative Director, Visionär und Langzeitdenker. Als Stiftungsmitglied der Wemdinger Zeitpyramide denke ich in Jahrhunderten, nicht in Quartalen.',
-    bodyExtended: 'Zeit ist mein Gestaltungsraum. Ich entwickle Zukunftsbilder und Future-Design-Prozesse, die sich an der Vergangenheit orientieren – an dem, was sich bewährt hat und Bestand hatte. Daraus schöpfe ich Zuversicht: Langzeitdenken ist für mich kein abstraktes Konzept, sondern ein Akt der Hoffnung – für kommende Generationen und lange Zukünfte, im Einklang mit dem Hier und Jetzt.',
-  },
-  {
-    id:           'johan',
-    name:         'Johann',
-    img:          '/assets/Johan.webp',
-    role:         '… und mir geht es um RAUM.',
-    intro:        'Hi! Ich bin Johann …',
-    body:         'XR Developer & Designer. Ich verbinde visionäres Denken mit pragmatischem Handeln – Programmierung und Design, konsequent nutzerzentriert.',
-    bodyExtended: 'Raum ist für mich die Schnittstelle von Mensch, Technologie und Interaktion. XR erweitert ihn um neue Dimensionen und verbindet Vergangenheit, Gegenwart und Zukunft. Mich fasziniert, durch immersive Räume neue Formen von Wahrnehmung und Präsenz zu schaffen – Ideen nicht nur sichtbar, sondern erlebbar zu machen.',
-  },
-  {
-    id:           'domi',
-    name:         'Dominik',
-    img:          '/assets/Domi.webp',
-    role:         '… und mir geht es um KULTUR.',
-    intro:        'Hi! Ich bin Dominik …',
-    body:         'Web Developer & Digital Strategist. Ich verbinde Technologie mit Struktur – von der Entwicklung digitaler Lösungen über Automatisierung bis hin zu nachhaltigen Geschäftsprozessen.',
-    bodyExtended: 'Kultur ist für mich das, was Menschen verbindet, Identität schafft und Ideen über Generationen hinweg weiterträgt. Sie prägt, wie wir denken, handeln und miteinander leben. Mich fasziniert, wie digitale Technologien dazu beitragen können, kulturelle Werte sichtbar, zugänglich und erlebbar zu machen – und wie Innovation entsteht, wenn Tradition auf Zukunft trifft.',
-  },
+  { id: 'lukas', img: '/assets/Lukas.webp' },
+  { id: 'johan', img: '/assets/Johan.webp' },
+  { id: 'domi',  img: '/assets/Domi.webp'  },
 ]
 
 
 export default function SectionMotivation() {
+  const s = useStrings()
+  const tt = useTeamText()
   const [selected, setSelected] = useState<Member>(TEAM[0])
   const [hovered,  setHovered]  = useState<MemberId | null>(null)
   const [textKey,  setTextKey]  = useState(0)
@@ -154,22 +125,25 @@ export default function SectionMotivation() {
 
   // Text block for a member — shared by the live panel and the hidden probe so
   // both measure to identical heights.
-  const memberText = (m: Member) => (
-    <>
-      <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-lavender">
-        {m.intro}
-      </p>
-      <p className="mt-4 font-serif text-[16px] leading-[1.65] text-ink/70">
-        {m.body}
-      </p>
-      <h3 className="mt-6 font-sans text-[clamp(20px,2.2vw,28px)] font-bold leading-snug tracking-tight text-ink">
-        {m.role}
-      </h3>
-      <p className="mt-4 font-serif text-[16px] leading-[1.65] text-ink/70">
-        {m.bodyExtended}
-      </p>
-    </>
-  )
+  const memberText = (m: Member) => {
+    const txt = tt[m.id]
+    return (
+      <>
+        <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-lavender">
+          {txt.intro}
+        </p>
+        <p className="mt-4 font-serif text-[16px] leading-[1.65] text-ink/70">
+          {txt.body}
+        </p>
+        <h3 className="mt-6 font-sans text-[clamp(20px,2.2vw,28px)] font-bold leading-snug tracking-tight text-ink">
+          {txt.role}
+        </h3>
+        <p className="mt-4 font-serif text-[16px] leading-[1.65] text-ink/70">
+          {txt.bodyExtended}
+        </p>
+      </>
+    )
+  }
 
   const contactButton = (
     <a
@@ -183,7 +157,7 @@ export default function SectionMotivation() {
                  focus:outline-none focus:ring-4 focus:ring-lavender/40 active:scale-[0.97]"
       style={{ background: 'linear-gradient(135deg, #b29bd0 0%, #8c74aa 50%, #5d4684 100%)' }}
     >
-      Kontakt
+      {s.motivation.contact}
       <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
     </a>
   )
@@ -210,7 +184,7 @@ export default function SectionMotivation() {
             transformOrigin: 'top center',
           }}
         >
-          <SectionHeading eyebrow="Wer sind wir" title="Motivation & Vorstellung" />
+          <SectionHeading eyebrow={s.sections.motivationEyebrow} title={s.sections.motivationTitle} />
 
           {/* ── Two-column layout — portraits aligned toward the top of the text ── */}
           <div className="mt-10 grid items-start gap-x-16 lg:grid-cols-[6fr_5fr]">
@@ -239,7 +213,7 @@ export default function SectionMotivation() {
                       onMouseEnter={() => { if (!active) setHovered(m.id) }}
                       onMouseLeave={() => setHovered(null)}
                       aria-pressed={active}
-                      aria-label={`Profil ${m.name} anzeigen`}
+                      aria-label={tt[m.id].name}
                       className={[
                         'group flex flex-col items-center gap-3 cursor-pointer select-none',
                         'focus:outline-none focus-visible:ring-2 focus-visible:ring-lavender/60 focus-visible:rounded',
@@ -250,7 +224,7 @@ export default function SectionMotivation() {
                     >
                       <img
                         src={m.img}
-                        alt={`Portrait von ${m.name}`}
+                        alt={tt[m.id].name}
                         draggable={false}
                         loading="lazy"
                         className={[
@@ -273,7 +247,7 @@ export default function SectionMotivation() {
                           active ? 'text-lavender' : 'text-ink/30 group-hover:text-ink/55',
                         ].join(' ')}
                       >
-                        {m.name}
+                        {tt[m.id].name}
                       </span>
                     </button>
                   )

@@ -10,7 +10,7 @@ import {
 } from 'react'
 import { createPortal } from 'react-dom'
 import { LEGAL, LEGAL_UI, type LegalBlock, type LegalDoc, type LegalKey } from '../../lib/legalContent'
-import type { Lang } from '../../lib/hlsSources'
+import { useLang, type Lang } from '../../i18n/lang'
 
 // ─── Context ──────────────────────────────────────────────────────────────────
 
@@ -23,8 +23,6 @@ export function useLegalModal(): LegalCtx {
   if (!ctx) throw new Error('useLegalModal must be used inside <LegalModalProvider>')
   return ctx
 }
-
-const LANG_STORAGE_KEY = 'dlv-legal-lang'
 
 // ─── Inline linking ───────────────────────────────────────────────────────────
 
@@ -340,19 +338,8 @@ function LegalModal({
 
 export function LegalModalProvider({ children }: { children: ReactNode }) {
   const [activeKey, setActiveKey] = useState<LegalKey | null>(null)
-  const [lang, setLangState] = useState<Lang>(() => {
-    if (typeof window === 'undefined') return 'de'
-    return window.localStorage.getItem(LANG_STORAGE_KEY) === 'en' ? 'en' : 'de'
-  })
-
-  const setLang = useCallback((l: Lang) => {
-    setLangState(l)
-    try {
-      window.localStorage.setItem(LANG_STORAGE_KEY, l)
-    } catch {
-      /* storage may be unavailable (private mode) — non-critical */
-    }
-  }, [])
+  // Language is now global (header switch) — the modal just reads/writes it.
+  const { lang, setLang } = useLang()
 
   const close = useCallback(() => setActiveKey(null), [])
   const navigate = useCallback((key: LegalKey) => setActiveKey(key), [])

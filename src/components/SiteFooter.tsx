@@ -1,23 +1,13 @@
 import type { MouseEventHandler } from 'react'
 import { useLegalModal } from './legal/LegalModal'
 import type { LegalKey } from '../lib/legalContent'
+import { useStrings } from '../i18n/content'
 
 // Social-Media-Icons sind vorerst deaktiviert (Markup bleibt erhalten).
 // Auf `true` setzen, um sie wieder anzuzeigen.
 const SHOW_SOCIALS = false
 
 type FooterLink = { href: string; label: string; legal?: LegalKey }
-
-const FOOTER_NAV_LEFT: FooterLink[] = [
-  { href: '#agbs',        label: 'AGBs', legal: 'agbs' },
-  { href: '#cookies',     label: 'Cookies', legal: 'cookies' },
-]
-
-const FOOTER_NAV_RIGHT: FooterLink[] = [
-  { href: '#',            label: 'Header'                              },
-  { href: '#impressum',   label: 'Impressum',   legal: 'impressum'    },
-  { href: '#datenschutz', label: 'Datenschutz', legal: 'datenschutz'  },
-]
 
 // Diagonal gradient: light lavender-pink at the cut edge → #D7ACCF → slightly deeper
 const MAGENTA_GRAD =
@@ -152,6 +142,18 @@ function FooterNavLink({
 
 export default function SiteFooter() {
   const { open } = useLegalModal()
+  const s = useStrings()
+  const f = s.footer
+
+  const FOOTER_NAV_LEFT: FooterLink[] = [
+    { href: '#agbs',    label: f.agbs,    legal: 'agbs'    },
+    { href: '#cookies', label: f.cookies, legal: 'cookies' },
+  ]
+  const FOOTER_NAV_RIGHT: FooterLink[] = [
+    { href: '#',            label: f.header                          },
+    { href: '#impressum',   label: f.impressum,   legal: 'impressum'   },
+    { href: '#datenschutz', label: f.datenschutz, legal: 'datenschutz' },
+  ]
 
   const linkHandler = (link: FooterLink): MouseEventHandler<HTMLAnchorElement> | undefined =>
     link.legal
@@ -171,10 +173,10 @@ export default function SiteFooter() {
           {/* ── Partner & Freunde — 5 cols, content capped a bit narrower ── */}
           <div className="col-span-5 max-w-[430px]">
             <h2 className="font-sans text-[clamp(20px,2vw,26px)] font-bold leading-tight tracking-tight text-ink">
-              Unsere Partner & Freunde
+              {f.partnerTitle}
             </h2>
             <p className="mt-2.5 font-serif text-[13.5px] leading-[1.65] text-ink/60">
-              Unsere Partner kommen aus Kultur, Bildung, Technologie und kreativen Bereichen, die langfristig denken und Zeit als Arbeitsraum und -material verstehen.
+              {f.partnerBody}
             </p>
 
             {/* 4 partner logos — 2×2, transparent PNGs, no frame */}
@@ -190,15 +192,10 @@ export default function SiteFooter() {
               (roughly on the logo line, nudged up a touch). */}
           <div className="col-span-3 pt-[70px]">
             <h3 className="font-sans text-[15px] font-semibold text-ink">
-              Teile den Zeitgeist
+              {f.zeitgeistTitle}
             </h3>
             <p className="mt-3 font-serif text-[13.5px] leading-[1.65] text-ink/60">
-              Social Media? Bewusst noch nicht. Ein eigener Kanal ist in Planung –
-              einer, der Langzeitdenken fördert, statt dem Takt der schnellen
-              Aufmerksamkeit zu folgen.{" "}
-              <em className="italic">
-                Wer den Zeitgeist mit uns teilen möchte, meldet sich gern.
-              </em>
+              {f.zeitgeistBody}
             </p>
             {SHOW_SOCIALS && (
               <div className="mt-6 flex items-center gap-5 text-ink/50">
@@ -218,9 +215,9 @@ export default function SiteFooter() {
             )}
           </div>
 
-          {/* ── Kontakt info — 2 cols ── */}
-          <div id="kontakt" className="col-span-2 scroll-mt-24 pt-[70px]">
-            <h3 className="font-sans text-[15px] font-semibold text-ink">Kontakt</h3>
+          {/* ── Kontakt info — 2 cols (the #kontakt anchor + form live in SectionKontakt) ── */}
+          <div className="col-span-2 pt-[70px]">
+            <h3 className="font-sans text-[15px] font-semibold text-ink">{f.kontakt}</h3>
             <a href="mailto:info@digitallongview.com"
               className="mt-3 block font-sans text-[13px] text-ink/65 transition-colors hover:text-lavender">
               info@digitallongview.com
@@ -242,7 +239,7 @@ export default function SiteFooter() {
                          focus:outline-none focus:ring-4 focus:ring-lavender/40 active:scale-[0.97]"
               style={{ background: 'linear-gradient(135deg, #b29bd0 0%, #8c74aa 50%, #5d4684 100%)' }}
             >
-              Kontakt
+              {f.kontakt}
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>

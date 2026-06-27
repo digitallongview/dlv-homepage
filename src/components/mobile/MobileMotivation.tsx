@@ -2,51 +2,21 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { DiagonalDots, Dots, SWIPE_TILT, useCarousel } from './carousel'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import SectionHeading from '../SectionHeading'
+import { useStrings, useTeamText, type MemberId } from '../../i18n/content'
 
+// Layout only — localised copy lives in the i18n catalogue, keyed by id.
 type Member = {
-  id: string
-  name: string
+  id: MemberId
   /** Polaroid portrait (baked frame + tilt) used in the narrow-desktop layout. */
   img: string
   /** Straight portrait used only in the phone layout — tilted via CSS to match the swipe line. */
   imgPhone: string
-  role: string
-  intro: string
-  body: string
-  bodyExtended: string
 }
 
 const TEAM: Member[] = [
-  {
-    id: 'lukas',
-    name: 'Lukas',
-    img: '/assets/Lukas.webp',
-    imgPhone: '/assets/lukas-bild.webp',
-    role: '… und mir geht es um ZEIT!',
-    intro: 'Hi! Ich bin Lukas …',
-    body: 'Creative Director, Visionär und Langzeitdenker. Als Stiftungsmitglied der Wemdinger Zeitpyramide denke ich in Jahrhunderten, nicht in Quartalen.',
-    bodyExtended: 'Zeit ist mein Gestaltungsraum. Ich entwickle Zukunftsbilder und Future-Design-Prozesse, die sich an der Vergangenheit orientieren – an dem, was sich bewährt hat und Bestand hatte. Daraus schöpfe ich Zuversicht: Langzeitdenken ist für mich kein abstraktes Konzept, sondern ein Akt der Hoffnung – für kommende Generationen und lange Zukünfte, im Einklang mit dem Hier und Jetzt.',
-  },
-  {
-    id: 'johan',
-    name: 'Johann',
-    img: '/assets/Johan.webp',
-    imgPhone: '/assets/johann-bild.webp',
-    role: '… und mir geht es um RAUM!',
-    intro: 'Hi! Ich bin Johann …',
-    body: 'XR Developer & Designer. Ich verbinde visionäres Denken mit pragmatischem Handeln – Programmierung und Design, konsequent nutzerzentriert.',
-    bodyExtended: 'Raum ist für mich die Schnittstelle von Mensch, Technologie und Interaktion. XR erweitert ihn um neue Dimensionen und verbindet Vergangenheit, Gegenwart und Zukunft. Mich fasziniert, durch immersive Räume neue Formen von Wahrnehmung und Präsenz zu schaffen – Ideen nicht nur sichtbar, sondern erlebbar zu machen.',
-  },
-  {
-    id: 'domi',
-    name: 'Dominik',
-    img: '/assets/Domi.webp',
-    imgPhone: '/assets/domi-bild.webp',
-    role: '… und mir geht es um KULTUR!',
-    intro: 'Hi! Ich bin Dominik …',
-    body: 'Web Developer & Digital Strategist. Ich verbinde Technologie mit Struktur – von der Entwicklung digitaler Lösungen über Automatisierung bis hin zu nachhaltigen Geschäftsprozessen.',
-    bodyExtended: 'Kultur ist für mich das, was Menschen verbindet, Identität schafft und Ideen über Generationen hinweg weiterträgt. Sie prägt, wie wir denken, handeln und miteinander leben. Mich fasziniert, wie digitale Technologien dazu beitragen können, kulturelle Werte sichtbar, zugänglich und erlebbar zu machen – und wie Innovation entsteht, wenn Tradition auf Zukunft trifft.',
-  },
+  { id: 'lukas', img: '/assets/Lukas.webp', imgPhone: '/assets/lukas-bild.webp'  },
+  { id: 'johan', img: '/assets/Johan.webp', imgPhone: '/assets/johann-bild.webp' },
+  { id: 'domi',  img: '/assets/Domi.webp',  imgPhone: '/assets/domi-bild.webp'   },
 ]
 
 const CTA_GRAD = 'linear-gradient(135deg, #b29bd0 0%, #8c74aa 50%, #5d4684 100%)'
@@ -54,6 +24,7 @@ const CTA_GRAD = 'linear-gradient(135deg, #b29bd0 0%, #8c74aa 50%, #5d4684 100%)
 /** "Lass uns reden" eyebrow (sitting high, with breathing room) + Kontakt pill that
     shoots in on scroll — used in the narrow-desktop 3rd column. */
 function ContactCta() {
+  const m = useStrings().motivation
   const ref = useRef<HTMLDivElement>(null)
   const [shown, setShown] = useState(false)
   useEffect(() => {
@@ -78,7 +49,7 @@ function ContactCta() {
         className="font-sans text-[12px] font-semibold uppercase tracking-[0.3em] text-lavender"
         style={{ opacity: shown ? 1 : 0, transition: 'opacity 0.5s ease 0.1s' }}
       >
-        Lass uns reden
+        {m.talk}
       </p>
       <a
         href="#kontakt"
@@ -91,7 +62,7 @@ function ContactCta() {
           transition: shown ? undefined : 'opacity 0.3s ease, transform 0.3s ease',
         }}
       >
-        Kontakt
+        {m.contact}
         <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
       </a>
     </div>
@@ -102,6 +73,7 @@ function ContactCta() {
     The switcher sits directly under the photo; the copy column is kept narrow so the
     CTA column has room to breathe. */
 function MemberPanelDesktop({ m, dots }: { m: Member; dots: ReactNode }) {
+  const txt = useTeamText()[m.id]
   return (
     <div className="w-full flex-none snap-center px-6 min-[600px]:px-10">
       <div className="mx-auto flex w-full max-w-[900px] items-center justify-between gap-6 min-[760px]:gap-8">
@@ -109,7 +81,7 @@ function MemberPanelDesktop({ m, dots }: { m: Member; dots: ReactNode }) {
         <div className="flex flex-none flex-col items-center gap-5">
           <img
             src={m.img}
-            alt={`Portrait von ${m.name}`}
+            alt={txt.name}
             draggable={false}
             loading="lazy"
             className="w-[160px] select-none object-contain min-[760px]:w-[190px]"
@@ -120,10 +92,10 @@ function MemberPanelDesktop({ m, dots }: { m: Member; dots: ReactNode }) {
         {/* COL 2: copy — fills the space when cramped, kept to a narrow measure once
             there's room so the CTA column can breathe */}
         <div className="min-w-0 flex-1 pt-1 min-[760px]:max-w-[380px]">
-          <p className="font-sans text-[15px] font-semibold tracking-tight text-ink">{m.intro}</p>
-          <p className="mt-2 font-serif text-[13.5px] leading-[1.66] text-ink/70">{m.body}</p>
-          <h3 className="mt-6 font-sans text-[19px] font-bold tracking-tight text-ink">{m.role}</h3>
-          <p className="mt-3 font-serif text-[14.5px] leading-[1.72] text-ink/72">{m.bodyExtended}</p>
+          <p className="font-sans text-[15px] font-semibold tracking-tight text-ink">{txt.intro}</p>
+          <p className="mt-2 font-serif text-[13.5px] leading-[1.66] text-ink/70">{txt.body}</p>
+          <h3 className="mt-6 font-sans text-[19px] font-bold tracking-tight text-ink">{txt.role}</h3>
+          <p className="mt-3 font-serif text-[14.5px] leading-[1.72] text-ink/72">{txt.bodyExtended}</p>
         </div>
 
         {/* COL 3: contact call-to-action — room to breathe */}
@@ -137,6 +109,7 @@ function MemberPanelDesktop({ m, dots }: { m: Member; dots: ReactNode }) {
 
 /** Phone panel: straight portrait tilted to the swipe line, stacked copy, diagonal switcher. */
 function MemberPanelPhone({ m, dots }: { m: Member; dots: ReactNode }) {
+  const txt = useTeamText()[m.id]
   return (
     <div className="w-full flex-none snap-center px-6">
       {/* pt gives the tilted portrait headroom so its raised top-right corner
@@ -146,7 +119,7 @@ function MemberPanelPhone({ m, dots }: { m: Member; dots: ReactNode }) {
         <div className="flex items-start gap-5">
           <img
             src={m.imgPhone}
-            alt={`Portrait von ${m.name}`}
+            alt={txt.name}
             draggable={false}
             loading="lazy"
             className="w-[150px] flex-none select-none object-contain"
@@ -154,8 +127,8 @@ function MemberPanelPhone({ m, dots }: { m: Member; dots: ReactNode }) {
           />
           {/* small indent from the right so the intro doesn't reach the edge */}
           <div className="min-w-0 flex-1 pt-2 pr-6">
-            <p className="font-sans text-[15px] font-semibold tracking-tight text-ink">{m.intro}</p>
-            <p className="mt-2 font-serif text-[13px] leading-[1.6] text-ink/70">{m.body}</p>
+            <p className="font-sans text-[15px] font-semibold tracking-tight text-ink">{txt.intro}</p>
+            <p className="mt-2 font-serif text-[13px] leading-[1.6] text-ink/70">{txt.body}</p>
           </div>
         </div>
 
@@ -163,9 +136,9 @@ function MemberPanelPhone({ m, dots }: { m: Member; dots: ReactNode }) {
         <div className="mt-6">{dots}</div>
 
         {/* Role + extended body — right-aligned to play off the indented intro above */}
-        <h3 className="mt-16 text-right font-sans text-[19px] font-bold tracking-tight text-ink">{m.role}</h3>
+        <h3 className="mt-16 text-right font-sans text-[19px] font-bold tracking-tight text-ink">{txt.role}</h3>
         <p className="mt-4 text-right font-serif text-[14.5px] leading-[1.72] text-ink/72">
-          {m.bodyExtended}
+          {txt.bodyExtended}
         </p>
       </div>
     </div>
@@ -174,6 +147,7 @@ function MemberPanelPhone({ m, dots }: { m: Member; dots: ReactNode }) {
 
 /** Kontakt button that shoots in when scrolled into the empty spacing, hides on scroll-up. */
 function ShootInCta() {
+  const m = useStrings().motivation
   const ref = useRef<HTMLDivElement>(null)
   const [shown, setShown] = useState(false)
   useEffect(() => {
@@ -193,7 +167,7 @@ function ShootInCta() {
         className="font-sans text-[12px] font-semibold uppercase tracking-[0.3em] text-lavender"
         style={{ opacity: shown ? 1 : 0, transition: 'opacity 0.5s ease 0.1s' }}
       >
-        Lass uns reden
+        {m.talk}
       </p>
       <a
         href="#kontakt"
@@ -206,7 +180,7 @@ function ShootInCta() {
           transition: shown ? undefined : 'opacity 0.3s ease, transform 0.3s ease',
         }}
       >
-        Kontakt
+        {m.contact}
         <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
       </a>
     </div>
@@ -214,6 +188,7 @@ function ShootInCta() {
 }
 
 export default function MobileMotivation() {
+  const s = useStrings()
   const { trackRef, active, goTo } = useCarousel()
   // Below 600px the module uses its phone form (diagonal dots + swipe prompt);
   // from 600px up it switches to the narrow-desktop form (arrow dots).
@@ -250,7 +225,7 @@ export default function MobileMotivation() {
     }
   }, [isNarrow, trackRef])
 
-  const SWIPE_LABEL = 'Swipe zwischen uns, um mehr zu erfahren!'
+  const SWIPE_LABEL = s.motivation.swipe
   const indicator = isNarrow ? (
     <Dots count={TEAM.length} active={active} onSelect={goTo} showArrows />
   ) : (
@@ -270,11 +245,11 @@ export default function MobileMotivation() {
           title-case); phone uses the big uppercase style of Leistungen & Service */}
       <div className="mx-auto w-full max-w-[620px] px-6 min-[600px]:mx-0 min-[600px]:max-w-[900px] min-[600px]:px-10">
         {isNarrow ? (
-          <SectionHeading eyebrow="Wer sind wir" title="Motivation & Vorstellung" />
+          <SectionHeading eyebrow={s.sections.motivationEyebrow} title={s.sections.motivationTitle} />
         ) : (
           <>
             <h2 className="font-sans text-[clamp(30px,4.5vw,40px)] font-bold uppercase leading-[1.1] tracking-[0.02em] text-ink">
-              Motivation &{' '}<br />Vorstellung
+              {s.sections.motivationTitle}
             </h2>
             <div className="mt-5 h-px w-full bg-gradient-to-r from-ink/35 via-ink/12 to-transparent" />
           </>

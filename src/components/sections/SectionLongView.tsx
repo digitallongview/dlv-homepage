@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import SectionHeading from '../SectionHeading'
 import { useLegalModal } from '../legal/LegalModal'
+import { useStrings, useFeatures } from '../../i18n/content'
 
 function useInView(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null)
@@ -17,25 +18,6 @@ function useInView(threshold = 0.12) {
   }, [threshold])
   return { ref, inView }
 }
-
-const FEATURES = [
-  {
-    title: 'Digitales Erbe bewahren',
-    body: 'Wir nutzen immersive Medien (XR) und interaktive Erlebnisse, um Kultur digital, barrierefrei und ethisch für die Zukunft zu sichern.',
-  },
-  {
-    title: 'Für Generationen gestalten',
-    body: 'Wir bringen Langzeitdenken in die Praxis, damit Wissen und Kultur generationsgerecht Jahrzehnte überdauern.',
-  },
-  {
-    title: 'Ganzheitliche Co-Creation',
-    body: 'Wir gestalten Erlebnisse gemeinsam mit Menschen (Co-Creation) und richten den Blick auf das gesamte lebendige Umfeld (Life-Centred).',
-  },
-  {
-    title: 'Digitale Entschleunigung',
-    body: 'Wir nutzen digitale Vielfalt als bewussten Gegenpol zur heutigen Schnelllebigkeit — um an die zukünftigen Generationen anzuknüpfen.',
-  },
-]
 
 /*
  * Text columns need to align with the max-w-[1200px] content area even though
@@ -70,6 +52,8 @@ export default function SectionLongView() {
   const row1 = useInView(0.02)
   const row2 = useInView(0.02)
   const { open } = useLegalModal()
+  const s = useStrings()
+  const features = useFeatures()
 
   return (
     <section
@@ -78,7 +62,7 @@ export default function SectionLongView() {
     >
       {/* Heading stays inside the max-w container */}
       <div className="mx-auto max-w-[1200px] px-6 sm:px-10">
-        <SectionHeading eyebrow="Long Term Thinking" title="Was ist Digital Long View ?" />
+        <SectionHeading eyebrow={s.sections.longviewEyebrow} title={s.sections.longviewTitle} />
       </div>
 
       {/* ── Row 1: text left | cone-right + telescope flush to right edge ── */}
@@ -89,15 +73,10 @@ export default function SectionLongView() {
           style={{ paddingLeft: textPadX, paddingRight: 'clamp(24px, 5vw, 64px)' }}
         >
           <p className="font-sans text-[clamp(18px,1.9vw,24px)] font-semibold leading-tight tracking-tight text-ink">
-            Die Digitalagentur für Raum, Zeit und Kultur.
+            {s.longview.lead}
           </p>
           <p className="mt-4 max-w-[480px] font-serif text-[16px] leading-[1.65] text-ink/75">
-            Wir schaffen <strong className="font-normal italic">Kommunikation</strong> für{' '}
-            <strong className="font-normal italic">Kulturschaffende und Erlebende</strong>. Wir
-            glauben daran eine Verbesserung lässt sich durch{' '}
-            <strong className="font-normal italic">Partizipation und Erleben schaffen</strong>, das
-            durch digitale Stützen ermöglicht wird. Somit versprechen wir uns{' '}
-            <strong className="font-normal italic">Langzeitdenken zu erwecken</strong>.
+            {s.longview.body}
           </p>
           <div className="mt-8 flex flex-col items-start gap-3">
             <button
@@ -105,7 +84,7 @@ export default function SectionLongView() {
               onClick={() => open('longview')}
               className="group inline-flex items-center gap-2 border-b border-ink/25 pb-1 font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-ink/60 transition-all duration-200 hover:border-ink/60 hover:text-ink"
             >
-              Erfahre mehr über unseren Long View
+              {s.longview.moreLongView}
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </button>
             <button
@@ -113,7 +92,7 @@ export default function SectionLongView() {
               onClick={() => open('langzeitdenken')}
               className="group inline-flex items-center gap-2 border-b border-ink/25 pb-1 font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-ink/60 transition-all duration-200 hover:border-ink/60 hover:text-ink"
             >
-              Wieso Langzeitdenken?
+              {s.longview.whyLongterm}
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </button>
           </div>
@@ -178,10 +157,10 @@ export default function SectionLongView() {
           style={{ paddingRight: textPadX, paddingLeft: 'clamp(24px, 5vw, 64px)' }}
         >
           <p className="font-sans text-[clamp(18px,1.9vw,24px)] font-semibold leading-tight tracking-tight text-ink">
-            Um das Langzeitdenken zu fördern.
+            {s.longview.featuresTitle}
           </p>
           <div className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2">
-            {FEATURES.map((f) => (
+            {features.map((f) => (
               <div key={f.title} className="flex gap-4">
                 <span
                   aria-hidden

@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
+import { useStrings } from '../../i18n/content'
+import LanguageSwitch from '../../i18n/LanguageSwitch'
 
 const LILA_GRADIENT = 'linear-gradient(125deg, #a991c7 0%, #8c74aa 55%, #6a4f8e 100%)'
 // Clean keil: full at top, the raised diagonal runs to a SINGLE point at the
@@ -46,12 +48,15 @@ function useKeilMetrics(
   return { deg, reqH }
 }
 
-const NAV = [
-  { label: 'Kontakt', href: '#kontakt' },
-  { label: 'Footer', href: '#footer' },
-  { label: 'Wer sind wir?', href: '#wer-sind-wir' },
-  { label: 'Was ist Long View?', href: '#was-ist' },
-]
+function useNav() {
+  const { nav } = useStrings()
+  return [
+    { label: nav.kontakt, href: '#kontakt' },
+    { label: nav.footer, href: '#footer' },
+    { label: nav.werSind, href: '#wer-sind-wir' },
+    { label: nav.wasIst, href: '#was-ist' },
+  ]
+}
 
 function NavRow({ label, href, onClick }: { label: string; href: string; onClick?: () => void }) {
   return (
@@ -75,6 +80,8 @@ function NavRow({ label, href, onClick }: { label: string; href: string; onClick
 function MenuPanel({ wedgeShown, onNavClick, onClose, fill = false }: { wedgeShown: boolean; onNavClick?: () => void; onClose?: () => void; fill?: boolean }) {
   const rootRef = useRef<HTMLDivElement>(null)
   const navRef = useRef<HTMLElement>(null)
+  const nav = useNav()
+  const a11y = useStrings().a11y
   const { deg, reqH } = useKeilMetrics(rootRef, navRef)
   const minHeight = reqH
     ? fill ? `max(100svh, ${reqH}px)` : `${reqH}px`
@@ -103,11 +110,14 @@ function MenuPanel({ wedgeShown, onNavClick, onClose, fill = false }: { wedgeSho
           transition: 'opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s',
         }}
       >
-        <nav ref={navRef} className="flex flex-col gap-8" aria-label="Hauptnavigation">
-          {NAV.map((item) => (
+        <nav ref={navRef} className="flex flex-col gap-8" aria-label="Navigation">
+          {nav.map((item) => (
             <NavRow key={item.href} label={item.label} href={item.href} onClick={onNavClick} />
           ))}
         </nav>
+        <div className="mt-10">
+          <LanguageSwitch variant="header" className="w-fit" />
+        </div>
       </div>
 
       {/* DLV logo — centred on the cream triangle's centroid (≈2/3 W, ≈0.86 H) and
@@ -137,7 +147,7 @@ function MenuPanel({ wedgeShown, onNavClick, onClose, fill = false }: { wedgeSho
       {onClose && (
         <button
           onClick={onClose}
-          aria-label="Menü zu"
+          aria-label={a11y.closeMenu}
           className="absolute bottom-[22%] left-7 z-20 flex flex-col items-center gap-1.5 text-white/90 transition-colors hover:text-white"
           style={{ opacity: wedgeShown ? 1 : 0, transition: 'opacity 0.5s ease 0.6s' }}
         >
@@ -146,7 +156,7 @@ function MenuPanel({ wedgeShown, onNavClick, onClose, fill = false }: { wedgeSho
               <path d="M6 6l12 12M18 6L6 18" />
             </svg>
           </span>
-          <span className="font-sans text-[11px] uppercase tracking-[0.25em]">Menü zu</span>
+          <span className="font-sans text-[11px] uppercase tracking-[0.25em]">{a11y.closeMenu}</span>
         </button>
       )}
     </div>
@@ -162,6 +172,7 @@ function HamburgerIcon({ className = '' }: { className?: string }) {
 }
 
 export default function MobileMenu() {
+  const a11y = useStrings().a11y
   const sectionRef = useRef<HTMLElement>(null)
   const [wedgeIn, setWedgeIn] = useState(false)
 
@@ -236,7 +247,7 @@ export default function MobileMenu() {
       {/* Migrating trigger — cream→violet as it shoots up the diagonal, parks top-right */}
       <button
         onClick={() => setOverlayOpen(true)}
-        aria-label="Menü öffnen"
+        aria-label={a11y.openMenu}
         className="fixed z-[90] grid h-12 w-12 place-items-center rounded-full shadow-[0_10px_26px_-8px_rgba(45,31,77,0.6)] transition-opacity duration-200"
         style={{
           left: leftPx,
@@ -266,7 +277,7 @@ export default function MobileMenu() {
           className="pointer-events-none absolute left-1/2 top-[calc(100%+7px)] -translate-x-1/2 whitespace-nowrap font-sans text-[11px] font-bold uppercase tracking-[0.25em] text-white"
           style={{ opacity: Math.max(0, 1 - prog * 1.5) }}
         >
-          Menü
+          {a11y.menu}
         </span>
       </button>
 
