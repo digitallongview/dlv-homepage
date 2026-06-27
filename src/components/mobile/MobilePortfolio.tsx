@@ -33,10 +33,11 @@ type Project = {
   textA: string
   textB?: string
   textC?: ReactNode
+  textD?: ReactNode
   link?: { href: string; label: string; external?: boolean }
   download?: { href: string; label: string }
   button?: string
-  source?: string
+  source?: ReactNode
 }
 
 const PROJECTS: Project[] = [
@@ -48,12 +49,27 @@ const PROJECTS: Project[] = [
     bg: '/assets/bg-langzeitdesign.webp',
     bgPos: '78% center',
     kind: 'video',
-    textA: 'Das Langzeit-Design-Projekt untersucht, wie gestalterische Entscheidungen über Generationen hinweg Bestand haben. Gemeinsam mit der Herrnhuter Brüdergemeine entstanden Workshops zu handwerklicher und digitaler Langlebigkeit.',
-    textB: 'Das Ergebnis: eine lebendige Forschungsgrundlage für Design-Prinzipien, die weit über Trends hinausdenken — verankert in Tradition, offen für Transformation.',
+    textA: 'Wir leben in einer Zeitwahrnehmungskrise: Quartalsgewinne, Wahlzyklen und sofortige Befriedigung verengen unseren Horizont. Wir kolonisieren die Zukunft, indem wir ökologische und technologische Schulden an Generationen ohne Mitspracherecht abtreten — und verlieren die positiven Zukunftsbilder, ohne die keine Zivilisation Bestand hat. Langzeitdesign ist die Antwort: eine Disziplin und Dienstleistung, die Institutionen und Projekten hilft, langfristiges Denken erfahrbar und über Generationen kommunizierbar zu machen.',
+    textB: 'Langzeitdesign entwickelt Werkzeuge und Plattformen, die ferne Zukünfte im Rahmen menschlicher Tiefenzeit antizipierbar machen, erzeugt Zuversicht und stärkt die Verantwortung gegenüber denen, die nach uns kommen — für sie zu entwerfen heißt, ein guter Vorfahre zu sein. Es entstehen keine statischen Produkte, sondern resiliente Systeme: Eine duale Architektur trennt einen zeitstabilen Kern aus Werten und Ritualen von einer flexiblen Schnittstelle aus Technologie und Ästhetik — so bleibt ein Projekt anpassungsfähig, ohne seine Identität zu verlieren. Statt fertiger Baupläne entstehen Heuristiken: ein offenes Skript, das jede Generation dort weiterschreibt, wo die vorige aufhörte. Anders als Langzeitkunst — subjektiv und elitär — ist es pragmatisch, partizipativ und demokratisch zugänglich: kein blinder Optimismus, sondern Zuversicht gegenüber unsicheren Zukünften.',
+    textC: 'Wie das in der Praxis aussieht, zeigt die Herrnhuter Galaxie, ein 1100-jähriges partizipatives Projekt zur sächsischen Landesausstellung 2029: ein Ritual, ein Stern, jede Generation. Der Herrnhuter Stern wird zum Taktgeber eines kosmologischen Kalenders — in der längsten Nacht des Jahres knüpft jede Generation eine neue Zacke an, bis aus einzelnen Sternen über die Jahrhunderte eine ganze Galaxie wächst. Eine analoge Kette macht die Weitergabe taktil, ein digitales XR-Observatorium lässt Menschen ihre Vision von Sachsens ferner Zukunft erschaffen. Entscheidend ist das Verhältnis von Design und Kunst: Langzeitkunst ruft die Emotion hervor, die tiefes Zukunftsdenken erst eröffnet — Langzeitdesign verstärkt ihre Wirkung, macht das Erlebnis zugänglich und alltagstauglich und sichert die Kontinuität, die ein Kunstwerk allein nicht trägt. Kunst liefert den Funken, Design die Infrastruktur.',
+    textD: <strong className="font-normal italic">Damit ein Vorhaben Generationen überdauert, braucht es tragfähige Strukturen: ein Hybridmodell aus kultureller Agentur, Stiftungswesen und Ritualisierung, das Förderzyklen und politische Umbrüche übersteht. Die eigentliche Resilienz aber stiftet das Ritual — denn was Bestand hatte, besteht weiter. So wird Langzeitdesign, was es sein will: kein Service fürs nächste Quartal, sondern ein Beitrag zum kulturellen Erbe der nächsten Jahrhunderte.</strong>,
     link: { href: 'https://herrnhuter.digitallongview.com/', label: 'Prototyp Herrnhuter Galaxie', external: true },
     download: { href: '/assets/Was ist Langzeitdesign.pdf', label: 'Download PDF zu LTD' },
     button: 'Vortrag',
-    source: 'Quelle: Herrnhuter Brüdergemeine, 2024',
+    source: (
+      <>
+        Vielen Dank an die Organisation der Landesausstellung 2029 in Sachsen (
+        <a
+          href="https://www.schloesserland-sachsen.de/de/news-presse/pressemitteilungen/?tx_news_pi1%5Bnews%5D=1676&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Baction%5D=detail&cHash=042ed97d0870c8f4886f5540037a8447"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="underline underline-offset-2 transition-colors hover:text-ink/60"
+        >
+          Schlösserland Sachsen
+        </a>
+        ) und die Herrnhuter Brüdergemeinde
+      </>
+    ),
   },
   {
     id: 'sophienkirche',
@@ -66,11 +82,25 @@ const PROJECTS: Project[] = [
     bgPos: '38% center',
     scrim: true,
     kind: 'phonePopup',
-    textA: 'Die Sophienkirche in Berlin steht als Zeugnis eines wechselvollen Jahrhunderts. Mit einem immersiven AR-Prototyp haben wir erkundet, wie digitale Erinnerungsräume historische Schichten zugänglich machen können.',
-    textB: 'Der Prototyp lädt ein, Geschichte körperlich zu erfahren — durch Klang, Bild und Raum. Ein Denkraum, kein Ausstellungsstück.',
+    textA: 'Mitten in Dresden, unweit des Zwingers, erinnert der DenkRaum Sophienkirche an einen verschwundenen Ort. Die Sophienkirche — einst Franziskanerklosterkirche, später evangelische Hof- und Domkirche und lange die einzige gotisch erhaltene Kirche der Stadt — wurde 1945 zur Ruine und 1962/63 trotz Protesten abgerissen. An ihrer Stelle steht heute die Busmannkapelle: ein Ort des kollektiven Gedächtnisses — und zugleich spürbaren Identitätsverlusts.',
+    textB: 'Genau hier setzt das Projekt an: die unsichtbare Kirche wieder sichtbar zu machen. Über Extended Reality wird die zerstörte Sophienkirche am echten Standort erlebbar — die Erinnerung gegen Zeit und Realität verteidigt, auch für kommende Generationen. Denn das Fortbestehen des Gedenkens ist selbst ein digitales Langzeitprojekt.',
+    textC: 'Der Prototyp erprobt gezielt Gamification an einem Kulturort, um Geschichte engaging und zielgruppenorientierter zu vermitteln — für jüngere Besucher, Schulen und Stadtrundgänge. Als gespielte Zeitreise durch die Stockwerke der Geschichte erzählen historische Figuren von ihren Grabsteinen, laden über kleine Quests zur Bindung ein; der Verlust der Kirche wird spürbar, bis aktives Handeln sie wieder über dem realen Ort erstehen lässt. Das Finale fragt „Was bleibt?“ und überführt die Erinnerung in ein immersives Gästebuch — ein wachsendes Zukunftsarchiv.',
+    textD: 'Entscheidend ist die Rolle des Designs: Es tritt nicht an die Stelle des Ortes, sondern verstärkt seine Wirkung — es übersetzt kuratierte, geprüfte Inhalte in ein zugängliches, spielerisches Erlebnis. Technisch bleibt die Lösung niederschwellig: smartphone-basierte AR, offen für weitere Erinnerungsorte in Dresden. So wird aus Verlust eine digitale Auferstehung — getragen von Erinnerungskultur, Technologie und Langzeitperspektive. Am Ende steht ein einfacher Gedanke: Ich will nicht vergessen werden.',
     link: { href: 'https://www.denkraum-sophienkirche.de/', label: 'Webseite Sophienkirche', external: true },
     button: 'Prototyp',
-    source: 'Kooperation mit Förderkreis Sophienkirche e. V.',
+    source: (
+      <>
+        Vielen Dank an Christian Curschmann · Kooperation mit{' '}
+        <a
+          href="https://buergerstiftung-dresden.de/"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="underline underline-offset-2 transition-colors hover:text-ink/60"
+        >
+          Bürgerstiftung Dresden
+        </a>
+      </>
+    ),
   },
   {
     id: 'zeitpyramide',
@@ -80,11 +110,40 @@ const PROJECTS: Project[] = [
     bg: '/assets/bg-zeitpyramide.webp',
     bgPos: '55% center',
     kind: 'videoPopup',
-    textA: 'Alle zehn Jahre wird ein Betonblock gesetzt — 120 Blöcke, 1.200 Jahre. Wir bauen das digitale Gegenstück: eine AR-Erfahrung, die den Jahrhunderten ein Interface gibt, ohne sie zu beschleunigen.',
-    textB: 'Besucher:innen können vor Ort jeden gesetzten Stein scannen, hören, was diese Generation hinterließ — und sehen, was kommt.',
+    textA: 'Mitten im Nördlinger Ries, in der bayerischen Kleinstadt Wemding, entsteht eines der ersten Langzeitkunstprojekte überhaupt: die Zeitpyramide. Zum 1200-jährigen Stadtjubiläum 1993 vom Künstler Manfred Laber als Geschenk an die Stadt konzipiert, wächst sie über exakt 1200 Jahre — alle zehn Jahre wird ein Betonstein gesetzt, bis das Bauwerk 3183 aus 120 Steinen vollendet ist. Als Werk der konkreten Kunst ist sie kein statisches Monument, sondern ein bewusst entschleunigter Prozess: Der Beton nimmt mit der Zeit Patina und Risse an und macht so Vergänglichkeit und den langen Atem der Zeit sichtbar — ein Denkmal für die Langsamkeit, dessen Vollendung niemand erlebt, der heute lebt.',
+    textB: 'Das Problem jeder Langzeitkunst ist ihre Abstraktion: Vier Steine auf einer Wiese lassen sich kaum als künftige Pyramide lesen. Eine UAV-Photogrammetrie-Visualisierung setzt hier an — per Drohne erfasste Aufnahmen werden zu einem präzisen digitalen Modell des realen Standorts zusammengeführt, in das sich der vollständige Bau einrechnen lässt. So wird die ferne Endgestalt aus dem heutigen Bestand heraus greifbar und an den tatsächlichen Ort rückgebunden.',
+    textC: 'Daran knüpft eine AR-Visualisierung an, die wie ein Fenster in eine spekulative Zukunft funktioniert: Über das Smartphone erscheinen die noch ausstehenden Steine direkt vor Ort, bis die fertige Pyramide über der realen Landschaft steht. Dass dies mehr ist als ein Effekt, stützt eine Umfrage in der Region: Wer die Zeitpyramide positiv bewertet, glaubt zugleich signifikant häufiger an weitere 1200 Jahre Wemding und blickt optimistischer in die Zukunft — Langzeitprojekte wirken so als soziale Katalysatoren für Zukunftsvertrauen. Genau diese Wirkung verstärkt die Visualisierung: Indem sie die ferne Vollendung sinnlich erfahrbar macht, hilft sie den Wemdingern, sich eine Zukunft in 1200 Jahren tatsächlich vorzustellen — und stärkt die Zuversicht, die jedes Langzeitprojekt trägt. Dabei arbeiten wir eng mit der Stiftung Wemdinger Zeitpyramide zusammen, um die Pyramide zu ermöglichen, ihre Aufgaben und Projekte zu unterstützen und ihre Vollendung zu befördern — und ihr die Präsentation, Wirksamkeit und kommunikative Strahlkraft zu verleihen, die ihr gebührt.',
     link: { href: 'https://zeitpyramide.de', label: 'Webseite der Zeitpyramiden Stiftung', external: true },
     button: 'Visualisierung',
-    source: 'Quelle: Stadtmuseum Wemding · Suter + Wittwer, 1993',
+    source: (
+      <>
+        Die{' '}
+        <a
+          href="https://www.donau-ries-aktuell.de/kultur/virtuelle-reise-durch-die-zeitpyramide-der-zukunft-wemding-81669"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="underline underline-offset-2 transition-colors hover:text-ink/60"
+        >
+          AR-Visualisierung
+        </a>{' '}
+        ist an der Zeitpyramide einzusehen, die WebXR-Anwendung wird gefördert vom
+        <a
+          href="https://www.fff-bayern.de/"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="FilmFernsehFonds Bayern"
+          className="mt-2 -ml-2.5 block w-fit"
+        >
+          <img
+            src="/assets/fff-logo.png"
+            alt="FilmFernsehFonds Bayern"
+            width={900}
+            height={360}
+            className="h-11 w-auto opacity-60 transition-opacity hover:opacity-100"
+          />
+        </a>
+      </>
+    ),
   },
   {
     id: 'vrlab',
@@ -106,14 +165,14 @@ const PROJECTS: Project[] = [
   },
   {
     id: 'p5',
-    label: 'Pace Layers',
-    title: 'Pace Layering',
+    label: 'Kommerz & Kultur',
+    title: 'Kommerz und Kulturkapital pragmatisch bündeln',
     subtitle: 'Abgeschlossene Web- & Agenturprojekte & Kooperationen',
     bg: '/assets/pacelayer.webp',
     scrim: true,
     kind: 'websites',
-    textA: 'Digitale Wirkung entsteht nicht durch sichtbare Ergebnisse allein – sondern durch das, was trägt: verlässliche Systeme, stabile Infrastruktur und die Verbindung aus Technologie, Menschen und Kultur.',
-    textB: 'Wir denken in langen Zeithorizonten – und handeln trotzdem im Jetzt. Stewart Brands Pace Layering zeigt: Wer die langsamen, bewahrenden Schichten der Kultur gestalten will, muss in den schnellen Schichten präsent sein – in Commerce, Fashion, Lifestyle. Das kurzfristige, lukrative Tagesgeschäft ist kein Widerspruch zum Langzeitanspruch. Es ist seine Voraussetzung. Wer sich der Kultur bedient, gibt zurück.',
+    textA: 'Kommerz und Kultur sind für uns kein Gegensatz, sondern Hebel füreinander. Das kurzfristige, lukrative Tagesgeschäft – in Commerce, Fashion, Lifestyle – schafft die Mittel und die Reichweite, aus denen langfristiges Kulturkapital wächst. Digitale Wirkung entsteht dabei nicht durch sichtbare Ergebnisse allein, sondern durch das, was trägt: verlässliche Systeme, stabile Infrastruktur und die Verbindung aus Technologie, Menschen und Kultur.',
+    textB: 'Den Rahmen dafür liefert Stewart Brands Pace Layering: Wer die langsamen, bewahrenden Schichten der Kultur gestalten will, muss in den schnellen Schichten präsent sein. So denken wir in langen Zeithorizonten – und handeln trotzdem im Jetzt. Das schnelle Geschäft ist kein Widerspruch zum Langzeitanspruch, sondern seine Voraussetzung. Wer sich der Kultur bedient, gibt zurück.',
     textC: 'Deshalb arbeiten wir ohne Hierarchie: Familienunternehmen und Kulturinstitution, Subkultur und Hochkultur, Verein und Alltagskultur. Die folgenden Referenzen sind abgeschlossene Web- und Agenturprojekte sowie ehemalige Kooperationen – pragmatisch, ethisch, auf Wirkung ausgerichtet.',
     link: { href: 'https://longnow.org/ideas/pace-layers/', label: 'Pace Layering – Long Now Foundation', external: true },
     button: 'Websites',
@@ -621,6 +680,7 @@ function ProjectPanel({
       <p className="font-serif text-[14px] leading-[1.72] text-ink/72">{p.textA}</p>
       {p.textB && <p className="mt-3 font-serif text-[14px] leading-[1.72] text-ink/72">{p.textB}</p>}
       {p.textC && <p className="mt-3 font-serif text-[14px] leading-[1.72] text-ink/72">{p.textC}</p>}
+      {p.textD && <p className="mt-3 font-serif text-[14px] leading-[1.72] text-ink/72">{p.textD}</p>}
       {p.link && (
         <a
           href={p.link.href}
@@ -897,6 +957,7 @@ function NarrowText({ p }: { p: Project }) {
       <p className="max-w-[600px] font-serif text-[14px] leading-[1.72] text-ink/72">{p.textA}</p>
       {p.textB && <p className="mt-3 max-w-[600px] font-serif text-[14px] leading-[1.72] text-ink/72">{p.textB}</p>}
       {p.textC && <p className="mt-3 max-w-[600px] font-serif text-[14px] leading-[1.72] text-ink/72">{p.textC}</p>}
+      {p.textD && <p className="mt-3 max-w-[600px] font-serif text-[14px] leading-[1.72] text-ink/72">{p.textD}</p>}
       {p.link && (
         <a
           href={p.link.href}

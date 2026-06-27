@@ -14,15 +14,41 @@ const NAV_ITEMS: { id: ProjectId; label: string }[] = [
   { id: 'sophienkirche',  label: 'Sophienkirche'   },
   { id: 'zeitpyramide',  label: 'Zeitpyramide'    },
   { id: 'vrlab',         label: 'VRlab'            },
-  { id: 'p5',            label: 'Pace Layers'      },
+  { id: 'p5',            label: 'Kommerz & Kultur' },
 ]
 
 const BG_MAP: Record<ProjectId, string> = {
   langzeitdesign: '/assets/bg-langzeitdesign.webp',
-  sophienkirche:  '/assets/bg-sophienkirche.webp',
+  sophienkirche:  '/assets/bg-sophienkirche-altar.webp',
   zeitpyramide:   '/assets/bg-zeitpyramide.webp',
   vrlab:          '/assets/background-vrlab.webp',
   p5:             '/assets/pacelayer.webp',
+}
+
+// Crop anchor per slide (object-position). Most photos centre fine; a few need a
+// nudge so their subject survives the full-bleed object-cover crop.
+//   · vrlab        — pan right so Lilienthal's glider stays in frame.
+//   · sophienkirche — portrait photo in a wide frame: bias toward the upper band so
+//                     the gothic window arches + sky read behind the phone.
+const BG_POSITION: Partial<Record<ProjectId, string>> = {
+  vrlab:         '62% center',
+  sophienkirche: '50% 32%',
+}
+
+// Directional cream scrim per slide. Strong on the left where the nav + copy sit,
+// clearing toward the right so the photo keeps colour around the media. The three
+// text-heavy slides (Langzeit-Design, Sophienkirche, Zeitpyramide) hold more cream
+// across the width so copy that now reaches the right edge stays legible.
+const SCRIM_MAP: Record<ProjectId, string> = {
+  // Lange Copy bis in die rechte Spalte → Creme trägt über die ganze Breite.
+  langzeitdesign: 'linear-gradient(to right, rgba(247,236,237,0.95) 0%, rgba(247,236,237,0.90) 42%, rgba(247,236,237,0.76) 72%, rgba(247,236,237,0.60) 100%)',
+  // Textspalte links + helles Altar-Foto rechts → links sehr stark, hinter dem Phone klarer.
+  sophienkirche:  'linear-gradient(to right, rgba(247,236,237,0.96) 0%, rgba(247,236,237,0.92) 48%, rgba(247,236,237,0.64) 80%, rgba(247,236,237,0.36) 100%)',
+  // Zwei vollbreite Absätze über dem Foto → rechte Seite lesbar halten.
+  zeitpyramide:   'linear-gradient(to right, rgba(247,236,237,0.95) 0%, rgba(247,236,237,0.90) 42%, rgba(247,236,237,0.76) 72%, rgba(247,236,237,0.60) 100%)',
+  // Render/Foto ohne Text rechts → Motiv behält rechts seine Farbe.
+  vrlab:          'linear-gradient(to right, rgba(247,236,237,0.95) 0%, rgba(247,236,237,0.88) 45%, rgba(247,236,237,0.72) 72%, rgba(247,236,237,0.66) 100%)',
+  p5:             'linear-gradient(to right, rgba(247,236,237,0.95) 0%, rgba(247,236,237,0.88) 45%, rgba(247,236,237,0.72) 72%, rgba(247,236,237,0.66) 100%)',
 }
 
 type ProjectData = {
@@ -31,40 +57,99 @@ type ProjectData = {
   textA:      string
   textB?:     string
   textC?:     ReactNode
+  textD?:     ReactNode
   twoColText: boolean
   link?:      { href: string; label: string; external?: boolean }
   download?:  { href: string; label: string }
-  source?:    string
+  source?:    ReactNode
 }
 
 const PROJECTS: Record<ProjectId, ProjectData> = {
   langzeitdesign: {
     title:      'Langzeit-Design: Herrnhuter Galaxie',
     subtitle:   'Forschung / Workshops & pragmatische Umsetzung',
-    textA:      'Das Langzeit-Design-Projekt untersucht, wie gestalterische Entscheidungen über Generationen hinweg Bestand haben. Gemeinsam mit der Herrnhuter Brüdergemeine entstanden Workshops zu handwerklicher und digitaler Langlebigkeit.',
-    textB:      'Das Ergebnis: eine lebendige Forschungsgrundlage für Design-Prinzipien, die weit über Trends hinausdenken — verankert in Tradition, offen für Transformation.',
+    textA:      'Wir leben in einer Zeitwahrnehmungskrise: Quartalsgewinne, Wahlzyklen und sofortige Befriedigung verengen unseren Horizont. Wir kolonisieren die Zukunft, indem wir ökologische und technologische Schulden an Generationen ohne Mitspracherecht abtreten — und verlieren die positiven Zukunftsbilder, ohne die keine Zivilisation Bestand hat. Langzeitdesign ist die Antwort: eine Disziplin und Dienstleistung, die Institutionen und Projekten hilft, langfristiges Denken erfahrbar und über Generationen kommunizierbar zu machen.',
+    textB:      'Langzeitdesign entwickelt Werkzeuge und Plattformen, die ferne Zukünfte im Rahmen menschlicher Tiefenzeit antizipierbar machen, erzeugt Zuversicht und stärkt die Verantwortung gegenüber denen, die nach uns kommen — für sie zu entwerfen heißt, ein guter Vorfahre zu sein. Es entstehen keine statischen Produkte, sondern resiliente Systeme: Eine duale Architektur trennt einen zeitstabilen Kern aus Werten und Ritualen von einer flexiblen Schnittstelle aus Technologie und Ästhetik — so bleibt ein Projekt anpassungsfähig, ohne seine Identität zu verlieren. Statt fertiger Baupläne entstehen Heuristiken: ein offenes Skript, das jede Generation dort weiterschreibt, wo die vorige aufhörte. Anders als Langzeitkunst — subjektiv und elitär — ist es pragmatisch, partizipativ und demokratisch zugänglich: kein blinder Optimismus, sondern Zuversicht gegenüber unsicheren Zukünften.',
+    textC:      'Wie das in der Praxis aussieht, zeigt die Herrnhuter Galaxie, ein 1100-jähriges partizipatives Projekt zur sächsischen Landesausstellung 2029: ein Ritual, ein Stern, jede Generation. Der Herrnhuter Stern wird zum Taktgeber eines kosmologischen Kalenders — in der längsten Nacht des Jahres knüpft jede Generation eine neue Zacke an, bis aus einzelnen Sternen über die Jahrhunderte eine ganze Galaxie wächst. Eine analoge Kette macht die Weitergabe taktil, ein digitales XR-Observatorium lässt Menschen ihre Vision von Sachsens ferner Zukunft erschaffen. Entscheidend ist das Verhältnis von Design und Kunst: Langzeitkunst ruft die Emotion hervor, die tiefes Zukunftsdenken erst eröffnet — Langzeitdesign verstärkt ihre Wirkung, macht das Erlebnis zugänglich und alltagstauglich und sichert die Kontinuität, die ein Kunstwerk allein nicht trägt. Kunst liefert den Funken, Design die Infrastruktur.',
+    textD:      <strong className="font-normal italic">Damit ein Vorhaben Generationen überdauert, braucht es tragfähige Strukturen: ein Hybridmodell aus kultureller Agentur, Stiftungswesen und Ritualisierung, das Förderzyklen und politische Umbrüche übersteht. Die eigentliche Resilienz aber stiftet das Ritual — denn was Bestand hatte, besteht weiter. So wird Langzeitdesign, was es sein will: kein Service fürs nächste Quartal, sondern ein Beitrag zum kulturellen Erbe der nächsten Jahrhunderte.</strong>,
     twoColText: false,
     link:       { href: 'https://herrnhuter.digitallongview.com/', label: 'Prototyp Herrnhuter Galaxie', external: true },
     download:   { href: '/assets/Was ist Langzeitdesign.pdf', label: 'Download PDF zu LTD' },
-    source:     'Quelle: Herrnhuter Brüdergemeine, 2024',
+    source:     (
+      <>
+        Vielen Dank an die Organisation der Landesausstellung 2029 in Sachsen (
+        <a
+          href="https://www.schloesserland-sachsen.de/de/news-presse/pressemitteilungen/?tx_news_pi1%5Bnews%5D=1676&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Baction%5D=detail&cHash=042ed97d0870c8f4886f5540037a8447"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="underline underline-offset-2 transition-colors hover:text-ink/60"
+        >
+          Schlösserland Sachsen
+        </a>
+        ) und die Herrnhuter Brüdergemeinde
+      </>
+    ),
   },
   sophienkirche: {
     title:      'Denkraum Sophienkirche',
     subtitle:   'Immersives Prototyping als virtuelles Erinnerungsmedium',
-    textA:      'Die Sophienkirche in Berlin steht als Zeugnis eines wechselvollen Jahrhunderts. Mit einem immersiven AR-Prototyp haben wir erkundet, wie digitale Erinnerungsräume historische Schichten zugänglich machen können.',
-    textB:      'Der Prototyp lädt ein, Geschichte körperlich zu erfahren — durch Klang, Bild und Raum. Ein Denkraum, kein Ausstellungsstück.',
+    textA:      'Mitten in Dresden, unweit des Zwingers, erinnert der DenkRaum Sophienkirche an einen verschwundenen Ort. Die Sophienkirche — einst Franziskanerklosterkirche, später evangelische Hof- und Domkirche und lange die einzige gotisch erhaltene Kirche der Stadt — wurde 1945 zur Ruine und 1962/63 trotz Protesten abgerissen. An ihrer Stelle steht heute die Busmannkapelle: ein Ort des kollektiven Gedächtnisses — und zugleich spürbaren Identitätsverlusts.',
+    textB:      'Genau hier setzt das Projekt an: die unsichtbare Kirche wieder sichtbar zu machen. Über Extended Reality wird die zerstörte Sophienkirche am echten Standort erlebbar — die Erinnerung gegen Zeit und Realität verteidigt, auch für kommende Generationen. Denn das Fortbestehen des Gedenkens ist selbst ein digitales Langzeitprojekt.',
+    textC:      'Der Prototyp erprobt gezielt Gamification an einem Kulturort, um Geschichte engaging und zielgruppenorientierter zu vermitteln — für jüngere Besucher, Schulen und Stadtrundgänge. Als gespielte Zeitreise durch die Stockwerke der Geschichte erzählen historische Figuren von ihren Grabsteinen, laden über kleine Quests zur Bindung ein; der Verlust der Kirche wird spürbar, bis aktives Handeln sie wieder über dem realen Ort erstehen lässt. Das Finale fragt „Was bleibt?“ und überführt die Erinnerung in ein immersives Gästebuch — ein wachsendes Zukunftsarchiv.',
+    textD:      'Entscheidend ist die Rolle des Designs: Es tritt nicht an die Stelle des Ortes, sondern verstärkt seine Wirkung — es übersetzt kuratierte, geprüfte Inhalte in ein zugängliches, spielerisches Erlebnis. Technisch bleibt die Lösung niederschwellig: smartphone-basierte AR, offen für weitere Erinnerungsorte in Dresden. So wird aus Verlust eine digitale Auferstehung — getragen von Erinnerungskultur, Technologie und Langzeitperspektive. Am Ende steht ein einfacher Gedanke: Ich will nicht vergessen werden.',
     twoColText:      false,
     link:       { href: 'https://www.denkraum-sophienkirche.de/', label: 'Webseite Sophienkirche', external: true },
-    source:     'Kooperation mit Förderkreis Sophienkirche e. V.',
+    source:     (
+      <>
+        Vielen Dank an Christian Curschmann · Kooperation mit{' '}
+        <a
+          href="https://buergerstiftung-dresden.de/"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="underline underline-offset-2 transition-colors hover:text-ink/60"
+        >
+          Bürgerstiftung Dresden
+        </a>
+      </>
+    ),
   },
   zeitpyramide: {
     title:      'Die Wemdinger Zeitpyramide',
     subtitle:   'Langzeitkunstprojekt & AR-Visualisierung',
-    textA:      'Alle zehn Jahre wird ein Betonblock gesetzt — 120 Blöcke, 1.200 Jahre. Wir bauen das digitale Gegenstück: eine AR-Erfahrung, die den Jahrhunderten ein Interface gibt, ohne sie zu beschleunigen.',
-    textB:      'Besucher:innen können vor Ort jeden gesetzten Stein scannen, hören, was diese Generation hinterließ — und sehen, was kommt.',
+    textA:      'Mitten im Nördlinger Ries, in der bayerischen Kleinstadt Wemding, entsteht eines der ersten Langzeitkunstprojekte überhaupt: die Zeitpyramide. Zum 1200-jährigen Stadtjubiläum 1993 vom Künstler Manfred Laber als Geschenk an die Stadt konzipiert, wächst sie über exakt 1200 Jahre — alle zehn Jahre wird ein Betonstein gesetzt, bis das Bauwerk 3183 aus 120 Steinen vollendet ist. Als Werk der konkreten Kunst ist sie kein statisches Monument, sondern ein bewusst entschleunigter Prozess: Der Beton nimmt mit der Zeit Patina und Risse an und macht so Vergänglichkeit und den langen Atem der Zeit sichtbar — ein Denkmal für die Langsamkeit, dessen Vollendung niemand erlebt, der heute lebt.',
+    textB:      'Das Problem jeder Langzeitkunst ist ihre Abstraktion: Vier Steine auf einer Wiese lassen sich kaum als künftige Pyramide lesen. Eine UAV-Photogrammetrie-Visualisierung setzt hier an — per Drohne erfasste Aufnahmen werden zu einem präzisen digitalen Modell des realen Standorts zusammengeführt, in das sich der vollständige Bau einrechnen lässt. So wird die ferne Endgestalt aus dem heutigen Bestand heraus greifbar und an den tatsächlichen Ort rückgebunden.',
+    textC:      'Daran knüpft eine AR-Visualisierung an, die wie ein Fenster in eine spekulative Zukunft funktioniert: Über das Smartphone erscheinen die noch ausstehenden Steine direkt vor Ort, bis die fertige Pyramide über der realen Landschaft steht. Dass dies mehr ist als ein Effekt, stützt eine Umfrage in der Region: Wer die Zeitpyramide positiv bewertet, glaubt zugleich signifikant häufiger an weitere 1200 Jahre Wemding und blickt optimistischer in die Zukunft — Langzeitprojekte wirken so als soziale Katalysatoren für Zukunftsvertrauen. Genau diese Wirkung verstärkt die Visualisierung: Indem sie die ferne Vollendung sinnlich erfahrbar macht, hilft sie den Wemdingern, sich eine Zukunft in 1200 Jahren tatsächlich vorzustellen — und stärkt die Zuversicht, die jedes Langzeitprojekt trägt. Dabei arbeiten wir eng mit der Stiftung Wemdinger Zeitpyramide zusammen, um die Pyramide zu ermöglichen, ihre Aufgaben und Projekte zu unterstützen und ihre Vollendung zu befördern — und ihr die Präsentation, Wirksamkeit und kommunikative Strahlkraft zu verleihen, die ihr gebührt.',
     twoColText: false,
     link:       { href: 'https://zeitpyramide.de', label: 'Webseite Stiftung', external: true },
-    source:     'Quelle: Stadtmuseum Wemding · Suter + Wittwer, 1993',
+    source:     (
+      <>
+        Die{' '}
+        <a
+          href="https://www.donau-ries-aktuell.de/kultur/virtuelle-reise-durch-die-zeitpyramide-der-zukunft-wemding-81669"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="underline underline-offset-2 transition-colors hover:text-ink/60"
+        >
+          AR-Visualisierung
+        </a>{' '}
+        ist an der Zeitpyramide einzusehen, die WebXR-Anwendung wird gefördert vom
+        <a
+          href="https://www.fff-bayern.de/"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="FilmFernsehFonds Bayern"
+          className="mt-2 -ml-2.5 block w-fit"
+        >
+          <img
+            src="/assets/fff-logo.png"
+            alt="FilmFernsehFonds Bayern"
+            width={900}
+            height={360}
+            className="h-11 w-auto opacity-60 transition-opacity hover:opacity-100"
+          />
+        </a>
+      </>
+    ),
   },
   vrlab: {
     title:      'VRlab',
@@ -77,10 +162,10 @@ const PROJECTS: Record<ProjectId, ProjectData> = {
     source:     'Bilder: Deutsches Museum · Forum der Zukunft, 2022',
   },
   p5: {
-    title:      'Pace Layering',
+    title:      'Kommerz und Kulturkapital pragmatisch bündeln',
     subtitle:   'Abgeschlossene Web- & Agenturprojekte & Kooperationen',
-    textA:      'Digitale Wirkung entsteht nicht durch sichtbare Ergebnisse allein – sondern durch das, was trägt: verlässliche Systeme, stabile Infrastruktur und die Verbindung aus Technologie, Menschen und Kultur.',
-    textB:      'Wir denken in langen Zeithorizonten – und handeln trotzdem im Jetzt. Stewart Brands Pace Layering zeigt: Wer die langsamen, bewahrenden Schichten der Kultur gestalten will, muss in den schnellen Schichten präsent sein – in Commerce, Fashion, Lifestyle. Das kurzfristige, lukrative Tagesgeschäft ist kein Widerspruch zum Langzeitanspruch. Es ist seine Voraussetzung. Wer sich der Kultur bedient, gibt zurück.',
+    textA:      'Kommerz und Kultur sind für uns kein Gegensatz, sondern Hebel füreinander. Das kurzfristige, lukrative Tagesgeschäft – in Commerce, Fashion, Lifestyle – schafft die Mittel und die Reichweite, aus denen langfristiges Kulturkapital wächst. Digitale Wirkung entsteht dabei nicht durch sichtbare Ergebnisse allein, sondern durch das, was trägt: verlässliche Systeme, stabile Infrastruktur und die Verbindung aus Technologie, Menschen und Kultur.',
+    textB:      'Den Rahmen dafür liefert Stewart Brands Pace Layering: Wer die langsamen, bewahrenden Schichten der Kultur gestalten will, muss in den schnellen Schichten präsent sein. So denken wir in langen Zeithorizonten – und handeln trotzdem im Jetzt. Das schnelle Geschäft ist kein Widerspruch zum Langzeitanspruch, sondern seine Voraussetzung. Wer sich der Kultur bedient, gibt zurück.',
     textC:      'Deshalb arbeiten wir ohne Hierarchie: Familienunternehmen und Kulturinstitution, Subkultur und Hochkultur, Verein und Alltagskultur. Die folgenden Referenzen sind abgeschlossene Web- und Agenturprojekte sowie ehemalige Kooperationen – pragmatisch, ethisch, auf Wirkung ausgerichtet.',
     twoColText: false,
     link:       { href: 'https://longnow.org/ideas/pace-layers/', label: 'Pace Layering – Long Now Foundation', external: true },
@@ -103,6 +188,44 @@ function ArrowLink({ href, label, external }: { href: string; label: string; ext
         {external ? '↗' : '→'}
       </span>
     </a>
+  )
+}
+
+// ─── Shared: links + source footnote ─────────────────────────────────────────
+
+function ProjectMeta({ project }: { project: ProjectData }) {
+  return (
+    <>
+      {(project.link || project.download) && (
+        <div className="mt-5 flex flex-col items-start gap-3">
+          {project.link && (
+            <ArrowLink
+              href={project.link.href}
+              label={project.link.label}
+              external={project.link.external}
+            />
+          )}
+          {project.download && (
+            <a
+              href={project.download.href}
+              download
+              className="group inline-flex items-center gap-1.5 border-b border-ink/30 pb-0.5
+                         font-sans text-[12px] font-medium text-ink/55 transition-all
+                         hover:border-ink hover:text-ink"
+            >
+              {project.download.label}
+              <span aria-hidden className="transition-transform group-hover:translate-y-0.5">↓</span>
+            </a>
+          )}
+        </div>
+      )}
+
+      {project.source && (
+        <p className="mt-4 font-sans text-[10px] tracking-wider text-ink/32">
+          {project.source}
+        </p>
+      )}
+    </>
   )
 }
 
@@ -353,7 +476,7 @@ function SophienkircheMedia() {
       className="relative flex-none mx-auto"
       style={{
         width: 200,
-        marginTop: 'clamp(-200px, -14vw, -60px)',
+        marginTop: 'clamp(-70px, calc(-8vw + 50px), 30px)',
         transform: rotated ? 'rotate(-90deg)' : 'rotate(0deg)',
         transition: 'transform 0.6s ease-in-out',
       }}
@@ -433,7 +556,9 @@ function ZeitpyramideMedia() {
   const btnStyle = { background: 'linear-gradient(135deg, #b29bd0 0%, #5d4684 100%)' }
 
   return (
-    <div className="relative flex-none ml-6" style={{ width: 'clamp(280px, 36vw, 420px)', marginTop: '-3rem' }}>
+    // Width / placement are set by the call site so the phone can float beside the
+    // copy (portfolio) or sit in a fixed column elsewhere.
+    <div className="relative w-full">
 
       {/* Spacer — defines container height */}
       <img src="/assets/phone-empty.webp" aria-hidden draggable={false}
@@ -539,8 +664,7 @@ export default function SectionPortfolio() {
           src={BG_MAP[item.id]}
           aria-hidden
           draggable={false}
-          // VRlab: pan right so Lilienthal's glider (right of the scene) stays fully in frame.
-          style={{ objectPosition: item.id === 'vrlab' ? '62% center' : 'center' }}
+          style={{ objectPosition: BG_POSITION[item.id] ?? 'center' }}
           className={[
             'pointer-events-none absolute inset-0 h-full w-full select-none object-cover',
             'transition-opacity duration-700 ease-in-out',
@@ -548,29 +672,19 @@ export default function SectionPortfolio() {
           ].join(' ')}
         />
       ))}
-      {/* Directional cream scrim — strong on the left (nav + copy), clearing toward
-          the right so the photo keeps its colour around the media. Replaces the old
-          flat full-cover wash. */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden
-        style={{
-          background:
-            'linear-gradient(to right, rgba(247,236,237,0.92) 0%, rgba(247,236,237,0.85) 36%, rgba(247,236,237,0.45) 66%, rgba(247,236,237,0.15) 100%)',
-        }}
-      />
-      {/* Extra cream for slides whose photo isn't graphically supported (VRlab is a full
-          render, not a faded artwork) — boosts the right edge so the bright scene reads
-          calmer behind the media. Crossfades with the background as the slide changes. */}
-      <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-700"
-        aria-hidden
-        style={{
-          opacity: active === 'vrlab' || active === 'p5' ? 1 : 0,
-          background:
-            'linear-gradient(to right, rgba(247,236,237,0.35) 0%, rgba(247,236,237,0.38) 55%, rgba(247,236,237,0.62) 100%)',
-        }}
-      />
+      {/* Directional cream scrim — one tuned gradient per slide, crossfading on change
+          (same opacity-swap pattern as the backgrounds above). Strong on the left where
+          the nav + copy sit; the text-heavy slides keep more cream on the right so copy
+          reaching the right edge stays legible, while render/photo slides clear toward
+          the right so the subject keeps its colour. */}
+      {NAV_ITEMS.map(item => (
+        <div
+          key={item.id}
+          className="pointer-events-none absolute inset-0 transition-opacity duration-700 ease-in-out"
+          aria-hidden
+          style={{ opacity: active === item.id ? 1 : 0, background: SCRIM_MAP[item.id] }}
+        />
+      ))}
       {/* Edge fades blend the top/bottom into the cream page; the left edge reinforces
           legibility. The right edge stays clear so the subject keeps its colour. */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-cream to-transparent" aria-hidden />
@@ -634,88 +748,124 @@ export default function SectionPortfolio() {
             </p>
 
             {/* Text columns + media */}
-            <div className="mt-6 flex items-start gap-8 lg:gap-12">
+            {active === 'langzeitdesign' ? (
+              /* Long-form copy: intro sits beside the film, the rest continues
+                 full-width in two columns below it so the lines stay readable. */
+              <div className="mt-6">
+                {/* Intro paragraph sits beside the film */}
+                <div className="flex items-start gap-8 lg:gap-12">
+                  <div className="min-w-0 flex-1">
+                    <p className="font-serif text-[13px] leading-[1.7] text-ink/70">
+                      {project.textA}
+                    </p>
+                  </div>
+                  <div className="flex-none" style={{ width: 'clamp(220px,32vw,400px)', marginTop: 'calc(-3rem - 25px)' }}>
+                    <LangzeitdesignMedia />
+                  </div>
+                </div>
 
-              {/* Text area */}
-              <div className="min-w-0 flex-1" style={
-                active === 'sophienkirche' ? { paddingRight: '4rem' } :
-                undefined
-              }>
-                <div
-                  className={
-                    project.twoColText
-                      ? 'grid sm:grid-cols-2 gap-x-8 gap-y-3'
-                      : 'flex flex-col gap-3'
-                  }
-                >
-                  <p className="font-serif text-[14px] leading-[1.72] text-ink/70">
-                    {project.textA}
-                  </p>
+                {/* The two main paragraphs continue full-width in two clean
+                   columns — one whole paragraph each, so the column break
+                   always lands on a paragraph boundary, never mid-sentence. */}
+                <div className="mt-4 grid gap-x-10 gap-y-3 sm:grid-cols-2 lg:gap-x-12">
                   {project.textB && (
-                    <p className="font-serif text-[14px] leading-[1.72] text-ink/70">
+                    <p className="font-serif text-[13px] leading-[1.7] text-ink/70">
                       {project.textB}
                     </p>
                   )}
                   {project.textC && (
-                    <p className="font-serif text-[14px] leading-[1.72] text-ink/70">
+                    <p className="font-serif text-[13px] leading-[1.7] text-ink/70">
                       {project.textC}
                     </p>
                   )}
                 </div>
 
-                {/* Links */}
-                {(project.link || project.download) && (
-                  <div className="mt-5 flex flex-col items-start gap-3">
-                    {project.link && (
-                      <ArrowLink
-                        href={project.link.href}
-                        label={project.link.label}
-                        external={project.link.external}
-                      />
+                {/* Closing thought spans the full width again */}
+                {project.textD && (
+                  <p className="mt-3 font-serif text-[13px] leading-[1.7] text-ink/70">
+                    {project.textD}
+                  </p>
+                )}
+
+                <ProjectMeta project={project} />
+              </div>
+            ) : active === 'zeitpyramide' ? (
+              /* First two paragraphs run full-width; the long closing paragraph keeps a
+                 fixed column beside the phone (its own column) so no line ever runs
+                 full-width under the phone. */
+              <div className="mt-6">
+                <p className="font-serif text-[13px] leading-[1.7] text-ink/70">
+                  {project.textA}
+                </p>
+                {project.textB && (
+                  <p className="mt-3 font-serif text-[13px] leading-[1.7] text-ink/70">
+                    {project.textB}
+                  </p>
+                )}
+                <div className="mt-3 flex items-start gap-8 lg:gap-12">
+                  <div className="min-w-0 flex-1">
+                    {project.textC && (
+                      <p className="font-serif text-[13px] leading-[1.7] text-ink/70">
+                        {project.textC}
+                      </p>
                     )}
-                    {project.download && (
-                      <a
-                        href={project.download.href}
-                        download
-                        className="group inline-flex items-center gap-1.5 border-b border-ink/30 pb-0.5
-                                   font-sans text-[12px] font-medium text-ink/55 transition-all
-                                   hover:border-ink hover:text-ink"
-                      >
-                        {project.download.label}
-                        <span aria-hidden className="transition-transform group-hover:translate-y-0.5">↓</span>
-                      </a>
-                    )}
+                    <ProjectMeta project={project} />
+                  </div>
+                  <div className="flex-none self-center" style={{ width: 'clamp(280px,36vw,420px)', marginTop: '-150px' }}>
+                    <ZeitpyramideMedia />
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="mt-6 flex items-start gap-8 lg:gap-12">
+
+                {/* Text area */}
+                <div className="min-w-0 flex-1" style={
+                  active === 'sophienkirche' ? { paddingRight: '4rem' } :
+                  undefined
+                }>
+                  <div
+                    className={
+                      project.twoColText
+                        ? 'grid sm:grid-cols-2 gap-x-8 gap-y-3'
+                        : 'flex flex-col gap-3'
+                    }
+                  >
+                    {(() => {
+                      // Sophienkirche carries the most copy, so its paragraphs read a
+                      // notch smaller/tighter to keep the column beside the phone calm.
+                      const pClass = active === 'sophienkirche'
+                        ? 'font-serif text-[12px] leading-[1.6] text-ink/70'
+                        : 'font-serif text-[14px] leading-[1.72] text-ink/70'
+                      return (
+                        <>
+                          <p className={pClass}>{project.textA}</p>
+                          {project.textB && <p className={pClass}>{project.textB}</p>}
+                          {project.textC && <p className={pClass}>{project.textC}</p>}
+                          {project.textD && <p className={pClass}>{project.textD}</p>}
+                        </>
+                      )
+                    })()}
+                  </div>
+
+                  <ProjectMeta project={project} />
+                </div>
+
+                {/* Media */}
+                {active === 'sophienkirche' && <SophienkircheMedia />}
+                {active === 'vrlab' && (
+                  <div className="flex-none" style={{ width: 'clamp(240px,34vw,440px)', marginTop: '-2rem' }}>
+                    <VrGlasses />
+                  </div>
+                )}
+                {active === 'p5' && (
+                  <div className="flex-none" style={{ width: 'clamp(260px,36vw,460px)' }}>
+                    <PcWebsites />
                   </div>
                 )}
 
-                {/* Source footnote */}
-                {project.source && (
-                  <p className="mt-4 font-sans text-[10px] tracking-wider text-ink/32">
-                    {project.source}
-                  </p>
-                )}
               </div>
-
-              {/* Media */}
-              {active === 'langzeitdesign' && (
-                <div className="flex-none" style={{ width: 'clamp(220px,32vw,400px)', marginTop: '-3rem' }}>
-                  <LangzeitdesignMedia />
-                </div>
-              )}
-              {active === 'sophienkirche' && <SophienkircheMedia />}
-              {active === 'zeitpyramide'  && <ZeitpyramideMedia  />}
-              {active === 'vrlab' && (
-                <div className="flex-none" style={{ width: 'clamp(240px,34vw,440px)', marginTop: '-2rem' }}>
-                  <VrGlasses />
-                </div>
-              )}
-              {active === 'p5' && (
-                <div className="flex-none" style={{ width: 'clamp(260px,36vw,460px)' }}>
-                  <PcWebsites />
-                </div>
-              )}
-
-            </div>
+            )}
           </div>
 
         </div>

@@ -88,7 +88,7 @@ export default function MobileFooter() {
             <LogoTile src="/assets/mglogo.webp" alt="Million Generations" href="https://www.milliongenerations.org/index.php?title=Main_Page" imgClassName="max-h-[50px] w-full" />
             <LogoTile src="/assets/ZPlogo.svg" alt="Wemdinger Zeitpyramide" href="https://zeitpyramide.de/" imgClassName="h-[62px] max-h-none w-auto max-w-none" />
             <LogoTile src="/assets/LTAP_Logo.webp" alt="LTAP" href="https://www.milliongenerations.org/index.php?title=LTAP" imgClassName="h-[84px] max-h-none w-auto max-w-none grayscale" />
-            <LogoTile src="/partner-assets/fusiondev-logo/fusionDev-logo.svg" alt="fusionDev" href="https://fusiondev.info/" imgClassName="max-h-[44px] w-full" />
+            <LogoTile src="/partner-assets/fusiondev-logo/fusionDev-logo.svg" alt="fusionDev" href="https://fusiondev.info/" imgClassName="w-[150px] max-w-full grayscale opacity-80" />
           </div>
         </div>
 
@@ -99,9 +99,13 @@ export default function MobileFooter() {
           <div className="w-[250px] text-left">
             <h3 className="font-sans text-[17px] font-semibold text-ink">Teile den Zeitgeist</h3>
             <p className="mt-3 font-serif text-[14px] leading-[1.7] text-ink/65">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam nisi, tempus
-              pretium sodales quis, bibendum in nibh.
-            </p>
+              Social Media? Bewusst noch nicht. Ein eigener Kanal ist in Planung – einer,
+              der Langzeitdenken fördert, statt dem Takt der schnellen Aufmerksamkeit zu
+              folgen.{" "}
+              <em className="italic">
+                Wer den Zeitgeist mit uns teilen möchte, meldet sich gern.
+              </em>
+             </p>
             {SHOW_SOCIALS && (
               <div className="mt-6 flex items-center gap-7 text-ink/55">
                 <a href="https://instagram.com" target="_blank" rel="noreferrer noopener" aria-label="Instagram" className="transition-colors hover:text-ink"><IconInstagram /></a>
@@ -155,8 +159,8 @@ export default function MobileFooter() {
           <nav className="mt-[max(6rem,calc(32vh_-_12rem))] flex flex-col gap-7" aria-label="Footer-Navigation">
             <LowerNavLink href="#impressum" label="Impressum" onClick={openLegal('impressum')} />
             <LowerNavLink href="#datenschutz" label="Datenschutz" onClick={openLegal('datenschutz')} />
-            <LowerNavLink href="#cookies" label="Cookies" />
-            <span id="agbs" className="block scroll-mt-4"><LowerNavLink href="#agbs" label="AGBs" /></span>
+            <LowerNavLink href="#cookies" label="Cookies" onClick={openLegal('cookies')} />
+            <span id="agbs" className="block scroll-mt-4"><LowerNavLink href="#agbs" label="AGBs" onClick={openLegal('agbs')} /></span>
           </nav>
 
           {/* Logo */}

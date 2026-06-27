@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLegalModal } from '../legal/LegalModal'
 
 function useInView(threshold = 0.18) {
   const ref = useRef<HTMLDivElement>(null)
@@ -23,21 +24,23 @@ const FEATURES = [
   { title: 'Digitale Entschleunigung', body: 'Wir nutzen digitale Vielfalt als bewussten Gegenpol zur heutigen Schnelllebigkeit — um an die zukünftigen Generationen anzuknüpfen.' },
 ]
 
-function ArrowUnderlineLink({ href, children }: { href: string; children: string }) {
+function ArrowUnderlineLink({ onClick, children }: { onClick: () => void; children: string }) {
   return (
-    <a
-      href={href}
-      className="group flex items-center justify-between gap-4 border-b border-ink/30 pb-2 font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-ink/70 transition-colors hover:text-ink"
+    <button
+      type="button"
+      onClick={onClick}
+      className="group flex w-full items-center justify-between gap-4 border-b border-ink/30 pb-2 text-left font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-ink/70 transition-colors hover:text-ink"
     >
       <span>{children}</span>
       <span aria-hidden className="flex-none transition-transform group-hover:translate-x-1">→</span>
-    </a>
+    </button>
   )
 }
 
 export default function MobileLongView() {
   const tele = useInView(0.25)
   const vr = useInView(0.25)
+  const { open } = useLegalModal()
 
   return (
     <section id="was-ist" className="scroll-mt-4 bg-cream">
@@ -63,8 +66,8 @@ export default function MobileLongView() {
           </p>
 
           <div className="mt-8 flex flex-col gap-5">
-            <ArrowUnderlineLink href="#wer-sind-wir">Erfahre mehr über unseren Long View</ArrowUnderlineLink>
-            <ArrowUnderlineLink href="#wer-sind-wir">Wieso Langzeitdenken?</ArrowUnderlineLink>
+            <ArrowUnderlineLink onClick={() => open('longview')}>Erfahre mehr über unseren Long View</ArrowUnderlineLink>
+            <ArrowUnderlineLink onClick={() => open('langzeitdenken')}>Wieso Langzeitdenken?</ArrowUnderlineLink>
           </div>
         </div>
 

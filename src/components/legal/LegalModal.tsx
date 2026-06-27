@@ -26,11 +26,18 @@ export function useLegalModal(): LegalCtx {
 
 const LANG_STORAGE_KEY = 'dlv-legal-lang'
 
-// ─── Inline auto-linking for URLs & e-mail addresses ──────────────────────────
+// ─── Inline linking ───────────────────────────────────────────────────────────
 
+const LINK_CLASS =
+  'font-medium text-lavender-dark underline decoration-lavender/40 underline-offset-2 transition-colors hover:text-lavender'
+
+// Explicit `[label](https://…)` markdown links — used to link a specific word
+// in running text (e.g. the LTAP reference).
+const MD_LINK = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g
 const TOKEN = /(https?:\/\/[^\s]+|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/gi
 
-function linkify(text: string): ReactNode[] {
+/** Auto-link bare URLs & e-mail addresses inside a plain-text segment. */
+function autoLink(text: string, keyPrefix: string): ReactNode[] {
   const out: ReactNode[] = []
   let last = 0
   for (const m of text.matchAll(TOKEN)) {
@@ -53,11 +60,11 @@ function linkify(text: string): ReactNode[] {
 
     out.push(
       <a
-        key={start}
+        key={`${keyPrefix}-${start}`}
         href={isEmail ? `mailto:${href}` : href}
         target={isEmail ? undefined : '_blank'}
         rel={isEmail ? undefined : 'noreferrer noopener'}
-        className="font-medium text-lavender-dark underline decoration-lavender/40 underline-offset-2 transition-colors hover:text-lavender"
+        className={LINK_CLASS}
       >
         {href}
       </a>,
@@ -69,9 +76,34 @@ function linkify(text: string): ReactNode[] {
   return out
 }
 
+/** Render running text with explicit markdown links first, then auto-linked
+ *  bare URLs / e-mails in the remaining segments. */
+function linkify(text: string): ReactNode[] {
+  const out: ReactNode[] = []
+  let last = 0
+  for (const m of text.matchAll(MD_LINK)) {
+    const start = m.index ?? 0
+    if (start > last) out.push(...autoLink(text.slice(last, start), `t${start}`))
+    out.push(
+      <a
+        key={`md-${start}`}
+        href={m[2]}
+        target="_blank"
+        rel="noreferrer noopener"
+        className={LINK_CLASS}
+      >
+        {m[1]}
+      </a>,
+    )
+    last = start + m[0].length
+  }
+  if (last < text.length) out.push(...autoLink(text.slice(last), `t${last}`))
+  return out
+}
+
 // ─── Block renderer ───────────────────────────────────────────────────────────
 
-function Block({ block }: { block: LegalBlock }) {
+function Block({ block, onNavigate }: { block: LegalBlock; onNavigate: (key: LegalKey) => void }) {
   switch (block.k) {
     // Numbered top-level sections (semantically h3 below the dialog's h2 title)
     case 'h2':
@@ -120,6 +152,21 @@ function Block({ block }: { block: LegalBlock }) {
           {block.t}
         </p>
       )
+    // Cross-link to another pop-up — same arrow-underline styling as the
+    // front-page links, separated from the body by a hairline rule.
+    case 'modalLink':
+      return (
+        <div className="mt-10 border-t border-ink/10 pt-6">
+          <button
+            type="button"
+            onClick={() => onNavigate(block.to)}
+            className="group inline-flex items-center gap-2 border-b border-ink/25 pb-1 font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-ink/60 transition-all duration-200 hover:border-ink/60 hover:text-ink"
+          >
+            {block.t}
+            <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+          </button>
+        </div>
+      )
   }
 }
 
@@ -154,11 +201,13 @@ function LegalModal({
   lang,
   onLang,
   onClose,
+  onNavigate,
 }: {
   activeKey: LegalKey | null
   lang: Lang
   onLang: (l: Lang) => void
   onClose: () => void
+  onNavigate: (key: LegalKey) => void
 }) {
   // `render` keeps the last doc mounted through the closing transition.
   const [render, setRender] = useState<LegalKey | null>(activeKey)
@@ -272,7 +321,7 @@ function LegalModal({
           style={{ overscrollBehavior: 'contain' }}
         >
           {doc.blocks.map((block, i) => (
-            <Block key={i} block={block} />
+            <Block key={i} block={block} onNavigate={onNavigate} />
           ))}
         </div>
 
@@ -306,12 +355,13 @@ export function LegalModalProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const close = useCallback(() => setActiveKey(null), [])
+  const navigate = useCallback((key: LegalKey) => setActiveKey(key), [])
   const value = useMemo<LegalCtx>(() => ({ open: (key) => setActiveKey(key) }), [])
 
   return (
     <Ctx.Provider value={value}>
       {children}
-      <LegalModal activeKey={activeKey} lang={lang} onLang={setLang} onClose={close} />
+      <LegalModal activeKey={activeKey} lang={lang} onLang={setLang} onClose={close} onNavigate={navigate} />
     </Ctx.Provider>
   )
 }
