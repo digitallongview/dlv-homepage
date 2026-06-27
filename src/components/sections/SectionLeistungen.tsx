@@ -111,8 +111,8 @@ function CtaButton({ label }: { label: string }) {
   return (
     <a
       href="#kontakt"
-      className="group inline-flex h-[52px] w-fit items-center gap-2 rounded-full px-8
-                 font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-white
+      className="group inline-flex h-[44px] w-fit items-center gap-2 rounded-full px-6
+                 font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-white
                  transition-all duration-200
                  hover:brightness-110 hover:shadow-[0_8px_24px_-8px_rgba(93,70,132,0.6)]
                  focus:outline-none focus:ring-4 focus:ring-lavender/40 active:scale-[0.97]"
@@ -129,10 +129,12 @@ function CtaButton({ label }: { label: string }) {
 function ServiceCard({ service, isLast = false }: { service: Service; isLast?: boolean }) {
   const { ref, inView } = useInView()
   const isLeft = service.side === 'left'
-  const imgW    = service.id === 'marketing' ? '62%'
-               : service.id === '3d'        ? '62%'
+  const imgW    = service.id === 'marketing'    ? '82%'
+               : service.id === '3d'           ? '62%'
+               : service.id === 'langzeit'     ? '170%'  // Taschenuhr: wächst über die Spalte in den Schutzraum
+               : service.id === 'gamification' ? '125%'  // Controller: etwas größer
                : '100%'
-  const imgMaxH = service.id === 'langzeit'  ? 'min(82vh, 680px)' : 'min(62vh, 520px)'
+  const imgMaxH = service.id === 'langzeit'  ? 'min(84vh, 720px)' : 'min(62vh, 520px)'
 
   return (
     <div
@@ -187,71 +189,13 @@ function ServiceCard({ service, isLast = false }: { service: Service; isLast?: b
 
             {isLeft ? (
               <>
-                {/* ── Icon (4 cols) ── */}
-                <div className="col-span-4 flex items-center justify-start">
-                  <img
-                    src={service.icon}
-                    alt={service.title}
-                    draggable={false}
-                    className="select-none object-contain"
-                    style={{ width: imgW, maxHeight: imgMaxH }}
-                  />
-                </div>
-
-                {/* ── Text (5 cols) ── */}
-                <div className="col-span-5 pl-4">
-                  <h3 className="font-sans text-[clamp(17px,1.7vw,21px)] font-semibold leading-tight tracking-tight text-ink">
-                    {service.title}
-                  </h3>
-                  <p className="mt-4 font-serif text-[14.5px] leading-[1.68] text-ink/72">
-                    {service.body}
-                  </p>
-                  {service.body2 && (
-                    <p className="mt-3 font-serif text-[14.5px] leading-[1.68] text-ink/72">
-                      {service.body2}
-                    </p>
-                  )}
-                  {service.body3 && (
-                    <p className="mt-3 font-serif text-[14.5px] leading-[1.68] text-ink/72">
-                      {service.body3}
-                    </p>
-                  )}
-                </div>
-
-                {/* ── Button (3 cols) ── */}
-                <div className="col-span-3 flex items-center justify-end">
-                  <CtaButton label={service.cta} />
-                </div>
-              </>
-            ) : (
-              <>
-                {/* ── Button (3 cols) ── */}
+                {/* ── Button (3 cols) — at the narrow tip side ── */}
                 <div className="col-span-3 flex items-center justify-start">
                   <CtaButton label={service.cta} />
                 </div>
 
-                {/* ── Text (5 cols) ── */}
-                <div className="col-span-5 pr-4">
-                  <h3 className="font-sans text-[clamp(17px,1.7vw,21px)] font-semibold leading-tight tracking-tight text-ink">
-                    {service.title}
-                  </h3>
-                  <p className="mt-4 font-serif text-[14.5px] leading-[1.68] text-ink/72">
-                    {service.body}
-                  </p>
-                  {service.body2 && (
-                    <p className="mt-3 font-serif text-[14.5px] leading-[1.68] text-ink/72">
-                      {service.body2}
-                    </p>
-                  )}
-                  {service.body3 && (
-                    <p className="mt-3 font-serif text-[14.5px] leading-[1.68] text-ink/72">
-                      {service.body3}
-                    </p>
-                  )}
-                </div>
-
-                {/* ── Icon (4 cols) ── */}
-                <div className="col-span-4 flex items-center justify-end">
+                {/* ── Icon (4 cols) — centered in the middle ── */}
+                <div className="col-span-4 flex items-center justify-center">
                   <img
                     src={service.icon}
                     alt={service.title}
@@ -259,6 +203,64 @@ function ServiceCard({ service, isLast = false }: { service: Service; isLast?: b
                     className="select-none object-contain"
                     style={{ width: imgW, maxHeight: imgMaxH }}
                   />
+                </div>
+
+                {/* ── Text (5 cols) — at the wide base of the wedge ── */}
+                <div className="col-span-5 pl-4">
+                  <h3 className="font-sans text-[clamp(17px,1.7vw,21px)] font-semibold leading-tight tracking-tight text-ink">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 font-serif text-[13px] leading-[1.6] text-ink/72">
+                    {service.body}
+                  </p>
+                  {service.body2 && (
+                    <p className="mt-3 font-serif text-[13px] leading-[1.6] text-ink/72">
+                      {service.body2}
+                    </p>
+                  )}
+                  {service.body3 && (
+                    <p className="mt-3 font-serif text-[13px] leading-[1.6] text-ink/72">
+                      {service.body3}
+                    </p>
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                {/* ── Text (5 cols) — at the wide base of the wedge ── */}
+                <div className="col-span-5 pr-4">
+                  <h3 className="font-sans text-[clamp(17px,1.7vw,21px)] font-semibold leading-tight tracking-tight text-ink">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 font-serif text-[13px] leading-[1.6] text-ink/72">
+                    {service.body}
+                  </p>
+                  {service.body2 && (
+                    <p className="mt-3 font-serif text-[13px] leading-[1.6] text-ink/72">
+                      {service.body2}
+                    </p>
+                  )}
+                  {service.body3 && (
+                    <p className="mt-3 font-serif text-[13px] leading-[1.6] text-ink/72">
+                      {service.body3}
+                    </p>
+                  )}
+                </div>
+
+                {/* ── Icon (4 cols) — centered in the middle ── */}
+                <div className="col-span-4 flex items-center justify-center">
+                  <img
+                    src={service.icon}
+                    alt={service.title}
+                    draggable={false}
+                    className="select-none object-contain"
+                    style={{ width: imgW, maxHeight: imgMaxH }}
+                  />
+                </div>
+
+                {/* ── Button (3 cols) — at the narrow tip side ── */}
+                <div className="col-span-3 flex items-center justify-end">
+                  <CtaButton label={service.cta} />
                 </div>
               </>
             )}

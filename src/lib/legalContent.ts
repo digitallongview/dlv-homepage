@@ -12,16 +12,20 @@
  */
 import type { Lang } from './hlsSources'
 
-export type LegalKey = 'impressum' | 'datenschutz'
+export type LegalKey = 'impressum' | 'datenschutz' | 'cookies' | 'agbs' | 'langzeitdenken' | 'longview'
 
 export type LegalBlock =
   | { k: 'h2'; t: string }
   | { k: 'h3'; t: string }
   | { k: 'h4'; t: string }
+  /** Paragraph. Supports inline `[label](https://…)` markdown links in addition
+   *  to auto-linked bare URLs / e-mail addresses. */
   | { k: 'p'; t: string }
   | { k: 'ul'; items: string[] }
   /** Emphasised, all-caps legal passage (Art. 21 DSGVO Widerspruch). */
   | { k: 'note'; t: string }
+  /** Arrow link that opens another pop-up — styled like the front-page links. */
+  | { k: 'modalLink'; to: LegalKey; t: string }
 
 export type LegalDoc = {
   eyebrow: string
@@ -507,9 +511,273 @@ const DATENSCHUTZ_EN: LegalDoc = {
   ],
 }
 
+// ─── Cookies ──────────────────────────────────────────────────────────────────
+
+const COOKIES_DE: LegalDoc = {
+  eyebrow: 'Digital Long View',
+  title: 'Cookies & digitale Transparenz',
+  blocks: [
+    { k: 'h2', t: 'Aktuell keine Cookies – und keine Einwilligung nötig' },
+    {
+      k: 'p',
+      t: 'Diese Website ist bewusst so umgesetzt, dass für ihren Betrieb keine Cookies gesetzt und keine personenbezogenen Profile gebildet werden. Es gibt deshalb kein Einwilligungsbanner: Sie können die Seite ohne vorherige Zustimmung und ohne die Auswahl von Cookie-Kategorien vollständig nutzen.',
+    },
+
+    { k: 'h3', t: 'Digitale Transparenz als Prinzip' },
+    {
+      k: 'p',
+      t: 'Transparenz im Umgang mit Daten ist für uns kein Pflichtprogramm, sondern Haltung. Soweit technisch möglich, verzichten wir auf verstecktes Tracking, auf Analyse- und Marketing-Parameter sowie auf das unnötige Speichern von Informationen auf Ihrem Endgerät. Was nicht erhoben wird, muss auch nicht geschützt, verwaltet oder erklärt werden.',
+    },
+
+    { k: 'h3', t: 'DSGVO-konform und in der EU gehostet' },
+    {
+      k: 'p',
+      t: 'Unsere Website wird auf Servern innerhalb der Europäischen Union betrieben (Hetzner Online GmbH, Deutschland) und unterliegt damit den strengen Vorgaben der DSGVO. Technisch notwendige Verbindungsdaten – etwa Server-Log-Dateien – werden ausschließlich für den sicheren und fehlerfreien Betrieb der Seite verarbeitet.',
+    },
+    {
+      k: 'p',
+      t: 'Ausführliche Informationen zu Art, Umfang und Zweck der Datenverarbeitung finden Sie in unserer Datenschutzerklärung (siehe Fußzeile).',
+    },
+
+    {
+      k: 'note',
+      t: 'Sollten wir künftig Cookies oder externe Analysedienste einsetzen, informieren wir Sie an dieser Stelle und holen – wo erforderlich – vorab Ihre Einwilligung ein.',
+    },
+  ],
+}
+
+const COOKIES_EN: LegalDoc = {
+  eyebrow: 'Digital Long View',
+  title: 'Cookies & Digital Transparency',
+  blocks: [
+    { k: 'h2', t: 'No cookies at present – and no consent required' },
+    {
+      k: 'p',
+      t: 'This website is deliberately built so that no cookies are set and no personal profiles are created for its operation. There is therefore no consent banner: you can use the site in full without prior consent and without selecting cookie categories.',
+    },
+
+    { k: 'h3', t: 'Digital transparency as a principle' },
+    {
+      k: 'p',
+      t: 'For us, transparency in handling data is not a box-ticking exercise but a matter of principle. As far as technically possible, we do without hidden tracking, without analytics and marketing parameters, and without the unnecessary storage of information on your device. What is not collected does not need to be protected, managed or explained.',
+    },
+
+    { k: 'h3', t: 'GDPR-compliant and hosted in the EU' },
+    {
+      k: 'p',
+      t: 'Our website runs on servers within the European Union (Hetzner Online GmbH, Germany) and is therefore subject to the strict requirements of the GDPR. Technically necessary connection data – such as server log files – is processed solely for the secure and error-free operation of the site.',
+    },
+    {
+      k: 'p',
+      t: 'Detailed information on the nature, scope and purpose of data processing can be found in our privacy policy (see footer).',
+    },
+
+    {
+      k: 'note',
+      t: 'Should we use cookies or external analytics services in the future, we will inform you here and obtain your consent in advance where required.',
+    },
+  ],
+}
+
+// ─── AGB & Selbstverständnis ──────────────────────────────────────────────────
+
+const AGB_DE: LegalDoc = {
+  eyebrow: 'Digital Long View',
+  title: 'AGB & Selbstverständnis',
+  blocks: [
+    { k: 'h2', t: 'Kulturarbeit als bewusste Bürde' },
+    {
+      k: 'p',
+      t: 'Wer für die Kultur arbeitet, übernimmt bewusst eine Bürde: Kulturarbeit schließt Wissenslücken, bewahrt Werte und schafft Bleibendes – und fällt dabei häufig defizitär aus. Budgets sind knapper als in der freien Wirtschaft, der unmittelbare Ertrag ist geringer. Wir kennen diesen Widerspruch und nehmen ihn an.',
+    },
+
+    { k: 'h3', t: 'Kulturkapital als langfristiger Wert' },
+    {
+      k: 'p',
+      t: 'Was dabei entsteht, ist Kulturkapital: ein Wert, der über Generationen hinweg wirken und wirtschaften kann. Doch dieses Kapital muss erhalten werden – und zwar im Takt von Lifestyle und Kommerz, also in genau jenen schnellen Schichten, in denen Aufmerksamkeit und Mittel zirkulieren.',
+    },
+
+    { k: 'h3', t: 'Eine Organisationsform, die sich selbst trägt' },
+    {
+      k: 'p',
+      t: 'Daraus folgt der Anspruch an unsere Organisationsform. Wir streben eine Struktur an, die auf Stiftungslogik (Endowment) und langfristiger Finanzierung beruht – auf Selbsterhalt statt Gewinnmaximierung, ohne Dividendenausschüttung an Eigentümer. Unser Geschäftsmodell soll nicht von Geschwindigkeit abhängen und nicht anfällig für Markteinbrüche und Rezessionen sein.',
+    },
+    {
+      k: 'p',
+      t: 'Stattdessen wirtschaften wir entschleunigt und bedacht: langsamer, aber beständiger Profit, der zuerst das Unternehmen selbst trägt und anschließend in Langzeitprojekte und Kulturinstitutionen zurückfließt – in Form von Vergünstigungen, Förderungen und Spenden.',
+    },
+
+    { k: 'h3', t: 'Marktfähig bleiben: die hybride Form gGmbH' },
+    {
+      k: 'p',
+      t: 'Um zugleich marktfähig zu bleiben, das Tagesgeschäft zu bestreiten und wettbewerbsfähige Agenturarbeit in einer Marktwirtschaft zu leisten, streben wir eine hybride Gesellschaftsform an: die gGmbH – eine gesellschaftsorientierte, am Gemeinwohl statt an Maximalrendite ausgerichtete Gesellschaft.',
+    },
+
+    { k: 'h3', t: 'Incorruptible by Design' },
+    {
+      k: 'p',
+      t: 'Eine eigens dafür deklarierte Satzung sichert dieses klare Ziel dauerhaft ab und macht es unabhängig von kurzfristigen Interessen. Wir nennen dieses Prinzip: Incorruptible by Design.',
+    },
+    {
+      k: 'p',
+      t: 'Mehr zum Gedanken langfristig unbestechlicher Institutionen: https://longnow.org/talks/02026-ries/',
+    },
+
+    {
+      k: 'note',
+      t: 'Hinweis: Dieser Text beschreibt unser unternehmerisches Selbstverständnis und die angestrebte Organisationsform. Verbindliche Allgemeine Geschäftsbedingungen für konkrete Leistungen vereinbaren wir projektbezogen.',
+    },
+  ],
+}
+
+const AGB_EN: LegalDoc = {
+  eyebrow: 'Digital Long View',
+  title: 'Terms & Guiding Principles',
+  blocks: [
+    { k: 'h2', t: 'Cultural work as a conscious burden' },
+    {
+      k: 'p',
+      t: 'Anyone who works for culture deliberately takes on a burden: cultural work closes knowledge gaps, preserves value and creates things that last – and in doing so it is often loss-making. Budgets are tighter than in the free economy, and the immediate return is smaller. We are aware of this contradiction and embrace it.',
+    },
+
+    { k: 'h3', t: 'Cultural capital as a long-term value' },
+    {
+      k: 'p',
+      t: 'What emerges in the process is cultural capital: a value that can act and operate across generations. Yet this capital must be preserved – at the pace of lifestyle and commerce, in precisely those fast layers where attention and resources circulate.',
+    },
+
+    { k: 'h3', t: 'An organisation that sustains itself' },
+    {
+      k: 'p',
+      t: 'From this follows what we expect of our organisational form. We aim for a structure based on endowment logic and long-term financing – on self-preservation instead of profit maximisation, without dividend payouts to owners. Our business model should not depend on speed, nor be vulnerable to market crashes and recessions.',
+    },
+    {
+      k: 'p',
+      t: 'Instead, we operate in a decelerated and deliberate way: slower but steady profit that first sustains the company itself and then flows back into long-term projects and cultural institutions – in the form of discounts, support and donations.',
+    },
+
+    { k: 'h3', t: 'Staying market-ready: the hybrid gGmbH form' },
+    {
+      k: 'p',
+      t: 'To remain market-ready at the same time – to handle day-to-day business and deliver competitive agency work in a market economy – we aim for a hybrid corporate form: the gGmbH, a society-oriented company geared towards the common good rather than maximum return.',
+    },
+
+    { k: 'h3', t: 'Incorruptible by Design' },
+    {
+      k: 'p',
+      t: 'A statute declared specifically for this purpose secures this clear goal permanently and makes it independent of short-term interests. We call this principle: Incorruptible by Design.',
+    },
+    {
+      k: 'p',
+      t: 'More on the idea of long-term incorruptible institutions: https://longnow.org/talks/02026-ries/',
+    },
+
+    {
+      k: 'note',
+      t: 'Please note: this text describes our entrepreneurial self-conception and the organisational form we are working towards. Binding general terms and conditions for specific services are agreed on a per-project basis.',
+    },
+  ],
+}
+
+// ─── Wieso Langzeitdenken? ────────────────────────────────────────────────────
+
+const LANGZEITDENKEN_DE: LegalDoc = {
+  eyebrow: 'Digital Long View',
+  title: 'Wieso Langzeitdenken?',
+  blocks: [
+    {
+      k: 'p',
+      t: 'Wir leben in einer Zeitwahrnehmungskrise. Quartalsgewinne, Wahlzyklen und der Drang nach sofortiger Befriedigung verengen unseren Horizont auf das nahe Referenzierbare — und mit den positiven Zukunftsbildern verlieren wir die Zuversicht, ohne die laut dem Soziologen Fred Polak keine Zivilisation Bestand hat. Langzeitdenken ist die Fähigkeit, über unmittelbare Bedürfnisse hinauszublicken und die langfristigen Folgen unseres Handelns mitzudenken.',
+    },
+    {
+      k: 'p',
+      t: 'Dabei geht es nicht darum, alles zu entschleunigen, sondern um Balance zwischen den Zeitschichten. Das Pace-Layering-Modell beschreibt eine Gesellschaft als Schichten, die unterschiedlich schnell laufen: Mode und Konsum bewegen sich rasch, Infrastruktur, Governance und Kultur dagegen langsam. Die schnellen Schichten sorgen für Innovation, die langsamen für Stabilität — gesund ist ein System nur, wenn beide im Gleichgewicht stehen. Heute aber dominiert das Tempo der schnellsten Schicht alles. Langzeitdenken bringt die langsamen, tragenden Ebenen wieder ins Spiel.',
+    },
+    {
+      k: 'p',
+      t: 'Genau hier setzen [Langzeit(kunst)projekte](https://www.milliongenerations.org/index.php?title=LTAP) an. Es sind Werke, die über mehr als 100 Jahre angelegt sind, die ausdrücklich fortgeführt werden müssen und die auf das Engagement nachfolgender Generationen von Hüterinnen und Hütern angewiesen sind — von den 7000 Eichen über die 10.000-Jahre-Uhr und die Future Library bis zur Wemdinger Zeitpyramide. Ihre eigentliche Leistung ist eine emotionale: Sie machen ferne Zukünfte und die Menschen, die es noch gar nicht gibt, im Hier und Jetzt greifbar — und geben uns das emotionale Rüstzeug, uns um jene zu sorgen, die nach uns kommen. Und wirksame Langzeitpolitik braucht genau das: dauerhafte, breite emotionale Unterstützung. Kunst erzählt seit jeher die Geschichten und Gefühle, die Gesellschaften formen; Langzeitkunst richtet diese Kraft auf die Zukunft. Wer sich mit einem solchen Projekt verbunden fühlt, glaubt messbar eher an eine lange, gemeinsame Zukunft — und handelt danach.',
+    },
+    { k: 'modalLink', to: 'longview', t: 'Erfahre mehr über unseren Long View' },
+  ],
+}
+
+const LANGZEITDENKEN_EN: LegalDoc = {
+  eyebrow: 'Digital Long View',
+  title: 'Why Long-Term Thinking?',
+  blocks: [
+    {
+      k: 'p',
+      t: 'We live in a crisis of how we perceive time. Quarterly earnings, election cycles and the urge for instant gratification narrow our horizon to what is near and referenceable — and as the positive images of the future fade, we lose the confidence without which, according to the sociologist Fred Polak, no civilisation can endure. Long-term thinking is the ability to look beyond immediate needs and to take the long-term consequences of our actions into account.',
+    },
+    {
+      k: 'p',
+      t: 'This is not about slowing everything down, but about balance between the layers of time. The pace-layering model describes society as layers that move at different speeds: fashion and commerce move fast, while infrastructure, governance and culture move slowly. The fast layers drive innovation, the slow ones provide stability — a system is only healthy when the two are in balance. Today, however, the tempo of the fastest layer dominates everything. Long-term thinking brings the slow, load-bearing layers back into play.',
+    },
+    {
+      k: 'p',
+      t: 'This is exactly where [long-term (art) projects](https://www.milliongenerations.org/index.php?title=LTAP) come in. These are works designed to span more than 100 years, which must be explicitly carried on and which depend on the commitment of successive generations of keepers — from the 7000 Oaks to the 10,000 Year Clock and the Future Library to the Wemding Time Pyramid. Their real achievement is an emotional one: they make distant futures, and the people who do not yet exist, tangible in the here and now — and give us the emotional equipment to care for those who come after us. And effective long-term policy needs precisely this: lasting, broad emotional support. Art has always told the stories and feelings that shape societies; long-term art directs that power towards the future. Those who feel connected to such a project are measurably more likely to believe in a long, shared future — and to act accordingly.',
+    },
+    { k: 'modalLink', to: 'longview', t: 'Discover more about our Long View' },
+  ],
+}
+
+// ─── Erfahre mehr über unseren Long View ──────────────────────────────────────
+
+const LONGVIEW_DE: LegalDoc = {
+  eyebrow: 'Digital Long View',
+  title: 'Erfahre mehr über unseren Long View',
+  blocks: [
+    {
+      k: 'p',
+      t: 'Raum, Zeit und Kultur gehören für uns zusammen, weil sie sich gegenseitig bedingen: Kultur entsteht in einem Raum und entfaltet ihre Bedeutung erst über die Zeit — sie ist das, was eine Gesellschaft über Generationen hinweg weitergibt. Als Digitalagentur für Raum, Zeit und Kultur machen wir genau diese Verbindung erfahrbar.',
+    },
+    {
+      k: 'p',
+      t: 'Unser Dreieck bringt das auf den Punkt. Unsere Vision: Langzeitdenken und Langzeitprojekte zu fördern, zu schaffen, zu erwecken und als kulturelle Praxis zu etablieren. Unsere Mission: Erlebnisräume und Kommunikation zu produzieren, die durch Partizipation und Immersion Bewusstsein wecken — wir verstehen uns als Motivator und Verstärker bestehender Kulturorte und Langzeitprojekte, nicht als deren Ersatz. Unser Leitfaden: Wir schaffen Kommunikation für Kulturschaffende und Erlebende, weil wir daran glauben, dass sich Verbesserung durch Partizipation und Erleben erreichen lässt — ermöglicht durch digitale Stützen. So wecken wir Langzeitdenken und Zuversicht für ferne Zukünfte.',
+    },
+    {
+      k: 'p',
+      t: 'Warum uns das so wichtig ist: Heutiges Handeln dient fast ausschließlich den Lebenden — während die nachfolgenden Generationen, die alle bisher Lebenden bei Weitem übertreffen, kein Mitspracherecht haben. Wir kolonisieren ihre Zukunft, indem wir unsere ökologischen und technologischen Schulden an sie abtreten. Sie sind die Verletzlichsten, weil sie sich nicht wehren können — und damit das Schützenswerteste, das wir haben.',
+    },
+    {
+      k: 'p',
+      t: 'Darüber steht unsere Just Cause, der Grund hinter allem, was wir tun: ein guter Vorfahre sein. Gute Vorfahrenschaft kultivieren — für zukünftige Generationen und lange Zukünfte. Sei ein guter Vorfahre.',
+    },
+    { k: 'modalLink', to: 'langzeitdenken', t: 'Wieso Langzeitdenken?' },
+  ],
+}
+
+const LONGVIEW_EN: LegalDoc = {
+  eyebrow: 'Digital Long View',
+  title: 'Discover Our Long View',
+  blocks: [
+    {
+      k: 'p',
+      t: 'For us, space, time and culture belong together because they depend on one another: culture emerges within a space and only unfolds its meaning over time — it is what a society passes on across generations. As the digital agency for space, time and culture, we make exactly this connection tangible.',
+    },
+    {
+      k: 'p',
+      t: 'Our triangle sums it up. Our vision: to foster, create, awaken and establish long-term thinking and long-term projects as a cultural practice. Our mission: to produce experiential spaces and communication that raise awareness through participation and immersion — we see ourselves as a motivator and amplifier of existing cultural sites and long-term projects, not as their replacement. Our guiding principle: we create communication for cultural creators and experiencers, because we believe that improvement can be achieved through participation and experience — enabled by digital support. In this way we awaken long-term thinking and confidence in distant futures.',
+    },
+    {
+      k: 'p',
+      t: 'Why this matters so much to us: today’s actions serve almost exclusively the living — while the generations to come, who by far outnumber everyone who has lived so far, have no say. We colonise their future by passing our ecological and technological debts on to them. They are the most vulnerable, because they cannot defend themselves — and therefore the most worthy of protection that we have.',
+    },
+    {
+      k: 'p',
+      t: 'Above all of this stands our Just Cause, the reason behind everything we do: to be a good ancestor. To cultivate good ancestry — for future generations and long futures. Be a good ancestor.',
+    },
+    { k: 'modalLink', to: 'langzeitdenken', t: 'Why long-term thinking?' },
+  ],
+}
+
 // ─── Public registry ──────────────────────────────────────────────────────────
 
 export const LEGAL: Record<LegalKey, Record<Lang, LegalDoc>> = {
   impressum: { de: IMPRESSUM_DE, en: IMPRESSUM_EN },
   datenschutz: { de: DATENSCHUTZ_DE, en: DATENSCHUTZ_EN },
+  cookies: { de: COOKIES_DE, en: COOKIES_EN },
+  agbs: { de: AGB_DE, en: AGB_EN },
+  langzeitdenken: { de: LANGZEITDENKEN_DE, en: LANGZEITDENKEN_EN },
+  longview: { de: LONGVIEW_DE, en: LONGVIEW_EN },
 }

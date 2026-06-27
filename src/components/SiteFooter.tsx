@@ -9,8 +9,8 @@ const SHOW_SOCIALS = false
 type FooterLink = { href: string; label: string; legal?: LegalKey }
 
 const FOOTER_NAV_LEFT: FooterLink[] = [
-  { href: '#agbs',        label: 'AGBs'    },
-  { href: '#cookies',     label: 'Cookies' },
+  { href: '#agbs',        label: 'AGBs', legal: 'agbs' },
+  { href: '#cookies',     label: 'Cookies', legal: 'cookies' },
 ]
 
 const FOOTER_NAV_RIGHT: FooterLink[] = [
@@ -56,10 +56,13 @@ const PARTNERS = [
     imgClassName: 'h-[90px] max-h-none w-auto max-w-none grayscale',
   },
   {
+    // Wide wordmark — cap its width so it reads at the same optical width as the
+    // other logos instead of spanning the full column. Grayscale + a little
+    // transparency drop the blue accent to a soft black-and-white mark.
     src: '/partner-assets/fusiondev-logo/fusionDev-logo.svg',
     alt: 'fusionDev',
     href: 'https://fusiondev.info/',
-    imgClassName: 'max-h-[47px] w-full',
+    imgClassName: 'w-[160px] max-w-full grayscale opacity-80',
   },
 ]
 
@@ -190,8 +193,12 @@ export default function SiteFooter() {
               Teile den Zeitgeist
             </h3>
             <p className="mt-3 font-serif text-[13.5px] leading-[1.65] text-ink/60">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc diam
-              nisi, tempus pretium sodales quis, bibendum in nibh.
+              Social Media? Bewusst noch nicht. Ein eigener Kanal ist in Planung –
+              einer, der Langzeitdenken fördert, statt dem Takt der schnellen
+              Aufmerksamkeit zu folgen.{" "}
+              <em className="italic">
+                Wer den Zeitgeist mit uns teilen möchte, meldet sich gern.
+              </em>
             </p>
             {SHOW_SOCIALS && (
               <div className="mt-6 flex items-center gap-5 text-ink/50">

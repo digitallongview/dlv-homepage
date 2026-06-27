@@ -24,7 +24,7 @@ const TEAM: Member[] = [
     imgPhone: '/assets/lukas-bild.webp',
     role: '… und mir geht es um ZEIT!',
     intro: 'Hi! Ich bin Lukas …',
-    body: 'Creative Director bei Digital Long View und Langzeitdenker aus Überzeugung. Als Stiftungsmitglied der Wemdinger Zeitpyramide denke ich in Jahrhunderten, nicht in Quartalen.',
+    body: 'Creative Director, Visionär und Langzeitdenker. Als Stiftungsmitglied der Wemdinger Zeitpyramide denke ich in Jahrhunderten, nicht in Quartalen.',
     bodyExtended: 'Zeit ist mein Gestaltungsraum. Ich entwickle Zukunftsbilder und Future-Design-Prozesse, die sich an der Vergangenheit orientieren – an dem, was sich bewährt hat und Bestand hatte. Daraus schöpfe ich Zuversicht: Langzeitdenken ist für mich kein abstraktes Konzept, sondern ein Akt der Hoffnung – für kommende Generationen und lange Zukünfte, im Einklang mit dem Hier und Jetzt.',
   },
   {
@@ -39,13 +39,13 @@ const TEAM: Member[] = [
   },
   {
     id: 'domi',
-    name: 'Domi',
+    name: 'Dominik',
     img: '/assets/Domi.webp',
     imgPhone: '/assets/domi-bild.webp',
     role: '… und mir geht es um KULTUR!',
-    intro: 'Hi! Ich bin Domi …',
-    body: 'Kultur ist kein Produkt, sondern eine Praxis.',
-    bodyExtended: 'Ich kuratiere Programme und Formate, die Menschen einladen, langsamer zu schauen, zu hören und mitzudenken – über den Tag hinaus.',
+    intro: 'Hi! Ich bin Dominik …',
+    body: 'Web Developer & Digital Strategist. Ich verbinde Technologie mit Struktur – von der Entwicklung digitaler Lösungen über Automatisierung bis hin zu nachhaltigen Geschäftsprozessen.',
+    bodyExtended: 'Kultur ist für mich das, was Menschen verbindet, Identität schafft und Ideen über Generationen hinweg weiterträgt. Sie prägt, wie wir denken, handeln und miteinander leben. Mich fasziniert, wie digitale Technologien dazu beitragen können, kulturelle Werte sichtbar, zugänglich und erlebbar zu machen – und wie Innovation entsteht, wenn Tradition auf Zukunft trifft.',
   },
 ]
 

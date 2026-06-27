@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import SectionHeading from '../SectionHeading'
+import { useLegalModal } from '../legal/LegalModal'
 
 function useInView(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null)
@@ -68,6 +69,7 @@ const vrStyle = {
 export default function SectionLongView() {
   const row1 = useInView(0.02)
   const row2 = useInView(0.02)
+  const { open } = useLegalModal()
 
   return (
     <section
@@ -98,20 +100,22 @@ export default function SectionLongView() {
             <strong className="font-normal italic">Langzeitdenken zu erwecken</strong>.
           </p>
           <div className="mt-8 flex flex-col items-start gap-3">
-            <a
-              href="#wer-sind-wir"
+            <button
+              type="button"
+              onClick={() => open('longview')}
               className="group inline-flex items-center gap-2 border-b border-ink/25 pb-1 font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-ink/60 transition-all duration-200 hover:border-ink/60 hover:text-ink"
             >
               Erfahre mehr über unseren Long View
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-            </a>
-            <a
-              href="#wer-sind-wir"
+            </button>
+            <button
+              type="button"
+              onClick={() => open('langzeitdenken')}
               className="group inline-flex items-center gap-2 border-b border-ink/25 pb-1 font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-ink/60 transition-all duration-200 hover:border-ink/60 hover:text-ink"
             >
               Wieso Langzeitdenken?
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-            </a>
+            </button>
           </div>
         </div>
 

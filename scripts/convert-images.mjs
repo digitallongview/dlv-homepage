@@ -46,6 +46,7 @@ const PLAN = [
   { file: 'vr-lab-rover.webp', maxW: 1600, q: 74 },
   { file: 'background-vrlab.webp', maxW: 1600, q: 74 },
   { file: 'bg-sophienkirche.webp', maxW: 1440, q: 74 },
+  { file: 'bg-sophienkirche-altar.webp', maxW: 1440, q: 74 },
   { file: 'bg-langzeitdesign.webp', maxW: 1440, q: 74 },
   { file: 'bg-zeitpyramide.webp', maxW: 1440, q: 74 },
   { file: 'bg-sophienkriche-glocke.webp', maxW: 886, q: 76 },
