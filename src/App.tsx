@@ -3,6 +3,7 @@ import HeroSection from './components/HeroSection'
 import SiteHeader from './components/SiteHeader'
 import SectionLongView from './components/sections/SectionLongView'
 import { LegalModalProvider } from './components/legal/LegalModal'
+import { ContactModalProvider } from './components/ContactModal'
 import { useIsMobile, useMediaQuery } from './hooks/useMediaQuery'
 import { useStrings } from './i18n/content'
 
@@ -20,8 +21,6 @@ const MobilePortfolio   = lazy(() => import('./components/mobile/MobilePortfolio
 const MobileLeistungen  = lazy(() => import('./components/mobile/MobileLeistungen'))
 const MobileFooter      = lazy(() => import('./components/mobile/MobileFooter'))
 
-const SectionKontakt    = lazy(() => import('./components/SectionKontakt'))
-
 export default function App() {
   const isMobile = useIsMobile()
   const s = useStrings()
@@ -32,6 +31,7 @@ export default function App() {
 
   return (
     <LegalModalProvider>
+     <ContactModalProvider>
       {/* Skip-to-content for keyboard/screen-reader users */}
       <a
         href="#main-content"
@@ -50,7 +50,6 @@ export default function App() {
             <MobileMotivation />
             <MobilePortfolio />
             <MobileLeistungen />
-            <SectionKontakt />
           </main>
           <MobileFooter />
         </Suspense>
@@ -63,7 +62,6 @@ export default function App() {
               <SectionMotivation />
               <SectionPortfolio />
               <SectionLeistungen />
-              <SectionKontakt />
             </Suspense>
           </main>
           <Suspense fallback={null}>
@@ -71,6 +69,7 @@ export default function App() {
           </Suspense>
         </>
       )}
+     </ContactModalProvider>
     </LegalModalProvider>
   )
 }
