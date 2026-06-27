@@ -13,6 +13,12 @@ für Tokens ist `src/index.css` (`@theme`-Block, Tailwind v4 — keine JS-Config
 - **React 19 + Vite**, 3D via React-Three-Fiber (`@react-three/fiber` / `drei`).
 - **Separater Mobile-Baum** unter `src/components/mobile/` — eigene Komponenten
   und Animationen, aber dieselben Tokens.
+- **i18n (DE/EN)** unter `src/i18n/`: `LanguageProvider`/`useLang` (globaler
+  Sprach-State, localStorage + `<html lang>`), `content.tsx` als zentraler,
+  ID-basierter Text-Katalog (Desktop **und** Mobile lesen dieselbe Quelle),
+  `LanguageSwitch` im Header/Menü. Layout (Bildpfade, Gradients, Clip-Paths)
+  bleibt in den Komponenten, nur Copy kommt aus dem Katalog. Rechtstexte:
+  `src/lib/legalContent.ts`. Kontaktformular/Mailversand: `docs/contact-form.md`.
 
 ---
 

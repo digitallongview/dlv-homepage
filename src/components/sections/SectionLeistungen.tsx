@@ -1,92 +1,25 @@
 import { useEffect, useRef, useState } from 'react'
 import SectionHeading from '../SectionHeading'
+import { useStrings, useServiceText, type ServiceId } from '../../i18n/content'
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
+// ─── Data (layout only — copy lives in the i18n catalogue, keyed by id) ────────
 
 type Side = 'left' | 'right'
 
 type Service = {
-  id:    string
-  title: string
-  body:  string
-  body2?: string
-  body3?: string
-  cta:   string
-  icon:  string
-  side:  Side
+  id:   ServiceId
+  icon: string
+  side: Side
 }
 
 const SERVICES: Service[] = [
-  {
-    id:    'programmierung',
-    title: 'Programmierung & Web',
-    body:  'Wir entwickeln digitale Systeme, die nicht für den nächsten Trend gebaut werden, sondern für nachhaltige Nutzung, Weiterentwicklung und kulturelle Relevanz.',
-    body2: 'Webseiten, Plattformen und individuelle Software verstehen wir als Systeme, die Kultur ermöglichen: Sie müssen sich verändern können, ohne ihre Identität zu verlieren.',
-    body3: 'Von der technischen Architektur bis zur digitalen Erfahrung gestalten wir Lösungen, die heute funktionieren und morgen neugedacht werden.',
-    cta:   'Anfrage Coding',
-    icon:  '/assets/RetroPC.webp',
-    side:  'left',
-  },
-  {
-    id:    'immersive',
-    title: 'Immersive Medien',
-    body:  'Wir nutzen Augmented, Virtual und Mixed Reality, um neue Räume zwischen dem Digitalen und Physischen entstehen zu lassen.',
-    body2: 'Dabei geht es nicht darum, Realität zu ersetzen, sondern sie zu erweitern: durch zusätzliche Ebenen, neue Perspektiven und interaktive Möglichkeiten der Begegnung.',
-    body3: 'Wir gestalten immersive Erlebnisse, die über klassische Vermittlung hinausgehen und Menschen auf neue Weise mit Kultur, Wissen und Orten verbinden.',
-    cta:   'Anfrage zu VR',
-    icon:  '/assets/XR-Media.webp',
-    side:  'right',
-  },
-  {
-    id:    'marketing',
-    title: 'Marketing & PR',
-    body:  'Wir bringen Kultur, Räume und Ideen in den Dialog mit Menschen.',
-    body2: 'Durch Marketing, PR und strategische Kommunikation schaffen wir Zugänge, die Inhalte verständlich machen und Erlebnisse nach außen erweitern.',
-    body3: 'Unsere Arbeit verbindet Analyse, Gestaltung und Vermittlung — damit Projekte nicht nur sichtbar werden, sondern Bedeutung entfalten.',
-    cta:   'Anfrage Marketing',
-    icon:  '/assets/Megaphone.webp',
-    side:  'left',
-  },
-  {
-    id:    'grafik',
-    title: 'Grafik & Content',
-    body:  'Wir entwickeln visuelle Kommunikation, die nicht nur Aufmerksamkeit erzeugt, sondern Bedeutung schafft.',
-    body2: 'Gestaltung verstehen wir als Mittel, Inhalte einzuordnen, verständlich zu machen und in einen kulturellen Kontext zu setzen, unabhängig davon, ob sie digital, gedruckt oder im Raum stattfindet.',
-    body3: 'So entstehen Inhalte, die nicht nur gesehen werden, sondern etwas auslösen, einordnen und über den Moment hinaus wirken.',
-    cta:   'Anfrage Grafik',
-    icon:  '/assets/Graphics.webp',
-    side:  'right',
-  },
-  {
-    id:    'gamification',
-    title: 'Gamification & Storytelling',
-    body:  'Videospiele sind kulturelle Systeme, in denen Menschen lernen, handeln und Bedeutung selbst erzeugen.',
-    body2: 'Wir übertragen diese Logik auf digitale und physische Kontexte, um Storytelling und Inhalte interaktiv erfahrbar zu machen. Im Mittelpunkt steht dabei nicht der passive Konsum, sondern Partizipation: Menschen werden zu aktiven Teilnehmenden, die Inhalte durch ihre Entscheidungen, Handlungen und Perspektiven mitgestalten.',
-    body3: 'Durch Narrative, Entscheidungen und Gamification entstehen neue Formen der kulturellen Vermittlung.',
-    cta:   'Anfrage Gaming',
-    icon:  '/assets/Joystick.webp',
-    side:  'left',
-  },
-  {
-    id:    '3d',
-    title: '3D & Visualisierung',
-    body:  '3D-Visualisierungen, die darauf ausgelegt sind, Kultur, Architektur und Objekte zu bewahren, verständlich zu machen und weiterzudenken, wie die digitale Aufbereitung stehen bei uns im Mittelpunkt.',
-    body2: 'Historische Orte, zerstörte oder veränderte Räume und kulturelle Objekte werden digital nachvollziehbar gemacht, um sie für Gegenwart und Zukunft zugänglich zu halten. Dabei verstehen wir Rekonstruktion nicht als reine Abbildung, sondern als interpretativen Prozess zwischen Geschichte, Wissen und Perspektive, inklusive kultureller Betrachtungswinkel.',
-    body3: 'So entsteht ein Raum für kulturellen Austausch, in dem unterschiedliche Perspektiven sichtbar werden und neue Zugänge zum gemeinsamen Verständnis von Geschichte und Gegenwart entstehen.',
-    cta:   'Anfrage 3D',
-    icon:  '/assets/Artefact.webp',
-    side:  'right',
-  },
-  {
-    id:    'langzeit',
-    title: 'Langzeit- & Futuring Design',
-    body:  'Strategische Perspektiven, die nicht auf kurzfristige Ergebnisse, sondern auf langfristige kulturelle und gesellschaftliche Entwicklung ausgerichtet sind.',
-    body2: 'Future Thinking hilft, die Gegenwart in Relation zu setzen und Entscheidungen im Kontext möglicher Zukünfte zu verstehen. Zukunft wird dabei als gestaltbarer Möglichkeitsraum verstanden: Durch bewusstes Langzeitdenken entstehen Systeme, die Orientierung geben, Wandel ermöglichen und positive Entwicklungen fördern.',
-    body3: 'So entstehen Ansätze, die Stabilität schaffen, ohne Veränderung zu bremsen und Zukunft als Chance aktiv mitgestalten.',
-    cta:   'Anfrage Long View',
-    icon:  '/assets/clock.webp',
-    side:  'left',
-  },
+  { id: 'programmierung', icon: '/assets/RetroPC.webp',   side: 'left'  },
+  { id: 'immersive',      icon: '/assets/XR-Media.webp',  side: 'right' },
+  { id: 'marketing',      icon: '/assets/Megaphone.webp', side: 'left'  },
+  { id: 'grafik',         icon: '/assets/Graphics.webp',  side: 'right' },
+  { id: 'gamification',   icon: '/assets/Joystick.webp',  side: 'left'  },
+  { id: '3d',             icon: '/assets/Artefact.webp',  side: 'right' },
+  { id: 'langzeit',       icon: '/assets/clock.webp',     side: 'left'  },
 ]
 
 // ─── Scroll-trigger hook ──────────────────────────────────────────────────────
@@ -128,6 +61,7 @@ function CtaButton({ label }: { label: string }) {
 
 function ServiceCard({ service, isLast = false }: { service: Service; isLast?: boolean }) {
   const { ref, inView } = useInView()
+  const txt = useServiceText()[service.id]
   const isLeft = service.side === 'left'
   const imgW    = service.id === 'marketing'    ? '82%'
                : service.id === '3d'           ? '62%'
@@ -191,14 +125,14 @@ function ServiceCard({ service, isLast = false }: { service: Service; isLast?: b
               <>
                 {/* ── Button (3 cols) — at the narrow tip side ── */}
                 <div className="col-span-3 flex items-center justify-start">
-                  <CtaButton label={service.cta} />
+                  <CtaButton label={txt.cta} />
                 </div>
 
                 {/* ── Icon (4 cols) — centered in the middle ── */}
                 <div className="col-span-4 flex items-center justify-center">
                   <img
                     src={service.icon}
-                    alt={service.title}
+                    alt={txt.title}
                     draggable={false}
                     className="select-none object-contain"
                     style={{ width: imgW, maxHeight: imgMaxH }}
@@ -208,19 +142,19 @@ function ServiceCard({ service, isLast = false }: { service: Service; isLast?: b
                 {/* ── Text (5 cols) — at the wide base of the wedge ── */}
                 <div className="col-span-5 pl-4">
                   <h3 className="font-sans text-[clamp(17px,1.7vw,21px)] font-semibold leading-tight tracking-tight text-ink">
-                    {service.title}
+                    {txt.title}
                   </h3>
                   <p className="mt-4 font-serif text-[13px] leading-[1.6] text-ink/72">
-                    {service.body}
+                    {txt.body}
                   </p>
-                  {service.body2 && (
+                  {txt.body2 && (
                     <p className="mt-3 font-serif text-[13px] leading-[1.6] text-ink/72">
-                      {service.body2}
+                      {txt.body2}
                     </p>
                   )}
-                  {service.body3 && (
+                  {txt.body3 && (
                     <p className="mt-3 font-serif text-[13px] leading-[1.6] text-ink/72">
-                      {service.body3}
+                      {txt.body3}
                     </p>
                   )}
                 </div>
@@ -230,19 +164,19 @@ function ServiceCard({ service, isLast = false }: { service: Service; isLast?: b
                 {/* ── Text (5 cols) — at the wide base of the wedge ── */}
                 <div className="col-span-5 pr-4">
                   <h3 className="font-sans text-[clamp(17px,1.7vw,21px)] font-semibold leading-tight tracking-tight text-ink">
-                    {service.title}
+                    {txt.title}
                   </h3>
                   <p className="mt-4 font-serif text-[13px] leading-[1.6] text-ink/72">
-                    {service.body}
+                    {txt.body}
                   </p>
-                  {service.body2 && (
+                  {txt.body2 && (
                     <p className="mt-3 font-serif text-[13px] leading-[1.6] text-ink/72">
-                      {service.body2}
+                      {txt.body2}
                     </p>
                   )}
-                  {service.body3 && (
+                  {txt.body3 && (
                     <p className="mt-3 font-serif text-[13px] leading-[1.6] text-ink/72">
-                      {service.body3}
+                      {txt.body3}
                     </p>
                   )}
                 </div>
@@ -251,7 +185,7 @@ function ServiceCard({ service, isLast = false }: { service: Service; isLast?: b
                 <div className="col-span-4 flex items-center justify-center">
                   <img
                     src={service.icon}
-                    alt={service.title}
+                    alt={txt.title}
                     draggable={false}
                     className="select-none object-contain"
                     style={{ width: imgW, maxHeight: imgMaxH }}
@@ -260,7 +194,7 @@ function ServiceCard({ service, isLast = false }: { service: Service; isLast?: b
 
                 {/* ── Button (3 cols) — at the narrow tip side ── */}
                 <div className="col-span-3 flex items-center justify-end">
-                  <CtaButton label={service.cta} />
+                  <CtaButton label={txt.cta} />
                 </div>
               </>
             )}
@@ -275,12 +209,13 @@ function ServiceCard({ service, isLast = false }: { service: Service; isLast?: b
 // ─── Section ──────────────────────────────────────────────────────────────────
 
 export default function SectionLeistungen() {
+  const s = useStrings()
   return (
     <section id="leistungen" className="scroll-mt-24 bg-cream">
 
       {/* Section heading above the cards */}
       <div className="mx-auto max-w-[1200px] px-6 pb-10 pt-20 sm:px-10 sm:pt-24">
-        <SectionHeading eyebrow="Wie wir der Kultur dienen" title="Unsere Leistungen & Service" />
+        <SectionHeading eyebrow={s.sections.leistungenEyebrow} title={s.sections.leistungenTitle} />
       </div>
 
       {/* 7 service cards, alternating violet-left / magenta-right */}

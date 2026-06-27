@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react'
+import { useStrings } from '../i18n/content'
+import LanguageSwitch from '../i18n/LanguageSwitch'
 
-const NAV_ITEMS = [
-  { label: 'Was ist Long View?', href: '#was-ist' },
-  { label: 'Wer sind wir?', href: '#wer-sind-wir' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Leistungen', href: '#leistungen' },
-  { label: 'Kontakt', href: '#kontakt' },
-]
+type NavItem = { label: string; href: string }
+
+/** Nav labels come from the i18n catalogue so they flip with the DE/EN switch. */
+function useNavItems(): NavItem[] {
+  const { nav } = useStrings()
+  return [
+    { label: nav.wasIst, href: '#was-ist' },
+    { label: nav.werSind, href: '#wer-sind-wir' },
+    { label: nav.portfolio, href: '#portfolio' },
+    { label: nav.leistungen, href: '#leistungen' },
+    { label: nav.kontakt, href: '#kontakt' },
+  ]
+}
 
 const LILA_GRADIENT =
   'linear-gradient(120deg, #a991c7 0%, #8c74aa 55%, #6a4f8e 100%)'
@@ -17,6 +25,7 @@ const LILA_GRADIENT =
  * mit der Page hoch.
  */
 export function ExpandedTriangleHeader() {
+  const navItems = useNavItems()
   return (
     <header
       data-expanded-header
@@ -35,7 +44,7 @@ export function ExpandedTriangleHeader() {
           <div className="flex justify-center pt-1">
             <nav>
               <ul className="grid grid-cols-2 gap-x-12 gap-y-3">
-                {NAV_ITEMS.map((item) => (
+                {navItems.map((item) => (
                   <li key={item.href}>
                     <a
                       href={item.href}
@@ -55,8 +64,8 @@ export function ExpandedTriangleHeader() {
             </nav>
           </div>
 
-          {/* Rechte Spalte: Logo rechtsbündig, oben verankert */}
-          <div className="flex items-start justify-end">
+          {/* Rechte Spalte: Logo rechtsbündig, oben verankert + Sprachumschalter */}
+          <div className="flex flex-col items-end gap-4">
             <a
               href="#"
               className="flex items-center gap-2 rounded-md transition-opacity hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-white/40"
@@ -68,6 +77,7 @@ export function ExpandedTriangleHeader() {
                 className="h-9 w-auto select-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]"
               />
             </a>
+            <LanguageSwitch variant="header" />
           </div>
 
         </div>
@@ -88,6 +98,8 @@ const CLIP_CLOSED = 'polygon(0% 0%, 55% 0%, 55% 0%, 0% 100%)'
 const CLIP_OPEN   = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
 
 export function CompactTriangleHeader() {
+  const navItems = useNavItems()
+  const { nav } = useStrings()
   const [stuck, setStuck] = useState(false)
   const [open,  setOpen]  = useState(false)
 
@@ -156,7 +168,7 @@ export function CompactTriangleHeader() {
               : 'opacity 0.08s ease-out',
           }}
         >
-          {NAV_ITEMS.slice(0, 4).map((item) => (
+          {navItems.slice(0, 4).map((item) => (
             <a
               key={item.href}
               href={item.href}
@@ -180,9 +192,11 @@ export function CompactTriangleHeader() {
                        hover:bg-white hover:shadow-[0_4px_16px_-4px_rgba(45,31,77,0.5)]
                        focus:outline-none focus:ring-2 focus:ring-white/60"
           >
-            Kontakt
+            {nav.kontakt}
             <span aria-hidden>→</span>
           </a>
+
+          <LanguageSwitch variant="header" />
         </nav>
 
       </div>

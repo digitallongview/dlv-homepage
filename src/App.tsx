@@ -4,6 +4,7 @@ import SiteHeader from './components/SiteHeader'
 import SectionLongView from './components/sections/SectionLongView'
 import { LegalModalProvider } from './components/legal/LegalModal'
 import { useIsMobile, useMediaQuery } from './hooks/useMediaQuery'
+import { useStrings } from './i18n/content'
 
 // Below-fold desktop sections — separate JS chunks, laden parallel im Hintergrund
 const SectionMotivation = lazy(() => import('./components/sections/SectionMotivation'))
@@ -19,8 +20,11 @@ const MobilePortfolio   = lazy(() => import('./components/mobile/MobilePortfolio
 const MobileLeistungen  = lazy(() => import('./components/mobile/MobileLeistungen'))
 const MobileFooter      = lazy(() => import('./components/mobile/MobileFooter'))
 
+const SectionKontakt    = lazy(() => import('./components/SectionKontakt'))
+
 export default function App() {
   const isMobile = useIsMobile()
+  const s = useStrings()
   // The LongView section keeps its desktop side-by-side composition further down
   // than the rest of the site — it only collapses to the stacked mobile layout
   // below 500px, instead of the global 1024px breakpoint used everywhere else.
@@ -33,7 +37,7 @@ export default function App() {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-lavender focus:px-4 focus:py-2 focus:font-sans focus:text-[14px] focus:font-semibold focus:text-white focus:shadow-lg"
       >
-        Zum Inhalt springen
+        {s.a11y.skip}
       </a>
 
       <HeroSection />
@@ -46,6 +50,7 @@ export default function App() {
             <MobileMotivation />
             <MobilePortfolio />
             <MobileLeistungen />
+            <SectionKontakt />
           </main>
           <MobileFooter />
         </Suspense>
@@ -58,6 +63,7 @@ export default function App() {
               <SectionMotivation />
               <SectionPortfolio />
               <SectionLeistungen />
+              <SectionKontakt />
             </Suspense>
           </main>
           <Suspense fallback={null}>

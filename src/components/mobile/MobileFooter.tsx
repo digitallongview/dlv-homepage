@@ -1,6 +1,7 @@
 import type { MouseEventHandler } from 'react'
 import { useLegalModal } from '../legal/LegalModal'
 import type { LegalKey } from '../../lib/legalContent'
+import { useStrings } from '../../i18n/content'
 
 const MAGENTA_GRAD = 'linear-gradient(150deg, #e7cfe3 0%, #d7accf 45%, #c79bc6 100%)'
 
@@ -65,6 +66,8 @@ function LowerNavLink({
 
 export default function MobileFooter() {
   const { open } = useLegalModal()
+  const s = useStrings()
+  const f = s.footer
   const toTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
   const openLegal = (key: LegalKey): MouseEventHandler<HTMLAnchorElement> => (e) => {
@@ -75,13 +78,13 @@ export default function MobileFooter() {
   return (
     <footer id="footer" className="bg-cream">
       {/* ─────────── Upper footer ─────────── */}
-      <div id="kontakt" className="relative flex min-h-[100svh] scroll-mt-4 flex-col px-7 pt-12 pb-16">
+      <div className="relative flex min-h-[100svh] flex-col px-7 pt-12 pb-16">
         {/* Partner block — capped width + left-aligned so it doesn't stretch
             edge-to-edge on wide portrait tablets (which still get this layout). */}
         <div className="max-w-[340px]">
-          <h2 className="font-sans text-[26px] font-bold leading-tight tracking-tight text-ink">Unsere Partner & Freunde</h2>
+          <h2 className="font-sans text-[26px] font-bold leading-tight tracking-tight text-ink">{f.partnerTitle}</h2>
           <p className="mt-3 font-serif text-[13.5px] leading-[1.6] text-ink/60">
-            Unsere Partner kommen aus Kultur, Bildung, Technologie und kreativen Bereichen, die langfristig denken und Zeit als Arbeitsraum und -material verstehen.
+            {f.partnerBody}
           </p>
 
           <div className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5">
@@ -97,14 +100,9 @@ export default function MobileFooter() {
             viewports open up. Horizontally centred; the text itself stays left-aligned. */}
         <div className="mt-[clamp(2.5rem,10vw,6rem)] flex justify-center">
           <div className="w-[250px] text-left">
-            <h3 className="font-sans text-[17px] font-semibold text-ink">Teile den Zeitgeist</h3>
+            <h3 className="font-sans text-[17px] font-semibold text-ink">{f.zeitgeistTitle}</h3>
             <p className="mt-3 font-serif text-[14px] leading-[1.7] text-ink/65">
-              Social Media? Bewusst noch nicht. Ein eigener Kanal ist in Planung – einer,
-              der Langzeitdenken fördert, statt dem Takt der schnellen Aufmerksamkeit zu
-              folgen.{" "}
-              <em className="italic">
-                Wer den Zeitgeist mit uns teilen möchte, meldet sich gern.
-              </em>
+              {f.zeitgeistBody}
              </p>
             {SHOW_SOCIALS && (
               <div className="mt-6 flex items-center gap-7 text-ink/55">
@@ -117,16 +115,16 @@ export default function MobileFooter() {
         </div>
 
         <div className="mt-[clamp(2.5rem,10vw,6rem)] self-end text-right">
-          <h3 className="font-sans text-[17px] font-semibold text-ink">Kontakt</h3>
+          <h3 className="font-sans text-[17px] font-semibold text-ink">{f.kontakt}</h3>
           <a href="mailto:info@digitallongview.com" className="mt-3 block font-sans text-[15px] text-ink/70 transition-colors hover:text-lavender">info@digitallongview.com</a>
           <a href="tel:+4915141441262" className="mt-1.5 block font-sans text-[15px] text-ink/70 transition-colors hover:text-lavender">+49 151 4144 1262</a>
           {/* CTA pill sits directly below the contact details (matches desktop layout). */}
           <a
-            href="mailto:info@digitallongview.com"
+            href="#kontakt"
             className="group mt-5 inline-flex h-12 items-center gap-2 rounded-full px-7 font-sans text-[13px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_12px_30px_-10px_rgba(93,70,132,0.7)]"
             style={{ background: 'linear-gradient(135deg, #8c74aa 0%, #5d4684 100%)' }}
           >
-            Kontakt
+            {f.kontakt}
             <span aria-hidden className="text-white/80 transition-transform group-hover:translate-x-1">→</span>
           </a>
         </div>
@@ -144,23 +142,23 @@ export default function MobileFooter() {
 
         <div className="relative z-10 flex min-h-[100svh] flex-col px-7 pt-28 pb-12">
           {/* START button */}
-          <button onClick={toTop} className="group flex w-fit flex-col items-center gap-2 text-white" aria-label="Zum Seitenanfang">
+          <button onClick={toTop} className="group flex w-fit flex-col items-center gap-2 text-white" aria-label={s.a11y.toTop}>
             <span className="grid h-12 w-12 place-items-center rounded-full border border-white/60 transition-transform group-hover:-translate-y-1">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
                 <path d="M12 19V5M5 12l7-7 7 7" />
               </svg>
             </span>
-            <span className="font-sans text-[12px] uppercase tracking-[0.25em]">Start</span>
+            <span className="font-sans text-[12px] uppercase tracking-[0.25em]">{f.start}</span>
           </button>
 
           {/* Legal nav — the magenta diagonal meets the right edge at 26% of the
               height, so the nav must start below ~30vh or the first link (and its
               arrow) would bleed into the cream triangle on wide/tall viewports. */}
           <nav className="mt-[max(6rem,calc(32vh_-_12rem))] flex flex-col gap-7" aria-label="Footer-Navigation">
-            <LowerNavLink href="#impressum" label="Impressum" onClick={openLegal('impressum')} />
-            <LowerNavLink href="#datenschutz" label="Datenschutz" onClick={openLegal('datenschutz')} />
-            <LowerNavLink href="#cookies" label="Cookies" onClick={openLegal('cookies')} />
-            <span id="agbs" className="block scroll-mt-4"><LowerNavLink href="#agbs" label="AGBs" onClick={openLegal('agbs')} /></span>
+            <LowerNavLink href="#impressum" label={f.impressum} onClick={openLegal('impressum')} />
+            <LowerNavLink href="#datenschutz" label={f.datenschutz} onClick={openLegal('datenschutz')} />
+            <LowerNavLink href="#cookies" label={f.cookies} onClick={openLegal('cookies')} />
+            <span id="agbs" className="block scroll-mt-4"><LowerNavLink href="#agbs" label={f.agbs} onClick={openLegal('agbs')} /></span>
           </nav>
 
           {/* Logo */}

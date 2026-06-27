@@ -3,6 +3,7 @@ import HeroOverlay from './HeroOverlay'
 import ErrorBoundary from './ErrorBoundary'
 import { useIsPortrait } from '../hooks/useMediaQuery'
 import { canRender3D } from '../lib/canRender3D'
+import { useStrings } from '../i18n/content'
 
 // Der 3D-Chunk (three/r3f/drei) wird NUR dynamisch importiert, wenn das Gerät 3D
 // bekommt — der Import feuert erst beim Mount von <PyramidScene>, nicht auf Modulebene.
@@ -12,6 +13,7 @@ const PyramidScene = lazy(() => import('./PyramidScene'))
 type Phase = 0 | 1 | 2 | 3
 
 export default function HeroSection() {
+  const s = useStrings()
   // Einmal-Entscheidung: schweres WebGL-3D oder statisches Poster (fragile Geräte)?
   const [use3D] = useState(canRender3D)
   // Ohne 3D direkt in den Endzustand (Phase 3) → Logo/Headline/Formular sofort sichtbar.
@@ -104,7 +106,7 @@ export default function HeroSection() {
         style={fadeIn(phase < 1, 500)}
       >
         <p className="max-w-full text-center font-sans text-[13px] font-semibold uppercase tracking-[0.28em] sm:text-[18px] sm:tracking-[0.45em]" style={{ color: '#D7ACCF' }}>
-          Für die zukünftigen Generationen
+          {s.hero.loading}
         </p>
       </div>
 
@@ -130,7 +132,7 @@ export default function HeroSection() {
           draggable={false}
         />
         <p className="mt-2 text-center font-sans text-[12px] font-medium uppercase tracking-[0.2em] text-ink/60 sm:tracking-[0.38em] sm:text-[11px]">
-          Die Digitalagentur für Raum, Zeit und Kultur
+          {s.hero.tagline}
         </p>
       </div>
 
