@@ -42,7 +42,7 @@ Kurzfassung:
 | Teil | Datei |
 | --- | --- |
 | API-Client (Homepage) | `src/lib/contactApi.ts` |
-| Kontaktformular | `src/components/ContactForm.tsx`, `SectionKontakt.tsx` |
+| Kontaktformular (Popup/Modal) | `src/components/ContactModal.tsx`, `ContactForm.tsx` — alle `#kontakt`-CTAs öffnen das Modal (globaler Click-Intercept) statt zu scrollen |
 | Hero-Signup | `src/components/HeroOverlay.tsx` |
 | Funnel (Standalone, nur per Link) | `public/funnel/` → `https://digitallongview.com/funnel/` |
 | Mailer (SMTP, Templates, Anhang) | `public/api/contact.php` |
