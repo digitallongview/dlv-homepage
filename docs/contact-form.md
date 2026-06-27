@@ -1,63 +1,56 @@
-# Kontaktformular & Mailversand
+# Kontaktformular, Funnel & Mailversand
 
-Das Kontaktformular (`#kontakt`) und der Hero-E-Mail-Signup senden über einen
-kleinen PHP-Endpoint **zwei** Mails pro Absendung:
+Das Kontaktformular (`#kontakt`), der Hero-E-Mail-Signup **und** der Zeitpyramide-
+Funnel (`/funnel/`) senden über einen gemeinsamen PHP-Endpoint
+`/api/contact.php` jeweils Mails:
 
-1. **Benachrichtigung ans Team** → `info@digitallongview.com` (mit `Reply-To` =
-   Absender, man kann also direkt antworten).
-2. **Bestätigung / Auto-Antwort an den Absender** — sprachabhängig (DE/EN),
-   HTML-Template im Seiten-Design (Cream/Ink/Lavendel).
+- **Benachrichtigung ans Team** → `info@digitallongview.com` (Reply-To = Absender).
+- **Bestätigung / Auto-Antwort an den Absender** — sprachabhängig (DE/EN),
+  HTML-Template im Seiten-Design. Beim Funnel optional (nur wenn E-Mail angegeben).
+- **Funnel-Bild** wird als echter MIME-Anhang an die Team-Mail gehängt.
 
-## Architektur
+## Endpoint-Vertrag (`POST /api/contact.php`, JSON)
 
+```json
+{ "type": "contact|signup|funnel", "lang": "de|en",
+  "name": "", "email": "", "subject": "", "message": "",
+  "company": "",                                  // Honeypot, muss leer sein
+  "image": { "filename": "", "mime": "image/…", "dataBase64": "" } }  // nur funnel, optional
 ```
-Frontend (React)                         Server
-─────────────────                        ──────────────────────────────
-src/components/ContactForm.tsx  ─POST─►  public/api/contact.php
-src/components/HeroOverlay.tsx           ├─ liest contact.config.php (SMTP)
-src/lib/contactApi.ts                    └─ SMTP (STARTTLS/TLS, AUTH LOGIN)
-   → /api/contact.php                        ├─► Team-Benachrichtigung
-                                             └─► Auto-Antwort an Absender
-```
+Antwort: `{"ok":true}` oder `{"ok":false,"error":"…"}`.
 
-- **JSON-Contract:** `{ type: 'contact'|'signup', name?, email, subject?, message?, lang, company }`
-  (`company` ist ein Honeypot — von Bots ausgefüllt → wird still verworfen).
-- **Antwort:** `{ "ok": true }` oder `{ "ok": false, "error": "…" }`.
-- Kein externer Dienst, keine Library — reiner PHP-SMTP-Client.
+## Wo das läuft (PRODUKTIV, k3s)
 
-## Server-Setup (einmalig)
+`dlv-dedicated` ist ein **k3s-Cluster mit openDesk**, kein klassischer LAMP-Host.
+Die Homepage ist das statische Deployment `dlv-web` (ns `web`, nginx ohne PHP).
+Der Mail-Endpoint läuft als **eigenes Deployment `dlv-mail`** (php:8.3-cli) und
+wird per Ingress-Pfad `/api/contact.php` angesprochen. **Alle Manifeste +
+Setup-Anleitung: [`deploy/k8s/`](../deploy/k8s/README.md).**
 
-1. **PHP-FPM installieren** (Beispiel Debian/Ubuntu):
-   ```bash
-   sudo apt install php8.3-fpm php8.3-mbstring
-   ```
-2. **SMTP-Config anlegen** auf dem Server, im Deploy-Zielordner unter `api/`:
-   ```bash
-   cp api/contact.config.example.php api/contact.config.php
-   # contact.config.php mit echten dlv.ngo-/digitallongview.com-SMTP-Daten füllen
-   ```
-   Wichtig: `from_email` muss zum SMTP-Postfach passen, und für gute
-   Zustellbarkeit sollten **SPF & DKIM** der Domain gesetzt sein.
-3. **nginx** um den PHP-Block erweitern → siehe `docs/nginx-snippet.conf`
-   (Punkt 5–6). Socket-Pfad ggf. anpassen (`php8.3-fpm.sock`).
+Kurzfassung:
+- **Versand:** interner openDesk-Postfix `postfix-smtp.opendesk:25`, Relay ohne
+  Login (Pod-Netz in `mynetworks`), ausgehend **DKIM-signiert**.
+- **SMTP-Config:** k8s-Secret `dlv-mail-config` (außerhalb des Docroots, via
+  `CONTACT_CONFIG`) — kein Secret im statisch ausgelieferten Verzeichnis.
+- Status: **live & verifiziert** (Kontakt + Funnel inkl. Bild senden erfolgreich).
 
-## Sicherheit / Deploy
+> `docs/nginx-snippet.conf` ist ein generisches LAMP-Beispiel und wird in dieser
+> k3s-Installation **nicht** verwendet.
 
-- `contact.config.php` ist **gitignored** (steht nie im Repo) und wird im Deploy
-  per `--exclude='api/contact.config.php'` vom `rsync --delete` ausgenommen — die
-  einmal angelegte Server-Config überlebt also jeden Deploy.
-- nginx liefert **nur** `api/contact.php` aus; alle anderen `*.php` (inkl. der
-  Config und der `.example`) werden mit 404 geblockt (kein Quelltext-Leak).
-- Header-Injection ist abgefangen (Zeilenumbrüche in Name/Betreff werden entfernt).
+## Code
 
-## Testen
+| Teil | Datei |
+| --- | --- |
+| API-Client (Homepage) | `src/lib/contactApi.ts` |
+| Kontaktformular | `src/components/ContactForm.tsx`, `SectionKontakt.tsx` |
+| Hero-Signup | `src/components/HeroOverlay.tsx` |
+| Funnel (Standalone, nur per Link) | `public/funnel/` → `https://digitallongview.com/funnel/` |
+| Mailer (SMTP, Templates, Anhang) | `public/api/contact.php` |
+| Config-Vorlage | `public/api/contact.config.example.php` |
 
-Nach dem Deploy + Config:
-```bash
-curl -sS -X POST https://digitallongview.com/api/contact.php \
-  -H 'Content-Type: application/json' \
-  -d '{"type":"contact","name":"Test","email":"DEINE@mail.tld","message":"Hallo","lang":"de"}'
-# erwartet: {"ok":true}  → es treffen zwei Mails ein (Team + Bestätigung)
-```
-Schlägt der Versand fehl, steht der Grund im PHP-FPM-Error-Log
-(`error_log`-Einträge `contact.php: …`).
+## Lokal testen
+
+`contact.php` braucht PHP mit `mbstring`/`openssl`. Lokal ohne Cluster gibt es
+kein internes Relay; zum Testen eine eigene `public/api/contact.config.php`
+(gitignored) mit erreichbarem SMTP anlegen. In Produktion erledigt das der
+k8s-Secret-Mount.
