@@ -19,9 +19,9 @@ jobs:
           # die ~130-Byte-Pointer und /3d-assets/*.glb wäre auf dem Server 404.
           lfs: true
 
+      # Version wird aus dem "packageManager"-Feld der package.json gelesen,
+      # damit CI und lokale Umgebung garantiert dieselbe pnpm-Version nutzen.
       - uses: pnpm/action-setup@v6
-        with:
-          version: 9
 
       - uses: actions/setup-node@v6
         with:
